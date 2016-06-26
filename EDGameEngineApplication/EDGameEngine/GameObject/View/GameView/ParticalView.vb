@@ -6,16 +6,14 @@ Public Class ParticalView
     Public Sub New(Target As ParticalManager)
         MyBase.New(Target)
     End Sub
-    Dim radius As Single
-    Public Overrides Sub Display(DrawingSession As CanvasDrawingSession)
-        radius = (radius + 0.001) Mod （Math.PI * 2)
+    Public Overrides Sub OnDraw(DrawingSession As CanvasDrawingSession)
         Using cmdList = New CanvasCommandList(DrawingSession.Device)
             Using Dl = cmdList.CreateDrawingSession
-                Dl.Transform = Matrix3x2.CreateRotation(radius, New Vector2(WorldSpace.SpaceWidth / 2, WorldSpace.SpaceHeight / 2))
+                Dl.Transform = Matrix3x2.CreateRotation(Target.Rotation, New Vector2(WorldSpace.SpaceWidth / 2, WorldSpace.SpaceHeight / 2))
                 For i = 0 To Target.Particals.Count - 1
                     Dl.FillCircle(Target.Particals(i).Location, Target.Particals(i).Size, Target.Particals(i).Color)
                     'Dim border As Single = Target.Particals(i).ImageSize * 50 + Target.Particals(i).Age * 2
-                    'Dl.DrawImage(BaseSpace.ImageManager.GetResource(ImageResourceID.SmokePartial1),
+                    'Dl.DrawImage(WorldSpace.ImageManager.GetResource(ImageResourceID.SmokePartial1),
                     '             New Rect(Target.Particals(i).Location.X - border, Target.Particals(i).Location.Y - border, border * 2, border * 2),
                     '             New Rect(0, 0, 192, 192), 0.15)
                 Next

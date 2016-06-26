@@ -5,7 +5,7 @@ Imports Microsoft.Graphics.Canvas.UI.Xaml
 
 Public NotInheritable Class UserGameBox
     Inherits UserControl
-    Public Property Space As GameSpace
+    Public Property Space As WorldManager
     Private Sub UserGameBox_PointerMoved(sender As Object, e As PointerRoutedEventArgs) Handles Me.PointerMoved
         Dim pos = e.GetCurrentPoint(Me).Position
         If Space IsNot Nothing Then

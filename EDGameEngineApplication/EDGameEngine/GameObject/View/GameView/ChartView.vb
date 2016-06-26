@@ -8,7 +8,7 @@ Public Class ChartView
     Public Sub New(Target As VisualChart)
         MyBase.New(Target)
     End Sub
-    Public Overrides Sub Display(DrawingSession As CanvasDrawingSession)
+    Public Overrides Sub OnDraw(DrawingSession As CanvasDrawingSession)
         Using cmdList = New CanvasCommandList(DrawingSession.Device)
             Using Dl = cmdList.CreateDrawingSession
                 'Dl.DrawLine(Location,

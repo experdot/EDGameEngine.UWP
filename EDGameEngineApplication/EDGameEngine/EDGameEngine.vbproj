@@ -125,6 +125,7 @@
     <Compile Include="GameBase\Model\GameVisualModel.vb" />
     <Compile Include="GameBase\Model\IGameVisualModel.vb" />
     <Compile Include="GameBase\Resource\IGameResourceManager.vb" />
+    <Compile Include="GameBase\ViewModel\WorldBase.vb" />
     <Compile Include="GameBase\View\GameView.vb" />
     <Compile Include="GameBase\View\IGameView.vb" />
     <Compile Include="GameBase\View\TypedGameView.vb" />
@@ -136,8 +137,9 @@
     <Compile Include="GameObject\Model\GameModel\Plant\TreeNode.vb" />
     <Compile Include="GameObject\Model\Resource\ImageResourceID.vb" />
     <Compile Include="GameObject\Model\Resource\ImageResourceManager.vb" />
+    <Compile Include="GameBase\ViewModel\IWorld.vb" />
     <Compile Include="GameObject\ViewModel\WorldSpace.vb" />
-    <Compile Include="GameObject\ViewModel\GameSpace.vb" />
+    <Compile Include="GameObject\ViewModel\WorldManager.vb" />
     <Compile Include="GameObject\View\GameView\ChartView.vb" />
     <Compile Include="GameObject\View\GameView\ParticalView.vb" />
     <Compile Include="GameObject\View\GameView\PlantView.vb" />

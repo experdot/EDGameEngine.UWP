@@ -5,7 +5,7 @@ Imports Windows.UI
 ''' <summary>
 ''' 表示一个可以初始化、更新可视化对象空间
 ''' </summary>
-Public MustInherit Class GameSpace
+Public MustInherit Class WorldManager
     Implements IDisposable
     Public Width, Height As Integer
     Public MouseX, MouseY As Integer
@@ -19,7 +19,7 @@ Public MustInherit Class GameSpace
     End Sub
     Public MustOverride Sub CreateObject()
     Public Sub Draw(sender As CanvasAnimatedControl, args As CanvasAnimatedDrawEventArgs)
-        mySpace.DrawSpace(args.DrawingSession)
+        mySpace.OnDraw(args.DrawingSession)
         mySpace.Update()
     End Sub
 #Region "IDisposable Support"

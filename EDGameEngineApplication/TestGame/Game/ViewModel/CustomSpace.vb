@@ -7,7 +7,7 @@ Imports Windows.UI
 ''' 初始化、更新可视化对象空间
 ''' </summary>
 Public Class CustomSpace
-    Inherits EDGameEngine.GameSpace
+    Inherits EDGameEngine.WorldManager
     Public Sub New(aw#, ah#)
         MyBase.New(aw, ah)
     End Sub

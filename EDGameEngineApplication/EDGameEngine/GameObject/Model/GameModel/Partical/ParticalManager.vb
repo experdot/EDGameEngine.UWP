@@ -1,9 +1,8 @@
 ﻿Imports System.Numerics
-Imports EDGameEngine
 Imports Windows.UI
 Public Class ParticalManager
     Inherits GameVisualModel
-    Public Overrides ReadOnly Property Presenter As GameView = New ParticalView(Me)
+    Public Overrides Property Presenter As GameView = New ParticalView(Me)
     Const WAlKERNUM As Single = 150 '粒子数量
     Public Shared Rnd As New Random
     Public Particals As List(Of Partical)
@@ -31,6 +30,7 @@ Public Class ParticalManager
     ''' 更新
     ''' </summary>
     Public Overrides Sub Update()
+        Rotation = (Rotation + 0.001) Mod （Math.PI * 2)
         Dim CenterVec As New Vector2(WorldSpace.SpaceWidth / 2, WorldSpace.SpaceHeight / 2)
         Dim RectLength As Single = Math.Sqrt(WorldSpace.SpaceWidth * WorldSpace.SpaceWidth / 4 + WorldSpace.SpaceHeight * WorldSpace.SpaceHeight / 4)
         For Each SubPartical In Particals

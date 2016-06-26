@@ -2,6 +2,6 @@
 
 Public MustInherit Class GameView
     Implements IGameView
-    Public MustOverride Sub Display(DrawingSession As CanvasDrawingSession) Implements IGameView.Display
+    Public MustOverride Sub OnDraw(DrawingSession As CanvasDrawingSession) Implements IGameView.OnDraw
 
 End Class

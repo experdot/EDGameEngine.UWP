@@ -6,8 +6,7 @@ Imports Windows.UI
 ''' </summary>
 Public Class VisualChart
     Inherits GameVisualModel
-    Public Overrides ReadOnly Property Presenter As GameView = New ChartView(Me)
-    Public Location As Vector2
+    Public Overrides Property Presenter As GameView = New ChartView(Me)
     Public DataList As New List(Of List(Of Single))
     Public Shared Rnd As New Random
     Public ColorList() As Color = {Colors.Yellow, Colors.Blue, Colors.White}

@@ -1,5 +1,4 @@
-﻿Imports EDGameEngine
-Imports System.Numerics
+﻿Imports System.Numerics
 Imports Windows.UI
 ''' <summary>
 ''' 粒子类，表示一个拥有加速度、加速度和位置矢量的抽象粒子

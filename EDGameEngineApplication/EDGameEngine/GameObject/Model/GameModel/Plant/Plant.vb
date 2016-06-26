@@ -2,7 +2,7 @@
 Imports EDGameEngine
 Public Class Plant
     Inherits GameVisualModel
-    Public Overrides ReadOnly Property Presenter As GameView = New PlantView(Me)
+    Public Overrides Property Presenter As GameView = New PlantView(Me)
     Public Property Tree As TreeNode
     Public Shared Rnd As New Random
     Public IsBeginDie As Boolean
@@ -13,6 +13,7 @@ Public Class Plant
         CreateTree(Tree, Rank)
     End Sub
     Public Overrides Sub Update()
+        Scale = New Vector2(1 + Math.Sin(TempSingle) * 0.38, 1 + Math.Sin(TempSingle) * 0.38）
         TempSingle += 0.05
         If TempSingle > Math.PI * 2 Then TempSingle = 0
         GrowUp(Tree, 0.01)
