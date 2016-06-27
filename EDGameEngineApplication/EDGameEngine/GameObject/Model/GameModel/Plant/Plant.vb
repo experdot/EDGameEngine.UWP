@@ -13,7 +13,7 @@ Public Class Plant
         CreateTree(Tree, Rank)
     End Sub
     Public Overrides Sub Update()
-        Scale = New Vector2(1 + Math.Sin(TempSingle) * 0.38, 1 + Math.Sin(TempSingle) * 0.38）
+        ' Scale = New Vector2(1 + Math.Sin(TempSingle) * 0.38, 1 + Math.Sin(TempSingle) * 0.38）
         TempSingle += 0.05
         If TempSingle > Math.PI * 2 Then TempSingle = 0
         GrowUp(Tree, 0.01)
@@ -39,7 +39,7 @@ Public Class Plant
             ParentNode.ChildNode.Last.ParentNode = ParentNode
             CreateChildNode(ParentNode.ChildNode.Last, Count - 1)
             ParentNode.ChildNode.Last.MidRotateAngle = Rnd.NextDouble
-            For i = 0 To Rnd.Next(0, 2)
+            For i = 0 To Rnd.Next(0, (9 - Count) / 2)
                 ParentNode.ChildNode.Add(New TreeNode(ParentNode.Location.RotateNew(Rnd.NextDouble * Math.PI / 2 - Math.PI / 4), Rnd.NextDouble * Count * Tree.Rank * 4, Count))
                 ParentNode.ChildNode.Last.ParentNode = ParentNode
                 CreateChildNode(ParentNode.ChildNode.Last, Count - 1)

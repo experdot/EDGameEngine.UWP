@@ -18,6 +18,7 @@ Public Class Partical
     Public Property Color As Color '粒子颜色
     Public Property Parent As Partical '环绕父粒子
     Public Shared Rnd As New Random
+    Public Property Points As New List(Of Vector2)
     ''' <summary>
     ''' 初始化一个粒子
     ''' </summary>
@@ -41,9 +42,14 @@ Public Class Partical
         Velocity.LimitMag(10) '粒子限速
         Location += Velocity '更新位置
         Acceleration = Vector2.Zero
+        If Points.Count > 20 Then
+            Points.RemoveAt(0)
+        End If
+        Points.Add(Location)
     End Sub
     Public Sub StartNew(Loc As Vector2)
         Location = Loc
         Velocity.SetMag(0)
+        Points.Clear()
     End Sub
 End Class

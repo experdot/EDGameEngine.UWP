@@ -124,7 +124,10 @@
   <ItemGroup>
     <Compile Include="GameBase\Model\GameVisualModel.vb" />
     <Compile Include="GameBase\Model\IGameVisualModel.vb" />
+    <Compile Include="GameBase\Model\IStatus.vb" />
     <Compile Include="GameBase\Resource\IGameResourceManager.vb" />
+    <Compile Include="GameBase\ViewModel\ILayer.vb" />
+    <Compile Include="GameBase\ViewModel\LayerBase.vb" />
     <Compile Include="GameBase\ViewModel\WorldBase.vb" />
     <Compile Include="GameBase\View\GameView.vb" />
     <Compile Include="GameBase\View\IGameView.vb" />
@@ -138,6 +141,7 @@
     <Compile Include="GameObject\Model\Resource\ImageResourceID.vb" />
     <Compile Include="GameObject\Model\Resource\ImageResourceManager.vb" />
     <Compile Include="GameBase\ViewModel\IWorld.vb" />
+    <Compile Include="GameObject\ViewModel\Layer.vb" />
     <Compile Include="GameObject\ViewModel\WorldSpace.vb" />
     <Compile Include="GameObject\ViewModel\WorldManager.vb" />
     <Compile Include="GameObject\View\GameView\ChartView.vb" />

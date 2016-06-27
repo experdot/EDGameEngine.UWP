@@ -9,18 +9,18 @@ Public MustInherit Class WorldManager
     Implements IDisposable
     Public Width, Height As Integer
     Public MouseX, MouseY As Integer
-    Protected mySpace As WorldSpace
+    Protected MyWorld As WorldSpace
     Public Async Function LoadAsync(ResourceCreator As ICanvasResourceCreator) As Task
-        Await mySpace.LoadAsync(ResourceCreator)
+        Await MyWorld.LoadAsync(ResourceCreator)
     End Function
     Public Sub New(ActualWidth#, ActualHeight#)
-        mySpace = New WorldSpace(New Size(ActualWidth, ActualHeight))
+        MyWorld = New WorldSpace(New Size(ActualWidth, ActualHeight))
         CreateObject()
     End Sub
     Public MustOverride Sub CreateObject()
     Public Sub Draw(sender As CanvasAnimatedControl, args As CanvasAnimatedDrawEventArgs)
-        mySpace.OnDraw(args.DrawingSession)
-        mySpace.Update()
+        MyWorld.OnDraw(args.DrawingSession)
+        MyWorld.Update()
     End Sub
 #Region "IDisposable Support"
     Private disposedValue As Boolean ' 要检测冗余调用
@@ -30,7 +30,7 @@ Public MustInherit Class WorldManager
         If Not disposedValue Then
             If disposing Then
                 ' TODO: 释放托管状态(托管对象)。
-                mySpace?.Dispose()
+                MyWorld?.Dispose()
             End If
 
             ' TODO: 释放未托管资源(未托管对象)并在以下内容中替代 Finalize()。

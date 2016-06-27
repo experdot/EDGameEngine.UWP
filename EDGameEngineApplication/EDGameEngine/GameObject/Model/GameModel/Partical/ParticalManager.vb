@@ -35,9 +35,9 @@ Public Class ParticalManager
         Dim RectLength As Single = Math.Sqrt(WorldSpace.SpaceWidth * WorldSpace.SpaceWidth / 4 + WorldSpace.SpaceHeight * WorldSpace.SpaceHeight / 4)
         For Each SubPartical In Particals
             SubPartical.ApplyForce(Vectors(Rnd.Next(8)) * 2)
-            SubPartical.ApplyForce(New Vector2(2 * Rnd.NextDouble, 0))
+            ' SubPartical.ApplyForce(New Vector2(2 * Rnd.NextDouble, 0))
             If (SubPartical.Location - CenterVec).Length > RectLength Then
-                SubPartical.StartNew(New Vector2(WorldSpace.SpaceWidth * 0, WorldSpace.SpaceHeight * Rnd.NextDouble))
+                SubPartical.StartNew(New Vector2(WorldSpace.SpaceWidth * Rnd.NextDouble, WorldSpace.SpaceHeight * Rnd.NextDouble))
                 SubPartical.Age = 0
             End If
             SubPartical.Move()
