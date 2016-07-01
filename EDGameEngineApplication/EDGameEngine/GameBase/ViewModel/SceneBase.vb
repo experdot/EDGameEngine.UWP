@@ -1,27 +1,34 @@
-﻿Imports Microsoft.Graphics.Canvas
+﻿Imports System.Numerics
+Imports EDGameEngine
+Imports Microsoft.Graphics.Canvas
 Imports Windows.UI
-Public MustInherit Class WorldBase
-    Implements IWorld
-    Public Shared Property ImageManager As ImageResourceManager
+Public MustInherit Class SceneBase
+    Implements IScene
+    Public Property ImageManager As ImageResourceManager
     Public Property GameLayers As New List(Of ILayer)
     Public Property GameVisuals As New List(Of IGameVisualModel)
+
+    Public Property Width As Single Implements IScene.Width
+    Public Property Height As Single Implements IScene.Height
+
     Public Sub AddGameVisual(gV As IGameVisualModel, Optional LayerIndex As Integer = 0)
+        gV.Scene = Me
         If GameLayers.Count = 0 Then GameLayers.Add(New Layer)
         GameVisuals.Add(gV)
         GameLayers(LayerIndex).GameVisuals.Add(gV)
     End Sub
-    Public Async Function LoadAsync(resourceCreator As ICanvasResourceCreator) As Task Implements IWorld.LoadAsync
+    Public Async Function LoadAsync(resourceCreator As ICanvasResourceCreator) As Task Implements IScene.LoadAsync
         Dim resldr = New ImageResourceManager(resourceCreator)
         Await resldr.LoadAsync()
         ImageManager = resldr
     End Function
-    Public Overridable Sub OnDraw(drawingSession As CanvasDrawingSession) Implements IWorld.OnDraw
+    Public Overridable Sub OnDraw(drawingSession As CanvasDrawingSession) Implements IScene.OnDraw
         drawingSession.Clear(Colors.Black)
         For Each SubLayer In GameLayers
             SubLayer.OnDraw(drawingSession)
         Next
     End Sub
-    Public Overridable Sub Update() Implements IWorld.Update
+    Public Overridable Sub Update() Implements IScene.Update
         For Each SubGameVisual In GameVisuals
             SubGameVisual.Update()
         Next
@@ -49,7 +56,7 @@ Public MustInherit Class WorldBase
     'End Sub
 
     ' Visual Basic 添加此代码以正确实现可释放模式。
-    Public Sub Dispose() Implements IWorld.Dispose
+    Public Sub Dispose() Implements IScene.Dispose
         ' 请勿更改此代码。将清理代码放入以上 Dispose(disposing As Boolean)中。
         Dispose(True)
         ' TODO: 如果在以上内容中替代了 Finalize()，则取消注释以下行。

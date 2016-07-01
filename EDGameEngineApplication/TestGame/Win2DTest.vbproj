@@ -132,7 +132,7 @@
     <Compile Include="Xaml\PresentationPage.xaml.vb">
       <DependentUpon>PresentationPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Game\ViewModel\CustomSpace.vb" />
+    <Compile Include="Game\ViewModel\CustomWorld.vb" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">

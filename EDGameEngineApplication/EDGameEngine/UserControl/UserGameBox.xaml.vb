@@ -5,14 +5,7 @@ Imports Microsoft.Graphics.Canvas.UI.Xaml
 
 Public NotInheritable Class UserGameBox
     Inherits UserControl
-    Public Property Space As WorldManager
-    Private Sub UserGameBox_PointerMoved(sender As Object, e As PointerRoutedEventArgs) Handles Me.PointerMoved
-        Dim pos = e.GetCurrentPoint(Me).Position
-        If Space IsNot Nothing Then
-            Space.MouseX = pos.X
-            Space.MouseY = pos.Y
-        End If
-    End Sub
+    Public Property World As World
     Dim treedraw As Action(Of CanvasAnimatedControl, CanvasAnimatedDrawEventArgs)
     Sub Draw(sender As CanvasAnimatedControl, args As CanvasAnimatedDrawEventArgs)
         Try
@@ -24,8 +17,16 @@ Public NotInheritable Class UserGameBox
     Private Sub AnimBox_CreateResources(sender As CanvasAnimatedControl, args As CanvasCreateResourcesEventArgs) Handles AnimBox.CreateResources
         args.TrackAsyncAction((Async Function() As Task
                                    Debug.WriteLine("加载图片资源")
-                                   Await Space.LoadAsync(sender)
-                                   treedraw = AddressOf Space.Draw
+                                   Await World.LoadAsync(sender)
+                                   treedraw = AddressOf World.Draw
                                End Function).Invoke.AsAsyncAction)
+    End Sub
+    Private Sub AnimBox_PointerMoved(sender As Object, e As PointerRoutedEventArgs) Handles AnimBox.PointerMoved
+        Dim p = e.GetCurrentPoint(AnimBox).Position
+        World?.OnMouseMove(p.X, p.Y)
+    End Sub
+
+    Private Sub AnimBox_SizeChanged(sender As Object, e As SizeChangedEventArgs) Handles AnimBox.SizeChanged
+        World?.OnSizeChanged(AnimBox.ActualWidth, AnimBox.ActualHeight)
     End Sub
 End Class

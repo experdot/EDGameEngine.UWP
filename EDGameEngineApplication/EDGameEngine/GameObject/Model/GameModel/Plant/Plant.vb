@@ -14,6 +14,7 @@ Public Class Plant
     End Sub
     Public Overrides Sub Update()
         ' Scale = New Vector2(1 + Math.Sin(TempSingle) * 0.38, 1 + Math.Sin(TempSingle) * 0.38）
+        Tree.RealLoc = New Vector2(Scene.Width / 2, Scene.Height * 0.8)
         TempSingle += 0.05
         If TempSingle > Math.PI * 2 Then TempSingle = 0
         GrowUp(Tree, 0.01)

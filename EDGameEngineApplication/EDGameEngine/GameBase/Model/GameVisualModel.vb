@@ -5,12 +5,11 @@ Imports EDGameEngine
 ''' </summary>
 Public MustInherit Class GameVisualModel
     Implements IGameVisualModel
-    Public Overridable Property Location As Vector2 = Vector2.Zero Implements IObjectStatus.Location
-    Public Overridable Property Scale As Vector2 = Vector2.One Implements IObjectStatus.Scale
-    Public Overridable Property Rotation As Single = 0.0F Implements IObjectStatus.Rotation
-    Public Overridable Property Visible As Boolean = True Implements IObjectStatus.Visible
-    Public Overridable Property Enabled As Boolean = True Implements IObjectStatus.Enabled
-    Public Overridable Property Opacity As Boolean = 1.0F Implements IObjectStatus.Opacity
+
+    Public Overridable Property Appearance As Appearance = Appearance.Normal Implements IObjectStatus.Appearance
+    Public Overridable Property Transform As Transform = Transform.Normal Implements IObjectStatus.Transform
+    Public Overridable Property Scene As IScene Implements IGameVisualModel.Scene
+
     Public MustOverride Property Presenter As GameView Implements IGameVisualModel.Presenter
     Public MustOverride Sub Update() Implements IGameVisualModel.Update
 End Class

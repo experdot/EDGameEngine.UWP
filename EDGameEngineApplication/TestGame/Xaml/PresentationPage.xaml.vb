@@ -19,6 +19,6 @@ Public NotInheritable Class PresentationPage
         End If
     End Sub
     Private Sub GameBox_Loaded(sender As Object, e As RoutedEventArgs) Handles GameBox.Loaded
-        GameBox.Space = New CustomSpace(GameBox.ActualWidth, GameBox.ActualHeight)
+        GameBox.World = New CustomWorld(GameBox.ActualWidth, GameBox.ActualHeight)
     End Sub
 End Class

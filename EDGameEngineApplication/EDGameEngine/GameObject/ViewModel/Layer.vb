@@ -1,4 +1,5 @@
-﻿Imports Microsoft.Graphics.Canvas
+﻿Imports System.Numerics
+Imports Microsoft.Graphics.Canvas
 ''' <summary>
 ''' 图层
 ''' </summary>
@@ -11,7 +12,7 @@ Public Class Layer
                     SubGameVisual.Presenter.OnDraw(Dl)
                 Next
             End Using
-            drawingSession.DrawImage(cmdList, Location)
+            drawingSession.DrawImage(Effector.Transform2D(cmdList, Transform))
         End Using
     End Sub
 End Class
