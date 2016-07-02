@@ -25,7 +25,6 @@ Public Class ParticalManager
             Particals(i).ImageSize = 2 + Rnd.NextDouble * 2
             Particals(i).Color = Color.FromArgb(255, 255, 255, 255)
         Next
-
     End Sub
     ''' <summary>
     ''' 更新
@@ -34,7 +33,7 @@ Public Class ParticalManager
         If Transform.Scale.Length > 3 Then
             Transform.Scale = New Vector2()
         Else
-            Transform.Scale += New Vector2(0.01, 0.01)
+            Transform.Scale += New Vector2(0.01, 0.01) * Math.Sin(Environment.TickCount / 500)
         End If
         Transform.Center = New Vector2(Scene.Width / 2, Scene.Height / 2)
         Transform.Rotation = (Transform.Rotation + 0.005) Mod （Math.PI * 2)

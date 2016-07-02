@@ -29,11 +29,11 @@ Friend Class PlantView
 
             SubNode.RealLoc = ParentNode.RealLoc + SubNode.Location * SubNode.Percent
 
-            DS.DrawLine(ParentNode.RealLoc, midLoc, Colors.Black, StrokeWidth, LineCss)
-            DS.DrawLine(SubNode.RealLoc, midLoc, Colors.Black, StrokeWidth, LineCss)
-            'Dim TempV = ParentNode.RealLoc + SubNode.RealLoc.RotateNew(SubNode.DiePercent * Math.PI * 2) * (Math.Sin(SubNode.DiePercent) / 2 * 0)
-            'DrawImageBranch(DS, ParentNode, SubNode, loc,TempV)
-            'DrawFlower(DS, Ratio, SubNode, TempV)
+            'DS.DrawLine(ParentNode.RealLoc, midLoc, Colors.White, StrokeWidth, LineCss)
+            'DS.DrawLine(SubNode.RealLoc, midLoc, Colors.White, StrokeWidth, LineCss)
+            Dim TempV = ParentNode.RealLoc + SubNode.RealLoc.RotateNew(SubNode.DiePercent * Math.PI * 2) * (Math.Sin(SubNode.DiePercent) / 2 * 0)
+            DrawImageBranch(DS, ParentNode, SubNode, SubNode.Location, TempV)
+            DrawFlower(DS, Ratio, SubNode, TempV)
             DrawTree(DS, SubNode, OffSet, angle)
         Next
     End Sub

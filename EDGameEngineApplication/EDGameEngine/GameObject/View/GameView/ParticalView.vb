@@ -1,5 +1,4 @@
 ﻿Imports System.Numerics
-Imports EDGameEngine
 Imports Microsoft.Graphics.Canvas
 Public Class ParticalView
     Inherits TypedGameView(Of ParticalManager)
@@ -22,11 +21,9 @@ Public Class ParticalView
                     '             New Rect(0, 0, 192, 192), 0.15)
                 Next
             End Using
-            Using es = Effector.Transform2D(cmdList, Target.Transform)
-                Using blur1 = New Effects.GaussianBlurEffect() With {.Source = es, .BlurAmount = 3}
-                    DrawingSession.DrawImage(blur1)
-                    DrawingSession.DrawImage(es)
-                End Using
+            Using blur1 = New Effects.GaussianBlurEffect() With {.Source = cmdList, .BlurAmount = 3}
+                DrawingSession.DrawImage(blur1)
+                DrawingSession.DrawImage(cmdList)
             End Using
         End Using
     End Sub

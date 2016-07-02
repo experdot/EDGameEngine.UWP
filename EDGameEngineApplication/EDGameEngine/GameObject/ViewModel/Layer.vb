@@ -9,7 +9,9 @@ Public Class Layer
         Using cmdList = New CanvasCommandList(drawingSession.Device)
             Using Dl = cmdList.CreateDrawingSession
                 For Each SubGameVisual In GameVisuals
-                    SubGameVisual.Presenter.OnDraw(Dl)
+                    Using layer = Dl.CreateLayer(SubGameVisual.Appearance.Opcacity)
+                        SubGameVisual.Presenter.BeginDraw(Dl)
+                    End Using
                 Next
             End Using
             Using trans = Effector.Transform2D(cmdList, Transform)
