@@ -22,10 +22,11 @@ Public Class ParticalView
                     '             New Rect(0, 0, 192, 192), 0.15)
                 Next
             End Using
-            Dim es = Effector.Transform2D(cmdList, Target.Transform)
-            Using blur1 = New Effects.GaussianBlurEffect() With {.Source = es, .BlurAmount = 5}
-                DrawingSession.DrawImage(blur1)
-                DrawingSession.DrawImage(es)
+            Using es = Effector.Transform2D(cmdList, Target.Transform)
+                Using blur1 = New Effects.GaussianBlurEffect() With {.Source = es, .BlurAmount = 3}
+                    DrawingSession.DrawImage(blur1)
+                    DrawingSession.DrawImage(es)
+                End Using
             End Using
         End Using
     End Sub

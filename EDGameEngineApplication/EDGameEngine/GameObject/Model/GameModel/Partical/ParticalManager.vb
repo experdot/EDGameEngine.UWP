@@ -3,7 +3,7 @@ Imports Windows.UI
 Public Class ParticalManager
     Inherits GameVisualModel
     Public Overrides Property Presenter As GameView = New ParticalView(Me)
-    Const WAlKERNUM As Single = 150 '粒子数量
+    Const WAlKERNUM As Single = 100 '粒子数量
     Public Shared Rnd As New Random
     Public Particals As List(Of Partical)
     Dim Vectors() As Vector2 = {
@@ -31,6 +31,11 @@ Public Class ParticalManager
     ''' 更新
     ''' </summary>
     Public Overrides Sub Update()
+        If Transform.Scale.Length > 3 Then
+            Transform.Scale = New Vector2()
+        Else
+            Transform.Scale += New Vector2(0.01, 0.01)
+        End If
         Transform.Center = New Vector2(Scene.Width / 2, Scene.Height / 2)
         Transform.Rotation = (Transform.Rotation + 0.005) Mod （Math.PI * 2)
         Dim CenterVec As New Vector2(Scene.Width / 2, Scene.Height / 2)

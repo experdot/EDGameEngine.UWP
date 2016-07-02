@@ -12,7 +12,9 @@ Public Class Layer
                     SubGameVisual.Presenter.OnDraw(Dl)
                 Next
             End Using
-            drawingSession.DrawImage(Effector.Transform2D(cmdList, Transform))
+            Using trans = Effector.Transform2D(cmdList, Transform)
+                drawingSession.DrawImage(trans)
+            End Using
         End Using
     End Sub
 End Class
