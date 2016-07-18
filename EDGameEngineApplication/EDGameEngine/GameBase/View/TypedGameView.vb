@@ -10,7 +10,7 @@ Public MustInherit Class TypedGameView(Of T As IGameVisualModel)
         Me.Target = Target
     End Sub
     Public Overrides Sub BeginDraw(DrawingSession As CanvasDrawingSession)
-        Using cmdList = New CanvasCommandList(DrawingSession.Device)
+        Using cmdList = New CanvasCommandList(DrawingSession)
             Using Dl = cmdList.CreateDrawingSession
                 OnDraw(Dl)
             End Using

@@ -42,7 +42,7 @@ Public Class ParticalManager
         For Each SubEle In Particals
             SubEle.ApplyForce(Vectors(Rnd.Next(8)) * 2)
             'SubPartical.ApplyForce(New Vector2(2 * Rnd.NextDouble, 0))
-            If Particals.IndexOf(SubEle) = 0 Then SubEle.ApplyForce(New Vector2(World.MouseX - SubEle.Location.X, World.MouseY - SubEle.Location.Y))
+            SubEle.ApplyForce(New Vector2(World.MouseX - SubEle.Location.X, World.MouseY - SubEle.Location.Y))
             If (SubEle.Location - CenterVec).Length > RectLength Then
                 SubEle.StartNew(New Vector2(Scene.Width * Rnd.NextDouble, Scene.Height * Rnd.NextDouble))
                 SubEle.Age = 0

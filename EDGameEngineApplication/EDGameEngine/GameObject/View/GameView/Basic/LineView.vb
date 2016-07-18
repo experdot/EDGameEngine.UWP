@@ -1,4 +1,5 @@
-﻿Imports EDGameEngine
+﻿Imports System.Numerics
+Imports EDGameEngine
 Imports Microsoft.Graphics.Canvas
 Imports Windows.UI
 
@@ -8,7 +9,7 @@ Friend Class LineView
         MyBase.New(Target)
     End Sub
     Public Overrides Sub OnDraw(DrawingSession As CanvasDrawingSession)
-        Using cmdList = New CanvasCommandList(DrawingSession.Device)
+        Using cmdList = New CanvasCommandList(DrawingSession)
             Using Dl = cmdList.CreateDrawingSession
                 DrawLine(Dl)
             End Using
@@ -21,7 +22,7 @@ Friend Class LineView
     Public Sub DrawLine(DS As CanvasDrawingSession)
         If Target.Points.Count > 1 Then
             For i = 0 To Target.Points.Count - 2
-                DS.DrawLine(Target.Points(0), Target.Points(1), Colors.Black)
+                DS.DrawLine(Target.Points(i), Target.Points(i + 1), Colors.White)
             Next
         End If
     End Sub

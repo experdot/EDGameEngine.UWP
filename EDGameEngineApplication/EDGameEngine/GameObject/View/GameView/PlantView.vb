@@ -9,7 +9,7 @@ Friend Class PlantView
         MyBase.New(Target)
     End Sub
     Public Overrides Sub OnDraw(DrawingSession As CanvasDrawingSession)
-        Using cmdList = New CanvasCommandList(DrawingSession.Device)
+        Using cmdList = New CanvasCommandList(DrawingSession)
             Using Dl = cmdList.CreateDrawingSession
                 DrawTree(Dl, Target.Tree, New Vector2, 0)
             End Using
@@ -24,7 +24,7 @@ Friend Class PlantView
                                                             .EndCap = Geometry.CanvasCapStyle.Triangle}
     Private Sub DrawTree(ByRef DS As CanvasDrawingSession, ByRef ParentNode As TreeNode, OffSet As Vector2, angle As Single, Optional Ratio As Single = 16)
         For Each SubNode In ParentNode.ChildNode
-            Dim StrokeWidth = Target.Tree.Rank * 5 * Math.Pow(Tw(SubNode.Rank), 8 - SubNode.Rank) * SubNode.Percent
+            Dim StrokeWidth = Target.Tree.Rank * 15 * Math.Pow(Tw(SubNode.Rank), 8 - SubNode.Rank) * SubNode.Percent
             Dim midLoc = ParentNode.RealLoc + SubNode.Location.RotateNew(SubNode.MidRotateAngle / 5) * SubNode.Percent * 0.618
 
             SubNode.RealLoc = ParentNode.RealLoc + SubNode.Location * SubNode.Percent
