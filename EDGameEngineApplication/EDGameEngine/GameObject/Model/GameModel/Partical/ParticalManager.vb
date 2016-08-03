@@ -36,7 +36,7 @@ Public Class ParticalManager
             Transform.Scale += New Vector2(0.01, 0.01) * Math.Sin(Environment.TickCount / 500)
         End If
         Transform.Center = New Vector2(Scene.Width / 2, Scene.Height / 2)
-        Transform.Rotation = (Transform.Rotation + 0.005) Mod （Math.PI * 2)
+        ' Transform.Rotation = (Transform.Rotation + 0.005) Mod （Math.PI * 2)
         Dim CenterVec As New Vector2(Scene.Width / 2, Scene.Height / 2)
         Dim RectLength As Single = Math.Sqrt(Scene.Width * Scene.Width / 4 + Scene.Height * Scene.Height / 4)
         For Each SubEle In Particals

@@ -8,11 +8,11 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("Win2DTest")>
+<Assembly: AssemblyTitle("EDGameEngineDemo")>
 <Assembly: AssemblyDescription("")>
 <Assembly: AssemblyCompany("")>
-<Assembly: AssemblyProduct("Win2DTest")>
-<Assembly: AssemblyCopyright("Copyright ©  2015")>
+<Assembly: AssemblyProduct("EDGameEngineDemo")>
+<Assembly: AssemblyCopyright("Copyright ©  2016")>
 <Assembly: AssemblyTrademark("")>
 
 ' Version information for an assembly consists of the following four values:

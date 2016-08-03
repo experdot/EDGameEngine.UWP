@@ -5,8 +5,8 @@ Public Class Appearance
             Return New Appearance(True, 1.0F)
         End Get
     End Property
-    Public Visible As Boolean
-    Public Opcacity As Single
+    Public Property Visible As Boolean
+    Public Property Opcacity As Single
     Public Sub New(visible As Boolean, opcacity As Single)
         Me.Visible = visible
         Me.Opcacity = opcacity

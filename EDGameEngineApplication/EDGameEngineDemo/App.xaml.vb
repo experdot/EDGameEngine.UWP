@@ -5,16 +5,6 @@ NotInheritable Class App
     Inherits Application
 
     ''' <summary>
-    ''' 初始化 App 类的新实例。
-    ''' </summary>
-    Public Sub New()
-        Microsoft.ApplicationInsights.WindowsAppInitializer.InitializeAsync(
-            Microsoft.ApplicationInsights.WindowsCollectors.Metadata Or
-            Microsoft.ApplicationInsights.WindowsCollectors.Session)
-        InitializeComponent()
-    End Sub
-
-    ''' <summary>
     ''' 在应用程序由最终用户正常启动时进行调用。
     ''' 当启动应用程序以打开特定的文件或显示时使用
     ''' 搜索结果等
@@ -46,15 +36,18 @@ NotInheritable Class App
             ' 将框架放在当前窗口中
             Window.Current.Content = rootFrame
         End If
-        If rootFrame.Content Is Nothing Then
-            ' 当导航堆栈尚未还原时，导航到第一页，
-            ' 并通过将所需信息作为导航参数传入来配置
-            ' 参数
-            rootFrame.Navigate(GetType(MainPage), e.Arguments)
-        End If
 
-        ' 确保当前窗口处于活动状态
-        Window.Current.Activate()
+        If e.PrelaunchActivated = False Then
+            If rootFrame.Content Is Nothing Then
+                ' 当导航堆栈尚未还原时，导航到第一页，
+                ' 并通过将所需信息作为导航参数传入来配置
+                ' 参数
+                rootFrame.Navigate(GetType(MainPage), e.Arguments)
+            End If
+
+            ' 确保当前窗口处于活动状态
+            Window.Current.Activate()
+        End If
     End Sub
 
     ''' <summary>

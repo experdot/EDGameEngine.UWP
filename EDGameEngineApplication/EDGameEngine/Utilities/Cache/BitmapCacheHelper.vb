@@ -30,13 +30,13 @@ Public Class BitmapCacheHelper
     End Function
 
     Public Shared Sub SaveAsPng(cac As CanvasRenderTarget)
-        Dim f = Task.Run(Async Function()
-                             Dim fi = Task.Run(Async Function()
-                                                   Return Await (Await Windows.Storage.KnownFolders.SavedPictures.CreateFileAsync($"cache{Date.Now.ToBinary.ToString("X")}.png")).OpenAsync(Windows.Storage.FileAccessMode.ReadWrite)
-                                               End Function)
-                             fi.Wait()
-                             Await cac.SaveAsync(fi.Result, CanvasBitmapFileFormat.Png)
-                         End Function)
-        f.Wait()
+        Dim func = Task.Run(Async Function()
+                                Dim fi = Task.Run(Async Function()
+                                                      Return Await (Await Windows.Storage.KnownFolders.SavedPictures.CreateFileAsync($"cache{Date.Now.ToBinary.ToString("X")}.png")).OpenAsync(Windows.Storage.FileAccessMode.ReadWrite)
+                                                  End Function)
+                                fi.Wait()
+                                Await cac.SaveAsync(fi.Result, CanvasBitmapFileFormat.Png)
+                            End Function)
+        func.Wait()
     End Sub
 End Class

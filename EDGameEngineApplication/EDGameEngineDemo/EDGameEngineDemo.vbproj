@@ -4,18 +4,18 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{B1ACC948-193B-4E1A-8344-421187695A6B}</ProjectGuid>
+    <ProjectGuid>{B150B5D6-5696-4CDD-BF24-24632453F19A}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
-    <RootNamespace>Win2DTest</RootNamespace>
-    <AssemblyName>Win2DTest</AssemblyName>
+    <RootNamespace>EDGameEngineDemo</RootNamespace>
+    <AssemblyName>EDGameEngineDemo</AssemblyName>
     <DefaultLanguage>zh-CN</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion>10.0.10240.0</TargetPlatformVersion>
+    <TargetPlatformVersion>10.0.10586.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.10240.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
-    <PackageCertificateKeyFile>Win2DTest_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateKeyFile>UWPTemplate_TemporaryKey.pfx</PackageCertificateKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -27,10 +27,8 @@
     <PlatformTarget>x86</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <Prefer32Bit>true</Prefer32Bit>
-    <DocumentationFile>Win2DTest.xml</DocumentationFile>
-    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</NoWarn>
-    <WarningsAsErrors>
-    </WarningsAsErrors>
+    <DocumentationFile>EDGameEngineDemo.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <DefineTrace>true</DefineTrace>
@@ -41,11 +39,9 @@
     <PlatformTarget>x86</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <Prefer32Bit>true</Prefer32Bit>
-    <DocumentationFile>Win2DTest.xml</DocumentationFile>
-    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</NoWarn>
+    <DocumentationFile>EDGameEngineDemo.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
     <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
-    <WarningsAsErrors>
-    </WarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
     <DebugSymbols>true</DebugSymbols>
@@ -57,10 +53,8 @@
     <PlatformTarget>ARM</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <Prefer32Bit>true</Prefer32Bit>
-    <DocumentationFile>Win2DTest.xml</DocumentationFile>
-    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</NoWarn>
-    <WarningsAsErrors>
-    </WarningsAsErrors>
+    <DocumentationFile>EDGameEngineDemo.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
     <DefineTrace>true</DefineTrace>
@@ -71,11 +65,9 @@
     <PlatformTarget>ARM</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <Prefer32Bit>true</Prefer32Bit>
-    <DocumentationFile>Win2DTest.xml</DocumentationFile>
-    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</NoWarn>
+    <DocumentationFile>EDGameEngineDemo.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
     <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
-    <WarningsAsErrors>
-    </WarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -87,10 +79,8 @@
     <PlatformTarget>x64</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <Prefer32Bit>true</Prefer32Bit>
-    <DocumentationFile>Win2DTest.xml</DocumentationFile>
-    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</NoWarn>
-    <WarningsAsErrors>
-    </WarningsAsErrors>
+    <DocumentationFile>EDGameEngineDemo.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <DefineTrace>true</DefineTrace>
@@ -101,46 +91,45 @@
     <PlatformTarget>x64</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <Prefer32Bit>true</Prefer32Bit>
-    <DocumentationFile>Win2DTest.xml</DocumentationFile>
-    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</NoWarn>
+    <DocumentationFile>EDGameEngineDemo.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
     <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
-    <WarningsAsErrors>
-    </WarningsAsErrors>
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
-    <Content Include="Image\Flower_Yellow.png" />
-    <Content Include="Image\Grass_Green.png" />
-    <Content Include="Image\Tree_Black.png" />
-    <Content Include="ApplicationInsights.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="Image\back.png" />
-    <Content Include="Image\explosion.dds" />
-    <Content Include="Image\smoke.dds" />
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.vb">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Game\ViewModel\CustomWorld.vb" />
+    <Compile Include="Xaml\ScenarioManager\SampleConfiguration.vb" />
+    <Compile Include="Xaml\ScenarioManager\ScenarioBindingConverter.vb" />
     <Compile Include="Xaml\MainPage.xaml.vb">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
-    <Compile Include="Xaml\PresentationPage.xaml.vb">
-      <DependentUpon>PresentationPage.xaml</DependentUpon>
+    <Compile Include="Xaml\Scenario1_Start.xaml.vb">
+      <DependentUpon>Scenario1_Start.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Game\ViewModel\CustomWorld.vb" />
+    <Compile Include="Xaml\Scenario2_Geometric.xaml.vb">
+      <DependentUpon>Scenario2_Geometric.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
-    <None Include="Win2DTest_TemporaryKey.pfx" />
+    <None Include="UWPTemplate_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Image\back.png" />
+    <Content Include="Image\explosion.dds" />
+    <Content Include="Image\Flower_Yellow.png" />
+    <Content Include="Image\Grass_Green.png" />
+    <Content Include="Image\smoke.dds" />
+    <Content Include="Image\Tree_Black.png" />
     <Content Include="Image\Tree_White.png" />
     <Content Include="My Project\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
@@ -156,11 +145,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Styles\Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Xaml\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Xaml\PresentationPage.xaml">
+    <Page Include="Xaml\Scenario1_Start.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Xaml\Scenario2_Geometric.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -197,7 +194,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EDGameEngine\EDGameEngine.vbproj">
-      <Project>{F429821D-912B-43E7-87D3-FAF8E76DDCDB}</Project>
+      <Project>{f429821d-912b-43e7-87d3-faf8e76ddcdb}</Project>
       <Name>EDGameEngine</Name>
     </ProjectReference>
   </ItemGroup>
