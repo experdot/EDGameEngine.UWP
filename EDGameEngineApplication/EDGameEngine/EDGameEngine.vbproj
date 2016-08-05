@@ -134,10 +134,11 @@
     <Compile Include="GameBase\View\TypedGameView.vb" />
     <Compile Include="GameBase\Resource\GameResourceManager.vb" />
     <Compile Include="GameObject\Model\GameModel\Basic\VisualRectangle.vb" />
+    <Compile Include="GameObject\Model\GameModel\Partical\ParticalFollow.vb" />
     <Compile Include="GameObject\View\GameView\Basic\LineView.vb" />
     <Compile Include="GameObject\Model\GameModel\Basic\VisualLine.vb" />
     <Compile Include="GameObject\Model\GameModel\Partical\Partical.vb" />
-    <Compile Include="GameObject\Model\GameModel\Partical\ParticalManager.vb" />
+    <Compile Include="GameObject\Model\GameModel\Partical\ParticalsBase.vb" />
     <Compile Include="GameObject\Model\GameModel\Plant\Plant.vb" />
     <Compile Include="GameObject\Model\GameModel\Plant\TreeNode.vb" />
     <Compile Include="GameObject\Model\Resource\ImageResourceID.vb" />

@@ -9,15 +9,18 @@ Public Class CustomWorld
         MyBase.New(aw, ah)
     End Sub
     Public Overrides Sub CreateObject()
-
-        'For i = -5 To 5
-        '    For j = -5 To 5
+        'For i = -3 To 3
+        '    For j = -3 To 3
         '        Dim rect As New Rect(-10 - i * 24, -10 + j * 24, 20, 20)
-        '        MyScene.AddGameVisual(New VisualRectangle(rect))
+        '        Dim rectModel As New VisualRectangle(rect)
+        '        MyScene.AddGameVisual(rectModel, New RectangleView(rectModel))
         '    Next
         'Next
-        MyScene.AddGameVisual(New ParticalManager(MyScene))
-        MyScene.AddGameVisual(New VisualLine())
-        ' MyScene.AddGameVisual(New Plant(New Vector2(MyScene.Width / 2, MyScene.Height * 0.8)))
+
+        'Dim tempModel As New ParticalFollow()
+        'MyScene.AddGameVisual(tempModel, New ParticalView(tempModel))
+
+        Dim tempModel2 As New Plant(New Vector2(MyScene.Width / 2, MyScene.Height * 0.8))
+        MyScene.AddGameVisual(tempModel2, New PlantView(tempModel2))
     End Sub
 End Class

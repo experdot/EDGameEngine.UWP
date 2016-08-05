@@ -3,7 +3,7 @@ Imports EDGameEngine
 Imports Microsoft.Graphics.Canvas
 Imports Windows.UI
 
-Friend Class PlantView
+Public Class PlantView
     Inherits TypedGameView(Of Plant)
     Public Sub New(Target As Plant)
         MyBase.New(Target)

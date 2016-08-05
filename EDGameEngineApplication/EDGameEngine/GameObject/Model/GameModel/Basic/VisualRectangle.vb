@@ -2,9 +2,7 @@
 
 Public Class VisualRectangle
     Inherits GameVisualModel
-    Public Shared Rnd As New Random
     Public Property Rect As Rect
-    Public Overrides Property Presenter As GameView = New RectangleView(Me)
     Public Sub New(rect As Rect)
         Me.Rect = rect
     End Sub

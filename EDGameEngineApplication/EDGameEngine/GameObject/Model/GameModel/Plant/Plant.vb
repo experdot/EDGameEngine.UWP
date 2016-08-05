@@ -2,18 +2,20 @@
 Imports EDGameEngine
 Public Class Plant
     Inherits GameVisualModel
-    Public Overrides Property Presenter As GameView = New PlantView(Me)
     Public Property Tree As TreeNode
-    Public Shared Rnd As New Random
-    Public IsBeginDie As Boolean
-    Dim TempSingle As Single
+    Public Property IsBeginDie As Boolean
+    Dim TempSingle, Ts2 As Single
     Public Sub New(loc As Vector2, Optional Rank As Integer = 8)
         Tree = New TreeNode(New Vector2(0, -100), 100, 1)
         Tree.RealLoc = loc
         CreateTree(Tree, Rank)
     End Sub
     Public Overrides Sub Update()
-        Appearance.Opcacity = 0.5 + 0.3 * Math.Sin(Environment.TickCount / 500)
+        Transform.Center = Tree.RealLoc
+        Transform.Scale = New Vector2(0.95 + Math.Sin(Ts2) * 0.05, 1)
+        Ts2 += 0.05
+        If Ts2 > Math.PI * 2 Then Ts2 = 0
+
         Tree.RealLoc = New Vector2(Scene.Width / 2, Scene.Height * 0.8)
         TempSingle += 0.05
         If TempSingle > Math.PI * 2 Then TempSingle = 0

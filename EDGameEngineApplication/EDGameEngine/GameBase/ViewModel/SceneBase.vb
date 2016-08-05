@@ -11,11 +11,12 @@ Public MustInherit Class SceneBase
     Public Property Width As Single Implements IScene.Width
     Public Property Height As Single Implements IScene.Height
 
-    Public Sub AddGameVisual(gV As IGameVisualModel, Optional LayerIndex As Integer = 0)
-        gV.Scene = Me
+    Public Sub AddGameVisual(model As IGameVisualModel, view As IGameView, Optional LayerIndex As Integer = 0)
+        model.Scene = Me
+        model.Presenter = view
         If GameLayers.Count = 0 Then GameLayers.Add(New Layer)
-        GameVisuals.Add(gV)
-        GameLayers(LayerIndex).GameVisuals.Add(gV)
+        GameVisuals.Add(model)
+        GameLayers(LayerIndex).GameVisuals.Add(model)
     End Sub
     Public Async Function LoadAsync(resourceCreator As ICanvasResourceCreator) As Task Implements IScene.LoadAsync
         Dim resldr = New ImageResourceManager(resourceCreator)

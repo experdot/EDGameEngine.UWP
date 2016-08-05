@@ -1,7 +1,7 @@
 ﻿Imports Microsoft.Graphics.Canvas
 Imports Windows.UI
 
-Friend Class RectangleView
+Public Class RectangleView
     Inherits TypedGameView(Of VisualRectangle)
     Public Sub New(Target As VisualRectangle)
         MyBase.New(Target)
