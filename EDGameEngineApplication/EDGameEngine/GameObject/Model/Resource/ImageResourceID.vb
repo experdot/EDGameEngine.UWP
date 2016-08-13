@@ -5,6 +5,8 @@
     GreenLeaf1
     SmokePartial1
     ExplosionPartial1
-    back1
+    Back1
     TreeBranch2
+    Water1
+    Scenery1
 End Enum

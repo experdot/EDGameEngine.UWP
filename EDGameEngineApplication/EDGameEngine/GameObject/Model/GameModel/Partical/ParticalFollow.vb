@@ -8,25 +8,24 @@ Public Class ParticalFollow
         Dim RectLength As Single = Math.Sqrt(Scene.Width * Scene.Width / 4 + Scene.Height * Scene.Height / 4)
         For Each SubEle In Particals
             SubEle.ApplyForce(Vectors(Rnd.Next(8)) * 2)
-            'SubPartical.ApplyForce(New Vector2(2 * Rnd.NextDouble, 0))
+            'SubEle.ApplyForce(New Vector2(1 * Rnd.NextDouble, 0))
             'SubEle.ApplyForce(New Vector2(World.MouseX - SubEle.Location.X, World.MouseY - SubEle.Location.Y))
             If (SubEle.Location - CenterVec).Length > RectLength Then
-                SubEle.StartNew(New Vector2(Scene.Width * Rnd.NextDouble, Scene.Height * Rnd.NextDouble))
-                SubEle.Age = 0
+                Dim index As Integer = Rnd.Next(0, Count)
+                SubEle.StartNew(Particals(index).Location)
             End If
             SubEle.Move()
-            SubEle.Age += 0.1
         Next
     End Sub
 
-    Public Overrides Sub InitParticals()
+    Public Overrides Sub Start()
         Particals = New List(Of Partical)
         For i = 0 To Count - 1
-            Particals.Add(New Partical(New Vector2(100, 100)))
+            Particals.Add(New Partical(New Vector2(Scene.Width / 2, Scene.Height / 2)))
             Particals(i).Mass = 1 + Rnd.NextDouble * 99
             Particals(i).Size = 0.1 + Rnd.NextDouble * 2
             Particals(i).ImageSize = 2 + Rnd.NextDouble * 2
-            Particals(i).Color = Color.FromArgb(255, 255, 255, 255)
+            Particals(i).Color = Color.FromArgb(255, Rnd.Next(256), Rnd.Next(256), Rnd.Next(256))
         Next
     End Sub
 End Class

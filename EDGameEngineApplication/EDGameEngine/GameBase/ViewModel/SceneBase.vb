@@ -14,7 +14,7 @@ Public MustInherit Class SceneBase
     Public Sub AddGameVisual(model As IGameVisualModel, view As IGameView, Optional LayerIndex As Integer = 0)
         model.Scene = Me
         model.Presenter = view
-        If GameLayers.Count = 0 Then GameLayers.Add(New Layer)
+        If GameLayers.Count = 0 Then GameLayers.Add(New Layer With {.Scene = Me})
         GameVisuals.Add(model)
         GameLayers(LayerIndex).GameVisuals.Add(model)
     End Sub
@@ -24,7 +24,6 @@ Public MustInherit Class SceneBase
         ImageManager = resldr
     End Function
     Public Overridable Sub OnDraw(drawingSession As CanvasDrawingSession) Implements IScene.OnDraw
-        drawingSession.Clear(Colors.Black)
         For Each SubLayer In GameLayers
             SubLayer.OnDraw(drawingSession)
         Next

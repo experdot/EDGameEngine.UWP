@@ -15,6 +15,6 @@ Public Class RectangleView
         End Using
     End Sub
     Public Sub DrawRectangle(DS As CanvasDrawingSession)
-        DS.FillRectangle(Target.Rect, Colors.White)
+        DS.FillRectangle(Target.Rect, Colors.Black)
     End Sub
 End Class

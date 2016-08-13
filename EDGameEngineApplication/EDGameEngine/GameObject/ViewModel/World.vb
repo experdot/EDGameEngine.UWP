@@ -12,16 +12,16 @@ Public MustInherit Class World
     Protected MyScene As Scene
     Public Async Function LoadAsync(ResourceCreator As ICanvasResourceCreator) As Task
         Await MyScene.LoadAsync(ResourceCreator)
+        CreateObject() '加载资源后创建物体
     End Function
     Public Sub New(ActualWidth#, ActualHeight#)
         OnSizeChanged(ActualWidth, ActualHeight)
         MyScene = New Scene(New Size(ActualWidth, ActualHeight))
-        CreateObject()
     End Sub
     Public MustOverride Sub CreateObject()
     Public Sub Draw(sender As CanvasAnimatedControl, args As CanvasAnimatedDrawEventArgs)
-        MyScene.OnDraw(args.DrawingSession)
         MyScene.Update()
+        MyScene.OnDraw(args.DrawingSession)
     End Sub
     Public Sub OnMouseMove(mX As Integer, mY As Integer)
         MouseX = mX

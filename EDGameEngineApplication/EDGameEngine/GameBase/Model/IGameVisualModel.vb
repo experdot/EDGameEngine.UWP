@@ -15,7 +15,11 @@ Public Interface IGameVisualModel
     ''' <returns></returns>
     Property Presenter As GameView
     ''' <summary>
-    ''' 更新物体状态
+    ''' 初始化模型
+    ''' </summary>
+    Sub Start()
+    ''' <summary>
+    ''' 更新模型
     ''' </summary>
     Sub Update()
 End Interface

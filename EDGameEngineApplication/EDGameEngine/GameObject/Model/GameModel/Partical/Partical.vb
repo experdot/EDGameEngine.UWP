@@ -38,7 +38,7 @@ Public Class Partical
     ''' </summary>
     Public Sub Move()
         Velocity += Acceleration '更新速度
-        Velocity.LimitMag(10) '粒子限速
+        Velocity.LimitMag(5) '粒子限速
         Location += Velocity '更新位置
         Acceleration = Vector2.Zero
     End Sub

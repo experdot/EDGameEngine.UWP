@@ -1,7 +1,4 @@
-﻿Imports EDGameEngine
-Imports Microsoft.Graphics.Canvas
-Imports Windows.UI
-''' <summary>
+﻿''' <summary>
 ''' 容纳多个可视化对象的空间
 ''' </summary>
 Public Class Scene

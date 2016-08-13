@@ -10,17 +10,18 @@ Public Class Plant
         Tree.RealLoc = loc
         CreateTree(Tree, Rank)
     End Sub
+    Public Overrides Sub Start()
+
+    End Sub
     Public Overrides Sub Update()
         Transform.Center = Tree.RealLoc
         Transform.Scale = New Vector2(0.95 + Math.Sin(Ts2) * 0.05, 1)
-        Ts2 += 0.05
-        If Ts2 > Math.PI * 2 Then Ts2 = 0
+        Ts2 = (Ts2 + 0.04) Mod (Math.PI * 2)
 
         Tree.RealLoc = New Vector2(Scene.Width / 2, Scene.Height * 0.8)
-        TempSingle += 0.05
-        If TempSingle > Math.PI * 2 Then TempSingle = 0
+        TempSingle = (TempSingle + 0.05) Mod (Math.PI * 2)
         GrowUp(Tree, 0.01)
-        WaveTree(Tree, Math.Sin(TempSingle) / 1000)
+        'WaveTree(Tree, Math.Sin(TempSingle) / 1000)
     End Sub
     ''' <summary>
     ''' 创建树

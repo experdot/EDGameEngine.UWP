@@ -12,6 +12,8 @@ Public Class ImageResourceManager
         payload.Add(ImageResourceID.YellowFlower1, Await CanvasBitmap.LoadAsync(ResourceCreator, "Image/Flower_Yellow.png"))
         payload.Add(ImageResourceID.SmokePartial1, Await CanvasBitmap.LoadAsync(ResourceCreator, "Image/smoke.dds"))
         payload.Add(ImageResourceID.ExplosionPartial1, Await CanvasBitmap.LoadAsync(ResourceCreator, "Image/explosion.dds"))
-        payload.Add(ImageResourceID.back1, Await CanvasBitmap.LoadAsync(ResourceCreator, "Image/back.png"))
+        payload.Add(ImageResourceID.Back1, Await CanvasBitmap.LoadAsync(ResourceCreator, "Image/back.png"))
+        payload.Add(ImageResourceID.Water1, Await CanvasBitmap.LoadAsync(ResourceCreator, "Image/Water.png"))
+        payload.Add(ImageResourceID.Scenery1, Await CanvasBitmap.LoadAsync(ResourceCreator, "Image/Scenery1.png"))
     End Function
 End Class

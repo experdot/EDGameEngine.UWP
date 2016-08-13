@@ -42,7 +42,7 @@ Public Class PlantView
         Dim branchWidth = Target.Tree.Rank * 15 * Math.Pow(Tw(SubNode.Rank), 9 - SubNode.Rank) * SubNode.Percent
         Dim BranchHeight As Single = loc.Length * SubNode.Percent
         DS.Transform = Matrix3x2.CreateRotation(Math.Atan2(loc.Y, loc.X) - Math.PI / 2 + Math.PI * 2 * SubNode.DiePercent * 0, tempV)
-        DS.DrawImage(DirectCast(Target.Scene, Scene).ImageManager.GetResource(ImageResourceID.TreeBranch2), New Rect(tempV.X, tempV.Y, branchWidth, BranchHeight), New Rect(0, 0, 100, 300), 0.9 + (0.1 / Target.Tree.Rank) * SubNode.Rank)
+        DS.DrawImage(DirectCast(Target.Scene, Scene).ImageManager.GetResource(ImageResourceID.TreeBranch1), New Rect(tempV.X, tempV.Y, branchWidth, BranchHeight), New Rect(0, 0, 100, 300), 0.9 + (0.1 / Target.Tree.Rank) * SubNode.Rank)
         DS.Transform = Matrix3x2.CreateRotation(0)
     End Sub
 
