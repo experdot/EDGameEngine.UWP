@@ -66,6 +66,11 @@ Public NotInheritable Class MainPage
             StatusPanel.Visibility = Visibility.Collapsed
         End If
     End Sub
+
+    Private Sub MainPage_SizeChanged(sender As Object, e As SizeChangedEventArgs) Handles Me.SizeChanged
+        SampleTitle.Text = "Sample " & Grid1.RenderSize.ToString
+    End Sub
+
     Public Enum NotifyType
         StatusMessage
         ErrorMessage

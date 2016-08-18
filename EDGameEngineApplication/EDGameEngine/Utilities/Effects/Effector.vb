@@ -42,7 +42,7 @@ Public Class Effector
     ''' </summary>
     ''' <param name="source"></param>
     ''' <returns></returns>
-    Public Function Ghost(source As IGraphicsEffectSource, DrawingSession As CanvasDrawingSession, pos As Vector2, SrcRect As Rect) As ICanvasImage
+    Public Function Ghost(source As IGraphicsEffectSource, DrawingSession As CanvasDrawingSession, pos As Vector2, SrcRect As Rect, Optional opacity As Single = 0.9) As ICanvasImage
         Static Cache As IGraphicsEffectSource
         Static last As Vector2 = pos
         Static offset As Vector2
@@ -53,7 +53,7 @@ Public Class Effector
             Dim sizepx = cac.SizeInPixels
             Using ds = cac.CreateDrawingSession
                 'ds.Clear(Windows.UI.Colors.Transparent)
-                ds.DrawImage(Cache, -offset, SrcRect, 0.9)
+                ds.DrawImage(Cache, -offset, SrcRect, opacity)
                 ds.DrawImage(source)
             End Using
             Cache = CanvasBitmap.CreateFromColors(DrawingSession, cac.GetPixelColors, sizepx.Width, sizepx.Height)

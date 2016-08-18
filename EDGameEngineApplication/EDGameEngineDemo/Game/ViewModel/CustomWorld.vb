@@ -26,7 +26,10 @@ Public Class CustomWorld
         'Dim tempModel2 As New Plant(New Vector2(MyScene.Width / 2, MyScene.Height * 0.8))
         'MyScene.AddGameVisual(tempModel2, New PlantView(tempModel2))
 
-        Dim tempModel3 As New Ripple() With {.Image = MyScene.ImageManager.GetResource(ImageResourceID.Scenery1)}
-        MyScene.AddGameVisual(tempModel3, New RippleView(tempModel3))
+        'Dim tempModel3 As New Ripple() With {.Image = MyScene.ImageManager.GetResource(ImageResourceID.Scenery1)}
+        'MyScene.AddGameVisual(tempModel3, New RippleView(tempModel3))
+
+        Dim tempModel4 As New AutoDrawModel() With {.Image = MyScene.ImageManager.GetResource(ImageResourceID.Scenery1)}
+        MyScene.AddGameVisual(tempModel4, New AutoDrawView(tempModel4))
     End Sub
 End Class

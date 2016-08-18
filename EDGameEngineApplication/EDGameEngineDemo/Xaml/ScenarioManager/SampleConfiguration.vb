@@ -14,7 +14,7 @@
             .ClassType = GetType(Scenario1_Start)
         },
         New Scenario() With {
-            .Title = "Geometric",
+            .Title = "Animation",
             .ClassType = GetType(Scenario2_Geometric)
         }
     }
