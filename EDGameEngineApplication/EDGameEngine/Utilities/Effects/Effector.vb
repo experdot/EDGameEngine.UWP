@@ -61,5 +61,4 @@ Public Class Effector
         End Using
     End Function
 
-
 End Class

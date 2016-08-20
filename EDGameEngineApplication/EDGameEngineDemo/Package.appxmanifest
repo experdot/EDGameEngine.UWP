@@ -3,7 +3,7 @@
   <Identity Name="d0ed234c-cb13-4728-913e-296220a41158" Publisher="CN=lenovo" Version="1.0.0.0" />
   <mp:PhoneIdentity PhoneProductId="d0ed234c-cb13-4728-913e-296220a41158" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>UWPTemplate</DisplayName>
+    <DisplayName>EDGameEngineDemo</DisplayName>
     <PublisherDisplayName>lenovo</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>

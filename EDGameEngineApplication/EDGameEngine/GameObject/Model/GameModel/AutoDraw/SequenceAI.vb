@@ -11,7 +11,7 @@ Public Class SequenceAI
     ''' <summary>
     ''' 扫描方式
     ''' </summary>
-    Public Property ScanMode As ScanMode
+    Public Property ScanMode As ScanMode = ScanMode.Rect
     Dim xArray() As Integer = {-1, 0, 1, 1, 1, 0, -1, -1}
     Dim yArray() As Integer = {-1, -1, -1, 0, 1, 1, 1, 0}
     Dim NewStart As Boolean
@@ -21,6 +21,9 @@ Public Class SequenceAI
     Public Sub New(BolArr(,) As Integer)
         Sequences = New List(Of PointSequence)
         CalculateSequence(BolArr)
+        For Each SubItem In Sequences
+            SubItem.CalcSize()
+        Next
     End Sub
     ''' <summary>
     ''' 新增一个序列
@@ -38,7 +41,7 @@ Public Class SequenceAI
     ''' 计算序列
     ''' </summary>
     Private Sub CalculateSequence(BolArr(,) As Integer)
-        If ScanMode = 0 Then
+        If ScanMode = ScanMode.Rect Then
             ScanRect(BolArr)
         Else
             ScanCircle(BolArr)
