@@ -1,4 +1,5 @@
 ﻿Imports Microsoft.Graphics.Canvas
+Imports Windows.Graphics.Effects
 ''' <summary>
 ''' 表示某种类型模型的视图
 ''' </summary>
@@ -14,9 +15,11 @@ Public MustInherit Class TypedGameView(Of T As IGameVisualModel)
             Using Dl = cmdList.CreateDrawingSession
                 OnDraw(Dl)
             End Using
-            Using es = Effector.Transform2D(cmdList, Target.Transform)
-                DrawingSession.DrawImage(es)
-            End Using
+            Dim eff As IGraphicsEffectSource = cmdList
+            For Each SubEffector In Target.Effectors
+                eff = SubEffector.Effect(eff, DrawingSession)
+            Next
+            DrawingSession.DrawImage(TransformEffector.EffectStatic(eff, DrawingSession, Target.Transform))
         End Using
     End Sub
 End Class

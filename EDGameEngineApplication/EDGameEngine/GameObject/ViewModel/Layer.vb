@@ -12,9 +12,7 @@ Public Class Layer
                     SubGameVisual.Presenter.BeginDraw(dl)
                 Next
             End Using
-            Using trans = Effector.Transform2D(cmdList, Transform)
-                drawingSession.DrawImage(trans)
+            drawingSession.DrawImage(cmdList)
             End Using
-        End Using
     End Sub
 End Class

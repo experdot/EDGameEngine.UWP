@@ -8,14 +8,8 @@ Public Class RippleView
     Public Sub New(Target As Ripple)
         MyBase.New(Target)
     End Sub
-    Public Overrides Sub OnDraw(DrawingSession As CanvasDrawingSession)
-        Static effector As New Effector()
+    Public Overrides Sub OnDraw(drawingSession As CanvasDrawingSession)
         Static SrcData = Target.Image.GetPixelColors
-        Using cmdList = New CanvasCommandList(DrawingSession)
-            Using Dl = cmdList.CreateDrawingSession
-                Dl.DrawImage(BitmapPixelHelper.GetWaveImage(Dl, Target.Image.GetBounds(Dl), SrcData, Target.Buffer1, Target.Buffer2))
-            End Using
-            DrawingSession.DrawImage(effector.Stream(cmdList))
-        End Using
+        drawingSession.DrawImage(BitmapPixelHelper.GetWaveImage(drawingSession, Target.Image.GetBounds(drawingSession), SrcData, Target.Buffer1, Target.Buffer2))
     End Sub
 End Class

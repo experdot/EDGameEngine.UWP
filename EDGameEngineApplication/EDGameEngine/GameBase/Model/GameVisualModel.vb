@@ -8,6 +8,7 @@ Public MustInherit Class GameVisualModel
     Implements IGameVisualModel
     Public Overridable Property Appearance As Appearance = Appearance.Normal Implements IObjectStatus.Appearance
     Public Overridable Property Transform As Transform = Transform.Normal Implements IObjectStatus.Transform
+    Public Overridable Property Effectors As New List(Of IEffector) Implements IGameVisualModel.Effectors
     Public Overridable Property Scene As IScene Implements IGameVisualModel.Scene
         Set(value As IScene)
             m_Scene = value

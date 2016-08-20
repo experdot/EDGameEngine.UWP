@@ -15,6 +15,11 @@ Public Interface IGameVisualModel
     ''' <returns></returns>
     Property Presenter As GameView
     ''' <summary>
+    ''' 效果器集合
+    ''' </summary>
+    ''' <returns></returns>
+    Property Effectors As List(Of IEffector)
+    ''' <summary>
     ''' 初始化模型
     ''' </summary>
     Sub Start()

@@ -166,7 +166,11 @@
     </Compile>
     <Compile Include="Utilities\Bitmap\BitmapCacheHelper.vb" />
     <Compile Include="Utilities\Bitmap\BitmapPixelHelper.vb" />
-    <Compile Include="Utilities\Effects\Effector.vb" />
+    <Compile Include="Utilities\Effects\Base\EffectorBase.vb" />
+    <Compile Include="Utilities\Effects\Base\IEffector.vb" />
+    <Compile Include="Utilities\Effects\GhostEffector.vb" />
+    <Compile Include="Utilities\Effects\StreamEffector.vb" />
+    <Compile Include="Utilities\Effects\TransformEffector.vb" />
     <Compile Include="Utilities\Mathmatical\PhysicUnit.vb" />
     <Compile Include="Utilities\Properties\Appearance.vb" />
     <Compile Include="Utilities\Properties\Transform.vb" />

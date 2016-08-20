@@ -8,7 +8,6 @@ Public Class AutoDrawView
         MyBase.New(Target)
     End Sub
     Public Overrides Sub OnDraw(DrawingSession As CanvasDrawingSession)
-        Static effector As New Effector
         Static ColorArr() As Color = Target.Image.GetPixelColors
         Static col As Color
         Using cmdList = New CanvasCommandList(DrawingSession)
@@ -24,12 +23,12 @@ Public Class AutoDrawView
                     Next
                 End If
             End Using
-            DrawingSession.DrawImage(effector.Ghost(cmdList, DrawingSession, Vector2.Zero, Target.Image.Bounds, 1))
+            DrawingSession.DrawImage(cmdList)
 
-            Using shadow = New Effects.ShadowEffect With {.Source = cmdList}
-                Dim bounds = shadow.GetBounds(DrawingSession)
-                DrawingSession.DrawImage(shadow, bounds, bounds, 0.6)
-            End Using
+            'Using shadow = New Effects.ShadowEffect With {.Source = cmdList}
+            '    Dim bounds = shadow.GetBounds(DrawingSession)
+            '    DrawingSession.DrawImage(shadow, bounds, bounds, 0.6)
+            'End Using
         End Using
     End Sub
 End Class
