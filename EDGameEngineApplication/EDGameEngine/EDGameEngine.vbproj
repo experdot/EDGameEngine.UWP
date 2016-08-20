@@ -139,7 +139,6 @@
     <Compile Include="GameObject\Model\GameModel\AutoDraw\SequenceAI.vb" />
     <Compile Include="GameObject\Model\GameModel\Basic\VisualRectangle.vb" />
     <Compile Include="GameObject\Model\GameModel\Partical\ParticalFollow.vb" />
-    <Compile Include="GameObject\Model\GameModel\Water\Ripple.vb" />
     <Compile Include="GameObject\View\GameView\AutoDrawView.vb" />
     <Compile Include="GameObject\View\GameView\Basic\LineView.vb" />
     <Compile Include="GameObject\Model\GameModel\Basic\VisualLine.vb" />
@@ -156,7 +155,6 @@
     <Compile Include="GameObject\View\GameView\Basic\RectangleView.vb" />
     <Compile Include="GameObject\View\GameView\ParticalView.vb" />
     <Compile Include="GameObject\View\GameView\PlantView.vb" />
-    <Compile Include="GameObject\View\GameView\RippleView.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="UserControl\CanvasAnimatedContainer.xaml.vb">
       <DependentUpon>CanvasAnimatedContainer.xaml</DependentUpon>
@@ -166,11 +164,13 @@
     </Compile>
     <Compile Include="Utilities\Bitmap\BitmapCacheHelper.vb" />
     <Compile Include="Utilities\Bitmap\BitmapPixelHelper.vb" />
-    <Compile Include="Utilities\Effects\Base\EffectorBase.vb" />
-    <Compile Include="Utilities\Effects\Base\IEffector.vb" />
-    <Compile Include="Utilities\Effects\GhostEffector.vb" />
-    <Compile Include="Utilities\Effects\StreamEffector.vb" />
-    <Compile Include="Utilities\Effects\TransformEffector.vb" />
+    <Compile Include="Utilities\Effector\Base\EffectorBase.vb" />
+    <Compile Include="Utilities\Effector\Base\IEffector.vb" />
+    <Compile Include="Utilities\Effector\GhostEffector.vb" />
+    <Compile Include="Utilities\Effector\RippleEffector.vb" />
+    <Compile Include="Utilities\Effector\StreamEffector.vb" />
+    <Compile Include="Utilities\Effector\ThresholdEffector.vb" />
+    <Compile Include="Utilities\Effector\TransformEffector.vb" />
     <Compile Include="Utilities\Mathmatical\PhysicUnit.vb" />
     <Compile Include="Utilities\Properties\Appearance.vb" />
     <Compile Include="Utilities\Properties\Transform.vb" />

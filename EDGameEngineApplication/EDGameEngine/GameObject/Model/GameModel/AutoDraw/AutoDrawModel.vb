@@ -38,8 +38,7 @@ Public Class AutoDrawModel
             SeqAI(i) = New SequenceAI(BitmapPixelHelper.GetImageBolLimit(Image, i * 32 - 16, i * 32 + 16))
         Next
         ImageSize = New Size(Image.Bounds.Width, Image.Bounds.Height)
-        Effectors.Add(New GhostEffector With {.SourceRect = Image.Bounds})
-        Effectors.Add(New StreamEffector)
+        Effectors.Add(New GhostEffector() With {.SourceRect = Image.Bounds})
     End Sub
     Public Overrides Sub Update()
         '图像位置居中

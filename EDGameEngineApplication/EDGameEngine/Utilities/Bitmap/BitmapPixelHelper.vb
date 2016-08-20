@@ -34,20 +34,6 @@ Public Class BitmapPixelHelper
         Return TempArr
     End Function
     ''' <summary>
-    ''' 返回指定图位图的二值化图像
-    ''' </summary>
-    ''' <param name="bmp"></param>
-    ''' <param name="split"></param>
-    ''' <returns></returns>
-    Public Shared Function GetThresholdImage(drawingSession As CanvasDrawingSession, bmp As CanvasBitmap, split As Single) As CanvasBitmap
-        Dim RawColors() As Color = bmp.GetPixelColors
-        Dim NowColors(RawColors.Count - 1) As Color
-        For i = 0 To RawColors.Count - 1
-            NowColors(i) = If(GetColorAverage(RawColors(i)) < split, Colors.Black, Color.FromArgb(0, 0, 0, 0))
-        Next
-        Return CanvasBitmap.CreateFromColors(drawingSession, NowColors, bmp.Bounds.Width, bmp.Bounds.Height)
-    End Function
-    ''' <summary>
     ''' 返回指定图位图的二值化原始像素图像
     ''' </summary>
     ''' <param name="bmp"></param>
@@ -62,32 +48,7 @@ Public Class BitmapPixelHelper
         Next
         Return CanvasBitmap.CreateFromColors(drawingSession, NowColors, bmp.Bounds.Width, bmp.Bounds.Height)
     End Function
-    ''' <summary>
-    ''' 返回指定位图的水纹图像
-    ''' </summary>
-    Public Shared Function GetWaveImage(drawingSession As CanvasDrawingSession, rect As Rect, SrcData() As Color, buffer1() As Integer, buffer2() As Integer) As CanvasBitmap
-        Dim DesData() As Color = SrcData.Clone
-        Dim xoff, yoff As Integer
-        Dim width As Integer = rect.Width
-        Dim height As Integer = rect.Height
-        Dim k As Integer = width
-        For i = 1 To height - 2
-            For j = 0 To width - 1
-                xoff = buffer1(k - 1) - buffer1(k + 1) 'x偏移
-                yoff = buffer1(k - width) - buffer1(k + width) 'y偏移
-                If (xoff = 0 AndAlso yoff = 0) OrElse i + yoff <= 0 OrElse i + yoff >= height OrElse j + xoff <= 0 OrElse j + xoff >= width Then
-                    k += 1 '边界判断
-                    Continue For
-                End If
-                Dim pos1, pos2 As Integer
-                pos1 = (i + yoff) * width + j + xoff
-                pos2 = i * width + j
-                DesData(pos2) = SrcData(pos1) '根据偏移量重新渲染界面
-                k += 1
-            Next
-        Next
-        Return CanvasBitmap.CreateFromColors(drawingSession, DesData, width, height)
-    End Function
+
     ''' <summary>
     ''' 返回指定位图的二值化数组
     ''' </summary>
@@ -111,7 +72,6 @@ Public Class BitmapPixelHelper
     Public Shared Function GetImageBolLimit(ByVal bmp As CanvasBitmap, Optional lower As Integer = 128, Optional upper As Integer = 129) As Integer(,)
         Dim ResultArr(bmp.Bounds.Width - 1, bmp.Bounds.Height - 1) As Integer
         Dim RawColors() As Color = bmp.GetPixelColors
-
         For i = 0 To bmp.Bounds.Width - 1
             For j = 0 To bmp.Bounds.Height - 1
                 Dim temp As Integer = GetColorAverage(RawColors(bmp.Bounds.Width * j + i))
