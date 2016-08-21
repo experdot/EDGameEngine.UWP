@@ -61,7 +61,7 @@ Public Class AutoDrawModel
                     Alpha = Alpha * 4
                     If Size < 1 Then Size = 1
                     If Alpha > 255 Then Alpha = 255
-                    LinePointsCount = CSng(LinePointsCount) / 1.2
+                    LinePointsCount = CSng(LinePointsCount) / 1.4
                 End If
             End While
 

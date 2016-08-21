@@ -21,7 +21,7 @@ Public Class Plant
         Tree.RealLoc = New Vector2(Scene.Width / 2, Scene.Height * 0.8)
         TempSingle = (TempSingle + 0.05) Mod (Math.PI * 2)
         GrowUp(Tree, 0.01)
-        'WaveTree(Tree, Math.Sin(TempSingle) / 1000)
+        WaveTree(Tree, Math.Sin(TempSingle) / 1000)
     End Sub
     ''' <summary>
     ''' 创建树

@@ -156,9 +156,6 @@
     <Compile Include="GameObject\View\GameView\ParticalView.vb" />
     <Compile Include="GameObject\View\GameView\PlantView.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
-    <Compile Include="UserControl\CanvasAnimatedContainer.xaml.vb">
-      <DependentUpon>CanvasAnimatedContainer.xaml</DependentUpon>
-    </Compile>
     <Compile Include="UserControl\UserGameBox.xaml.vb">
       <DependentUpon>UserGameBox.xaml</DependentUpon>
     </Compile>
@@ -209,10 +206,6 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Page Include="UserControl\CanvasAnimatedContainer.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="UserControl\UserGameBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

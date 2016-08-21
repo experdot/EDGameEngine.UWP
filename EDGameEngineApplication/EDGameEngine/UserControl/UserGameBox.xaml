@@ -5,11 +5,12 @@
     xmlns:local="using:EDGameEngine"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:cv="using:Microsoft.Graphics.Canvas.UI.Xaml"
     mc:Ignorable="d"
     d:DesignHeight="300"
     d:DesignWidth="400">
 
     <Grid>
-        <local:CanvasAnimatedContainer x:Name="AnimBox" Draw="Draw"/>
+        <cv:CanvasAnimatedControl x:Name="AnimBox"/>
     </Grid>
 </UserControl>

@@ -17,7 +17,6 @@ Public Class ParticalFollow
             SubEle.Move()
         Next
     End Sub
-
     Public Overrides Sub Start()
         Particals = New List(Of Partical)
         For i = 0 To Count - 1

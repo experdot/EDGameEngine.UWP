@@ -23,10 +23,10 @@ Public Class CustomWorld
         'Dim tempModel As New ParticalFollow()
         'MyScene.AddGameVisual(tempModel, New ParticalView(tempModel))
 
-        'Dim tempModel2 As New Plant(New Vector2(MyScene.Width / 2, MyScene.Height * 0.8))
-        'MyScene.AddGameVisual(tempModel2, New PlantView(tempModel2))
+        Dim tempModel2 As New Plant(New Vector2(MyScene.Width / 2, MyScene.Height * 0.8))
+        MyScene.AddGameVisual(tempModel2, New PlantView(tempModel2))
 
-        Dim tempModel3 As New AutoDrawModel() With {.Image = MyScene.ImageManager.GetResource(ImageResourceID.Scenery1)}
-        MyScene.AddGameVisual(tempModel3, New AutoDrawView(tempModel3))
+        'Dim tempModel3 As New AutoDrawModel() With {.Image = MyScene.ImageManager.GetResource(ImageResourceID.Scenery1)}
+        'MyScene.AddGameVisual(tempModel3, New AutoDrawView(tempModel3))
     End Sub
 End Class
