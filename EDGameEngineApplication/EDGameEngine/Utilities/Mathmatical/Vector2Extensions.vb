@@ -24,13 +24,10 @@ Public Module Vector2Extensions
         this.Y = y1
     End Sub
     <Extension>
-    Public Function RotateNew(ByVal this As Vector2, ByVal gAngle As Single) As Vector2
-        Dim R As New Vector2
+    Public Function RotateNew(ByRef this As Vector2, ByVal gAngle As Single) As Vector2
         Dim x1, y1 As Single
         x1 = this.X * Math.Cos(gAngle) - this.Y * Math.Sin(gAngle)
         y1 = this.Y * Math.Cos(gAngle) + this.X * Math.Sin(gAngle)
-        R.X = x1
-        R.Y = y1
-        Return R
+        Return New Vector2(x1, y1)
     End Function
 End Module

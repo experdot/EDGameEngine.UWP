@@ -133,6 +133,8 @@
     <Compile Include="GameBase\View\IGameView.vb" />
     <Compile Include="GameBase\View\TypedGameView.vb" />
     <Compile Include="GameBase\Resource\GameResourceManager.vb" />
+    <Compile Include="GameBase\Components\GameComponentBase.vb" />
+    <Compile Include="GameBase\Components\IGameComponent.vb" />
     <Compile Include="GameObject\Model\GameModel\AutoDraw\AutoDrawModel.vb" />
     <Compile Include="GameObject\Model\GameModel\AutoDraw\PointSequence.vb" />
     <Compile Include="GameObject\Model\GameModel\AutoDraw\ScanMode.vb" />
@@ -161,16 +163,17 @@
     </Compile>
     <Compile Include="Utilities\Bitmap\BitmapCacheHelper.vb" />
     <Compile Include="Utilities\Bitmap\BitmapPixelHelper.vb" />
-    <Compile Include="Utilities\Effector\Base\EffectorBase.vb" />
-    <Compile Include="Utilities\Effector\Base\IEffector.vb" />
-    <Compile Include="Utilities\Effector\GhostEffector.vb" />
-    <Compile Include="Utilities\Effector\RippleEffector.vb" />
-    <Compile Include="Utilities\Effector\StreamEffector.vb" />
-    <Compile Include="Utilities\Effector\ThresholdEffector.vb" />
-    <Compile Include="Utilities\Effector\TransformEffector.vb" />
+    <Compile Include="GameComponents\Effector\Base\EffectorBase.vb" />
+    <Compile Include="GameComponents\Effector\Base\IEffector.vb" />
+    <Compile Include="GameComponents\Effector\GhostEffector.vb" />
+    <Compile Include="GameComponents\Effector\LightEffector.vb" />
+    <Compile Include="GameComponents\Effector\RippleEffector.vb" />
+    <Compile Include="GameComponents\Effector\StreamEffector.vb" />
+    <Compile Include="GameComponents\Effector\ThresholdEffector.vb" />
+    <Compile Include="GameComponents\Effector\TransformEffector.vb" />
     <Compile Include="Utilities\Mathmatical\PhysicUnit.vb" />
-    <Compile Include="Utilities\Properties\Appearance.vb" />
-    <Compile Include="Utilities\Properties\Transform.vb" />
+    <Compile Include="GameComponents\Properties\Appearance.vb" />
+    <Compile Include="GameComponents\Properties\Transform.vb" />
     <Compile Include="Utilities\Mathmatical\Vector2Extensions.vb" />
     <EmbeddedResource Include="My Project\EDGameEngine.rd.xml" />
   </ItemGroup>
@@ -204,7 +207,11 @@
     <Import Include="Windows.UI.Xaml.Media.Imaging" />
     <Import Include="Windows.UI.Xaml.Navigation" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="GameComponents\Animation\" />
+    <Folder Include="GameComponents\Input\" />
+    <Folder Include="GameComponents\Script\" />
+  </ItemGroup>
   <ItemGroup>
     <Page Include="UserControl\UserGameBox.xaml">
       <SubType>Designer</SubType>
