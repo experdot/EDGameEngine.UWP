@@ -5,8 +5,8 @@ Imports Windows.Graphics.Effects
 ''' <summary>
 ''' 水流效果器
 ''' </summary>
-Public Class StreamEffector
-    Inherits EffectorBase
+Public Class StreamEffect
+    Inherits EffectBase
     Public Overrides Function Effect(source As IGraphicsEffectSource, DrawingSession As CanvasDrawingSession) As IGraphicsEffectSource
         Static ts As Single
         ts = (ts + 0.01) Mod (Math.PI * 2)

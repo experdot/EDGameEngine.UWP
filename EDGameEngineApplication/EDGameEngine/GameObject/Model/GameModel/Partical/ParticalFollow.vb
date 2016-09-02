@@ -3,7 +3,7 @@ Imports Windows.UI
 Public Class ParticalFollow
     Inherits ParticalsBase
     Dim Vectors() As Vector2 = {New Vector2(0, 1), New Vector2(0, -1), New Vector2(-1, 0), New Vector2(1, 0), New Vector2(0.7, 0.71), New Vector2(0.7, -0.7), New Vector2(-0.7, 0.71), New Vector2(-0.7, -0.7)}
-    Public Overrides Sub Update()
+    Public Overrides Sub Updateself()
         Dim CenterVec As New Vector2(Scene.Width / 2, Scene.Height / 2)
         Dim RectLength As Single = Math.Sqrt(Scene.Width * Scene.Width / 4 + Scene.Height * Scene.Height / 4)
         For Each SubEle In Particals
@@ -17,7 +17,7 @@ Public Class ParticalFollow
             SubEle.Move()
         Next
     End Sub
-    Public Overrides Sub Start()
+    Public Overrides Sub Startself()
         Particals = New List(Of Partical)
         For i = 0 To Count - 1
             Particals.Add(New Partical(New Vector2(Scene.Width / 2, Scene.Height / 2)))

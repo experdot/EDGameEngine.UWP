@@ -15,10 +15,9 @@ Public Interface IGameVisualModel
     ''' <returns></returns>
     Property Presenter As GameView
     ''' <summary>
-    ''' 效果器集合
+    ''' 组件管理对象
     ''' </summary>
-    ''' <returns></returns>
-    Property Effectors As List(Of IEffector)
+    Property GameComponents As GameComponents
     ''' <summary>
     ''' 初始化模型
     ''' </summary>

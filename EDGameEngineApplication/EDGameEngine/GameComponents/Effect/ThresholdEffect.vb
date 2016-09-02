@@ -4,8 +4,8 @@ Imports Windows.UI
 ''' <summary>
 ''' 二值化效果器
 ''' </summary>
-Public Class ThresholdEffector
-    Inherits EffectorBase
+Public Class ThresholdEffect
+    Inherits EffectBase
     Public Property Split As Integer = 128
     Public Overrides Function Effect(source As IGraphicsEffectSource, DrawingSession As CanvasDrawingSession) As IGraphicsEffectSource
         Using bmp As CanvasBitmap = BitmapCacheHelper.CacheEntireImage(DrawingSession, source)

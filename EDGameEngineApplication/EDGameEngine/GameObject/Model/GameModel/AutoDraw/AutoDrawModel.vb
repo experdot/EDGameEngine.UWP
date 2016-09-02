@@ -32,17 +32,17 @@ Public Class AutoDrawModel
     ''' 每帧绘制长度
     ''' </summary>
     Public Property LinePointsCount As Integer = 3200
-    Public Overrides Sub Start()
+    Public Overrides Sub Startself()
         ReDim SeqAI(8)
         For i = 0 To 8
             SeqAI(i) = New SequenceAI(BitmapPixelHelper.GetImageBolLimit(Image, i * 32 - 16, i * 32 + 16))
         Next
         ImageSize = New Size(Image.Bounds.Width, Image.Bounds.Height)
-        Effectors.Add(New GhostEffector() With {.SourceRect = Image.Bounds})
+        GameComponents.Effects.Add(New GhostEffect() With {.SourceRect = Image.Bounds})
     End Sub
-    Public Overrides Sub Update()
+    Public Overrides Sub Updateself()
         '图像位置居中
-        Transform.Position = New Vector2(Scene.Width / 2 - ImageSize.Width / 2, Scene.Height / 2 - ImageSize.Height / 2)
+        Transform.Translation = New Vector2(Scene.Width / 2 - ImageSize.Width / 2, Scene.Height / 2 - ImageSize.Height / 2)
         '更新绘制序列
         UpdateList()
     End Sub

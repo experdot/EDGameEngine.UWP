@@ -5,8 +5,8 @@ Imports Windows.UI
 ''' <summary>
 ''' 表示光照效果器
 ''' </summary>
-Public Class LightEffector
-    Inherits EffectorBase
+Public Class LightEffect
+    Inherits EffectBase
     Public Overrides Function Effect(source As IGraphicsEffectSource, DrawingSession As CanvasDrawingSession) As IGraphicsEffectSource
         Static ShadowColor As Color = Color.FromArgb(255, 128, 128, 128)
         Static LightColor As Color = Color.FromArgb(255, 255, 255, 255)
@@ -39,7 +39,7 @@ Public Class LightEffector
                     Else
                         If RawColors(y * w + x).A = 0 Then
                             If IsBlack Then
-                                NowColors(y * w + x) = Color.FromArgb(255 * length / ScanRadius, 0, 0, 0)
+                                NowColors(y * w + x) = Color.FromArgb(180 * length / ScanRadius + 50 * (1 - length / ScanRadius), 0, 0, 0)
                             Else
                                 NowColors(y * w + x) = Color.FromArgb(128 * length / ScanRadius, 0, 0, 0)
                             End If

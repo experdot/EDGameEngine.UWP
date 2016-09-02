@@ -5,8 +5,8 @@ Imports Windows.Graphics.Effects
 ''' <summary>
 ''' 线性变换效果器
 ''' </summary>
-Public Class TransformEffector
-    Inherits EffectorBase
+Public Class TransformEffect
+    Inherits EffectBase
     ''' <summary>
     ''' 获取或设置当前线性变换
     ''' </summary>
@@ -18,7 +18,7 @@ Public Class TransformEffector
         Dim trans = New Transform2DEffect With {.Source = source}
         trans.TransformMatrix = Matrix3x2.CreateScale(Transform.Scale, Transform.Center) *
                                 Matrix3x2.CreateRotation(Transform.Rotation, Transform.Center) *
-                                Matrix3x2.CreateTranslation(Transform.Position)
+                                Matrix3x2.CreateTranslation(Transform.Translation)
         Return trans
     End Function
 
@@ -26,7 +26,7 @@ Public Class TransformEffector
         Dim eff = New Transform2DEffect With {.Source = source}
         eff.TransformMatrix = Matrix3x2.CreateScale(trans.Scale, trans.Center) *
                                 Matrix3x2.CreateRotation(trans.Rotation, trans.Center) *
-                                Matrix3x2.CreateTranslation(trans.Position)
+                                Matrix3x2.CreateTranslation(trans.Translation)
         Return eff
     End Function
 End Class

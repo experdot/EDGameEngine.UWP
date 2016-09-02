@@ -15,11 +15,11 @@ Public MustInherit Class TypedGameView(Of T As IGameVisualModel)
             Using Dl = cmdList.CreateDrawingSession
                 OnDraw(Dl)
             End Using
-            Dim eff As IGraphicsEffectSource = cmdList
-            For Each SubEffector In Target.Effectors
-                eff = SubEffector.Effect(eff, DrawingSession)
+            Dim effect As IGraphicsEffectSource = cmdList
+            For Each SubEffect In Target.GameComponents.Effects.Items
+                effect = SubEffect.Effect(effect, DrawingSession)
             Next
-            DrawingSession.DrawImage(TransformEffector.EffectStatic(eff, DrawingSession, Target.Transform))
+            DrawingSession.DrawImage(TransformEffect.EffectStatic(effect, DrawingSession, Target.Transform))
         End Using
     End Sub
 End Class

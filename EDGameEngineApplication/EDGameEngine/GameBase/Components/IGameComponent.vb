@@ -3,6 +3,14 @@
 ''' </summary>
 Public Interface IGameComponent
     ''' <summary>
+    ''' 目标模型
+    ''' </summary>
+    Property Target As IGameVisualModel
+    ''' <summary>
+    ''' 类型标记
+    ''' </summary>
+    Property CompnentType As ComponentType
+    ''' <summary>
     ''' 开始
     ''' </summary>
     Sub Start()

@@ -4,8 +4,8 @@ Imports Windows.UI
 ''' <summary>
 ''' 水波效果器
 ''' </summary>
-Public Class RippleEffector
-    Inherits EffectorBase
+Public Class RippleEffect
+    Inherits EffectBase
     Public Property Buffer1 As Integer()
     Public Property Buffer2 As Integer()
     Public Property Width As Integer

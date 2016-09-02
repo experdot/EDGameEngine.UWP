@@ -1,11 +1,16 @@
 ﻿Imports System.Numerics
+''' <summary>
+''' 基础几何图元，线段
+''' </summary>
 Public Class VisualLine
     Inherits GameVisualModel
     Public Property Points As New List(Of Vector2)
-    Public Overrides Sub Start()
+
+    Public Overrides Sub StartSelf()
+
     End Sub
 
-    Public Overrides Sub Update()
-        Transform.Position = New Vector2(Scene.Width / 2, Scene.Height / 2)
+    Public Overrides Sub UpdateSelf()
+
     End Sub
 End Class

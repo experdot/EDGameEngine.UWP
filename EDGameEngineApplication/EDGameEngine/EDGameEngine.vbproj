@@ -122,6 +122,9 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GameBase\Components\ComponentType.vb" />
+    <Compile Include="GameBase\Components\Manager\TypedComponent.vb" />
+    <Compile Include="GameBase\Components\Manager\GameComponents.vb" />
     <Compile Include="GameBase\Model\GameVisualModel.vb" />
     <Compile Include="GameBase\Model\IGameVisualModel.vb" />
     <Compile Include="GameBase\Model\IObjectStatus.vb" />
@@ -135,6 +138,9 @@
     <Compile Include="GameBase\Resource\GameResourceManager.vb" />
     <Compile Include="GameBase\Components\GameComponentBase.vb" />
     <Compile Include="GameBase\Components\IGameComponent.vb" />
+    <Compile Include="GameComponents\Behavior\Base\BehaviorBase.vb" />
+    <Compile Include="GameComponents\Behavior\Base\IBehavior.vb" />
+    <Compile Include="GameComponents\Behavior\TransformScript.vb" />
     <Compile Include="GameObject\Model\GameModel\AutoDraw\AutoDrawModel.vb" />
     <Compile Include="GameObject\Model\GameModel\AutoDraw\PointSequence.vb" />
     <Compile Include="GameObject\Model\GameModel\AutoDraw\ScanMode.vb" />
@@ -163,14 +169,14 @@
     </Compile>
     <Compile Include="Utilities\Bitmap\BitmapCacheHelper.vb" />
     <Compile Include="Utilities\Bitmap\BitmapPixelHelper.vb" />
-    <Compile Include="GameComponents\Effector\Base\EffectorBase.vb" />
-    <Compile Include="GameComponents\Effector\Base\IEffector.vb" />
-    <Compile Include="GameComponents\Effector\GhostEffector.vb" />
-    <Compile Include="GameComponents\Effector\LightEffector.vb" />
-    <Compile Include="GameComponents\Effector\RippleEffector.vb" />
-    <Compile Include="GameComponents\Effector\StreamEffector.vb" />
-    <Compile Include="GameComponents\Effector\ThresholdEffector.vb" />
-    <Compile Include="GameComponents\Effector\TransformEffector.vb" />
+    <Compile Include="GameComponents\Effect\Base\EffectBase.vb" />
+    <Compile Include="GameComponents\Effect\Base\IEffect.vb" />
+    <Compile Include="GameComponents\Effect\GhostEffect.vb" />
+    <Compile Include="GameComponents\Effect\LightEffect.vb" />
+    <Compile Include="GameComponents\Effect\RippleEffect.vb" />
+    <Compile Include="GameComponents\Effect\StreamEffect.vb" />
+    <Compile Include="GameComponents\Effect\ThresholdEffect.vb" />
+    <Compile Include="GameComponents\Effect\TransformEffect.vb" />
     <Compile Include="Utilities\Mathmatical\PhysicUnit.vb" />
     <Compile Include="GameComponents\Properties\Appearance.vb" />
     <Compile Include="GameComponents\Properties\Transform.vb" />
@@ -210,7 +216,6 @@
   <ItemGroup>
     <Folder Include="GameComponents\Animation\" />
     <Folder Include="GameComponents\Input\" />
-    <Folder Include="GameComponents\Script\" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="UserControl\UserGameBox.xaml">

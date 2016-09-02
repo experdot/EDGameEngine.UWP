@@ -37,11 +37,11 @@ Public NotInheritable Class UserGameBox
         End Try
     End Sub
     Private Sub AnimBox_Draw(sender As CanvasAnimatedControl, args As CanvasAnimatedDrawEventArgs) Handles AnimBox.Draw
-        Try
-            TreeDraw(sender, args)
-        Catch ex As Exception
-            Debug.WriteLine("绘制时发生错误:" & ex.Message)
-        End Try
+        'Try
+        TreeDraw(sender, args)
+        'Catch ex As Exception
+        '    Debug.WriteLine("绘制时发生错误:" & ex.Message)
+        'End Try
     End Sub
     Private Sub AnimBox_PointerMoved(sender As Object, e As PointerRoutedEventArgs) Handles AnimBox.PointerMoved
         Dim p = e.GetCurrentPoint(AnimBox).Position

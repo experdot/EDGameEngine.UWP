@@ -6,10 +6,10 @@ Public Class Transform
         End Get
     End Property
     ''' <summary>
-    ''' 位置
+    ''' 位移
     ''' </summary>
     ''' <returns></returns>
-    Public Property Position As Vector2
+    Public Property Translation As Vector2
     ''' <summary>
     ''' 缩放
     ''' </summary>
@@ -26,7 +26,7 @@ Public Class Transform
     ''' <returns></returns>
     Public Property Center As Vector2
     Public Sub New(position As Vector2, scale As Vector2, rotation As Single, center As Vector2)
-        Me.Position = position
+        Me.Translation = position
         Me.Scale = scale
         Me.Rotation = rotation
         Me.Center = center

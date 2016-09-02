@@ -4,8 +4,8 @@ Imports Windows.Graphics.Effects
 ''' <summary>
 ''' 残影效果器
 ''' </summary>
-Public Class GhostEffector
-    Inherits EffectorBase
+Public Class GhostEffect
+    Inherits EffectBase
     ''' <summary>
     ''' 获取或设置当前坐标
     ''' </summary>
