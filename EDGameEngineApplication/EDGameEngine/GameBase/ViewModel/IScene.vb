@@ -18,6 +18,10 @@ Public Interface IScene
     ''' <returns></returns>
     Function LoadAsync(resourceCreator As ICanvasResourceCreator) As Task
     ''' <summary>
+    ''' 创建场景物体
+    ''' </summary>
+    Sub CreateObject()
+    ''' <summary>
     ''' 场景绘制
     ''' </summary>
     ''' <param name="drawingSession"></param>

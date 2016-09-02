@@ -9,21 +9,20 @@ Public MustInherit Class World
     Implements IDisposable
     Public Width, Height As Integer
     Public Shared MouseX, MouseY As Integer
-    Protected MyScene As Scene
+    Public CurrentScene As IScene
     Public Sub New(ActualWidth#, ActualHeight#)
         OnSizeChanged(ActualWidth, ActualHeight)
-        MyScene = New Scene(New Size(ActualWidth, ActualHeight))
+        CreateScene()
     End Sub
-    Public MustOverride Sub CreateObject()
+    Public MustOverride Sub CreateScene()
     Public Async Function LoadAsync(ResourceCreator As ICanvasResourceCreator) As Task
-        Await MyScene.LoadAsync(ResourceCreator)
-        CreateObject() '加载资源后创建游戏对象
+        Await CurrentScene.LoadAsync(ResourceCreator)
     End Function
     Public Sub Update(sender As ICanvasAnimatedControl, args As CanvasAnimatedUpdateEventArgs)
-        MyScene.Update()
+        CurrentScene.Update()
     End Sub
     Public Sub Draw(sender As CanvasAnimatedControl, args As CanvasAnimatedDrawEventArgs)
-        MyScene.OnDraw(args.DrawingSession)
+        CurrentScene.OnDraw(args.DrawingSession)
     End Sub
     Public Sub OnMouseMove(mX As Integer, mY As Integer)
         MouseX = mX
@@ -32,12 +31,11 @@ Public MustInherit Class World
     Public Sub OnSizeChanged(sX As Integer, sY As Integer)
         Width = sX
         Height = sY
-        If MyScene IsNot Nothing Then
-            MyScene.Width = sX
-            MyScene.Height = sY
+        If CurrentScene IsNot Nothing Then
+            CurrentScene.Width = sX
+            CurrentScene.Height = sY
         End If
     End Sub
-
 #Region "IDisposable Support"
     Private disposedValue As Boolean ' 要检测冗余调用
 
@@ -46,7 +44,7 @@ Public MustInherit Class World
         If Not disposedValue Then
             If disposing Then
                 ' TODO: 释放托管状态(托管对象)。
-                MyScene?.Dispose()
+                CurrentScene?.Dispose()
             End If
 
             ' TODO: 释放未托管资源(未托管对象)并在以下内容中替代 Finalize()。

@@ -4,8 +4,12 @@ Imports Microsoft.Graphics.Canvas
 ''' 图层
 ''' </summary>
 Public Class Layer
-    Inherits LayerBase
-    Public Overrides Sub OnDraw(drawingSession As CanvasDrawingSession)
+    Implements ILayer
+    Public Overridable Property Appearance As Appearance = Appearance.Normal Implements IObjectStatus.Appearance
+    Public Overridable Property Transform As Transform = Transform.Normal Implements IObjectStatus.Transform
+    Public Overridable Property GameVisuals As New List(Of IGameVisualModel) Implements ILayer.GameVisuals
+    Public Overridable Property Scene As Scene
+    Public Sub OnDraw(drawingSession As CanvasDrawingSession) Implements ILayer.OnDraw
         Using cmdList = New CanvasCommandList(drawingSession)
             Using dl = cmdList.CreateDrawingSession
                 For Each SubGameVisual In GameVisuals
@@ -13,6 +17,6 @@ Public Class Layer
                 Next
             End Using
             drawingSession.DrawImage(cmdList)
-            End Using
+        End Using
     End Sub
 End Class

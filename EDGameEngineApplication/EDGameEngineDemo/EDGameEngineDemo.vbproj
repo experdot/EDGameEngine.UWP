@@ -103,7 +103,9 @@
     <Compile Include="App.xaml.vb">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Game\ViewModel\CustomWorld.vb" />
+    <Compile Include="Game\Scene\Scene1.vb" />
+    <Compile Include="Game\Scene\Scene2.vb" />
+    <Compile Include="Game\World\CustomWorld.vb" />
     <Compile Include="Xaml\ScenarioManager\SampleConfiguration.vb" />
     <Compile Include="Xaml\ScenarioManager\ScenarioBindingConverter.vb" />
     <Compile Include="Xaml\MainPage.xaml.vb">
@@ -200,6 +202,7 @@
       <Name>EDGameEngine</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
