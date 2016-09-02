@@ -1,7 +1,8 @@
 ﻿Imports System.Numerics
-Imports EDGameEngine
 Imports Microsoft.Graphics.Canvas
+Imports Microsoft.Graphics.Canvas.Text
 Imports Windows.UI
+
 Public MustInherit Class Scene
     Implements IScene
     Public Property ImageManager As ImageResourceManager
@@ -9,12 +10,30 @@ Public MustInherit Class Scene
     Public Property GameVisuals As New List(Of IGameVisualModel)
     Public Property Width As Single Implements IScene.Width
     Public Property Height As Single Implements IScene.Height
+    Public Property LoadState As Boolean
+    Dim TreeDraw As Action(Of CanvasDrawingSession)
     Public Sub New(WindowSize As Size)
         Width = WindowSize.Width
         Height = WindowSize.Height
-        CreateObject()
+        Load()
     End Sub
-    Public MustOverride Sub CreateObject() Implements IScene.CreateObject
+    Public Async Sub Load()
+        LoadState = False
+        TreeDraw = New Action(Of CanvasDrawingSession)(Sub(ds As CanvasDrawingSession)
+                                                           LoadingDraw(ds)
+                                                       End Sub)
+        While World.ResourceCreator Is Nothing
+            Await Task.Delay(10)
+        End While
+        Await LoadAsync(World.ResourceCreator)
+        Await Task.Run(New Action(Sub()
+                                      CreateObject()
+                                  End Sub))
+        LoadState = True
+        TreeDraw = New Action(Of CanvasDrawingSession)(Sub(ds As CanvasDrawingSession)
+                                                           LoadedDraw(ds)
+                                                       End Sub)
+    End Sub
     Public Sub AddGameVisual(model As IGameVisualModel, view As IGameView, Optional LayerIndex As Integer = 0)
         model.Scene = Me
         model.Presenter = view
@@ -27,16 +46,23 @@ Public MustInherit Class Scene
         Await resldr.LoadAsync()
         ImageManager = resldr
     End Function
-    Public Overridable Sub OnDraw(drawingSession As CanvasDrawingSession) Implements IScene.OnDraw
-        For Each SubLayer In GameLayers
-            SubLayer.OnDraw(drawingSession)
-        Next
+    Public Sub OnDraw(drawingSession As CanvasDrawingSession) Implements IScene.OnDraw
+        TreeDraw(drawingSession)
     End Sub
-    Public Overridable Sub Update() Implements IScene.Update
+    Public Sub Update() Implements IScene.Update
         For Each SubGameVisual In GameVisuals
             SubGameVisual.Update()
         Next
     End Sub
+    Public Overridable Sub LoadingDraw(drawingSession As CanvasDrawingSession)
+        drawingSession.DrawText("场景加载中，请稍后...", New Vector2(Width, Height) / 2, Colors.Black, TextFormat.Center)
+    End Sub
+    Public Overridable Sub LoadedDraw(drawingSession As CanvasDrawingSession)
+        For Each SubLayer In GameLayers
+            SubLayer.OnDraw(drawingSession)
+        Next
+    End Sub
+    Public MustOverride Sub CreateObject() Implements IScene.CreateObject
 #Region "IDisposable Support"
     Private disposedValue As Boolean ' 要检测冗余调用
     ' IDisposable

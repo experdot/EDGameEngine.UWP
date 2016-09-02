@@ -22,12 +22,9 @@ Public NotInheritable Class UserGameBox
     Dim TreeUpdate As Action(Of ICanvasAnimatedControl, CanvasAnimatedUpdateEventArgs)
 
     Private Sub AnimBox_CreateResources(sender As CanvasAnimatedControl, args As CanvasCreateResourcesEventArgs) Handles AnimBox.CreateResources
-        args.TrackAsyncAction((Async Function() As Task
-                                   Debug.WriteLine("加载图片资源")
-                                   Await World.LoadAsync(sender)
-                                   TreeDraw = AddressOf World.Draw
-                                   TreeUpdate = AddressOf World.Update
-                               End Function).Invoke.AsAsyncAction)
+        World.ResourceCreator = sender
+        TreeDraw = AddressOf World.Draw
+        TreeUpdate = AddressOf World.Update
     End Sub
     Private Sub AnimBox_Update(sender As ICanvasAnimatedControl, args As CanvasAnimatedUpdateEventArgs) Handles AnimBox.Update
         Try
@@ -37,11 +34,11 @@ Public NotInheritable Class UserGameBox
         End Try
     End Sub
     Private Sub AnimBox_Draw(sender As CanvasAnimatedControl, args As CanvasAnimatedDrawEventArgs) Handles AnimBox.Draw
-        'Try
-        TreeDraw(sender, args)
-        'Catch ex As Exception
-        '    Debug.WriteLine("绘制时发生错误:" & ex.Message)
-        'End Try
+        Try
+            TreeDraw(sender, args)
+        Catch ex As Exception
+            Debug.WriteLine("绘制时发生错误:" & ex.Message)
+        End Try
     End Sub
     Private Sub AnimBox_PointerMoved(sender As Object, e As PointerRoutedEventArgs) Handles AnimBox.PointerMoved
         Dim p = e.GetCurrentPoint(AnimBox).Position

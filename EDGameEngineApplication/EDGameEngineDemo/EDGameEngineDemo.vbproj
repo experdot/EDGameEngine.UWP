@@ -115,8 +115,8 @@
     <Compile Include="Xaml\Scenario1_Start.xaml.vb">
       <DependentUpon>Scenario1_Start.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Xaml\Scenario2_Geometric.xaml.vb">
-      <DependentUpon>Scenario2_Geometric.xaml</DependentUpon>
+    <Compile Include="Xaml\Scenario2_Animation.xaml.vb">
+      <DependentUpon>Scenario2_Animation.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -161,7 +161,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Xaml\Scenario2_Geometric.xaml">
+    <Page Include="Xaml\Scenario2_Animation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

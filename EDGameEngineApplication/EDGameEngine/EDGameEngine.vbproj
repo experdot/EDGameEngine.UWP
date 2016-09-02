@@ -179,6 +179,7 @@
     <Compile Include="GameComponents\Properties\Appearance.vb" />
     <Compile Include="GameComponents\Properties\Transform.vb" />
     <Compile Include="Utilities\Mathmatical\Vector2Extensions.vb" />
+    <Compile Include="Utilities\Text\TextFormat.vb" />
     <EmbeddedResource Include="My Project\EDGameEngine.rd.xml" />
   </ItemGroup>
   <ItemGroup>

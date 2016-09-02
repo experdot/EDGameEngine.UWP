@@ -7,17 +7,16 @@ Imports Windows.UI
 ''' </summary>
 Public MustInherit Class World
     Implements IDisposable
-    Public Width, Height As Integer
+
     Public Shared MouseX, MouseY As Integer
+    Public Shared ResourceCreator As ICanvasResourceCreator
+    Public Width, Height As Integer
     Public CurrentScene As IScene
     Public Sub New(ActualWidth#, ActualHeight#)
         OnSizeChanged(ActualWidth, ActualHeight)
         CreateScene()
     End Sub
     Public MustOverride Sub CreateScene()
-    Public Async Function LoadAsync(ResourceCreator As ICanvasResourceCreator) As Task
-        Await CurrentScene.LoadAsync(ResourceCreator)
-    End Function
     Public Sub Update(sender As ICanvasAnimatedControl, args As CanvasAnimatedUpdateEventArgs)
         CurrentScene.Update()
     End Sub
