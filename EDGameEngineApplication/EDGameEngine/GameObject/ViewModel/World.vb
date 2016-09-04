@@ -9,9 +9,10 @@ Public MustInherit Class World
     Implements IDisposable
 
     Public Shared MouseX, MouseY As Integer
-    Public Shared ResourceCreator As ICanvasResourceCreator
-    Public Width, Height As Integer
-    Public CurrentScene As IScene
+    Public Property ResourceCreator As ICanvasResourceCreator
+    Public Property Width As Integer
+    Public Property Height As Integer
+    Public Property CurrentScene As IScene
     Public Sub New(ActualWidth#, ActualHeight#)
         OnSizeChanged(ActualWidth, ActualHeight)
         CreateScene()

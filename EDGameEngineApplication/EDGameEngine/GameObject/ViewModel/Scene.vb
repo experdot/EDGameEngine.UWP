@@ -1,27 +1,32 @@
 ﻿Imports System.Numerics
+Imports EDGameEngine
 Imports Microsoft.Graphics.Canvas
 Imports Microsoft.Graphics.Canvas.Text
 Imports Windows.UI
 
 Public MustInherit Class Scene
     Implements IScene
-    Public Property ImageManager As ImageResourceManager
-    Public Property GameLayers As New List(Of ILayer)
-    Public Property GameVisuals As New List(Of IGameVisualModel)
+    Public Property ImageManager As ImageResourceManager Implements IScene.ImageManager
+    Public Property GameLayers As New List(Of ILayer) Implements IScene.GameLayers
+    Public Property GameVisuals As New List(Of IGameVisualModel) Implements IScene.GameVisuals
     Public Property Width As Single Implements IScene.Width
     Public Property Height As Single Implements IScene.Height
-    Public Property LoadState As Boolean
+    Public Property World As World Implements IScene.World
+
     Dim TreeDraw As Action(Of CanvasDrawingSession)
-    Public Sub New(WindowSize As Size)
+    Dim TreeUpdate As Action
+    Public Sub New(world As World, WindowSize As Size)
+        Me.World = world
         Width = WindowSize.Width
         Height = WindowSize.Height
         Load()
     End Sub
     Public Async Sub Load()
-        LoadState = False
         TreeDraw = New Action(Of CanvasDrawingSession)(Sub(ds As CanvasDrawingSession)
                                                            LoadingDraw(ds)
                                                        End Sub)
+        TreeUpdate = New Action(Sub()
+                                End Sub)
         While World.ResourceCreator Is Nothing
             Await Task.Delay(10)
         End While
@@ -29,10 +34,14 @@ Public MustInherit Class Scene
         Await Task.Run(New Action(Sub()
                                       CreateObject()
                                   End Sub))
-        LoadState = True
         TreeDraw = New Action(Of CanvasDrawingSession)(Sub(ds As CanvasDrawingSession)
                                                            LoadedDraw(ds)
                                                        End Sub)
+        TreeUpdate = New Action(Sub()
+                                    For Each SubGameVisual In GameVisuals
+                                        SubGameVisual.Update()
+                                    Next
+                                End Sub)
     End Sub
     Public Sub AddGameVisual(model As IGameVisualModel, view As IGameView, Optional LayerIndex As Integer = 0)
         model.Scene = Me
@@ -50,9 +59,7 @@ Public MustInherit Class Scene
         TreeDraw(drawingSession)
     End Sub
     Public Sub Update() Implements IScene.Update
-        For Each SubGameVisual In GameVisuals
-            SubGameVisual.Update()
-        Next
+        TreeUpdate()
     End Sub
     Public Overridable Sub LoadingDraw(drawingSession As CanvasDrawingSession)
         drawingSession.DrawText("场景加载中，请稍后...", New Vector2(Width, Height) / 2, Colors.Black, TextFormat.Center)

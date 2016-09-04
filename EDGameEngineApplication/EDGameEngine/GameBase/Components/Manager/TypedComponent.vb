@@ -16,10 +16,11 @@ Public Class TypedComponent(Of T As IGameComponent)
     End Sub
     Public Sub Update() Implements IGameComponent.Update
         For Each SubItem In Items
-            SubItem.Start()
+            SubItem.Update()
         Next
     End Sub
     Public Sub Add(item As T)
+        item.Target = Target
         Items.Add(item)
     End Sub
 End Class

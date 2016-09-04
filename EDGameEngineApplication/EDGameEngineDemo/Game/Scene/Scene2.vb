@@ -1,8 +1,8 @@
 ﻿Imports EDGameEngine
 Public Class Scene2
     Inherits Scene
-    Public Sub New(WindowSize As Size)
-        MyBase.New(WindowSize)
+    Public Sub New(world As World, WindowSize As Size)
+        MyBase.New(world, WindowSize)
     End Sub
     Public Overrides Sub CreateObject()
         Dim tempModel As New ParticalFollow()

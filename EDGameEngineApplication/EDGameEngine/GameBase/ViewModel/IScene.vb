@@ -12,6 +12,26 @@ Public Interface IScene
     ''' <returns></returns>
     Property Height As Single
     ''' <summary>
+    ''' 所属世界
+    ''' </summary>
+    ''' <returns></returns>
+    Property World As World
+    ''' <summary>
+    ''' 图像资源
+    ''' </summary>
+    ''' <returns></returns>
+    Property ImageManager As ImageResourceManager
+    ''' <summary>
+    ''' 游戏图层
+    ''' </summary>
+    ''' <returns></returns>
+    Property GameLayers As List(Of ILayer)
+    ''' <summary>
+    ''' 游戏模型
+    ''' </summary>
+    ''' <returns></returns>
+    Property GameVisuals As List(Of IGameVisualModel)
+    ''' <summary>
     ''' 加载场景资源
     ''' </summary>
     ''' <param name="resourceCreator"></param>
