@@ -13,13 +13,14 @@ Public Class Scene1
         'rectModel.GameComponents.Effects.Add(New LightEffect())
         'rectModel.GameComponents.Behaviors.Add(New TransformScript())
 
-        Dim tempModel As New ParticalFollow()
-        Me.AddGameVisual(tempModel, New ParticalView(tempModel))
-        'tempModel.GameComponents.Effects.Add(New GhostEffect With {.SourceRect = New Rect(0, 0, MyScene.Width, MyScene.Height)})
+        'Dim tempModel As New ParticalFollow()
+        'Me.AddGameVisual(tempModel, New ParticalView(tempModel))
+        'tempModel.GameComponents.Effects.Add(New GhostEffect With {.SourceRect = New Rect(0, 0, Width, Height)})
+        'tempModel.GameComponents.Behaviors.Add(New CameraScript)
 
         Dim tempModel2 As New Plant(New Vector2(Width / 2, Height * 0.8))
         Me.AddGameVisual(tempModel2, New PlantView(tempModel2))
-        'tempModel2.GameComponents.Effects.Add(New GhostEffect With {.SourceRect = New Rect(0, 0, Width, Height)})
+        tempModel2.GameComponents.Behaviors.Add(New CameraScript)
 
         'Dim tempModel3 As New AutoDrawModel() With {.Image = ImageManager.GetResource(ImageResourceID.Scenery1)}
         'Me.AddGameVisual(tempModel3, New AutoDrawView(tempModel3))

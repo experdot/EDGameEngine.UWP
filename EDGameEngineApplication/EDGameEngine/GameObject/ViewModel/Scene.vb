@@ -12,11 +12,13 @@ Public MustInherit Class Scene
     Public Property Width As Single Implements IScene.Width
     Public Property Height As Single Implements IScene.Height
     Public Property World As World Implements IScene.World
+    Public Property Camera As ICamera Implements IScene.Camera
 
     Dim TreeDraw As Action(Of CanvasDrawingSession)
     Dim TreeUpdate As Action
     Public Sub New(world As World, WindowSize As Size)
         Me.World = world
+        Me.Camera = New Camera
         Width = WindowSize.Width
         Height = WindowSize.Height
         Load()
@@ -65,9 +67,14 @@ Public MustInherit Class Scene
         drawingSession.DrawText("场景加载中，请稍后...", New Vector2(Width, Height) / 2, Colors.Black, TextFormat.Center)
     End Sub
     Public Overridable Sub LoadedDraw(drawingSession As CanvasDrawingSession)
-        For Each SubLayer In GameLayers
-            SubLayer.OnDraw(drawingSession)
-        Next
+        Using cmdList = New CanvasCommandList(drawingSession)
+            Using dl = cmdList.CreateDrawingSession
+                For Each SubLayer In GameLayers
+                    SubLayer.OnDraw(dl)
+                Next
+            End Using
+            drawingSession.DrawImage(cmdList, Camera.Position)
+        End Using
     End Sub
     Public MustOverride Sub CreateObject() Implements IScene.CreateObject
 #Region "IDisposable Support"

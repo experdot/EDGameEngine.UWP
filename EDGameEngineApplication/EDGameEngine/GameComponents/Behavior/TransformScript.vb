@@ -5,7 +5,6 @@ Imports EDGameEngine
 ''' </summary>
 Public Class TransformScript
     Inherits BehaviorBase
-    Public Overrides Property CompnentType As ComponentType = ComponentType.Behavior
     Public Overrides Sub Start()
 
     End Sub
