@@ -344,7 +344,8 @@ Namespace Global.Box2D
                     num2 += 1
                     body2._flags = (body2._flags Or BodyFlags.Island)
                     Do While (num2 > 0)
-                        Dim body3 As Body = bodyArray(--num2)
+                        num2 = num2 - 1
+                        Dim body3 As Body = bodyArray(num2)
                         Me._island.Add(body3)
                         body3._flags = (body3._flags And Not BodyFlags.Sleep)
                         If Not body3.IsStatic Then

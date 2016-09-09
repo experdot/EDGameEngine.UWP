@@ -9,30 +9,35 @@ Public Class PhysicsScript
     Const Iterations As Integer = 10
     Dim PhyAABB As AABB
     Dim PhyWorld As Box2D.World
-    Dim GroundBody As Body
+    Dim BoxBody, GroundBody As Body
     Dim Gravity As New Vector2(0, -10)
     Public Overrides Sub Start()
-        PhyAABB.lowerBound = New Vector2(-100, -100)
-        PhyAABB.upperBound = New Vector2(100, 100)
         '创建世界实例
         PhyWorld = New Box2D.World(Gravity, True)
         '开启连续物理测试
         PhyWorld.ContinuousPhysics = True
-        '创建地面定义
-        Dim groundBodyDef As New BodyDef With {.position = New Vector2(0, 0)}
-        GroundBody = PhyWorld.CreateBody(groundBodyDef)
+        '创建物体
+        BoxBody = PhyWorld.CreateBody(New BodyDef With {.position = New Vector2(0, 0), .angularVelocity = 0.1})
         '创建形状
         Dim shape1 As New PolygonShape
         shape1.SetAsBox(1, 1)
         '创建夹具定义
-        Dim groundFixtureDef As New FixtureDef
-        groundFixtureDef.shape = shape1
+        Dim bodyFixtureDef As New FixtureDef With {.shape = shape1}
         '绑定夹具
-        Dim groundFixture As Fixture = GroundBody.CreateFixture(groundFixtureDef)
-        GroundBody.SetMassFromShapes()
+        Dim groundFixture As Fixture = BoxBody.CreateFixture(bodyFixtureDef)
+        BoxBody.SetMassData(New MassData() With {.mass = 10})
+        BoxBody.LinearDamping = 0.1
+
+
+        GroundBody = PhyWorld.CreateBody(New BodyDef With {.position = New Vector2(0, -50)})
+        shape1.SetAsBox(50, 20)
+        bodyFixtureDef.shape = shape1
+        GroundBody.CreateFixture(bodyFixtureDef)
+        GroundBody.SetMassData(New MassData() With {.mass = 0})
     End Sub
     Public Overrides Sub Update()
         PhyWorld.Step(TimeStep, Iterations, Iterations)
-        Target.Transform.Translation = GroundBody.Position
+        Target.Transform.Translation = New Vector2(BoxBody.Position.X, -BoxBody.Position.Y)
+        Target.Transform.Rotation = BoxBody.Angle
     End Sub
 End Class

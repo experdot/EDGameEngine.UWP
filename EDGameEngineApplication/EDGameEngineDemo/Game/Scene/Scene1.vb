@@ -6,12 +6,12 @@ Public Class Scene1
         MyBase.New(world, WindowSize)
     End Sub
     Public Overrides Sub CreateObject()
-        Dim rect As New Rect(60, 40, 20, 20)
+        Dim rect As New Rect(50, 50, 10, 10)
         Dim rectModel As New VisualRectangle(rect)
         Me.AddGameVisual(rectModel, New RectangleView(rectModel))
-
-        'rectModel.GameComponents.Effects.Add(New LightEffect())
         rectModel.GameComponents.Behaviors.Add(New PhysicsScript())
+        'rectModel.GameComponents.Effects.Add(New LightEffect())
+
 
         'Dim tempModel As New ParticalFollow()
         'Me.AddGameVisual(tempModel, New ParticalView(tempModel))

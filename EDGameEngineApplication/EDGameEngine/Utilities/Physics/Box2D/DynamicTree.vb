@@ -157,7 +157,8 @@ Namespace Global.Box2D
             Dim num As Integer = 0
             DynamicTree.stack(num.ValueIncrement) = Me._root
             Do While (num > 0)
-                Dim index As Integer = DynamicTree.stack(--num)
+                num = num - 1
+                Dim index As Integer = DynamicTree.stack(num)
                 If (index <> DynamicTree.NullNode) Then
                     Dim node As DynamicTreeNode = Me._nodes(index)
                     If AABB.TestOverlap(node.aabb, aabb) Then
@@ -189,7 +190,8 @@ Namespace Global.Box2D
             Dim num2 As Integer = 0
             DynamicTree.stack(num2.ValueIncrement) = Me._root
             Do While (num2 > 0)
-                Dim index As Integer = DynamicTree.stack(--num2)
+                num2 = num2 - 1
+                Dim index As Integer = DynamicTree.stack(num2)
                 If (index <> DynamicTree.NullNode) Then
                     Dim node As DynamicTreeNode = Me._nodes(index)
                     If AABB.TestOverlap(node.aabb, b) Then

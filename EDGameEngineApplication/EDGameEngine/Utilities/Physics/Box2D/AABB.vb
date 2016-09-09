@@ -1,6 +1,4 @@
-﻿Imports System
-Imports System.Numerics
-Imports System.Runtime.InteropServices
+﻿Imports System.Runtime.InteropServices
 
 Namespace Global.Box2D
     <StructLayout(LayoutKind.Sequential)>
