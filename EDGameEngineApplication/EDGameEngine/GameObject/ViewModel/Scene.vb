@@ -18,7 +18,7 @@ Public MustInherit Class Scene
     Dim TreeUpdate As Action
     Public Sub New(world As World, WindowSize As Size)
         Me.World = world
-        Me.Camera = New Camera
+        Me.Camera = New Camera With {.Scene = Me}
         Width = WindowSize.Width
         Height = WindowSize.Height
         Load()
@@ -43,12 +43,19 @@ Public MustInherit Class Scene
                                     For Each SubGameVisual In GameVisuals
                                         SubGameVisual.Update()
                                     Next
+                                    Camera.Update()
                                 End Sub)
+        For Each SubGameVisual In GameVisuals
+            SubGameVisual.Start()
+        Next
+        Camera.Start()
     End Sub
     Public Sub AddGameVisual(model As IGameVisual, view As IGameView, Optional LayerIndex As Integer = 0)
         model.Scene = Me
         model.Presenter = view
-        If GameLayers.Count = 0 Then GameLayers.Add(New Layer With {.Scene = Me})
+        While (GameLayers.Count <= LayerIndex)
+                GameLayers.Add(New Layer With {.Scene = Me})
+        End While
         GameVisuals.Add(model)
         GameLayers(LayerIndex).GameVisuals.Add(model)
     End Sub
