@@ -134,6 +134,12 @@
     <Compile Include="GameBase\ViewModel\ILayer.vb" />
     <Compile Include="GameComponents\Behavior\PhysicsScript.vb" />
     <Compile Include="GameComponents\Behavior\CameraScript.vb" />
+    <Compile Include="GameObject\Model\GameVisual\Basic\VisualCircle.vb" />
+    <Compile Include="GameObject\View\GameView\Basic\CircleView.vb" />
+    <Compile Include="Utilities\Geometry\Style\BorderStyle.vb" />
+    <Compile Include="Utilities\Geometry\Style\FillStyle.vb" />
+    <Compile Include="GameObject\Model\GameVisual\Basic\Base\GeometryBase.vb" />
+    <Compile Include="GameObject\Model\GameVisual\Basic\Base\IGeometry.vb" />
     <Compile Include="GameObject\ViewModel\Scene.vb" />
     <Compile Include="GameBase\View\GameView.vb" />
     <Compile Include="GameBase\View\IGameView.vb" />

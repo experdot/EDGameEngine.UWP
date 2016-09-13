@@ -8,14 +8,11 @@ Public Class RectangleView
         MyBase.New(Target)
     End Sub
     Public Overrides Sub OnDraw(DrawingSession As CanvasDrawingSession)
-        Using cmdList = New CanvasCommandList(DrawingSession)
-            Using Dl = cmdList.CreateDrawingSession
-                DrawRectangle(Dl)
-            End Using
-            DrawingSession.DrawImage(cmdList)
-        End Using
-    End Sub
-    Public Sub DrawRectangle(DS As CanvasDrawingSession)
-        DS.FillRectangle(Target.Rect, Colors.Black)
+        If Target.Fill.State Then
+            DrawingSession.FillRectangle(Target.Rect, Target.Fill.Color)
+        End If
+        If Target.Border.State Then
+            DrawingSession.DrawRectangle(Target.Rect, Target.Border.Color, Target.Border.Width)
+        End If
     End Sub
 End Class
