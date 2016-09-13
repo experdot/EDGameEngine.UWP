@@ -10,9 +10,9 @@ Public Class Plant
         Tree.RealLoc = loc
         CreateTree(Tree, Rank)
     End Sub
-    Public Overrides Sub StartSelf()
+    Public Overrides Sub StartEx()
     End Sub
-    Public Overrides Sub Updateself()
+    Public Overrides Sub UpdateEx()
         Transform.Center = Tree.RealLoc
         Transform.Scale = New Vector2(0.95 + Math.Sin(Ts2) * 0.05, 1)
         Ts2 = (Ts2 + 0.04) Mod (Math.PI * 2)

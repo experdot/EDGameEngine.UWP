@@ -6,11 +6,11 @@ Public Class VisualLine
     Inherits GameVisual
     Public Property Points As New List(Of Vector2)
 
-    Public Overrides Sub StartSelf()
+    Public Overrides Sub StartEx()
 
     End Sub
 
-    Public Overrides Sub UpdateSelf()
+    Public Overrides Sub UpdateEx()
 
     End Sub
 End Class

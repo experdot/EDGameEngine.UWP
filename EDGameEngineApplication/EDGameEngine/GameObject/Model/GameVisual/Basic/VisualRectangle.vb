@@ -8,8 +8,8 @@ Public Class VisualRectangle
     Public Sub New(rect As Rect)
         Me.Rect = rect
     End Sub
-    Public Overrides Sub StartSelf()
+    Public Overrides Sub StartEx()
     End Sub
-    Public Overrides Sub UpdateSelf()
+    Public Overrides Sub UpdateEx()
     End Sub
 End Class

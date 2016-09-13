@@ -24,11 +24,6 @@ Public Class AutoDrawView
                 End If
             End Using
             DrawingSession.DrawImage(cmdList)
-
-            'Using shadow = New Effects.ShadowEffect With {.Source = cmdList}
-            '    Dim bounds = shadow.GetBounds(DrawingSession)
-            '    DrawingSession.DrawImage(shadow, bounds, bounds, 0.6)
-            'End Using
         End Using
     End Sub
 End Class

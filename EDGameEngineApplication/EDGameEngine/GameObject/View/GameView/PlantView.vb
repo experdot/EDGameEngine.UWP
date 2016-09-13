@@ -26,8 +26,8 @@ Public Class PlantView
 
             SubNode.RealLoc = ParentNode.RealLoc + SubNode.Location * SubNode.Percent
 
-            DS.DrawLine(ParentNode.RealLoc, midLoc, Colors.Black, StrokeWidth, LineCss)
-            DS.DrawLine(SubNode.RealLoc, midLoc, Colors.Black, StrokeWidth, LineCss)
+            'DS.DrawLine(ParentNode.RealLoc, midLoc, Colors.Black, StrokeWidth, LineCss)
+            'DS.DrawLine(SubNode.RealLoc, midLoc, Colors.Black, StrokeWidth, LineCss)
             Dim TempV = ParentNode.RealLoc + SubNode.RealLoc.RotateNew(SubNode.DiePercent * Math.PI * 2) * (Math.Sin(SubNode.DiePercent) / 2 * 0)
             DrawImageBranch(DS, ParentNode, SubNode, SubNode.Location, TempV)
             DrawFlower(DS, Ratio, SubNode, TempV)
@@ -44,7 +44,7 @@ Public Class PlantView
     Private Sub DrawFlower(DS As CanvasDrawingSession, Ratio As Single, SubNode As TreeNode, tempV As Vector2)
         If SubNode.HasFlower And SubNode.Percent > 0.5 Then
             Dim Border As Single = Ratio * SubNode.FlowerSize * SubNode.Percent
-            'DS.DrawImage(DirectCast(Target.Scene, Scene).ImageManager.GetResource(ImageResourceID.YellowFlower1), New Rect(tempV.X - Border, tempV.Y - Border, Border * 2, Border * 2))
+            DS.DrawImage(DirectCast(Target.Scene, Scene).ImageManager.GetResource(ImageResourceID.YellowFlower1), New Rect(tempV.X - Border, tempV.Y - Border, Border * 2, Border * 2))
         End If
     End Sub
 End Class

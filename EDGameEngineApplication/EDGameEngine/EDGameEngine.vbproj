@@ -122,14 +122,14 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GameBase\Components\Camera\ICamera.vb" />
+    <Compile Include="GameBase\Model\Camera\ICamera.vb" />
     <Compile Include="GameBase\Components\ComponentType.vb" />
     <Compile Include="GameBase\Components\Manager\TypedComponent.vb" />
     <Compile Include="GameBase\Components\Manager\GameComponents.vb" />
-    <Compile Include="GameBase\Components\Camera\Camera.vb" />
-    <Compile Include="GameBase\Model\GameVisual.vb" />
-    <Compile Include="GameBase\Model\Interface\IGameVisual.vb" />
-    <Compile Include="GameBase\Model\Interface\IVisualObject.vb" />
+    <Compile Include="GameBase\Model\Camera\Camera.vb" />
+    <Compile Include="GameBase\Model\Visual\GameVisual.vb" />
+    <Compile Include="GameBase\Model\Visual\IGameVisual.vb" />
+    <Compile Include="GameBase\Model\IVisualObject.vb" />
     <Compile Include="GameBase\Resource\IGameResourceManager.vb" />
     <Compile Include="GameBase\ViewModel\ILayer.vb" />
     <Compile Include="GameComponents\Behavior\PhysicsScript.vb" />
