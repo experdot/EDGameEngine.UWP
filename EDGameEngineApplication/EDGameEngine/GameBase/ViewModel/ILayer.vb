@@ -1,7 +1,15 @@
-﻿Imports System.Numerics
-Imports Microsoft.Graphics.Canvas
+﻿Imports Microsoft.Graphics.Canvas
+''' <summary>
+''' 表示游戏图层
+''' </summary>
 Public Interface ILayer
-    Inherits IObjectStatus
-    Property GameVisuals As List(Of IGameVisualModel)
+    Inherits IVisualObject
+    ''' <summary>
+    ''' 图层包含的可视化对象
+    ''' </summary>
+    Property GameVisuals As List(Of IGameVisual)
+    ''' <summary>
+    ''' 图层绘制
+    ''' </summary>
     Sub OnDraw(drawingSession As CanvasDrawingSession)
 End Interface

@@ -127,9 +127,9 @@
     <Compile Include="GameBase\Components\Manager\TypedComponent.vb" />
     <Compile Include="GameBase\Components\Manager\GameComponents.vb" />
     <Compile Include="GameBase\Components\Camera\Camera.vb" />
-    <Compile Include="GameBase\Model\GameVisualModel.vb" />
-    <Compile Include="GameBase\Model\IGameVisualModel.vb" />
-    <Compile Include="GameBase\Model\IObjectStatus.vb" />
+    <Compile Include="GameBase\Model\GameVisual.vb" />
+    <Compile Include="GameBase\Model\Interface\IGameVisual.vb" />
+    <Compile Include="GameBase\Model\Interface\IVisualObject.vb" />
     <Compile Include="GameBase\Resource\IGameResourceManager.vb" />
     <Compile Include="GameBase\ViewModel\ILayer.vb" />
     <Compile Include="GameComponents\Behavior\PhysicsScript.vb" />
@@ -144,19 +144,19 @@
     <Compile Include="GameComponents\Behavior\Base\BehaviorBase.vb" />
     <Compile Include="GameComponents\Behavior\Base\IBehavior.vb" />
     <Compile Include="GameComponents\Behavior\TransformScript.vb" />
-    <Compile Include="GameObject\Model\GameModel\AutoDraw\AutoDrawModel.vb" />
-    <Compile Include="GameObject\Model\GameModel\AutoDraw\PointSequence.vb" />
-    <Compile Include="GameObject\Model\GameModel\AutoDraw\ScanMode.vb" />
-    <Compile Include="GameObject\Model\GameModel\AutoDraw\SequenceAI.vb" />
-    <Compile Include="GameObject\Model\GameModel\Basic\VisualRectangle.vb" />
-    <Compile Include="GameObject\Model\GameModel\Partical\ParticalFollow.vb" />
+    <Compile Include="GameObject\Model\GameVisual\AutoDraw\AutoDrawModel.vb" />
+    <Compile Include="GameObject\Model\GameVisual\AutoDraw\PointSequence.vb" />
+    <Compile Include="GameObject\Model\GameVisual\AutoDraw\ScanMode.vb" />
+    <Compile Include="GameObject\Model\GameVisual\AutoDraw\SequenceAI.vb" />
+    <Compile Include="GameObject\Model\GameVisual\Basic\VisualRectangle.vb" />
+    <Compile Include="GameObject\Model\GameVisual\Partical\ParticalFollow.vb" />
     <Compile Include="GameObject\View\GameView\AutoDrawView.vb" />
     <Compile Include="GameObject\View\GameView\Basic\LineView.vb" />
-    <Compile Include="GameObject\Model\GameModel\Basic\VisualLine.vb" />
-    <Compile Include="GameObject\Model\GameModel\Partical\Partical.vb" />
-    <Compile Include="GameObject\Model\GameModel\Partical\ParticalsBase.vb" />
-    <Compile Include="GameObject\Model\GameModel\Plant\Plant.vb" />
-    <Compile Include="GameObject\Model\GameModel\Plant\TreeNode.vb" />
+    <Compile Include="GameObject\Model\GameVisual\Basic\VisualLine.vb" />
+    <Compile Include="GameObject\Model\GameVisual\Partical\Partical.vb" />
+    <Compile Include="GameObject\Model\GameVisual\Partical\ParticalsBase.vb" />
+    <Compile Include="GameObject\Model\GameVisual\Plant\Plant.vb" />
+    <Compile Include="GameObject\Model\GameVisual\Plant\TreeNode.vb" />
     <Compile Include="GameObject\Model\Resource\ImageResourceID.vb" />
     <Compile Include="GameObject\Model\Resource\ImageResourceManager.vb" />
     <Compile Include="GameBase\ViewModel\IScene.vb" />
@@ -317,6 +317,7 @@
   <ItemGroup>
     <Folder Include="GameComponents\Animation\" />
     <Folder Include="GameComponents\Input\" />
+    <Folder Include="GameObject\Model\Layer\" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="UserControl\UserGameBox.xaml">

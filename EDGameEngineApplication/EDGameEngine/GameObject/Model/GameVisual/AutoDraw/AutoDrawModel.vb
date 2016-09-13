@@ -1,7 +1,7 @@
 ﻿Imports System.Numerics
 Imports Microsoft.Graphics.Canvas
 Public Class AutoDrawModel
-    Inherits GameVisualModel
+    Inherits GameVisual
     Public Property SeqAI As SequenceAI()
     ''' <summary>
     ''' 原图

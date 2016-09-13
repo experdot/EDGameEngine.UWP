@@ -10,13 +10,13 @@ Public Class Scene1
         Dim rectModel As New VisualRectangle(rect)
         Me.AddGameVisual(rectModel, New RectangleView(rectModel))
         rectModel.GameComponents.Behaviors.Add(New PhysicsScript())
-        'rectModel.GameComponents.Effects.Add(New LightEffect())
 
+        Me.GameLayers(0).GameComponents.Effects.Add(New GhostEffect() With {.SourceRect = New Rect(0, 0, Width, Height)})
 
-        'Dim tempModel As New ParticalFollow()
-        'Me.AddGameVisual(tempModel, New ParticalView(tempModel))
-        'tempModel.GameComponents.Effects.Add(New GhostEffect With {.SourceRect = New Rect(0, 0, Width, Height)})
-        'tempModel.GameComponents.Behaviors.Add(New CameraScript)
+        Dim tempModel As New ParticalFollow()
+        Me.AddGameVisual(tempModel, New ParticalView(tempModel))
+        tempModel.GameComponents.Effects.Add(New GhostEffect With {.SourceRect = New Rect(0, 0, Width, Height)})
+        tempModel.GameComponents.Behaviors.Add(New PhysicsScript())
 
         'Dim tempModel2 As New Plant(New Vector2(Width / 2, Height * 0.8))
         'Me.AddGameVisual(tempModel2, New PlantView(tempModel2))

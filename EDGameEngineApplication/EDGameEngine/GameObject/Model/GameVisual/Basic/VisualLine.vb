@@ -3,7 +3,7 @@
 ''' 基础几何图元，线段
 ''' </summary>
 Public Class VisualLine
-    Inherits GameVisualModel
+    Inherits GameVisual
     Public Property Points As New List(Of Vector2)
 
     Public Overrides Sub StartSelf()

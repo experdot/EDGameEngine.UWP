@@ -3,7 +3,7 @@
 ''' 基础几何图元,矩形
 ''' </summary>
 Public Class VisualRectangle
-    Inherits GameVisualModel
+    Inherits GameVisual
     Public Property Rect As Rect
     Public Sub New(rect As Rect)
         Me.Rect = rect

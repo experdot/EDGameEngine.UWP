@@ -1,7 +1,7 @@
 ﻿Imports System.Numerics
 Imports EDGameEngine
 Public Class Plant
-    Inherits GameVisualModel
+    Inherits GameVisual
     Public Property Tree As TreeNode
     Public Property IsBeginDie As Boolean
     Dim TempSingle, Ts2 As Single

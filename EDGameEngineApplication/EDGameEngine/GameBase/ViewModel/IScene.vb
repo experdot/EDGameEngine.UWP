@@ -28,7 +28,7 @@ Public Interface IScene
     ''' <summary>
     ''' 游戏模型
     ''' </summary>
-    Property GameVisuals As List(Of IGameVisualModel)
+    Property GameVisuals As List(Of IGameVisual)
     ''' <summary>
     ''' 加载场景资源
     ''' </summary>
