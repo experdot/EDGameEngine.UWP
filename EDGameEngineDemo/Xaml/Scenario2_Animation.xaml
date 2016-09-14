@@ -1,0 +1,14 @@
+﻿<Page
+    x:Class="EDGameEngineDemo.Scenario2_Geometric"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:EDGameEngineDemo"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ge="using:EDGameEngine.Core"
+    mc:Ignorable="d">
+
+    <Grid Name="GameGrid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <ge:UserGameBox Name="GameBox"/>
+    </Grid>
+</Page>
