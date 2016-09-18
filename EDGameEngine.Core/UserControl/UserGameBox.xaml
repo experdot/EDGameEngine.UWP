@@ -12,5 +12,6 @@
 
     <Grid>
         <cv:CanvasAnimatedControl x:Name="AnimBox"/>
+        <Button x:Name="Button1" Content="开始游戏" Width="100" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" />
     </Grid>
 </UserControl>

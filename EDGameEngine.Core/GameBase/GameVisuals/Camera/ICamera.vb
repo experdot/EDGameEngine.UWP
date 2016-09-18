@@ -1,10 +1,19 @@
 ﻿Imports System.Numerics
 ''' <summary>
-''' 场景摄像机接口
+''' 表示场景摄像机
 ''' </summary>
 Public Interface ICamera
     Inherits IVisualObject
+    ''' <summary>
+    ''' 位置
+    ''' </summary>
     Property Position As Vector2
+    ''' <summary>
+    ''' 初始化
+    ''' </summary>
     Sub Start()
+    ''' <summary>
+    ''' 更新
+    ''' </summary>
     Sub Update()
 End Interface

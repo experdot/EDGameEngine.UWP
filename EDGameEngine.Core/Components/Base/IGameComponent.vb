@@ -1,5 +1,4 @@
-﻿Imports EDGameEngine.Core
-''' <summary>
+﻿''' <summary>
 ''' 表示一个可附加在游戏对象上的组件
 ''' </summary>
 Public Interface IGameComponent

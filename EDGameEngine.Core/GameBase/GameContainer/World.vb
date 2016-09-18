@@ -1,14 +1,13 @@
 ﻿Imports System.Numerics
 Imports Microsoft.Graphics.Canvas
 Imports Microsoft.Graphics.Canvas.UI.Xaml
+Imports Windows.System
 Imports Windows.UI
 ''' <summary>
 ''' 表示一个可以初始化、更新可视化对象空间
 ''' </summary>
 Public MustInherit Class World
     Implements IDisposable
-
-    Public Shared MouseX, MouseY As Integer
     Public Property ResourceCreator As ICanvasResourceCreator
     Public Property Width As Integer
     Public Property Height As Integer
@@ -25,8 +24,7 @@ Public MustInherit Class World
         CurrentScene.OnDraw(args.DrawingSession)
     End Sub
     Public Sub OnMouseMove(mX As Integer, mY As Integer)
-        MouseX = mX
-        MouseY = mY
+        CurrentScene.Inputs.Mouse.Location = New Vector2(mX, mY)
     End Sub
     Public Sub OnSizeChanged(sX As Integer, sY As Integer)
         Width = sX
@@ -35,6 +33,12 @@ Public MustInherit Class World
             CurrentScene.Width = sX
             CurrentScene.Height = sY
         End If
+    End Sub
+    Public Sub OnKeyDown(keycode As VirtualKey)
+        CurrentScene?.Inputs.Keyboard.RaiseKeyDown(keycode)
+    End Sub
+    Public Sub OnKeyUp(keycode As VirtualKey)
+        CurrentScene?.Inputs.Keyboard.RaiseKeyUp(keycode)
     End Sub
 #Region "IDisposable Support"
     Private disposedValue As Boolean ' 要检测冗余调用

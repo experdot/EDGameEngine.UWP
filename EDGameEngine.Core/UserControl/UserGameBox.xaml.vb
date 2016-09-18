@@ -26,6 +26,8 @@ Public NotInheritable Class UserGameBox
         World.ResourceCreator = sender
         TreeDraw = AddressOf World.Draw
         TreeUpdate = AddressOf World.Update
+        Me.AddHandler(Button.KeyDownEvent, New KeyEventHandler(AddressOf AnimBox_KeyDown), True)
+        Me.AddHandler(Button.KeyUpEvent, New KeyEventHandler(AddressOf AnimBox_KeyUp), True)
     End Sub
     Private Sub AnimBox_Update(sender As ICanvasAnimatedControl, args As CanvasAnimatedUpdateEventArgs) Handles AnimBox.Update
         'Try
@@ -44,6 +46,7 @@ Public NotInheritable Class UserGameBox
     Private Sub AnimBox_PointerMoved(sender As Object, e As PointerRoutedEventArgs) Handles AnimBox.PointerMoved
         Dim p = e.GetCurrentPoint(AnimBox).Position
         World?.OnMouseMove(p.X, p.Y)
+        Me.Focus(True)
     End Sub
     Private Sub AnimBox_SizeChanged(sender As Object, e As SizeChangedEventArgs) Handles AnimBox.SizeChanged
         World?.OnSizeChanged(AnimBox.ActualWidth, AnimBox.ActualHeight)
@@ -52,5 +55,13 @@ Public NotInheritable Class UserGameBox
         Canvas.RemoveFromVisualTree()
         AnimBox = Nothing
         Debug.WriteLine("画布已从控件分离")
+    End Sub
+
+    Private Sub AnimBox_KeyDown(sender As Object, e As KeyRoutedEventArgs)
+        World?.OnKeyDown(e.Key)
+    End Sub
+
+    Private Sub AnimBox_KeyUp(sender As Object, e As KeyRoutedEventArgs)
+        World?.OnKeyUp(e.Key)
     End Sub
 End Class

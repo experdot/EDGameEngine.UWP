@@ -15,7 +15,7 @@
         },
         New Scenario() With {
             .Title = "Animation",
-            .ClassType = GetType(Scenario2_Geometric)
+            .ClassType = GetType(Scenario2_Animation)
         }
     }
 End Class

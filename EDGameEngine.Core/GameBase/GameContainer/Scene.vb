@@ -1,4 +1,5 @@
 ﻿Imports System.Numerics
+Imports EDGameEngine.Core
 Imports Microsoft.Graphics.Canvas
 Imports Microsoft.Graphics.Canvas.Text
 Imports Windows.UI
@@ -12,11 +13,13 @@ Public MustInherit Class Scene
     Public Property Height As Single Implements IScene.Height
     Public Property World As World Implements IScene.World
     Public Property Camera As ICamera Implements IScene.Camera
+    Public Property Inputs As Inputs Implements IScene.Inputs
 
     Dim TreeDraw As Action(Of CanvasDrawingSession)
     Dim TreeUpdate As Action
     Public Sub New(world As World, WindowSize As Size)
         Me.World = world
+        Me.Inputs = New Inputs
         Me.Camera = New Camera With {.Scene = Me}
         Width = WindowSize.Width
         Height = WindowSize.Height
@@ -53,7 +56,7 @@ Public MustInherit Class Scene
         model.Scene = Me
         model.Presenter = view
         While (GameLayers.Count <= LayerIndex)
-                GameLayers.Add(New Layer With {.Scene = Me})
+            GameLayers.Add(New Layer With {.Scene = Me})
         End While
         GameVisuals.Add(model)
         GameLayers(LayerIndex).GameVisuals.Add(model)
@@ -85,6 +88,7 @@ Public MustInherit Class Scene
     Public MustOverride Sub CreateObject() Implements IScene.CreateObject
 #Region "IDisposable Support"
     Private disposedValue As Boolean ' 要检测冗余调用
+    Public Event MouseMove() Implements IScene.MouseMove
     ' IDisposable
     Protected Overridable Sub Dispose(disposing As Boolean)
         If Not disposedValue Then

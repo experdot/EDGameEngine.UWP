@@ -1,5 +1,7 @@
-﻿Imports EDGameEngine.Core
-Imports Microsoft.Graphics.Canvas
+﻿Imports Microsoft.Graphics.Canvas
+''' <summary>
+''' 表示游戏场景
+''' </summary>
 Public Interface IScene
     Inherits IDisposable
     ''' <summary>
@@ -22,6 +24,10 @@ Public Interface IScene
     ''' 图像资源
     ''' </summary>
     Property ImageManager As ImageResourceManager
+    ''' <summary>
+    ''' 用户输入
+    ''' </summary>
+    Property Inputs As Inputs
     ''' <summary>
     ''' 游戏图层
     ''' </summary>
@@ -47,4 +53,5 @@ Public Interface IScene
     ''' 场景更新
     ''' </summary>
     Sub Update()
+    Event MouseMove()
 End Interface

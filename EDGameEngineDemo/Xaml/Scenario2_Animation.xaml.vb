@@ -3,7 +3,7 @@
 ''' <summary>
 ''' 可用于自身或导航至 Frame 内部的空白页。
 ''' </summary>
-Public NotInheritable Class Scenario2_Geometric
+Public NotInheritable Class Scenario2_Animation
     Inherits Page
     Private Sub GameBox_Loaded(sender As Object, e As RoutedEventArgs) Handles GameBox.Loaded
         GameBox.World = New CustomWorld(GameBox.ActualWidth, GameBox.ActualHeight)

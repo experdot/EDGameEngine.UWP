@@ -68,7 +68,7 @@ Public NotInheritable Class MainPage
     End Sub
 
     Private Sub MainPage_SizeChanged(sender As Object, e As SizeChangedEventArgs) Handles Me.SizeChanged
-        SampleTitle.Text = "Sample " & Grid1.RenderSize.ToString
+        SampleTitle.Text = "Sample " & Grid1.RenderSize.ToString & Me.FocusState
     End Sub
 
     Public Enum NotifyType
