@@ -7,7 +7,7 @@ Public Interface IGameVisual
     ''' <summary>
     ''' 物体的视图对象
     ''' </summary>
-    Property Presenter As GameView
+    Property Presenter As IGameView
     ''' <summary>
     ''' 初始化
     ''' </summary>

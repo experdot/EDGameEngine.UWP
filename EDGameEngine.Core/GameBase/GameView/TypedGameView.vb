@@ -12,7 +12,7 @@ Public MustInherit Class TypedGameView(Of T As IGameVisual)
     End Sub
     Public Overrides Sub BeginDraw(DrawingSession As CanvasDrawingSession)
         If CacheAllowed AndAlso Cache IsNot Nothing Then
-            DrawingSession.DrawImage(TransformEffect.EffectStatic(Cache, DrawingSession, Target.Transform))
+            DrawingSession.DrawImage(CType(TransformEffect.EffectStatic(Cache, DrawingSession, Target.Transform), ICanvasImage))
         Else
             Using cmdList = New CanvasCommandList(DrawingSession)
                 Using Dl = cmdList.CreateDrawingSession
@@ -22,9 +22,9 @@ Public MustInherit Class TypedGameView(Of T As IGameVisual)
                 For Each SubEffect In Target.GameComponents.Effects.Items
                     effect = SubEffect.Effect(effect, DrawingSession)
                 Next
-                DrawingSession.DrawImage(TransformEffect.EffectStatic(effect, DrawingSession, Target.Transform))
+                DrawingSession.DrawImage(CType(TransformEffect.EffectStatic(effect, DrawingSession, Target.Transform), ICanvasImage))
                 If CacheAllowed AndAlso Cache Is Nothing Then
-                    Cache = BitmapCacheHelper.CacheImage(DrawingSession, effect)
+                    Cache = BitmapCacheHelper.CacheImage(DrawingSession, CType(effect, ICanvasImage))
                 End If
             End Using
         End If

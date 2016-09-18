@@ -19,7 +19,7 @@ Public NotInheritable Class UserGameBox
         End Get
     End Property
 
-    Dim TreeDraw As Action(Of CanvasAnimatedControl, CanvasAnimatedDrawEventArgs)
+    Dim TreeDraw As Action(Of ICanvasAnimatedControl, CanvasAnimatedDrawEventArgs)
     Dim TreeUpdate As Action(Of ICanvasAnimatedControl, CanvasAnimatedUpdateEventArgs)
 
     Private Sub AnimBox_CreateResources(sender As CanvasAnimatedControl, args As CanvasCreateResourcesEventArgs) Handles AnimBox.CreateResources
@@ -30,26 +30,17 @@ Public NotInheritable Class UserGameBox
         Me.AddHandler(Button.KeyUpEvent, New KeyEventHandler(AddressOf AnimBox_KeyUp), True)
     End Sub
     Private Sub AnimBox_Update(sender As ICanvasAnimatedControl, args As CanvasAnimatedUpdateEventArgs) Handles AnimBox.Update
-        'Try
         TreeUpdate(sender, args)
-        'Catch ex As Exception
-        'Debug.WriteLine("更新时发生错误:" & ex.Message)
-        'End Try
     End Sub
-    Private Sub AnimBox_Draw(sender As CanvasAnimatedControl, args As CanvasAnimatedDrawEventArgs) Handles AnimBox.Draw
-        'Try
+    Private Sub AnimBox_Draw(sender As ICanvasAnimatedControl, args As CanvasAnimatedDrawEventArgs) Handles AnimBox.Draw
         TreeDraw(sender, args)
-        'Catch ex As Exception
-        '    Debug.WriteLine("绘制时发生错误:" & ex.Message)
-        'End Try
     End Sub
     Private Sub AnimBox_PointerMoved(sender As Object, e As PointerRoutedEventArgs) Handles AnimBox.PointerMoved
         Dim p = e.GetCurrentPoint(AnimBox).Position
-        World?.OnMouseMove(p.X, p.Y)
-        Me.Focus(True)
+        World?.OnMouseMove(CInt(p.X), CInt(p.Y))
     End Sub
     Private Sub AnimBox_SizeChanged(sender As Object, e As SizeChangedEventArgs) Handles AnimBox.SizeChanged
-        World?.OnSizeChanged(AnimBox.ActualWidth, AnimBox.ActualHeight)
+        World?.OnSizeChanged(CInt(AnimBox.ActualWidth), CInt(AnimBox.ActualHeight))
     End Sub
     Private Sub UserGameBox_Unloaded(sender As Object, e As RoutedEventArgs) Handles Me.Unloaded
         Canvas.RemoveFromVisualTree()

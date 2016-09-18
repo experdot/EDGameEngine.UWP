@@ -10,9 +10,9 @@ Public Class StreamEffect
     Inherits EffectBase
     Public Overrides Function Effect(source As IGraphicsEffectSource, DrawingSession As CanvasDrawingSession) As IGraphicsEffectSource
         Static ts As Single
-        ts = (ts + 0.01) Mod (Math.PI * 2)
-        Dim dispX As Single = 75.0F * Math.Sin(ts)
-        Dim dispY As Single = 75.0F * Math.Cos(ts)
+        ts = CSng((ts + 0.01)) Mod CSng((Math.PI * 2))
+        Dim dispX As Single = 75.0F * CSng(Math.Sin(ts))
+        Dim dispY As Single = 75.0F * CSng(Math.Cos(ts))
         Dim dispMap = New DisplacementMapEffect() With {
                      .Source = source,
                      .XChannelSelect = EffectChannelSelect.Red,

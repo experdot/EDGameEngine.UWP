@@ -58,8 +58,8 @@ Public Class SequenceAI
         Dim R As Integer = 0
         For R = 0 To If(xCount > yCount, xCount, yCount)
             For Theat = 0 To Math.PI * 2 Step 1 / R
-                Dim dx As Integer = CP.X + R * Math.Cos(Theat)
-                Dim dy As Integer = CP.Y + R * Math.Sin(Theat)
+                Dim dx As Integer = CInt(CP.X + R * Math.Cos(Theat))
+                Dim dy As Integer = CInt(CP.Y + R * Math.Sin(Theat))
                 If Not (dx > 0 And dy > 0 And dx < xCount And dy < yCount) Then Continue For
                 If BolArr(dx, dy) = 1 Then
                     BolArr(dx, dy) = 0

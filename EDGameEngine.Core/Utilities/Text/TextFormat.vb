@@ -5,5 +5,5 @@
 Public Class TextFormat
     Public Shared Center As New CanvasTextFormat With {
         .VerticalAlignment = CanvasVerticalAlignment.Center,
-        .HorizontalAlignment = CanvasVerticalAlignment.Center}
+        .HorizontalAlignment = CanvasHorizontalAlignment.Center}
 End Class

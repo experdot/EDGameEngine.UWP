@@ -13,14 +13,14 @@ Public MustInherit Class World
     Public Property Height As Integer
     Public Property CurrentScene As IScene
     Public Sub New(ActualWidth#, ActualHeight#)
-        OnSizeChanged(ActualWidth, ActualHeight)
+        OnSizeChanged(CInt(ActualWidth), CInt(ActualHeight))
         CreateScene()
     End Sub
     Public MustOverride Sub CreateScene()
     Public Sub Update(sender As ICanvasAnimatedControl, args As CanvasAnimatedUpdateEventArgs)
         CurrentScene.Update()
     End Sub
-    Public Sub Draw(sender As CanvasAnimatedControl, args As CanvasAnimatedDrawEventArgs)
+    Public Sub Draw(sender As ICanvasAnimatedControl, args As CanvasAnimatedDrawEventArgs)
         CurrentScene.OnDraw(args.DrawingSession)
     End Sub
     Public Sub OnMouseMove(mX As Integer, mY As Integer)

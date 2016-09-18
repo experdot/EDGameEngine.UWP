@@ -21,8 +21,8 @@ Public MustInherit Class Scene
         Me.World = world
         Me.Inputs = New Inputs
         Me.Camera = New Camera With {.Scene = Me}
-        Width = WindowSize.Width
-        Height = WindowSize.Height
+        Width = CSng(WindowSize.Width)
+        Height = CSng(WindowSize.Height)
         Load()
     End Sub
     Public Async Sub Load()
@@ -38,6 +38,11 @@ Public MustInherit Class Scene
         Await Task.Run(New Action(Sub()
                                       CreateObject()
                                   End Sub))
+        For Each SubGameVisual In GameVisuals
+            SubGameVisual.Start()
+        Next
+        Camera.Start()
+
         TreeDraw = New Action(Of CanvasDrawingSession)(Sub(ds As CanvasDrawingSession)
                                                            LoadedDraw(ds)
                                                        End Sub)
@@ -47,10 +52,6 @@ Public MustInherit Class Scene
                                     Next
                                     Camera.Update()
                                 End Sub)
-        For Each SubGameVisual In GameVisuals
-            SubGameVisual.Start()
-        Next
-        Camera.Start()
     End Sub
     Public Sub AddGameVisual(model As IGameVisual, view As IGameView, Optional LayerIndex As Integer = 0)
         model.Scene = Me

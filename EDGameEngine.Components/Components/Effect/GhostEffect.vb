@@ -26,14 +26,14 @@ Public Class GhostEffect
         offset = Position - last
         last = Position
         If Cache Is Nothing Then Cache = source
-        Using cac = New CanvasRenderTarget(DrawingSession, SourceRect.Width, SourceRect.Height)
+        Using cac = New CanvasRenderTarget(DrawingSession, CInt(SourceRect.Width), CInt(SourceRect.Height))
             Dim sizepx = cac.SizeInPixels
             Using ds = cac.CreateDrawingSession
                 'ds.Clear(Windows.UI.Colors.Transparent)
-                ds.DrawImage(Cache, -offset, SourceRect, Opacity)
-                ds.DrawImage(source)
+                ds.DrawImage(CType(source, ICanvasImage), -offset, SourceRect, Opacity)
+                ds.DrawImage(CType(source, ICanvasImage))
             End Using
-            Cache = CanvasBitmap.CreateFromColors(DrawingSession, cac.GetPixelColors, sizepx.Width, sizepx.Height)
+            Cache = CanvasBitmap.CreateFromColors(DrawingSession, cac.GetPixelColors, CInt(sizepx.Width), CInt(sizepx.Height))
             Return Cache
         End Using
     End Function

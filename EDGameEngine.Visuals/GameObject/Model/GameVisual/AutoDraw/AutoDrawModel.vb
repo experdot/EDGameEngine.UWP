@@ -44,7 +44,7 @@ Public Class AutoDrawModel
     End Sub
     Public Overrides Sub UpdateEx()
         '图像位置居中
-        Transform.Translation = New Vector2(Scene.Width / 2 - ImageSize.Width / 2, Scene.Height / 2 - ImageSize.Height / 2)
+        Transform.Translation = New Vector2(CSng(Scene.Width / 2 - ImageSize.Width / 2), CSng(Scene.Height / 2 - ImageSize.Height / 2))
         '更新绘制序列
         UpdateList()
     End Sub
@@ -63,7 +63,7 @@ Public Class AutoDrawModel
                     Alpha = Alpha * 4
                     If Size < 1 Then Size = 1
                     If Alpha > 255 Then Alpha = 255
-                    LinePointsCount = CSng(LinePointsCount) / 1.4
+                    LinePointsCount = CInt(CSng(LinePointsCount) / 1.4)
                 End If
             End While
 

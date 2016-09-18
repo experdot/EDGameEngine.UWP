@@ -8,7 +8,7 @@ Public MustInherit Class GameVisual
     Public Overridable Property Transform As Transform = Transform.Normal Implements IGameVisual.Transform
     Public Overridable Property GameComponents As GameComponents = New GameComponents(Me) Implements IGameVisual.GameComponents
     Public Overridable Property Scene As IScene Implements IGameVisual.Scene
-    Public Overridable Property Presenter As GameView Implements IGameVisual.Presenter
+    Public Overridable Property Presenter As IGameView Implements IGameVisual.Presenter
     Public Shared Property Rnd As New Random
     Public Sub Start() Implements IGameVisual.Start
         StartEx()

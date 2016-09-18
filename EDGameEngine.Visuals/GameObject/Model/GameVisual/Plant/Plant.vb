@@ -15,13 +15,13 @@ Public Class Plant
     End Sub
     Public Overrides Sub UpdateEx()
         Transform.Center = Tree.RealLoc
-        Transform.Scale = New Vector2(0.95 + Math.Sin(Ts2) * 0.05, 1)
-        Ts2 = (Ts2 + 0.04) Mod (Math.PI * 2)
+        Transform.Scale = New Vector2(CSng(0.95 + Math.Sin(Ts2) * 0.05）, 1.0F)
+        Ts2 = CSng((Ts2 + 0.04) Mod (Math.PI * 2)）
 
-        Tree.RealLoc = New Vector2(Scene.Width / 2, Scene.Height * 0.8)
-        TempSingle = (TempSingle + 0.05) Mod (Math.PI * 2)
+        Tree.RealLoc = New Vector2(Scene.Width / 2, CSng(Scene.Height * 0.8)）
+        TempSingle = CSng((TempSingle + 0.05) Mod (Math.PI * 2)）
         GrowUp(Tree, 0.01)
-        WaveTree(Tree, Math.Sin(TempSingle) / 1000)
+        WaveTree(Tree, CSng(Math.Sin(TempSingle) / 1000))
     End Sub
     ''' <summary>
     ''' 创建树
@@ -39,19 +39,19 @@ Public Class Plant
     ''' <param name="Count"></param>
     Private Sub CreateChildNode(ByRef ParentNode As TreeNode, ByVal Count As Integer)
         If Count > 0 Then
-            ParentNode.ChildNode.Add(New TreeNode(ParentNode.Location.RotateNew(Rnd.NextDouble * Math.PI / 8), Rnd.NextDouble * Count * Tree.Rank * 4, Count))
+            ParentNode.ChildNode.Add(New TreeNode(ParentNode.Location.RotateNew(CSng(Rnd.NextDouble * Math.PI / 8)), CSng(Rnd.NextDouble * Count * Tree.Rank * 4), Count))
             ParentNode.ChildNode.Last.ParentNode = ParentNode
             CreateChildNode(ParentNode.ChildNode.Last, Count - 1)
-            ParentNode.ChildNode.Last.MidRotateAngle = Rnd.NextDouble
-            For i = 0 To Rnd.Next(1, (9 - Count) / 2) - 1
-                ParentNode.ChildNode.Add(New TreeNode(ParentNode.Location.RotateNew(Rnd.NextDouble * Math.PI / 2 - Math.PI / 4), Rnd.NextDouble * Count * Tree.Rank * 4, Count))
+            ParentNode.ChildNode.Last.MidRotateAngle = CSng(Rnd.NextDouble)
+            For i = 0 To Rnd.Next(1, CInt((9 - Count) / 2)） - 1
+                ParentNode.ChildNode.Add(New TreeNode(ParentNode.Location.RotateNew(CSng(Rnd.NextDouble * Math.PI / 2 - Math.PI / 4)）, CSng(Rnd.NextDouble * Count * Tree.Rank * 4）, Count))
                 ParentNode.ChildNode.Last.ParentNode = ParentNode
                 CreateChildNode(ParentNode.ChildNode.Last, Count - 1)
                 If Rnd.NextDouble > 0.8 + 0.02 * Count Then
                     ParentNode.ChildNode.Last.HasFlower = True
-                    ParentNode.ChildNode.Last.FlowerSize = Rnd.NextDouble
+                    ParentNode.ChildNode.Last.FlowerSize = CSng(Rnd.NextDouble）
                 End If
-                ParentNode.ChildNode.Last.MidRotateAngle = Rnd.NextDouble
+                ParentNode.ChildNode.Last.MidRotateAngle = CSng(Rnd.NextDouble)
             Next
         End If
     End Sub
@@ -63,7 +63,7 @@ Public Class Plant
     ''' <param name="Ratio"></param>
     Private Sub GrowUp(ByRef ParentNode As TreeNode, gValue As Single, Optional Ratio As Single = 0.19)
         If ParentNode.Percent < 1 Then
-            ParentNode.Percent += gValue * Rnd.NextDouble + 0.001
+            ParentNode.Percent += CSng(gValue * Rnd.NextDouble + 0.001F)
             If ParentNode.Percent >= 1 And ParentNode.Rank < 2 Then
                 IsBeginDie = True
             End If
@@ -95,7 +95,7 @@ Public Class Plant
             SubNode = ParentNode.ChildNode(i)
             SubNode.Location.Rotate(Angle * SubNode.Location.Y / SubNode.Location.Length)
             If SubNode.HasFlower And SubNode.Percent > 0.5 Then
-                SubNode.FlowerSize += 0.001
+                SubNode.FlowerSize += 0.001F
                 If SubNode.FlowerSize > 1 Then
                     SubNode.FlowerSize = 0
                 End If

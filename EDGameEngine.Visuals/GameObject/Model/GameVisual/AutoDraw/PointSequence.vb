@@ -13,7 +13,7 @@ Public Class PointSequence
         Static Mid, PenSize As Single
         ReDim Sizes(Points.Count - 1)
         For i = 0 To Points.Count - 1
-            Mid = Math.Abs(i - Points.Count / 2)
+            Mid = CSng(Math.Abs(i - Points.Count / 2))
             PenSize = 1 - Mid / Points.Count * 2
             Sizes(i) = PenSize
         Next

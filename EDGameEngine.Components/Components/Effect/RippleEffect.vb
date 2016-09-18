@@ -18,8 +18,8 @@ Public Class RippleEffect
         ReDim Buffer2(width * height - 1)
     End Sub
     Public Overrides Function Effect(source As IGraphicsEffectSource, DrawingSession As CanvasDrawingSession) As IGraphicsEffectSource
-        Dim srcData() As Color = BitmapCacheHelper.CacheImageClip(DrawingSession, source, New Rect(0, 0, Width, Height)).GetPixelColors
-        Dim desData() As Color = srcData.Clone
+        Dim srcData() As Color = BitmapCacheHelper.CacheImageClip(DrawingSession, CType(source, ICanvasImage), New Rect(0, 0, Width, Height)).GetPixelColors
+        Dim desData() As Color = CType(srcData.Clone, Color())
         Dim xoff, yoff As Integer
         Dim k As Integer = Width
         For i = 1 To Height - 2

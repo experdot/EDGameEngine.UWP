@@ -16,14 +16,14 @@ Public Class LightEffect
         Static w, h As Integer
         Static LightLoc As New Vector2(0, 30)
         Static Rnd As New Random
-        Using bmp As CanvasBitmap = BitmapCacheHelper.CacheImage(DrawingSession, source)
+        Using bmp As CanvasBitmap = BitmapCacheHelper.CacheImage(DrawingSession, CType(source, ICanvasImage))
             Dim RawColors() As Color = bmp.GetPixelColors
             Dim NowColors(RawColors.Count - 1) As Color
-            w = bmp.Bounds.Width
-            h = bmp.Bounds.Height
-            ScanRadius = Math.Sqrt(w * w + h * h)
-            LightLoc.X = Math.Cos(Environment.TickCount / 5000) * w / 3 + w / 2
-            LightLoc.Y = Math.Sin(Environment.TickCount / 5000) * h / 3 + h / 2
+            w = CInt(bmp.Bounds.Width)
+            h = CInt(bmp.Bounds.Height)
+            ScanRadius = CSng(Math.Sqrt(w * w + h * h))
+            LightLoc.X = CSng(Math.Cos(Environment.TickCount / 5000) * w / 3 + w / 2)
+            LightLoc.Y = CSng(Math.Sin(Environment.TickCount / 5000) * h / 3 + h / 2)
             '添加阴影区
             For i = 0 To RawColors.Count - 1
                 NowColors(i) = If(RawColors(i).A = 0, ShadowColor, RawColors(i))
@@ -40,9 +40,9 @@ Public Class LightEffect
                     Else
                         If RawColors(y * w + x).A = 0 Then
                             If IsBlack Then
-                                NowColors(y * w + x) = Color.FromArgb(180 * length / ScanRadius + 50 * (1 - length / ScanRadius), 0, 0, 0)
+                                NowColors(y * w + x) = Color.FromArgb(CByte(180 * length / ScanRadius + 50 * (1 - length / ScanRadius)), 0, 0, 0)
                             Else
-                                NowColors(y * w + x) = Color.FromArgb(128 * length / ScanRadius, 0, 0, 0)
+                                NowColors(y * w + x) = Color.FromArgb(CByte(128 * length / ScanRadius), 0, 0, 0)
                             End If
                         Else
                             IsBlack = True
@@ -51,7 +51,7 @@ Public Class LightEffect
                 Next
             Next
 
-            Return CanvasBitmap.CreateFromColors(DrawingSession, NowColors, bmp.Bounds.Width, bmp.Bounds.Height)
+            Return CanvasBitmap.CreateFromColors(DrawingSession, NowColors, CInt(bmp.Bounds.Width), CInt(bmp.Bounds.Height))
         End Using
     End Function
 End Class

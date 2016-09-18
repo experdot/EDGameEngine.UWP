@@ -17,10 +17,10 @@ Public Class AutoDrawView
                     Dim SubVec As Vector2
                     For i = 0 To Target.CurrentList.Count - 1
                         SubVec = Target.CurrentList(i)
-                        col = ColorArr(Target.ImageSize.Width * SubVec.Y + SubVec.X)
+                        col = ColorArr(CInt(Target.ImageSize.Width * SubVec.Y + SubVec.X))
                         'Dl.FillCircle(SubVec, 4, Color.FromArgb(128, col.R, col.G, col.B))
                         'Dl.FillRectangle(New Rect(SubVec.X - size / 2, SubVec.Y - size / 2, size, size), Color.FromArgb(Target.Alpha, col.R, col.G, col.B))
-                        Dl.FillCircle(SubVec, Target.PenSizeList(i), Color.FromArgb(Target.Alpha, col.R, col.G, col.B))
+                        Dl.FillCircle(SubVec, Target.PenSizeList(i), Color.FromArgb(CByte(Target.Alpha), col.R, col.G, col.B))
                     Next
                 End If
             End Using

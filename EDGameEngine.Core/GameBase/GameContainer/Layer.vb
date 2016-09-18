@@ -23,7 +23,7 @@ Public Class Layer
             For Each SubEffect In GameComponents.Effects.Items
                 effect = SubEffect.Effect(effect, drawingSession)
             Next
-            drawingSession.DrawImage(TransformEffect.EffectStatic(effect, drawingSession, Transform))
+            drawingSession.DrawImage(CType(TransformEffect.EffectStatic(effect, drawingSession, Transform), ICanvasImage))
         End Using
     End Sub
 End Class

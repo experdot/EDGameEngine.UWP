@@ -4,13 +4,13 @@ Imports Windows.UI
 Public Class BitmapCacheHelper
     Public Shared Function CacheImage(DrawingSession As CanvasDrawingSession, Source As ICanvasImage) As CanvasBitmap
         Dim reg = Source.GetBounds(DrawingSession)
-        Using cac = New CanvasRenderTarget(DrawingSession, reg.Width, reg.Height)
+        Using cac = New CanvasRenderTarget(DrawingSession, CSng(reg.Width), CSng(reg.Height))
             Dim sizepx = cac.SizeInPixels
             Using ds = cac.CreateDrawingSession
                 ds.Clear(Colors.Transparent)
-                ds.DrawImage(Source, -reg.Left, -reg.Top)
+                ds.DrawImage(Source, CSng(-reg.Left), CSng(-reg.Top))
             End Using
-            Return CanvasBitmap.CreateFromColors(DrawingSession, cac.GetPixelColors, sizepx.Width, sizepx.Height)
+            Return CanvasBitmap.CreateFromColors(DrawingSession, cac.GetPixelColors, CInt(sizepx.Width), CInt(sizepx.Height))
         End Using
     End Function
     Public Shared Function CacheEntireImage(DrawingSession As CanvasDrawingSession, Source As ICanvasImage) As CanvasBitmap
@@ -19,13 +19,13 @@ Public Class BitmapCacheHelper
     End Function
 
     Public Shared Function CacheImageClip(DrawingSession As CanvasDrawingSession, Source As ICanvasImage, reg As Rect) As CanvasBitmap
-        Using cac = New CanvasRenderTarget(DrawingSession, reg.Width + reg.Left, reg.Height + reg.Top)
+        Using cac = New CanvasRenderTarget(DrawingSession, CSng(reg.Width + reg.Left), CSng(reg.Height + reg.Top))
             Dim sizepx = cac.SizeInPixels
             Using ds = cac.CreateDrawingSession
                 ds.Clear(Colors.Transparent)
                 ds.DrawImage(Source)
             End Using
-            Return CanvasBitmap.CreateFromColors(DrawingSession, cac.GetPixelColors, sizepx.Width, sizepx.Height)
+            Return CanvasBitmap.CreateFromColors(DrawingSession, cac.GetPixelColors, CInt(sizepx.Width), CInt(sizepx.Height))
         End Using
     End Function
 
