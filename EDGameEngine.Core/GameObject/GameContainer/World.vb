@@ -40,6 +40,12 @@ Public MustInherit Class World
     Public Sub OnKeyUp(keycode As VirtualKey)
         CurrentScene?.Inputs.Keyboard.RaiseKeyUp(keycode)
     End Sub
+    Public Sub OnPointerPressed(loc As Vector2)
+        CurrentScene?.Inputs.Mouse.OnPointerPressed(loc)
+    End Sub
+    Public Sub OnPointerReleased(loc As Vector2)
+        CurrentScene?.Inputs.Mouse.OnPointerReleased(loc)
+    End Sub
 #Region "IDisposable Support"
     Private disposedValue As Boolean ' 要检测冗余调用
 

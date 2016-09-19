@@ -1,6 +1,7 @@
 ﻿Imports EDGameEngine.Core
 Imports Microsoft.Graphics.Canvas.UI
 Imports Microsoft.Graphics.Canvas.UI.Xaml
+Imports Windows.UI.Core
 ''' <summary>
 ''' 游戏盒子
 ''' </summary>
@@ -18,6 +19,7 @@ Public NotInheritable Class UserGameBox
             Return DirectCast(AnimBox, CanvasAnimatedControl)
         End Get
     End Property
+    WithEvents Form As CoreWindow = Window.Current.CoreWindow
 
     Dim TreeDraw As Action(Of ICanvasAnimatedControl, CanvasAnimatedDrawEventArgs)
     Dim TreeUpdate As Action(Of ICanvasAnimatedControl, CanvasAnimatedUpdateEventArgs)
@@ -26,8 +28,6 @@ Public NotInheritable Class UserGameBox
         World.ResourceCreator = sender
         TreeDraw = AddressOf World.Draw
         TreeUpdate = AddressOf World.Update
-        Me.AddHandler(Button.KeyDownEvent, New KeyEventHandler(AddressOf AnimBox_KeyDown), True)
-        Me.AddHandler(Button.KeyUpEvent, New KeyEventHandler(AddressOf AnimBox_KeyUp), True)
     End Sub
     Private Sub AnimBox_Update(sender As ICanvasAnimatedControl, args As CanvasAnimatedUpdateEventArgs) Handles AnimBox.Update
         TreeUpdate(sender, args)
@@ -47,12 +47,18 @@ Public NotInheritable Class UserGameBox
         AnimBox = Nothing
         Debug.WriteLine("画布已从控件分离")
     End Sub
-
-    Private Sub AnimBox_KeyDown(sender As Object, e As KeyRoutedEventArgs)
-        World?.OnKeyDown(e.Key)
+    Private Sub Form_KeyDown(sender As CoreWindow, args As KeyEventArgs) Handles Form.KeyDown
+        World?.OnKeyDown(args.VirtualKey)
     End Sub
-
-    Private Sub AnimBox_KeyUp(sender As Object, e As KeyRoutedEventArgs)
-        World?.OnKeyUp(e.Key)
+    Private Sub Form_KeyUp(sender As CoreWindow, args As KeyEventArgs) Handles Form.KeyUp
+        World?.OnKeyUp(args.VirtualKey)
+    End Sub
+    Private Sub UserGameBox_PointerPressed(sender As Object, e As PointerRoutedEventArgs) Handles AnimBox.PointerPressed
+        Dim point As Point = e.GetCurrentPoint(AnimBox).Position
+        World?.OnPointerPressed(New Numerics.Vector2(CSng(point.X), CSng(point.Y)))
+    End Sub
+    Private Sub UserGameBox_PointerReleased(sender As Object, e As PointerRoutedEventArgs) Handles AnimBox.PointerReleased
+        Dim point As Point = e.GetCurrentPoint(AnimBox).Position
+        World?.OnPointerReleased(New Numerics.Vector2(CSng(point.X), CSng(point.Y)))
     End Sub
 End Class

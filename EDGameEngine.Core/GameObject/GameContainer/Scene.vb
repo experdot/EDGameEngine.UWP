@@ -53,7 +53,7 @@ Public MustInherit Class Scene
                                     Camera.Update()
                                 End Sub)
     End Sub
-    Public Sub AddGameVisual(model As IGameVisual, view As IGameView, Optional LayerIndex As Integer = 0)
+    Public Sub AddGameVisual(model As IGameVisual, view As IGameView, Optional LayerIndex As Integer = 0) Implements IScene.AddGameVisual
         model.Scene = Me
         model.Presenter = view
         While (GameLayers.Count <= LayerIndex)

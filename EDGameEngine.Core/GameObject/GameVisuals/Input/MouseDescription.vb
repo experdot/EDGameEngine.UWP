@@ -27,6 +27,20 @@ Public Class MouseDescription
     ''' 鼠标位置发生改变
     ''' </summary>
     Public Event MouseChanged(ByVal Loaction As Vector2)
+    ''' <summary>
+    ''' 指针按下时发生
+    ''' </summary>
+    Public Event PointerPressed(ByVal Loaction As Vector2)
+    ''' <summary>
+    ''' 指针释放时发生
+    ''' </summary>
+    Public Event PointerReleased(ByVal Loaction As Vector2)
     Private m_Location As Vector2
 
+    Friend Sub OnPointerPressed(ByVal Loaction As Vector2)
+        RaiseEvent PointerPressed(Location)
+    End Sub
+    Friend Sub OnPointerReleased(ByVal Loaction As Vector2)
+        RaiseEvent PointerReleased(Location)
+    End Sub
 End Class

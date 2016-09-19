@@ -1,13 +1,14 @@
 ﻿Imports System.Numerics
 Imports EDGameEngine.Core
 Imports Windows.System
+Imports Windows.UI
 ''' <summary>
 ''' 键盘控制脚本
 ''' </summary>
 Public Class KeyControlScript
     Inherits BehaviorBase
     Public Overrides Sub Start()
-
+        AddHandler Scene.Inputs.Mouse.PointerPressed, AddressOf PointerPressed
     End Sub
     Public Property MaxSpeed As Single = 5.0F
     Public Overrides Sub Update()
@@ -24,5 +25,13 @@ Public Class KeyControlScript
             TempVec += VecArr(i) * SpeedArr(i) * MaxSpeed
         Next
         Target.Transform.Translation += TempVec
+    End Sub
+    Private Sub PointerPressed(loc As Vector2)
+        Dim fill As New FillStyle(True) With {.Color = Colors.Red}
+        Dim border As New BorderStyle(True) With {.Color = Colors.Black, .Width = 1}
+        Dim circleModel As New VisualCircle() With {.Radius = 50, .Border = border, .Fill = fill}
+        circleModel.Transform.Translation = loc - New Vector2(circleModel.Radius / 2, circleModel.Radius / 2)
+        Scene.AddGameVisual(circleModel, New CircleView(circleModel) With {.CacheAllowed = True}, 0)
+        circleModel.GameComponents.Behaviors.Add(New KeyControlScript With {.MaxSpeed = 2.0F})
     End Sub
 End Class

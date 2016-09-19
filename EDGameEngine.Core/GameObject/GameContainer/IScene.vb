@@ -1,4 +1,5 @@
-﻿Imports Microsoft.Graphics.Canvas
+﻿Imports EDGameEngine.Core
+Imports Microsoft.Graphics.Canvas
 ''' <summary>
 ''' 表示游戏场景
 ''' </summary>
@@ -45,6 +46,10 @@ Public Interface IScene
     ''' </summary>
     Sub CreateObject()
     ''' <summary>
+    ''' 添加场景物体
+    ''' </summary>
+    Sub AddGameVisual(model As IGameVisual, view As IGameView, Optional LayerIndex As Integer = Nothing)
+    ''' <summary>
     ''' 场景绘制
     ''' </summary>
     ''' <param name="drawingSession"></param>
@@ -54,4 +59,5 @@ Public Interface IScene
     ''' </summary>
     Sub Update()
     Event MouseMove()
+
 End Interface

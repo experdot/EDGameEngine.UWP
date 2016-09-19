@@ -9,9 +9,8 @@
     mc:Ignorable="d"
     d:DesignHeight="300"
     d:DesignWidth="400">
-
+    
     <Grid>
         <cv:CanvasAnimatedControl x:Name="AnimBox"/>
-        <Button x:Name="Button1" Content="开始游戏" Width="0" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center" />
     </Grid>
 </UserControl>
