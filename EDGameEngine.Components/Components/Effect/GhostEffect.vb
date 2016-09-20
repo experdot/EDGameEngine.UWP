@@ -30,7 +30,7 @@ Public Class GhostEffect
             Dim sizepx = cac.SizeInPixels
             Using ds = cac.CreateDrawingSession
                 'ds.Clear(Windows.UI.Colors.Transparent)
-                ds.DrawImage(CType(source, ICanvasImage), -offset, SourceRect, Opacity)
+                ds.DrawImage(CType(Cache, ICanvasImage), -offset, SourceRect, Opacity)
                 ds.DrawImage(CType(source, ICanvasImage))
             End Using
             Cache = CanvasBitmap.CreateFromColors(DrawingSession, cac.GetPixelColors, CInt(sizepx.Width), CInt(sizepx.Height))

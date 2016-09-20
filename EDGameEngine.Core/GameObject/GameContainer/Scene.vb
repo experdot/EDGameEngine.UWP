@@ -8,7 +8,7 @@ Public MustInherit Class Scene
     Implements IScene
     Public Property ImageManager As ImageResourceManager Implements IScene.ImageManager
     Public Property GameLayers As New List(Of ILayer) Implements IScene.GameLayers
-    Public Property GameVisuals As New List(Of IGameVisual) Implements IScene.GameVisuals
+    Public Property GameVisuals As New List(Of IGameBody) Implements IScene.GameVisuals
     Public Property Width As Single Implements IScene.Width
     Public Property Height As Single Implements IScene.Height
     Public Property World As World Implements IScene.World
@@ -53,7 +53,7 @@ Public MustInherit Class Scene
                                     Camera.Update()
                                 End Sub)
     End Sub
-    Public Sub AddGameVisual(model As IGameVisual, view As IGameView, Optional LayerIndex As Integer = 0) Implements IScene.AddGameVisual
+    Public Sub AddGameVisual(model As IGameBody, view As IGameView, Optional LayerIndex As Integer = 0) Implements IScene.AddGameVisual
         model.Scene = Me
         model.Presenter = view
         While (GameLayers.Count <= LayerIndex)

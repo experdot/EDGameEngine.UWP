@@ -16,10 +16,10 @@ Public Class Camera
         End Set
     End Property
 
-    Public Property Transform As Transform = Transform.Normal Implements IVisualObject.Transform
-    Public Property Appearance As Appearance = Appearance.Normal Implements IVisualObject.Appearance
-    Public Property Scene As IScene Implements IVisualObject.Scene
-    Public Property GameComponents As New GameComponents(Me) Implements IVisualObject.GameComponents
+    Public Property Transform As Transform = Transform.Normal Implements IGameVisual.Transform
+    Public Property Appearance As Appearance = Appearance.Normal Implements IGameVisual.Appearance
+    Public Property Scene As IScene Implements IGameVisual.Scene
+    Public Property GameComponents As New GameComponents(Me) Implements IGameVisual.GameComponents
 
     Public Overridable Sub Start() Implements ICamera.Start
         GameComponents.Start()

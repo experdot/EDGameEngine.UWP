@@ -4,7 +4,7 @@ Imports Windows.Graphics.Effects
 ''' <summary>
 ''' 表示某种类型模型的视图
 ''' </summary>
-Public MustInherit Class TypedGameView(Of T As IGameVisual)
+Public MustInherit Class TypedGameView(Of T As IGameBody)
     Inherits GameView
     Protected Property Target As T
     Sub New(Target As T)

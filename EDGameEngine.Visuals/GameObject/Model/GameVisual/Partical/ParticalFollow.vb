@@ -8,9 +8,9 @@ Public Class ParticalFollow
         Dim CenterVec As New Vector2(Scene.Width / 2, Scene.Height / 2)
         Dim RectLength As Single = CSng(Math.Sqrt(Scene.Width * Scene.Width / 4 + Scene.Height * Scene.Height / 4))
         For Each SubEle In Particals
-            'SubEle.ApplyForce(Vectors(Rnd.Next(8)) * 2)
+            SubEle.ApplyForce(Vectors(Rnd.Next(8)) * 2)
             'SubEle.ApplyForce(New Vector2(1 * Rnd.NextDouble, 0))
-            SubEle.ApplyForce(MouseVec - SubEle.Location)
+            'SubEle.ApplyForce(MouseVec - SubEle.Location)
             If (SubEle.Location - CenterVec).Length > RectLength Then
                 Dim index As Integer = Rnd.Next(0, Count)
                 SubEle.StartNew(Particals(index).Location)

@@ -1,9 +1,9 @@
 ﻿Imports System.Numerics
 ''' <summary>
-''' 表示一个可视化的游戏数据模型
+''' 表示一个可视化的游戏物体模型
 ''' </summary>
-Public Interface IGameVisual
-    Inherits IVisualObject
+Public Interface IGameBody
+    Inherits IGameVisual
     ''' <summary>
     ''' 物体的视图对象
     ''' </summary>

@@ -3,7 +3,7 @@
     ''' <summary>
     ''' 目标对象
     ''' </summary>
-    Public Property Target As IVisualObject Implements IGameComponent.Target
+    Public Property Target As IGameVisual Implements IGameComponent.Target
     Public MustOverride Property CompnentType As ComponentType Implements IGameComponent.CompnentType
     ''' <summary>
     ''' 当前组件目标对象所在的场景

@@ -5,7 +5,7 @@ Public Interface IGameComponent
     ''' <summary>
     ''' 目标模型
     ''' </summary>
-    Property Target As IVisualObject
+    Property Target As IGameVisual
     ''' <summary>
     ''' 类型标记
     ''' </summary>

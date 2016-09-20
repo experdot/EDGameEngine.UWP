@@ -2,7 +2,7 @@
 Imports EDGameEngine.Core
 
 Public Class Plant
-    Inherits GameVisual
+    Inherits GameBody
     Public Property Tree As TreeNode
     Public Property IsBeginDie As Boolean
     Dim TempSingle, Ts2 As Single

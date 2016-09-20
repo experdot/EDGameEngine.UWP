@@ -1,5 +1,4 @@
-﻿Imports EDGameEngine.Core
-Imports Microsoft.Graphics.Canvas.UI
+﻿Imports Microsoft.Graphics.Canvas.UI
 Imports Microsoft.Graphics.Canvas.UI.Xaml
 Imports Windows.UI.Core
 ''' <summary>
@@ -37,7 +36,7 @@ Public NotInheritable Class UserGameBox
     End Sub
     Private Sub AnimBox_PointerMoved(sender As Object, e As PointerRoutedEventArgs) Handles AnimBox.PointerMoved
         Dim p = e.GetCurrentPoint(AnimBox).Position
-        World?.OnMouseMove(CInt(p.X), CInt(p.Y))
+        World?.OnPointerMove(CInt(p.X), CInt(p.Y))
     End Sub
     Private Sub AnimBox_SizeChanged(sender As Object, e As SizeChangedEventArgs) Handles AnimBox.SizeChanged
         World?.OnSizeChanged(CInt(AnimBox.ActualWidth), CInt(AnimBox.ActualHeight))

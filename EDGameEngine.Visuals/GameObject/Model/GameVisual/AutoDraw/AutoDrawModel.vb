@@ -3,7 +3,7 @@ Imports EDGameEngine.Components
 Imports EDGameEngine.Core
 Imports Microsoft.Graphics.Canvas
 Public Class AutoDrawModel
-    Inherits GameVisual
+    Inherits GameBody
     Public Property SeqAI As SequenceAI()
     ''' <summary>
     ''' 原图
@@ -33,7 +33,11 @@ Public Class AutoDrawModel
     ''' <summary>
     ''' 每帧绘制长度
     ''' </summary>
-    Public Property LinePointsCount As Integer = 3200
+    Public Property LinePointsCount As Integer = 1600
+    ''' <summary>
+    ''' 倍率
+    ''' </summary>
+    Public Property Multi As Single = 1.3F
     Public Overrides Sub StartEx()
         ReDim SeqAI(8)
         For i = 0 To 8
@@ -59,11 +63,12 @@ Public Class AutoDrawModel
                 Index0 += 1
                 If Index0 > 8 Then
                     Index0 = 0
-                    Size = Size / 4
+                    Size = Size / 8
                     Alpha = Alpha * 4
                     If Size < 1 Then Size = 1
                     If Alpha > 255 Then Alpha = 255
-                    LinePointsCount = CInt(CSng(LinePointsCount) / 1.4)
+                    LinePointsCount = CInt(CSng(LinePointsCount) * Multi)
+                    If LinePointsCount > 10000 Then LinePointsCount = 10000
                 End If
             End While
 

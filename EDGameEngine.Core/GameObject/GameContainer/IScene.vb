@@ -36,7 +36,7 @@ Public Interface IScene
     ''' <summary>
     ''' 游戏模型
     ''' </summary>
-    Property GameVisuals As List(Of IGameVisual)
+    Property GameVisuals As List(Of IGameBody)
     ''' <summary>
     ''' 加载场景资源
     ''' </summary>
@@ -48,7 +48,7 @@ Public Interface IScene
     ''' <summary>
     ''' 添加场景物体
     ''' </summary>
-    Sub AddGameVisual(model As IGameVisual, view As IGameView, Optional LayerIndex As Integer = Nothing)
+    Sub AddGameVisual(model As IGameBody, view As IGameView, Optional LayerIndex As Integer = Nothing)
     ''' <summary>
     ''' 场景绘制
     ''' </summary>

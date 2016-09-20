@@ -3,7 +3,7 @@
 ''' 表示场景摄像机
 ''' </summary>
 Public Interface ICamera
-    Inherits IVisualObject
+    Inherits IGameVisual
     ''' <summary>
     ''' 位置
     ''' </summary>

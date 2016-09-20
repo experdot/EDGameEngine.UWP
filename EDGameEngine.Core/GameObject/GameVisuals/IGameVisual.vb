@@ -1,7 +1,7 @@
 ﻿''' <summary>
 ''' 表示场景里的可视化对象
 ''' </summary>
-Public Interface IVisualObject
+Public Interface IGameVisual
     ''' <summary>
     ''' 转换
     ''' </summary>
@@ -11,11 +11,11 @@ Public Interface IVisualObject
     ''' </summary>
     Property Appearance As Appearance
     ''' <summary>
-    ''' 图层或物体所在场景
+    ''' 可视化对象所在场景
     ''' </summary>
     Property Scene As IScene
     ''' <summary>
-    ''' 图层或物体的附加组件管理对象
+    ''' 可视化对象的附加组件管理器
     ''' </summary>
     Property GameComponents As GameComponents
 End Interface
