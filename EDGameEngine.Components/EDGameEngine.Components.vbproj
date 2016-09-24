@@ -130,6 +130,7 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\Behavior\CreateBodyScript.vb" />
     <Compile Include="Components\Behavior\KeyControlScript.vb" />
     <Compile Include="Components\Behavior\PhysicsScript.vb" />
     <Compile Include="Components\Behavior\TransformScript.vb" />

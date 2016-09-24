@@ -36,8 +36,9 @@ Public MustInherit Class Scene
     End Property
     Public Property GameComponents As GameComponents Implements IGameVisual.GameComponents
     Public Property Presenter As SceneView = New SceneView(Me) Implements IScene.Presenter
-
     Public MustOverride Sub CreateObject() Implements IScene.CreateObject
+
+    Dim ModifyActions As New List(Of Action)
     Public Sub New(world As World, WindowSize As Size)
         Me.World = world
         Me.Inputs = New Inputs
@@ -69,15 +70,26 @@ Public MustInherit Class Scene
             Next
             Camera.Update()
             GameComponents.Update()
+            For Each SubAction In ModifyActions
+                SubAction.Invoke
+            Next
+            ModifyActions.Clear()
         End If
     End Sub
     Public Sub AddGameVisual(model As IGameBody, view As IGameView, Optional LayerIndex As Integer = 0) Implements IScene.AddGameVisual
         model.Scene = Me
         model.Presenter = view
-        While (GameLayers.Count <= LayerIndex)
-            GameLayers.Add(New Layer With {.Scene = Me})
-        End While
-        GameLayers(LayerIndex).GameBodys.Add(model)
+        Dim modifyAct = Sub()
+                            While (GameLayers.Count <= LayerIndex)
+                                GameLayers.Add(New Layer With {.Scene = Me})
+                            End While
+                            GameLayers(LayerIndex).GameBodys.Add(model)
+                        End Sub
+        If State = SceneState.Loop Then
+            ModifyActions.Add(modifyAct)
+        Else
+            modifyAct.Invoke()
+        End If
     End Sub
     Public Async Function LoadAsync(resourceCreator As ICanvasResourceCreator) As Task Implements IScene.LoadAsync
         Dim resldr = New ImageResourceManager(resourceCreator)
