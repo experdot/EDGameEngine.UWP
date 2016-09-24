@@ -5,9 +5,13 @@
 Public Interface ILayer
     Inherits IGameVisual
     ''' <summary>
+    ''' 图层视图
+    ''' </summary>
+    Property Presenter As LayerView
+    ''' <summary>
     ''' 图层包含的可视化对象
     ''' </summary>
-    Property GameVisuals As List(Of IGameBody)
+    Property GameBodys As List(Of IGameBody)
     ''' <summary>
     ''' 图层绘制
     ''' </summary>

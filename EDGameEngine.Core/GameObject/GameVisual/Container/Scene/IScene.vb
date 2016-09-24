@@ -4,6 +4,7 @@ Imports Microsoft.Graphics.Canvas
 ''' 表示游戏场景
 ''' </summary>
 Public Interface IScene
+    Inherits IGameVisual
     Inherits IDisposable
     ''' <summary>
     ''' 场景宽度
@@ -34,9 +35,14 @@ Public Interface IScene
     ''' </summary>
     Property GameLayers As List(Of ILayer)
     ''' <summary>
-    ''' 游戏模型
+    ''' 场景视图
     ''' </summary>
-    Property GameVisuals As List(Of IGameBody)
+    Property Presenter As SceneView
+    ''' <summary>
+    ''' 场景状态
+    ''' </summary>
+    ''' <returns></returns>
+    Property State As SceneState
     ''' <summary>
     ''' 加载场景资源
     ''' </summary>
@@ -54,10 +60,4 @@ Public Interface IScene
     ''' </summary>
     ''' <param name="drawingSession"></param>
     Sub OnDraw(drawingSession As CanvasDrawingSession)
-    ''' <summary>
-    ''' 场景更新
-    ''' </summary>
-    Sub Update()
-    Event MouseMove()
-
 End Interface

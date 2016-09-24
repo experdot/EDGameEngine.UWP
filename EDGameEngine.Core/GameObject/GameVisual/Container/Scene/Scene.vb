@@ -3,34 +3,51 @@ Imports EDGameEngine.Core
 Imports Microsoft.Graphics.Canvas
 Imports Microsoft.Graphics.Canvas.Text
 Imports Windows.UI
-
+''' <summary>
+''' 游戏场景基类
+''' </summary>
 Public MustInherit Class Scene
     Implements IScene
     Public Property ImageManager As ImageResourceManager Implements IScene.ImageManager
     Public Property GameLayers As New List(Of ILayer) Implements IScene.GameLayers
-    Public Property GameVisuals As New List(Of IGameBody) Implements IScene.GameVisuals
     Public Property Width As Single Implements IScene.Width
     Public Property Height As Single Implements IScene.Height
     Public Property World As World Implements IScene.World
     Public Property Camera As ICamera Implements IScene.Camera
     Public Property Inputs As Inputs Implements IScene.Inputs
+    Public Property State As SceneState Implements IScene.State
 
-    Dim TreeDraw As Action(Of CanvasDrawingSession)
-    Dim TreeUpdate As Action
+    Public Property Scene As IScene = Me Implements IGameVisual.Scene
+    Public Property Transform As Transform Implements IGameVisual.Transform
+        Get
+            Return Camera.Transform
+        End Get
+        Set(value As Transform)
+            Camera.Transform = value
+        End Set
+    End Property
+    Public Property Appearance As Appearance Implements IGameVisual.Appearance
+        Get
+            Return Camera.Appearance
+        End Get
+        Set(value As Appearance)
+            Camera.Appearance = value
+        End Set
+    End Property
+    Public Property GameComponents As GameComponents Implements IGameVisual.GameComponents
+    Public Property Presenter As SceneView = New SceneView(Me) Implements IScene.Presenter
+
+    Public MustOverride Sub CreateObject() Implements IScene.CreateObject
     Public Sub New(world As World, WindowSize As Size)
         Me.World = world
         Me.Inputs = New Inputs
         Me.Camera = New Camera With {.Scene = Me}
+        Me.GameComponents = New GameComponents(Me)
         Width = CSng(WindowSize.Width)
         Height = CSng(WindowSize.Height)
-        Load()
     End Sub
-    Public Async Sub Load()
-        TreeDraw = New Action(Of CanvasDrawingSession)(Sub(ds As CanvasDrawingSession)
-                                                           LoadingDraw(ds)
-                                                       End Sub)
-        TreeUpdate = New Action(Sub()
-                                End Sub)
+
+    Public Async Sub Start() Implements IGameObject.Start
         While World.ResourceCreator Is Nothing
             Await Task.Delay(10)
         End While
@@ -38,20 +55,21 @@ Public MustInherit Class Scene
         Await Task.Run(New Action(Sub()
                                       CreateObject()
                                   End Sub))
-        For Each SubGameVisual In GameVisuals
-            SubGameVisual.Start()
+        For Each SubLayer In GameLayers
+            SubLayer.Start()
         Next
         Camera.Start()
-
-        TreeDraw = New Action(Of CanvasDrawingSession)(Sub(ds As CanvasDrawingSession)
-                                                           LoadedDraw(ds)
-                                                       End Sub)
-        TreeUpdate = New Action(Sub()
-                                    For Each SubGameVisual In GameVisuals
-                                        SubGameVisual.Update()
-                                    Next
-                                    Camera.Update()
-                                End Sub)
+        GameComponents.Start()
+        State = SceneState.Loop
+    End Sub
+    Public Sub Update() Implements IScene.Update
+        If State = SceneState.Loop Then
+            For Each SubLayer In GameLayers
+                SubLayer.Update()
+            Next
+            Camera.Update()
+            GameComponents.Update()
+        End If
     End Sub
     Public Sub AddGameVisual(model As IGameBody, view As IGameView, Optional LayerIndex As Integer = 0) Implements IScene.AddGameVisual
         model.Scene = Me
@@ -59,8 +77,7 @@ Public MustInherit Class Scene
         While (GameLayers.Count <= LayerIndex)
             GameLayers.Add(New Layer With {.Scene = Me})
         End While
-        GameVisuals.Add(model)
-        GameLayers(LayerIndex).GameVisuals.Add(model)
+        GameLayers(LayerIndex).GameBodys.Add(model)
     End Sub
     Public Async Function LoadAsync(resourceCreator As ICanvasResourceCreator) As Task Implements IScene.LoadAsync
         Dim resldr = New ImageResourceManager(resourceCreator)
@@ -68,28 +85,21 @@ Public MustInherit Class Scene
         ImageManager = resldr
     End Function
     Public Sub OnDraw(drawingSession As CanvasDrawingSession) Implements IScene.OnDraw
-        TreeDraw(drawingSession)
-    End Sub
-    Public Sub Update() Implements IScene.Update
-        TreeUpdate()
+        If State = SceneState.Loop Then
+            LoadedDraw(drawingSession)
+        Else
+            LoadingDraw(drawingSession)
+        End If
     End Sub
     Public Overridable Sub LoadingDraw(drawingSession As CanvasDrawingSession)
         drawingSession.DrawText("场景加载中，请稍后...", New Vector2(Width, Height) / 2, Colors.Black, TextFormat.Center)
     End Sub
     Public Overridable Sub LoadedDraw(drawingSession As CanvasDrawingSession)
-        Using cmdList = New CanvasCommandList(drawingSession)
-            Using dl = cmdList.CreateDrawingSession
-                For Each SubLayer In GameLayers
-                    SubLayer.OnDraw(dl)
-                Next
-            End Using
-            drawingSession.DrawImage(cmdList, Camera.Position)
-        End Using
+        Presenter.BeginDraw(drawingSession)
     End Sub
-    Public MustOverride Sub CreateObject() Implements IScene.CreateObject
+
 #Region "IDisposable Support"
     Private disposedValue As Boolean ' 要检测冗余调用
-    Public Event MouseMove() Implements IScene.MouseMove
     ' IDisposable
     Protected Overridable Sub Dispose(disposing As Boolean)
         If Not disposedValue Then

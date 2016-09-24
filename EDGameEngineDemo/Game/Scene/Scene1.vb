@@ -20,15 +20,15 @@ Public Class Scene1
         'circleModel.GameComponents.Behaviors.Add(New KeyControlScript With {.MaxSpeed = 2.0F})
         'rectModel.GameComponents.Behaviors.Add(New KeyControlScript With {.MaxSpeed = 5.0F})
 
-        'Dim tempModel As New ParticalFollow()
-        'Me.AddGameVisual(tempModel, New ParticalView(tempModel))
-        'tempModel.GameComponents.Effects.Add(New GhostEffect With {.SourceRect = New Rect(0, 0, Width, Height)})
+        Dim tempModel As New ParticalFollow()
+        Me.AddGameVisual(tempModel, New ParticalView(tempModel))
+        tempModel.GameComponents.Effects.Add(New GhostEffect With {.SourceRect = New Rect(0, 0, Width, Height)})
 
         'Dim tempModel2 As New Plant(New Vector2(Width / 2, Height * 0.8))
         'Me.AddGameVisual(tempModel2, New PlantView(tempModel2))
 
-        Dim tempModel3 As New AutoDrawModel() With {.Image = ImageManager.GetResource(ImageResourceID.Scenery1)}
-        Me.AddGameVisual(tempModel3, New AutoDrawView(tempModel3))
+        'Dim tempModel3 As New AutoDrawModel() With {.Image = ImageManager.GetResource(ImageResourceID.Scenery1)}
+        'Me.AddGameVisual(tempModel3, New AutoDrawView(tempModel3))
         'Me.GameLayers(0).GameComponents.Effects.Add(New StreamEffect)
 
         'Dim tempModel4 As New Pointer

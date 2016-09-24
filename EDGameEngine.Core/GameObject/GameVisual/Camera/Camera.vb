@@ -15,10 +15,10 @@ Public Class Camera
             Transform.Translation = value
         End Set
     End Property
+    Public Property Scene As IScene Implements ICamera.Scene
 
     Public Property Transform As Transform = Transform.Normal Implements IGameVisual.Transform
     Public Property Appearance As Appearance = Appearance.Normal Implements IGameVisual.Appearance
-    Public Property Scene As IScene Implements IGameVisual.Scene
     Public Property GameComponents As New GameComponents(Me) Implements IGameVisual.GameComponents
 
     Public Overridable Sub Start() Implements ICamera.Start

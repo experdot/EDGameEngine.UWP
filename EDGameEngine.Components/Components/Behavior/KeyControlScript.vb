@@ -8,6 +8,7 @@ Imports Windows.UI
 Public Class KeyControlScript
     Inherits BehaviorBase
     Public Overrides Sub Start()
+        RemoveHandler Scene.Inputs.Mouse.PointerPressed, AddressOf PointerPressed
         AddHandler Scene.Inputs.Mouse.PointerPressed, AddressOf PointerPressed
     End Sub
     Public Property MaxSpeed As Single = 5.0F

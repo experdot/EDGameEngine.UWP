@@ -8,6 +8,7 @@ Public Class Pointer
     Public Location As New Vector2
     Public LocQueue As New Concurrent.ConcurrentQueue(Of Vector2)
     Public Overrides Sub StartEx()
+        RemoveHandler Scene.Inputs.Mouse.MouseChanged, AddressOf MouseChanged
         AddHandler Scene.Inputs.Mouse.MouseChanged, AddressOf MouseChanged
     End Sub
 

@@ -10,5 +10,6 @@ Public Class CustomWorld
     End Sub
     Public Overrides Sub CreateScene()
         CurrentScene = New Scene1(Me, New Size(Width, Height))
+        CurrentScene.Start()
     End Sub
 End Class
