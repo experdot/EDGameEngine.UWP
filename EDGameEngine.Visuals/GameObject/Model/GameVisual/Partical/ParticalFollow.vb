@@ -1,4 +1,5 @@
 ﻿Imports System.Numerics
+Imports EDGameEngine.Core
 Imports Windows.UI
 Public Class ParticalFollow
     Inherits ParticalsBase

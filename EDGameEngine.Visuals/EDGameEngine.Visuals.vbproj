@@ -134,9 +134,7 @@
     <Compile Include="GameObject\Model\GameVisual\AutoDraw\PointSequence.vb" />
     <Compile Include="GameObject\Model\GameVisual\AutoDraw\ScanMode.vb" />
     <Compile Include="GameObject\Model\GameVisual\AutoDraw\SequenceAI.vb" />
-    <Compile Include="GameObject\Model\GameVisual\Partical\Partical.vb" />
     <Compile Include="GameObject\Model\GameVisual\Partical\ParticalFollow.vb" />
-    <Compile Include="GameObject\Model\GameVisual\Partical\ParticalsBase.vb" />
     <Compile Include="GameObject\Model\GameVisual\Plant\Plant.vb" />
     <Compile Include="GameObject\Model\GameVisual\Plant\TreeNode.vb" />
     <Compile Include="GameObject\Model\GameVisual\Pointer\Pointer.vb" />
