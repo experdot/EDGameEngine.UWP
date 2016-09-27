@@ -134,11 +134,13 @@
     <Compile Include="GameObject\Model\GameVisual\AutoDraw\PointSequence.vb" />
     <Compile Include="GameObject\Model\GameVisual\AutoDraw\ScanMode.vb" />
     <Compile Include="GameObject\Model\GameVisual\AutoDraw\SequenceAI.vb" />
+    <Compile Include="GameObject\Model\GameVisual\Fractal\Mandelbrot.vb" />
     <Compile Include="GameObject\Model\GameVisual\Partical\ParticalFollow.vb" />
     <Compile Include="GameObject\Model\GameVisual\Plant\Plant.vb" />
     <Compile Include="GameObject\Model\GameVisual\Plant\TreeNode.vb" />
     <Compile Include="GameObject\Model\GameVisual\Pointer\Pointer.vb" />
     <Compile Include="GameObject\View\GameView\AutoDrawView.vb" />
+    <Compile Include="GameObject\View\GameView\MandelbrotView.vb" />
     <Compile Include="GameObject\View\GameView\ParticalView.vb" />
     <Compile Include="GameObject\View\GameView\PlantView.vb" />
     <Compile Include="GameObject\View\GameView\PointerView.vb" />
@@ -185,6 +187,7 @@
       <Name>EDGameEngine.Core</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

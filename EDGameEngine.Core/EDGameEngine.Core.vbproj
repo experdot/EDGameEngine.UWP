@@ -158,6 +158,7 @@
     <Compile Include="GameObject\GameVisual\Container\Layer\Animate\PhysicalLayer.vb" />
     <Compile Include="GameObject\GameVisual\Container\Layer\Static\StaticLayer.vb" />
     <Compile Include="GameObject\GameVisual\Container\Layer\Animate\TileLayer.vb" />
+    <Compile Include="Utilities\ColorVertex\ColorVertex.vb" />
     <Compile Include="Utilities\Properties\Input\Inputs.vb" />
     <Compile Include="Utilities\Properties\Input\KeyboardDescription.vb" />
     <Compile Include="Utilities\Properties\Input\MouseDescription.vb" />

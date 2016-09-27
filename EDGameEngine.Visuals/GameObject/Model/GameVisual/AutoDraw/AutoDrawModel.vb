@@ -33,11 +33,11 @@ Public Class AutoDrawModel
     ''' <summary>
     ''' 每帧绘制长度
     ''' </summary>
-    Public Property LinePointsCount As Integer = 1600
+    Public Property LinePointsCount As Integer = 300
     ''' <summary>
     ''' 倍率
     ''' </summary>
-    Public Property Multi As Single = 1.3F
+    Public Property Multi As Single = 0.8F
     Public Overrides Sub StartEx()
         ReDim SeqAI(8)
         For i = 0 To 8

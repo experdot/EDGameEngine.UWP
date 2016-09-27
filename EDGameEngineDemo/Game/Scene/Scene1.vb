@@ -27,15 +27,19 @@ Public Class Scene1
         'Dim tempModel2 As New Plant(New Vector2(Width / 2, Height * 0.8))
         'Me.AddGameVisual(tempModel2, New PlantView(tempModel2))
 
-        'Dim tempModel3 As New AutoDrawModel() With {.Image = ImageManager.GetResource(ImageResourceID.Scenery1)}
-        'Me.AddGameVisual(tempModel3, New AutoDrawView(tempModel3))
+        Dim tempModel3 As New AutoDrawModel() With {.Image = ImageManager.GetResource(ImageResourceID.Scenery1)}
+        Me.AddGameVisual(tempModel3, New AutoDrawView(tempModel3))
         'Me.GameLayers(0).GameComponents.Effects.Add(New StreamEffect)
 
         'Dim tempModel4 As New Pointer
         'Me.AddGameVisual(tempModel4, New PointerView(tempModel4))
         'tempModel4.GameComponents.Effects.Add(New GhostEffect With {.SourceRect = New Rect(0, 0, Width, Height), .Opacity = 0.96})
-        Me.GameComponents.Behaviors.Add(New CreateBodyScript())
-        Me.GameComponents.Effects.Add(New GhostEffect With {.SourceRect = New Rect(0, 0, Width, Height), .Opacity = 0.8})
-        'Me.Camera.GameComponents.Behaviors.Add(New KeyControlScript With {.MaxSpeed = 5.0F})
+        'Me.GameComponents.Behaviors.Add(New CreateBodyScript())
+
+        'Dim tempModel5 As New Mandelbrot
+        'Me.AddGameVisual(tempModel5, New MandelbrotView(tempModel5))
+
+        'Me.GameComponents.Effects.Add(New GhostEffect With {.SourceRect = New Rect(0, 0, Width, Height), .Opacity = 1})
+        Me.Camera.GameComponents.Behaviors.Add(New KeyControlScript With {.MaxSpeed = 5.0F})
     End Sub
 End Class
