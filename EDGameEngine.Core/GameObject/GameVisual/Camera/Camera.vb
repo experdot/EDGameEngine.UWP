@@ -1,9 +1,11 @@
 ﻿Imports System.Numerics
+Imports EDGameEngine.Core
 ''' <summary>
 ''' 场景摄像机
 ''' </summary>
 Public Class Camera
     Implements ICamera
+
     ''' <summary>
     ''' 摄像机位置
     ''' </summary>
@@ -20,6 +22,7 @@ Public Class Camera
     Public Property Transform As Transform = Transform.Normal Implements IGameVisual.Transform
     Public Property Appearance As Appearance = Appearance.Normal Implements IGameVisual.Appearance
     Public Property GameComponents As New GameComponents(Me) Implements IGameVisual.GameComponents
+    Public Property Presenter As IGameView Implements IGameVisual.Presenter
 
     Public Overridable Sub Start() Implements ICamera.Start
         GameComponents.Start()

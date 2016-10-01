@@ -29,7 +29,6 @@ Public Class Scene1
 
         Dim tempModel3 As New AutoDrawModel() With {.Image = ImageManager.GetResource(ImageResourceID.Scenery1)}
         Me.AddGameVisual(tempModel3, New AutoDrawView(tempModel3))
-        'Me.GameLayers(0).GameComponents.Effects.Add(New StreamEffect)
 
         'Dim tempModel4 As New Pointer
         'Me.AddGameVisual(tempModel4, New PointerView(tempModel4))

@@ -8,6 +8,7 @@ Imports Windows.UI
 ''' </summary>
 Public MustInherit Class Scene
     Implements IScene
+
     Public Property ImageManager As ImageResourceManager Implements IScene.ImageManager
     Public Property GameLayers As New List(Of ILayer) Implements IScene.GameLayers
     Public Property Width As Single Implements IScene.Width
@@ -35,7 +36,8 @@ Public MustInherit Class Scene
         End Set
     End Property
     Public Property GameComponents As GameComponents Implements IGameVisual.GameComponents
-    Public Property Presenter As SceneView = New SceneView(Me) Implements IScene.Presenter
+    Public Property Presenter As IGameView = New SceneView(Me) Implements IGameVisual.Presenter
+
     Public MustOverride Sub CreateObject() Implements IScene.CreateObject
 
     Dim ModifyActions As New List(Of Action)

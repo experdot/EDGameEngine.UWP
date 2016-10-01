@@ -18,6 +18,7 @@ Public MustInherit Class TypedGameView(Of T As IGameBody)
                 Using Dl = cmdList.CreateDrawingSession
                     OnDraw(Dl)
                 End Using
+                Me.CommandList = cmdList
                 Dim effect As IGraphicsEffectSource = cmdList
                 For Each SubEffect In Target.GameComponents.Effects.Items
                     effect = SubEffect.Effect(effect, DrawingSession)

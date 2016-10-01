@@ -35,10 +35,6 @@ Public Interface IScene
     ''' </summary>
     Property GameLayers As List(Of ILayer)
     ''' <summary>
-    ''' 场景视图
-    ''' </summary>
-    Property Presenter As SceneView
-    ''' <summary>
     ''' 场景状态
     ''' </summary>
     ''' <returns></returns>

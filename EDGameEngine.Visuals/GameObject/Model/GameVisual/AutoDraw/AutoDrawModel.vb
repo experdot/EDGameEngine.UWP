@@ -38,6 +38,8 @@ Public Class AutoDrawModel
     ''' 倍率
     ''' </summary>
     Public Property Multi As Single = 0.8F
+
+    Public Property Loc As Vector2
     Public Overrides Sub StartEx()
         ReDim SeqAI(8)
         For i = 0 To 8
@@ -45,16 +47,18 @@ Public Class AutoDrawModel
         Next
         ImageSize = New Size(Image.Bounds.Width, Image.Bounds.Height)
         GameComponents.Effects.Add(New GhostEffect() With {.SourceRect = Image.Bounds})
+        GameComponents.Effects.Add(New ShadowEffect)
     End Sub
     Public Overrides Sub UpdateEx()
+        Static ImageVec As Vector2 = New Vector2(CSng(ImageSize.Width), CSng(ImageSize.Height)) / 2
         '图像位置居中
-        Transform.Translation = New Vector2(CSng(Scene.Width / 2 - ImageSize.Width / 2), CSng(Scene.Height / 2 - ImageSize.Height / 2))
+        Transform.Translation = New Vector2(Scene.Width, Scene.Height) / 2 - ImageVec - Loc / 5
         '更新绘制序列
         UpdateList()
     End Sub
     Private Sub UpdateList()
         Static Index0, Index1, Index2 As Integer
-        CurrentList.Clear()
+        If CurrentList.Count > 0 Then Exit Sub
         PenSizeList.Clear()
         For i = 0 To LinePointsCount - 1
             While (SeqAI(Index0).Sequences.Count <= 0 OrElse (Index1 <> 0 AndAlso Index1 >= SeqAI(Index0).Sequences.Count))
@@ -73,6 +77,7 @@ Public Class AutoDrawModel
             End While
 
             CurrentList.Add(SeqAI(Index0).Sequences(Index1).Points(Index2))
+            Loc = Loc + CurrentList.Last
             Dim tempS As Single = SeqAI(Index0).Sequences(Index1).Sizes(Index2) * Size
             PenSizeList.Add(If(tempS < 1, 1, tempS))
 
@@ -82,5 +87,6 @@ Public Class AutoDrawModel
                 Index1 = (Index1 + 1)
             End If
         Next
+        Loc = Loc / CurrentList.Count / CSng(Math.Log(Loc.Length / 10))
     End Sub
 End Class

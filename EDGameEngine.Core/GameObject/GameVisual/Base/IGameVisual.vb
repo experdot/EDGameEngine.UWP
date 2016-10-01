@@ -16,5 +16,6 @@ Public Interface IGameVisual
     ''' 可视化对象的附加组件管理器
     ''' </summary>
     Property GameComponents As GameComponents
+    Property Presenter As IGameView
     Property Scene As IScene
 End Interface

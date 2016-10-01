@@ -11,6 +11,10 @@ Public Interface IGameView
     ''' 是否允许位图缓存
     ''' </summary>
     Property CacheAllowed As Boolean
+    ''' <summary>
+    ''' 绘图命令
+    ''' </summary>
+    Property CommandList As CanvasCommandList
     Sub BeginDraw(DrawingSession As CanvasDrawingSession)
     Sub OnDraw(DrawingSession As CanvasDrawingSession)
 End Interface

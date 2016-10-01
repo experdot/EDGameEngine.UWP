@@ -4,8 +4,4 @@
 ''' </summary>
 Public Interface IGameBody
     Inherits IGameVisual
-    ''' <summary>
-    ''' 物体的视图
-    ''' </summary>
-    Property Presenter As IGameView
 End Interface
