@@ -133,6 +133,7 @@
     <Compile Include="GameObject\Model\GameVisual\AutoDraw\AutoDrawModel.vb" />
     <Compile Include="GameObject\Model\GameVisual\AutoDraw\PointSequence.vb" />
     <Compile Include="GameObject\Model\GameVisual\AutoDraw\ScanMode.vb" />
+    <Compile Include="GameObject\Model\GameVisual\AutoDraw\SeqManager.vb" />
     <Compile Include="GameObject\Model\GameVisual\AutoDraw\SequenceAI.vb" />
     <Compile Include="GameObject\Model\GameVisual\Fractal\Mandelbrot.vb" />
     <Compile Include="GameObject\Model\GameVisual\Partical\ParticalFollow.vb" />

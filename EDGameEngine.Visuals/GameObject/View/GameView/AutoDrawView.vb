@@ -10,12 +10,12 @@ Public Class AutoDrawView
     End Sub
     Public Overrides Sub OnDraw(DrawingSession As CanvasDrawingSession)
         Static ColorArr() As Color = Target.Image.GetPixelColors
+        Static Image As ICanvasImage = Target.Scene.ImageManager.GetResource(ImageResourceID.YellowFlower1)
         Static col As Color
-        Static Rnd As New Random
+        Static SubVec As Vector2
         Using cmdList = New CanvasCommandList(DrawingSession)
             Using Dl = cmdList.CreateDrawingSession
                 If Target.CurrentList.Count > 0 Then
-                    Dim SubVec As Vector2
                     For i = 0 To Target.CurrentList.Count - 1
                         SubVec = Target.CurrentList(i)
                         col = ColorArr(CInt(Target.ImageSize.Width * SubVec.Y + SubVec.X))

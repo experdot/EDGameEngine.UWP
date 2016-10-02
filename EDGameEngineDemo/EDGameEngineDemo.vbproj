@@ -129,6 +129,7 @@
     <Content Include="Image\explosion.dds" />
     <Content Include="Image\Flower_Yellow.png" />
     <Content Include="Image\Grass_Green.png" />
+    <Content Include="Image\Scenery1.png" />
     <Content Include="Image\smoke.dds" />
     <Content Include="Image\Tree_Black.png" />
     <Content Include="Image\Tree_White.png" />
@@ -141,7 +142,6 @@
     <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
     <Content Include="Assets\StoreLogo.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
-    <Content Include="Image\Scenery1.png" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">

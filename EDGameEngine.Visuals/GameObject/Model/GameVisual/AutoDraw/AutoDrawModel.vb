@@ -4,6 +4,16 @@ Imports EDGameEngine.Core
 Imports Microsoft.Graphics.Canvas
 Public Class AutoDrawModel
     Inherits GameBody
+    ''' <summary>
+    ''' AI管理器集合
+    ''' </summary>
+    ''' <returns></returns>
+    Public Property SeqMgr As SeqManager()
+    ''' <summary>
+    ''' AI管理器索引
+    ''' </summary>
+    ''' <returns></returns>
+    Public Property SeqMgrIndex As Integer = 0
     Public Property SeqAI As SequenceAI()
     ''' <summary>
     ''' 原图
@@ -29,22 +39,26 @@ Public Class AutoDrawModel
     ''' <summary>
     ''' 当前帧画笔颜色Alpha通道
     ''' </summary>
-    Public Property Alpha As Integer = 8
+    Public Property Alpha As Integer = CInt(255 / Size)
     ''' <summary>
     ''' 每帧绘制长度
     ''' </summary>
-    Public Property LinePointsCount As Integer = 300
+    Public Property LinePointsCount As Integer = 200
     ''' <summary>
     ''' 倍率
     ''' </summary>
-    Public Property Multi As Single = 0.8F
+    Public Property Multi As Single = 1.3F
 
     Public Property Loc As Vector2
     Public Overrides Sub StartEx()
-        ReDim SeqAI(8)
-        For i = 0 To 8
-            SeqAI(i) = New SequenceAI(BitmapPixelHelper.GetImageBolLimit(Image, i * 32 - 16, i * 32 + 16))
+        ReDim SeqMgr(5)
+        For i = 0 To 4
+            SeqMgr(i) = New SeqManager(Image, i + 4)
         Next
+        For i = 0 To 3
+            SeqMgr(i).Denoising(20 - i * 5)
+        Next
+        SeqAI = SeqMgr(SeqMgrIndex).SeqAI
         ImageSize = New Size(Image.Bounds.Width, Image.Bounds.Height)
         GameComponents.Effects.Add(New GhostEffect() With {.SourceRect = Image.Bounds})
         GameComponents.Effects.Add(New ShadowEffect)
@@ -52,7 +66,7 @@ Public Class AutoDrawModel
     Public Overrides Sub UpdateEx()
         Static ImageVec As Vector2 = New Vector2(CSng(ImageSize.Width), CSng(ImageSize.Height)) / 2
         '图像位置居中
-        Transform.Translation = New Vector2(Scene.Width, Scene.Height) / 2 - ImageVec - Loc / 5
+        Transform.Translation = New Vector2(Scene.Width, Scene.Height) / 2 - ImageVec '- Loc / 4
         '更新绘制序列
         UpdateList()
     End Sub
@@ -65,10 +79,12 @@ Public Class AutoDrawModel
                 Index1 = 0
                 Index2 = 0
                 Index0 += 1
-                If Index0 > 8 Then
+                If Index0 >= SeqAI.Count Then
+                    If SeqMgrIndex < SeqMgr.Count - 1 Then SeqMgrIndex += 1
+                    SeqAI = SeqMgr(SeqMgrIndex).SeqAI
                     Index0 = 0
-                    Size = Size / 8
-                    Alpha = Alpha * 4
+                    Size = Size / 6
+                    Alpha = Alpha * 6
                     If Size < 1 Then Size = 1
                     If Alpha > 255 Then Alpha = 255
                     LinePointsCount = CInt(CSng(LinePointsCount) * Multi)
@@ -80,13 +96,14 @@ Public Class AutoDrawModel
             Loc = Loc + CurrentList.Last
             Dim tempS As Single = SeqAI(Index0).Sequences(Index1).Sizes(Index2) * Size
             PenSizeList.Add(If(tempS < 1, 1, tempS))
-
-            Index2 += 1
+            Dim temp = CInt(Size / 4)
+            If temp < 1 Then temp = 1
+            Index2 += temp
             If Index2 >= SeqAI(Index0).Sequences(Index1).Points.Count Then
                 Index2 = 0
                 Index1 = (Index1 + 1)
             End If
         Next
-        Loc = Loc / CurrentList.Count / CSng(Math.Log(Loc.Length / 10))
+        Loc = Loc / CurrentList.Count / CSng(Math.Log(Loc.Length / 20))
     End Sub
 End Class

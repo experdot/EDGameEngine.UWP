@@ -14,6 +14,7 @@ Public Class ShadowEffect
                 ds.DrawImage(CType(source, ICanvasImage))
                 Using shadow = New Effects.ShadowEffect With {.Source = Target.Presenter.CommandList}
                     ds.DrawImage(shadow)
+                    ds.DrawRectangle(shadow.GetBounds(DrawingSession), Windows.UI.Colors.Black)
                 End Using
             End Using
             Return CanvasBitmap.CreateFromColors(DrawingSession, cac.GetPixelColors, CInt(sizepx.Width), CInt(sizepx.Height))

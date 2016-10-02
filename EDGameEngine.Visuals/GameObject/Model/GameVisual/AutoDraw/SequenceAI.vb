@@ -25,6 +25,21 @@ Public Class SequenceAI
             SubItem.CalcSize()
         Next
     End Sub
+
+    Public Sub Denoising(Optional count As Integer = 10)
+        Dim actions As New List(Of Action)
+        For Each SubSeq In Sequences
+            If SubSeq.Points.Count < count Then
+                actions.Add(Sub()
+                                Sequences.Remove(SubSeq)
+                            End Sub)
+            End If
+        Next
+        For Each SubAct In actions
+            SubAct.Invoke
+        Next
+        actions.Clear()
+    End Sub
     ''' <summary>
     ''' 新增一个序列
     ''' </summary>
@@ -143,4 +158,5 @@ Public Class SequenceAI
         Next
         Return ResultValue
     End Function
+
 End Class
