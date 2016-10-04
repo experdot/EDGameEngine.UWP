@@ -1,7 +1,4 @@
 ﻿Imports System.Numerics
-Imports EDGameEngine.Core
-Imports Windows.UI
-
 Namespace Global.Box2D
     Public Class World
 
@@ -220,10 +217,10 @@ Namespace Global.Box2D
                             Dim aabb As AABB
                             phase.GetAABB(fixture2._proxyId, aabb)
                             Dim vertices As New FixedArray8(Of Vector2)
-                            vertices.Item(0) = New Vector2(aabb.lowerBound.X, aabb.lowerBound.Y)
-                            vertices.Item(1) = New Vector2(aabb.upperBound.X, aabb.lowerBound.Y)
-                            vertices.Item(2) = New Vector2(aabb.upperBound.X, aabb.upperBound.Y)
-                            vertices.Item(3) = New Vector2(aabb.lowerBound.X, aabb.upperBound.Y)
+                            vertices.Item(0) = New Vector2(aabb.LowerBound.X, aabb.LowerBound.Y)
+                            vertices.Item(1) = New Vector2(aabb.UpperBound.X, aabb.LowerBound.Y)
+                            vertices.Item(2) = New Vector2(aabb.UpperBound.X, aabb.UpperBound.Y)
+                            vertices.Item(3) = New Vector2(aabb.LowerBound.X, aabb.UpperBound.Y)
                             Me.DebugDraw.DrawPolygon(vertices, 4, color)
                             fixture2 = fixture2.GetNext
                         Loop
@@ -345,7 +342,7 @@ Namespace Global.Box2D
                     num2 += 1
                     body2._flags = (body2._flags Or BodyFlags.Island)
                     Do While (num2 > 0)
-                        num2 = num2 - 1
+                        num2 -= 1
                         Dim body3 As Body = bodyArray(num2)
                         Me._island.Add(body3)
                         body3._flags = (body3._flags And Not BodyFlags.Sleep)

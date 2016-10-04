@@ -1,37 +1,68 @@
-﻿Imports System.Numerics
+﻿Imports System
+Imports System.Numerics
 Imports System.Runtime.InteropServices
 
 Namespace Global.Box2D
+    ''' <summary>
+    ''' AABB包围盒
+    ''' </summary>
     <StructLayout(LayoutKind.Sequential)>
     Public Structure AABB
-        Public lowerBound As Vector2
-        Public upperBound As Vector2
-        Public Function IsValid() As Boolean
-            Dim vector As Vector2 = (Me.upperBound - Me.lowerBound)
-            Return ((((vector.X >= 0!) AndAlso (vector.Y >= 0!)) AndAlso MathUtils.IsValid(Me.lowerBound)) AndAlso MathUtils.IsValid(Me.upperBound))
-        End Function
-
-        Public Function GetCenter() As Vector2
-            Return (0.5! * (Me.lowerBound + Me.upperBound))
-        End Function
-
-        Public Function GetExtents() As Vector2
-            Return (0.5! * (Me.upperBound - Me.lowerBound))
-        End Function
-
+        ''' <summary>
+        ''' 下边界
+        ''' </summary>
+        Public Property LowerBound As Vector2
+        ''' <summary>
+        ''' 上边界
+        ''' </summary>
+        Public Property UpperBound As Vector2
+        ''' <summary>
+        ''' 是否有效
+        ''' </summary>
+        Public ReadOnly Property IsValid As Boolean
+            Get
+                Dim vector As Vector2 = (Me.UpperBound - Me.LowerBound)
+                Return ((((vector.X >= 0!) AndAlso (vector.Y >= 0!)) AndAlso MathUtils.IsValid(Me.LowerBound)) AndAlso MathUtils.IsValid(Me.UpperBound))
+            End Get
+        End Property
+        ''' <summary>
+        ''' 中心
+        ''' </summary>
+        ''' <returns></returns>
+        Public ReadOnly Property Center As Vector2
+            Get
+                Return (0.5! * (Me.LowerBound + Me.UpperBound))
+            End Get
+        End Property
+        ''' <summary>
+        ''' 区间
+        ''' </summary>
+        ''' <returns></returns>
+        Public ReadOnly Property Extents As Vector2
+            Get
+                Return (0.5! * (Me.UpperBound - Me.LowerBound))
+            End Get
+        End Property
+        ''' <summary>
+        ''' 合并两个<see cref="AABB"/>,并将合并结果设置为当前的<see cref="AABB"/>对象
+        ''' </summary>
         Public Sub Combine(ByRef aabb1 As AABB, ByRef aabb2 As AABB)
-            Me.lowerBound = Vector2.Min(aabb1.lowerBound, aabb2.lowerBound)
-            Me.upperBound = Vector2.Max(aabb1.upperBound, aabb2.upperBound)
+            Me.LowerBound = Vector2.Min(aabb1.LowerBound, aabb2.LowerBound)
+            Me.UpperBound = Vector2.Max(aabb1.UpperBound, aabb2.UpperBound)
         End Sub
-
+        ''' <summary>
+        ''' 返回当前的<see cref="AABB"/>对象是否包含指定的<see cref="AABB"/>
+        ''' </summary>
         Public Function Contains(ByRef aabb As AABB) As Boolean
             Dim flag As Boolean = True
-            Return ((((flag AndAlso (Me.lowerBound.X <= aabb.lowerBound.X)) AndAlso (Me.lowerBound.Y <= aabb.lowerBound.Y)) AndAlso (aabb.upperBound.X <= Me.upperBound.X)) AndAlso (aabb.upperBound.Y <= Me.upperBound.Y))
+            Return ((((flag AndAlso (Me.LowerBound.X <= aabb.LowerBound.X)) AndAlso (Me.LowerBound.Y <= aabb.LowerBound.Y)) AndAlso (aabb.UpperBound.X <= Me.UpperBound.X)) AndAlso (aabb.UpperBound.Y <= Me.UpperBound.Y))
         End Function
-
+        ''' <summary>
+        ''' 返回指定的两个<see cref="AABB"/>对象是否重叠
+        ''' </summary>
         Public Shared Function TestOverlap(ByRef a As AABB, ByRef b As AABB) As Boolean
-            Dim vector As Vector2 = (b.lowerBound - a.upperBound)
-            Dim vector2 As Vector2 = (a.lowerBound - b.upperBound)
+            Dim vector As Vector2 = (b.LowerBound - a.UpperBound)
+            Dim vector2 As Vector2 = (a.LowerBound - b.UpperBound)
             If ((vector.X > 0!) OrElse (vector.Y > 0!)) Then
                 Return False
             End If
@@ -40,7 +71,9 @@ Namespace Global.Box2D
             End If
             Return True
         End Function
-
+        ''' <summary>
+        ''' 光线投射
+        ''' </summary>
         Public Sub RayCast(<Out> ByRef output As RayCastOutput, ByRef input As RayCastInput)
             output = New RayCastOutput
             Dim num As Single = -Settings.b2_FLT_MAX
@@ -53,8 +86,8 @@ Namespace Global.Box2D
             Dim i As Integer
             For i = 0 To 2 - 1
                 Dim num4 As Single = If((i = 0), vector3.X, vector3.Y)
-                Dim num5 As Single = If((i = 0), Me.lowerBound.X, Me.lowerBound.Y)
-                Dim num6 As Single = If((i = 0), Me.upperBound.X, Me.upperBound.Y)
+                Dim num5 As Single = If((i = 0), Me.LowerBound.X, Me.LowerBound.Y)
+                Dim num6 As Single = If((i = 0), Me.UpperBound.X, Me.UpperBound.Y)
                 Dim num7 As Single = If((i = 0), vector.X, vector.Y)
                 If (num4 < Settings.b2_FLT_EPSILON) Then
                     If ((num7 < num5) OrElse (num6 < num7)) Then

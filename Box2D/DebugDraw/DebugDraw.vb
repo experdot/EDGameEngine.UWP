@@ -1,5 +1,4 @@
 ﻿Imports System.Numerics
-Imports Windows.UI
 
 Namespace Global.Box2D
     Public MustInherit Class DebugDraw

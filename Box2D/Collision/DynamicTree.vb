@@ -58,8 +58,8 @@ Namespace Global.Box2D
         Public Function CreateProxy(ByRef aabb As AABB, ByVal userData As Integer) As Integer
             Dim index As Integer = Me.AllocateNode
             Dim vector As New Vector2(Settings.b2_aabbExtension, Settings.b2_aabbExtension)
-            Me._nodes(index).aabb.lowerBound = (aabb.lowerBound - vector)
-            Me._nodes(index).aabb.upperBound = (aabb.upperBound + vector)
+            Me._nodes(index).aabb.LowerBound = (aabb.LowerBound - vector)
+            Me._nodes(index).aabb.UpperBound = (aabb.UpperBound + vector)
             Me._nodes(index).userData = userData
             Me.InsertLeaf(index)
             Return index
@@ -92,14 +92,14 @@ Namespace Global.Box2D
                 Me._root = leaf
                 Me._nodes(Me._root).parentOrNext = DynamicTree.NullNode
             Else
-                Dim center As Vector2 = Me._nodes(leaf).aabb.GetCenter
+                Dim center As Vector2 = Me._nodes(leaf).aabb.Center
                 Dim index As Integer = Me._root
                 If Not Me._nodes(index).IsLeaf Then
                     Do
                         Dim num4 As Integer = Me._nodes(index).child1
                         Dim num5 As Integer = Me._nodes(index).child2
-                        Dim vector2 As Vector2 = MathUtils.Abs((Me._nodes(num4).aabb.GetCenter - center))
-                        Dim vector3 As Vector2 = MathUtils.Abs((Me._nodes(num5).aabb.GetCenter - center))
+                        Dim vector2 As Vector2 = MathUtils.Abs((Me._nodes(num4).aabb.Center - center))
+                        Dim vector3 As Vector2 = MathUtils.Abs((Me._nodes(num5).aabb.Center - center))
                         Dim num6 As Single = (vector2.X + vector2.Y)
                         Dim num7 As Single = (vector3.X + vector3.Y)
                         If (num6 < num7) Then
@@ -148,8 +148,8 @@ Namespace Global.Box2D
             If Not Me._nodes(proxyId).aabb.Contains(aabb) Then
                 Me.RemoveLeaf(proxyId)
                 Dim vector As New Vector2(Settings.b2_aabbExtension, Settings.b2_aabbExtension)
-                Me._nodes(proxyId).aabb.lowerBound = (aabb.lowerBound - vector)
-                Me._nodes(proxyId).aabb.upperBound = (aabb.upperBound + vector)
+                Me._nodes(proxyId).aabb.LowerBound = (aabb.LowerBound - vector)
+                Me._nodes(proxyId).aabb.UpperBound = (aabb.UpperBound + vector)
                 Me.InsertLeaf(proxyId)
             End If
         End Sub
@@ -158,7 +158,7 @@ Namespace Global.Box2D
             Dim num As Integer = 0
             DynamicTree.stack(num.ValueIncrement) = Me._root
             Do While (num > 0)
-                num = num - 1
+                num -= 1
                 Dim index As Integer = DynamicTree.stack(num)
                 If (index <> DynamicTree.NullNode) Then
                     Dim node As DynamicTreeNode = Me._nodes(index)
@@ -186,18 +186,18 @@ Namespace Global.Box2D
             Dim maxFraction As Single = input.maxFraction
             Dim b As New AABB
             Dim vector6 As Vector2 = (vector + (maxFraction * (vector2 - vector)))
-            b.lowerBound = Vector2.Min(vector, vector6)
-            b.upperBound = Vector2.Max(vector, vector6)
+            b.LowerBound = Vector2.Min(vector, vector6)
+            b.UpperBound = Vector2.Max(vector, vector6)
             Dim num2 As Integer = 0
             DynamicTree.stack(num2.ValueIncrement) = Me._root
             Do While (num2 > 0)
-                num2 = num2 - 1
+                num2 -= 1
                 Dim index As Integer = DynamicTree.stack(num2)
                 If (index <> DynamicTree.NullNode) Then
                     Dim node As DynamicTreeNode = Me._nodes(index)
                     If AABB.TestOverlap(node.aabb, b) Then
-                        Dim center As Vector2 = node.aabb.GetCenter
-                        Dim extents As Vector2 = node.aabb.GetExtents
+                        Dim center As Vector2 = node.aabb.Center
+                        Dim extents As Vector2 = node.aabb.Extents
                         Dim num4 As Single = (Math.Abs(Vector2.Dot(v, (vector - center))) - Vector2.Dot(vector5, extents))
                         If (num4 <= 0!) Then
                             If node.IsLeaf Then
@@ -213,8 +213,8 @@ Namespace Global.Box2D
                                     End If
                                     maxFraction = output.fraction
                                     Dim vector9 As Vector2 = (vector + (maxFraction * (vector2 - vector)))
-                                    b.lowerBound = Vector2.Min(vector, vector9)
-                                    b.upperBound = Vector2.Max(vector, vector9)
+                                    b.LowerBound = Vector2.Min(vector, vector9)
+                                    b.UpperBound = Vector2.Max(vector, vector9)
                                 End If
                             Else
                                 Debug.Assert(((num2 + 1) < DynamicTree.k_stackSize))

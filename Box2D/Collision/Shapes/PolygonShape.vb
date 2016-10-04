@@ -37,8 +37,8 @@ Namespace Global.Box2D
                 vector2 = Vector2.Max(vector2, vector4)
             Next i
             Dim vector3 As New Vector2(MyBase._radius, MyBase._radius)
-            aabb.lowerBound = (vector - vector3)
-            aabb.upperBound = (vector2 + vector3)
+            aabb.LowerBound = (vector - vector3)
+            aabb.UpperBound = (vector2 + vector3)
         End Sub
 
         Private Shared Function ComputeCentroid(ByRef vs As FixedArray8(Of Vector2), ByVal count As Integer) As Vector2

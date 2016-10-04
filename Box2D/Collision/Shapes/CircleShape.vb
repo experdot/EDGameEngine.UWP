@@ -22,8 +22,8 @@ Namespace Global.Box2D
 
         Public Overrides Sub ComputeAABB(<Out> ByRef aabb As AABB, ByRef transform As XForm)
             Dim vector As Vector2 = (transform.Position + MathUtils.Multiply(transform.R, Me._p))
-            aabb.lowerBound = New Vector2((vector.X - MyBase._radius), (vector.Y - MyBase._radius))
-            aabb.upperBound = New Vector2((vector.X + MyBase._radius), (vector.Y + MyBase._radius))
+            aabb.LowerBound = New Vector2((vector.X - MyBase._radius), (vector.Y - MyBase._radius))
+            aabb.UpperBound = New Vector2((vector.X + MyBase._radius), (vector.Y + MyBase._radius))
         End Sub
 
         Public Overrides Sub ComputeMass(<Out> ByRef massData As MassData, ByVal density As Single)

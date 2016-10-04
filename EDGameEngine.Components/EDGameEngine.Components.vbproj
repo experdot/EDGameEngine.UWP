@@ -179,6 +179,10 @@
     <Folder Include="Components\Input\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Box2D\Box2D.vbproj">
+      <Project>{C79B0816-973D-4A57-8AA5-F37E00FE7CF8}</Project>
+      <Name>Box2D</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EDGameEngine.Core\EDGameEngine.Core.vbproj">
       <Project>{f563111c-4331-4735-a6c9-447662049482}</Project>
       <Name>EDGameEngine.Core</Name>
