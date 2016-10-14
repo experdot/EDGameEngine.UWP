@@ -3,10 +3,16 @@ Imports System.Reflection
 Imports System.Runtime.InteropServices
 
 Namespace Global.Box2D
-
+    ''' <summary>
+    '''具有两个同类型元素的结构体
+    ''' </summary>
+    ''' <typeparam name="T">类型</typeparam>
     Public Structure FixedArray2(Of T As {Structure})
         Private _value0 As T
         Private _value1 As T
+        ''' <summary>
+        ''' 获取或设置当前对象指定索引的元素
+        ''' </summary>
         Default Public Property Item(ByVal index As Integer) As T
             Get
                 Select Case index

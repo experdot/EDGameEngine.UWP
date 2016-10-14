@@ -9,11 +9,11 @@ Namespace Global.Box2D
     <StructLayout(LayoutKind.Sequential)>
     Public Structure AABB
         ''' <summary>
-        ''' 下边界
+        ''' 下界
         ''' </summary>
         Public Property LowerBound As Vector2
         ''' <summary>
-        ''' 上边界
+        ''' 上界
         ''' </summary>
         Public Property UpperBound As Vector2
         ''' <summary>
@@ -28,7 +28,6 @@ Namespace Global.Box2D
         ''' <summary>
         ''' 中心
         ''' </summary>
-        ''' <returns></returns>
         Public ReadOnly Property Center As Vector2
             Get
                 Return (0.5! * (Me.LowerBound + Me.UpperBound))
@@ -37,7 +36,6 @@ Namespace Global.Box2D
         ''' <summary>
         ''' 区间
         ''' </summary>
-        ''' <returns></returns>
         Public ReadOnly Property Extents As Vector2
             Get
                 Return (0.5! * (Me.UpperBound - Me.LowerBound))
