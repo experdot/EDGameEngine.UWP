@@ -89,7 +89,7 @@ Namespace Global.Box2D
             Dim shape2 As Shape = Me._fixtureB.GetShape
             body.GetXForm(form)
             body.GetXForm(form2)
-            worldManifold = New WorldManifold(Me._manifold, form, shape._radius, form2, shape2._radius)
+            worldManifold = New WorldManifold(Me._manifold, form, shape.Radius, form2, shape2.Radius)
         End Sub
 
         Public Function IsSolid() As Boolean

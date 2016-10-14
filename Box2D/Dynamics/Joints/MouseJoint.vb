@@ -48,14 +48,14 @@ Namespace Global.Box2D
             Me._gamma = (1! / ([step].dt * (num3 + ([step].dt * num4))))
             Me._beta = (([step].dt * num4) * Me._gamma)
             body.GetXForm(form)
-            Dim a As Vector2 = MathUtils.Multiply(form.R, (Me._localAnchor - body.GetLocalCenter))
+            Dim a As Vector2 = MathUtils.Multiply(form.RoateMatrix, (Me._localAnchor - body.GetLocalCenter))
             Dim num5 As Single = body._invMass
             Dim num6 As Single = body._invI
             Dim mat As New Mat22(New Vector2(num5, 0!), New Vector2(0!, num5))
             Dim b As New Mat22(New Vector2(((num6 * a.Y) * a.Y), ((-num6 * a.X) * a.Y)), New Vector2(((-num6 * a.X) * a.Y), ((num6 * a.X) * a.X)))
             Mat22.Add(mat, b, mat3)
-            mat3.col1.X = (mat3.col1.X + Me._gamma)
-            mat3.col2.Y = (mat3.col2.Y + Me._gamma)
+            mat3.Column1.X = (mat3.Column1.X + Me._gamma)
+            mat3.Column2.Y = (mat3.Column2.Y + Me._gamma)
             Me._mass = mat3.GetInverse
             Me._C = ((body._sweep.c + a) - Me._target)
             body._angularVelocity = (body._angularVelocity * 0.98!)
@@ -66,7 +66,7 @@ Namespace Global.Box2D
 
         Public Sub SetTarget(ByVal target As Vector2)
             If MyBase._bodyB.IsSleeping Then
-                MyBase._bodyB.WakeUp
+                MyBase._bodyB.WakeUp()
             End If
             Me._target = target
         End Sub
@@ -79,7 +79,7 @@ Namespace Global.Box2D
             Dim form As XForm
             Dim body As Body = MyBase._bodyB
             body.GetXForm(form)
-            Dim a As Vector2 = MathUtils.Multiply(form.R, (Me._localAnchor - body.GetLocalCenter))
+            Dim a As Vector2 = MathUtils.Multiply(form.RoateMatrix, (Me._localAnchor - body.GetLocalCenter))
             Dim vector2 As Vector2 = (body._linearVelocity + MathUtils.Cross(body._angularVelocity, a))
             Dim b As Vector2 = MathUtils.Multiply(Me._mass, -((vector2 + (Me._beta * Me._C)) + (Me._gamma * Me._impulse)))
             Dim vector4 As Vector2 = Me._impulse

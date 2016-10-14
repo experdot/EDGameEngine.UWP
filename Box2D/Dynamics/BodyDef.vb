@@ -6,9 +6,9 @@ Namespace Global.Box2D
         
         ' Methods
         Public Sub New()
-            Me.massData.center = Vector2.Zero
-            Me.massData.mass = 0!
-            Me.massData.i = 0!
+            Me.massData.Centroid = Vector2.Zero
+            Me.massData.Mass = 0!
+            Me.massData.InertiaMoment = 0!
             Me.userData = Nothing
             Me.position = New Vector2(0!, 0!)
             Me.angle = 0!

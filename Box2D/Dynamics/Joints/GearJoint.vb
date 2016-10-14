@@ -71,7 +71,7 @@ Namespace Global.Box2D
         Public Overrides Function GetReactionTorque(ByVal inv_dt As Single) As Single
             Dim form As XForm
             MyBase._bodyB.GetXForm(form)
-            Dim a As Vector2 = MathUtils.Multiply(form.R, (Me._localAnchor2 - MyBase._bodyB.GetLocalCenter))
+            Dim a As Vector2 = MathUtils.Multiply(form.RoateMatrix, (Me._localAnchor2 - MyBase._bodyB.GetLocalCenter))
             Dim b As Vector2 = (Me._impulse * Me._J.linear2)
             Dim num As Single = ((Me._impulse * Me._J.angular2) - MathUtils.Cross(a, b))
             Return (inv_dt * num)
@@ -92,8 +92,8 @@ Namespace Global.Box2D
                 Dim form2 As XForm
                 body3.GetXForm(form)
                 body.GetXForm(form2)
-                Dim b As Vector2 = MathUtils.Multiply(form2.R, Me._prismatic1._localXAxis1)
-                Dim num2 As Single = MathUtils.Cross(MathUtils.Multiply(form.R, (Me._localAnchor1 - body3.GetLocalCenter)), b)
+                Dim b As Vector2 = MathUtils.Multiply(form2.RoateMatrix, Me._prismatic1._localXAxis1)
+                Dim num2 As Single = MathUtils.Cross(MathUtils.Multiply(form.RoateMatrix, (Me._localAnchor1 - body3.GetLocalCenter)), b)
                 Me._J.linear1 = -b
                 Me._J.angular1 = -num2
                 num = (num + (body3._invMass + ((body3._invI * num2) * num2)))
@@ -106,8 +106,8 @@ Namespace Global.Box2D
                 Dim form4 As XForm
                 body.GetXForm(form3)
                 body4.GetXForm(form4)
-                Dim vector3 As Vector2 = MathUtils.Multiply(form3.R, Me._prismatic2._localXAxis1)
-                Dim num3 As Single = MathUtils.Cross(MathUtils.Multiply(form4.R, (Me._localAnchor2 - body4.GetLocalCenter)), vector3)
+                Dim vector3 As Vector2 = MathUtils.Multiply(form3.RoateMatrix, Me._prismatic2._localXAxis1)
+                Dim num3 As Single = MathUtils.Cross(MathUtils.Multiply(form4.RoateMatrix, (Me._localAnchor2 - body4.GetLocalCenter)), vector3)
                 Me._J.linear2 = (-Me._ratio * vector3)
                 Me._J.angular2 = (-Me._ratio * num3)
                 num = (num + ((Me._ratio * Me._ratio) * (body4._invMass + ((body4._invI * num3) * num3))))

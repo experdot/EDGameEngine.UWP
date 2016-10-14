@@ -16,7 +16,7 @@ Namespace Global.Box2D
             Dim sweepB As Sweep = input.sweepB
             Debug.Assert((sweepA.t0 = sweepB.t0))
             Debug.Assert(((1.0! - sweepA.t0) > Settings.b2_FLT_EPSILON))
-            Dim num As Single = (shapeA._radius + shapeB._radius)
+            Dim num As Single = (shapeA.Radius + shapeB.Radius)
             Dim tolerance As Single = input.tolerance
             Dim alpha As Single = 0!
             Dim num4 As Integer = &H3E8
@@ -26,10 +26,10 @@ Namespace Global.Box2D
 Label_0082:
             sweepA.GetTransform(form, alpha)
             sweepB.GetTransform(form2, alpha)
-            input2.transformA = form
-            input2.transformB = form2
+            input2.TransformA = form
+            input2.TransformB = form2
             Distance.ComputeDistance(output, cache, input2, shapeA, shapeB)
-            If (output.distance <= 0!) Then
+            If (output.Distance <= 0!) Then
                 alpha = 1.0!
             Else
                 Dim [function] As New SeparationFunction(cache, shapeA, form, shapeB, form2)

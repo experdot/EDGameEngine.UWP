@@ -28,7 +28,7 @@ Namespace Global.Box2D
                         Me._points.Item(0) = (0.5! * (vector4 + vector5))
                         Exit Select
                     Case ManifoldType.FaceA
-                        Dim vector6 As Vector2 = MathUtils.Multiply(xfA.R, manifold._localPlaneNormal)
+                        Dim vector6 As Vector2 = MathUtils.Multiply(xfA.RoateMatrix, manifold._localPlaneNormal)
                         Dim vector7 As Vector2 = MathUtils.Multiply(xfA, manifold._localPoint)
                         Me._normal = vector6
                         Dim i As Integer
@@ -40,7 +40,7 @@ Namespace Global.Box2D
                         Next i
                         Exit Select
                     Case ManifoldType.FaceB
-                        Dim vector11 As Vector2 = MathUtils.Multiply(xfB.R, manifold._localPlaneNormal)
+                        Dim vector11 As Vector2 = MathUtils.Multiply(xfB.RoateMatrix, manifold._localPlaneNormal)
                         Dim vector12 As Vector2 = MathUtils.Multiply(xfB, manifold._localPoint)
                         Me._normal = -vector11
                         Dim j As Integer

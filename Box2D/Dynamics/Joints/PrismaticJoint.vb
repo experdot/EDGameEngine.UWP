@@ -54,8 +54,8 @@ Namespace Global.Box2D
             Dim body2 As Body = MyBase._bodyB
             body.GetXForm(form)
             body2.GetXForm(form2)
-            Dim a As Vector2 = MathUtils.Multiply(form.R, (Me._localAnchor1 - body.GetLocalCenter))
-            Dim vector2 As Vector2 = MathUtils.Multiply(form2.R, (Me._localAnchor2 - body2.GetLocalCenter))
+            Dim a As Vector2 = MathUtils.Multiply(form.RoateMatrix, (Me._localAnchor1 - body.GetLocalCenter))
+            Dim vector2 As Vector2 = MathUtils.Multiply(form2.RoateMatrix, (Me._localAnchor2 - body2.GetLocalCenter))
             Dim vector3 As Vector2 = (body._sweep.c + a)
             Dim vector4 As Vector2 = (body2._sweep.c + vector2)
             Dim vector5 As Vector2 = (vector4 - vector3)
@@ -110,20 +110,20 @@ Namespace Global.Box2D
             MyBase._localCenter2 = body2.GetLocalCenter
             body.GetXForm(form)
             body2.GetXForm(form2)
-            Dim vector As Vector2 = MathUtils.Multiply(form.R, (Me._localAnchor1 - MyBase._localCenter1))
-            Dim a As Vector2 = MathUtils.Multiply(form2.R, (Me._localAnchor2 - MyBase._localCenter2))
+            Dim vector As Vector2 = MathUtils.Multiply(form.RoateMatrix, (Me._localAnchor1 - MyBase._localCenter1))
+            Dim a As Vector2 = MathUtils.Multiply(form2.RoateMatrix, (Me._localAnchor2 - MyBase._localCenter2))
             Dim vector3 As Vector2 = (((body2._sweep.c + a) - body._sweep.c) - vector)
             MyBase._invMass1 = body._invMass
             MyBase._invI1 = body._invI
             MyBase._invMass2 = body2._invMass
             MyBase._invI2 = body2._invI
-            Me._axis = MathUtils.Multiply(form.R, Me._localXAxis1)
+            Me._axis = MathUtils.Multiply(form.RoateMatrix, Me._localXAxis1)
             Me._a1 = MathUtils.Cross((vector3 + vector), Me._axis)
             Me._a2 = MathUtils.Cross(a, Me._axis)
             Me._motorMass = (((MyBase._invMass1 + MyBase._invMass2) + ((MyBase._invI1 * Me._a1) * Me._a1)) + ((MyBase._invI2 * Me._a2) * Me._a2))
             Debug.Assert((Me._motorMass > Settings.b2_FLT_EPSILON))
             Me._motorMass = (1.0! / Me._motorMass)
-            Me._perp = MathUtils.Multiply(form.R, Me._localYAxis1)
+            Me._perp = MathUtils.Multiply(form.RoateMatrix, Me._localYAxis1)
             Me._s1 = MathUtils.Cross((vector3 + vector), Me._perp)
             Me._s2 = MathUtils.Cross(a, Me._perp)
             Dim num As Single = MyBase._invMass1

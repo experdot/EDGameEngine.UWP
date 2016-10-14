@@ -12,8 +12,8 @@ Namespace Global.Box2D
         Public Shared Sub ComputeDistance(<Out> ByRef output As DistanceOutput, <Out> ByRef cache As SimplexCache, ByRef input As DistanceInput, ByVal shapeA As Shape, ByVal shapeB As Shape)
             cache = New SimplexCache
             Distance.b2_gjkCalls += 1
-            Dim transformA As XForm = input.transformA
-            Dim transformB As XForm = input.transformB
+            Dim transformA As XForm = input.TransformA
+            Dim transformB As XForm = input.TransformB
             Dim simplex As New Simplex
             simplex.ReadCache(cache, shapeA, transformA, shapeB, transformB)
             Dim num As Integer = 20
@@ -55,9 +55,9 @@ Namespace Global.Box2D
                     Exit Do
                 End If
                 Dim vertex As SimplexVertex = simplex._v.Item(simplex._count)
-                vertex.indexA = shapeA.GetSupport(MathUtils.MultiplyT(transformA.R, -searchDirection))
+                vertex.indexA = shapeA.GetSupport(MathUtils.MultiplyT(transformA.RoateMatrix, -searchDirection))
                 vertex.wA = MathUtils.Multiply(transformA, shapeA.GetVertex(vertex.indexA))
-                vertex.indexB = shapeB.GetSupport(MathUtils.MultiplyT(transformB.R, searchDirection))
+                vertex.indexB = shapeB.GetSupport(MathUtils.MultiplyT(transformB.RoateMatrix, searchDirection))
                 vertex.wB = MathUtils.Multiply(transformB, shapeB.GetVertex(vertex.indexB))
                 vertex.w = (vertex.wB - vertex.wA)
                 simplex._v.Item(simplex._count) = vertex
@@ -77,24 +77,24 @@ Namespace Global.Box2D
                 simplex._count += 1
             Loop
             Distance.b2_gjkMaxIters = Math.Max(Distance.b2_gjkMaxIters, num5)
-            simplex.GetWitnessPoints(output.pointA, output.pointB)
-            output.distance = (output.pointA - output.pointB).Length
-            output.iterations = num5
+            simplex.GetWitnessPoints(output.PointA, output.PointB)
+            output.Distance = (output.PointA - output.PointB).Length
+            output.Iterations = num5
             simplex.WriteCache(cache)
             If input.useRadii Then
-                Dim num9 As Single = shapeA._radius
-                Dim num10 As Single = shapeB._radius
-                If ((output.distance > (num9 + num10)) AndAlso (output.distance > Settings.b2_FLT_EPSILON)) Then
-                    output.distance = (output.distance - (num9 + num10))
-                    Dim vec As Vector2 = (output.pointB - output.pointA)
+                Dim num9 As Single = shapeA.Radius
+                Dim num10 As Single = shapeB.Radius
+                If ((output.Distance > (num9 + num10)) AndAlso (output.Distance > Settings.b2_FLT_EPSILON)) Then
+                    output.Distance = (output.Distance - (num9 + num10))
+                    Dim vec As Vector2 = (output.PointB - output.PointA)
                     Extension.Normalize(vec)
-                    output.pointA = (output.pointA + (num9 * vec))
-                    output.pointB = (output.pointB - (num10 * vec))
+                    output.PointA = (output.PointA + (num9 * vec))
+                    output.PointB = (output.PointB - (num10 * vec))
                 Else
-                    Dim vector6 As Vector2 = (0.5! * (output.pointA + output.pointB))
-                    output.pointA = vector6
-                    output.pointB = vector6
-                    output.distance = 0!
+                    Dim vector6 As Vector2 = (0.5! * (output.PointA + output.PointB))
+                    output.PointA = vector6
+                    output.PointB = vector6
+                    output.Distance = 0!
                 End If
             End If
         End Sub

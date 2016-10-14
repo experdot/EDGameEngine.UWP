@@ -53,8 +53,8 @@ Namespace Global.Box2D
             Dim body2 As Body = MyBase._bodyB
             body.GetXForm(form)
             body2.GetXForm(form2)
-            Dim a As Vector2 = MathUtils.Multiply(form.R, (Me._localAnchor1 - body.GetLocalCenter))
-            Dim vector2 As Vector2 = MathUtils.Multiply(form2.R, (Me._localAnchor2 - body2.GetLocalCenter))
+            Dim a As Vector2 = MathUtils.Multiply(form.RoateMatrix, (Me._localAnchor1 - body.GetLocalCenter))
+            Dim vector2 As Vector2 = MathUtils.Multiply(form2.RoateMatrix, (Me._localAnchor2 - body2.GetLocalCenter))
             Dim vector3 As Vector2 = (body._sweep.c + a)
             Dim vector4 As Vector2 = (body2._sweep.c + vector2)
             Dim vector5 As Vector2 = (vector4 - vector3)
@@ -108,20 +108,20 @@ Namespace Global.Box2D
             MyBase._localCenter2 = body2.GetLocalCenter
             body.GetXForm(form)
             body2.GetXForm(form2)
-            Dim vector As Vector2 = MathUtils.Multiply(form.R, (Me._localAnchor1 - MyBase._localCenter1))
-            Dim a As Vector2 = MathUtils.Multiply(form2.R, (Me._localAnchor2 - MyBase._localCenter2))
+            Dim vector As Vector2 = MathUtils.Multiply(form.RoateMatrix, (Me._localAnchor1 - MyBase._localCenter1))
+            Dim a As Vector2 = MathUtils.Multiply(form2.RoateMatrix, (Me._localAnchor2 - MyBase._localCenter2))
             Dim vector3 As Vector2 = (((body2._sweep.c + a) - body._sweep.c) - vector)
             MyBase._invMass1 = body._invMass
             MyBase._invI1 = body._invI
             MyBase._invMass2 = body2._invMass
             MyBase._invI2 = body2._invI
-            Me._axis = MathUtils.Multiply(form.R, Me._localXAxis1)
+            Me._axis = MathUtils.Multiply(form.RoateMatrix, Me._localXAxis1)
             Me._a1 = MathUtils.Cross((vector3 + vector), Me._axis)
             Me._a2 = MathUtils.Cross(a, Me._axis)
             Me._motorMass = (((MyBase._invMass1 + MyBase._invMass2) + ((MyBase._invI1 * Me._a1) * Me._a1)) + ((MyBase._invI2 * Me._a2) * Me._a2))
             Debug.Assert((Me._motorMass > Settings.b2_FLT_EPSILON))
-            Me._motorMass = (1! / Me._motorMass)
-            Me._perp = MathUtils.Multiply(form.R, Me._localYAxis1)
+            Me._motorMass = (1.0! / Me._motorMass)
+            Me._perp = MathUtils.Multiply(form.RoateMatrix, Me._localYAxis1)
             Me._s1 = MathUtils.Cross((vector3 + vector), Me._perp)
             Me._s2 = MathUtils.Cross(a, Me._perp)
             Dim num As Single = MyBase._invMass1
@@ -131,11 +131,11 @@ Namespace Global.Box2D
             Dim num5 As Single = (((num + num2) + ((num3 * Me._s1) * Me._s1)) + ((num4 * Me._s2) * Me._s2))
             Dim num6 As Single = (((num3 * Me._s1) * Me._a1) + ((num4 * Me._s2) * Me._a2))
             Dim num7 As Single = (((num + num2) + ((num3 * Me._a1) * Me._a1)) + ((num4 * Me._a2) * Me._a2))
-            Me._K.col1 = New Vector2(num5, num6)
-            Me._K.col2 = New Vector2(num6, num7)
+            Me._K.Column1 = New Vector2(num5, num6)
+            Me._K.Column2 = New Vector2(num6, num7)
             If Me._enableLimit Then
                 Dim num8 As Single = Vector2.Dot(Me._axis, vector3)
-                If (Math.Abs((Me._upperTranslation - Me._lowerTranslation)) < (2! * Settings.b2_linearSlop)) Then
+                If (Math.Abs((Me._upperTranslation - Me._lowerTranslation)) < (2.0! * Settings.b2_linearSlop)) Then
                     Me._limitState = LimitState.Equal
                 ElseIf (num8 <= Me._lowerTranslation) Then
                     If (Me._limitState <> LimitState.AtLower) Then
@@ -183,21 +183,21 @@ Namespace Global.Box2D
 
         Public Sub SetLimits(ByVal lower As Single, ByVal upper As Single)
             Debug.Assert((lower <= upper))
-            MyBase._bodyA.WakeUp
-            MyBase._bodyB.WakeUp
+            MyBase._bodyA.WakeUp()
+            MyBase._bodyB.WakeUp()
             Me._lowerTranslation = lower
             Me._upperTranslation = upper
         End Sub
 
         Public Sub SetMaxMotorForce(ByVal force As Single)
-            MyBase._bodyA.WakeUp
-            MyBase._bodyB.WakeUp
+            MyBase._bodyA.WakeUp()
+            MyBase._bodyB.WakeUp()
             Me._maxMotorForce = force
         End Sub
 
         Public Sub SetMotorSpeed(ByVal speed As Single)
-            MyBase._bodyA.WakeUp
-            MyBase._bodyB.WakeUp
+            MyBase._bodyA.WakeUp()
+            MyBase._bodyB.WakeUp()
             Me._motorSpeed = speed
         End Sub
 
@@ -223,7 +223,7 @@ Namespace Global.Box2D
                 Me._a1 = MathUtils.Cross((vector5 + vector3), Me._axis)
                 Me._a2 = MathUtils.Cross(vector4, Me._axis)
                 Dim num9 As Single = Vector2.Dot(Me._axis, vector5)
-                If (Math.Abs((Me._upperTranslation - Me._lowerTranslation)) < (2! * Settings.b2_linearSlop)) Then
+                If (Math.Abs((Me._upperTranslation - Me._lowerTranslation)) < (2.0! * Settings.b2_linearSlop)) Then
                     num5 = MathUtils.Clamp(num9, -Settings.b2_maxLinearCorrection, Settings.b2_maxLinearCorrection)
                     num3 = Math.Abs(num9)
                     flag = True
@@ -251,8 +251,8 @@ Namespace Global.Box2D
                 Dim num14 As Single = (((num10 + num11) + ((num12 * Me._s1) * Me._s1)) + ((num13 * Me._s2) * Me._s2))
                 Dim num15 As Single = (((num12 * Me._s1) * Me._a1) + ((num13 * Me._s2) * Me._a2))
                 Dim num16 As Single = (((num10 + num11) + ((num12 * Me._a1) * Me._a1)) + ((num13 * Me._a2) * Me._a2))
-                Me._K.col1 = New Vector2(num14, num15)
-                Me._K.col2 = New Vector2(num15, num16)
+                Me._K.Column1 = New Vector2(num14, num15)
+                Me._K.Column2 = New Vector2(num15, num16)
                 Dim b As New Vector2(-num6, -num5)
                 vector6 = Me._K.Solve(b)
             Else
@@ -276,8 +276,8 @@ Namespace Global.Box2D
             body._sweep.a = a
             body2._sweep.c = vector2
             body2._sweep.a = angle
-            body.SynchronizeTransform
-            body2.SynchronizeTransform
+            body.SynchronizeTransform()
+            body2.SynchronizeTransform()
             Return ((num3 <= Settings.b2_linearSlop) AndAlso (num4 <= Settings.b2_angularSlop))
         End Function
 
@@ -315,8 +315,8 @@ Namespace Global.Box2D
                 ElseIf (Me._limitState = LimitState.AtUpper) Then
                     Me._impulse.Y = Math.Min(Me._impulse.Y, 0!)
                 End If
-                Dim num11 As Single = (-num3 - ((Me._impulse.Y - vector5.Y) * Me._K.col2.X))
-                Dim num12 As Single = ((num11 / Me._K.col1.X) + vector5.X)
+                Dim num11 As Single = (-num3 - ((Me._impulse.Y - vector5.Y) * Me._K.Column2.X))
+                Dim num12 As Single = ((num11 / Me._K.Column1.X) + vector5.X)
                 Me._impulse.X = num12
                 vector6 = (Me._impulse - vector5)
                 Dim vector7 As Vector2 = ((vector6.X * Me._perp) + (vector6.Y * Me._axis))
@@ -327,7 +327,7 @@ Namespace Global.Box2D
                 vector2 = (vector2 + (MyBase._invMass2 * vector7))
                 num2 = (num2 + (MyBase._invI2 * num14))
             Else
-                Dim num15 As Single = (-num3 / Me._K.col1.X)
+                Dim num15 As Single = (-num3 / Me._K.Column1.X)
                 Me._impulse.X = (Me._impulse.X + num15)
                 Dim vector8 As Vector2 = (num15 * Me._perp)
                 Dim num16 As Single = (num15 * Me._s1)

@@ -35,7 +35,7 @@ Namespace Global.Box2D
                 Me._localPoint = (0.5! * (vector5 + vector6))
                 Me._axis = MathUtils.Cross((vector6 - vector5), CSng(1.0!))
                 Extension.Normalize(Me._axis)
-                Dim vector8 As Vector2 = MathUtils.Multiply(transformA.R, Me._axis)
+                Dim vector8 As Vector2 = MathUtils.Multiply(transformA.RoateMatrix, Me._axis)
                 Dim vector9 As Vector2 = MathUtils.Multiply(transformA, Me._localPoint)
                 If (Vector2.Dot((MathUtils.Multiply(transformB, vector7) - vector9), vector8) < 0!) Then
                     Me._axis = -Me._axis
@@ -48,7 +48,7 @@ Namespace Global.Box2D
                 Me._localPoint = (0.5! * (vector12 + vector13))
                 Me._axis = MathUtils.Cross((vector13 - vector12), CSng(1.0!))
                 Extension.Normalize(Me._axis)
-                Dim vector14 As Vector2 = MathUtils.Multiply(transformB.R, Me._axis)
+                Dim vector14 As Vector2 = MathUtils.Multiply(transformB.RoateMatrix, Me._axis)
                 Dim vector15 As Vector2 = MathUtils.Multiply(transformB, Me._localPoint)
                 If (Vector2.Dot((MathUtils.Multiply(transformA, vector11) - vector15), vector14) < 0!) Then
                     Me._axis = -Me._axis
@@ -59,9 +59,9 @@ Namespace Global.Box2D
                 Dim vector19 As Vector2 = Me._shapeB.GetVertex(cache.indexB.Item(0))
                 Dim vector20 As Vector2 = Me._shapeB.GetVertex(cache.indexB.Item(1))
                 Dim vector21 As Vector2 = MathUtils.Multiply(transformA, vector17)
-                Dim vector22 As Vector2 = MathUtils.Multiply(transformA.R, (vector18 - vector17))
+                Dim vector22 As Vector2 = MathUtils.Multiply(transformA.RoateMatrix, (vector18 - vector17))
                 Dim vector23 As Vector2 = MathUtils.Multiply(transformB, vector19)
-                Dim vector24 As Vector2 = MathUtils.Multiply(transformB.R, (vector20 - vector19))
+                Dim vector24 As Vector2 = MathUtils.Multiply(transformB.RoateMatrix, (vector20 - vector19))
                 Dim num4 As Single = Vector2.Dot(vector22, vector22)
                 Dim num5 As Single = Vector2.Dot(vector24, vector24)
                 Dim vector25 As Vector2 = (vector21 - vector23)
@@ -89,7 +89,7 @@ Namespace Global.Box2D
                         Me._axis = MathUtils.Cross((vector20 - vector19), CSng(1.0!))
                         Extension.Normalize(Me._axis)
                         Me._localPoint = vector27
-                        Dim vector28 As Vector2 = MathUtils.Multiply(transformB.R, Me._axis)
+                        Dim vector28 As Vector2 = MathUtils.Multiply(transformB.RoateMatrix, Me._axis)
                         Dim vector29 As Vector2 = MathUtils.Multiply(transformA, vector26)
                         Dim vector30 As Vector2 = MathUtils.Multiply(transformB, vector27)
                         If (Vector2.Dot((vector29 - vector30), vector28) < 0!) Then
@@ -101,7 +101,7 @@ Namespace Global.Box2D
                 Me._axis = MathUtils.Cross((vector18 - vector17), CSng(1.0!))
                 Extension.Normalize(Me._axis)
                 Me._localPoint = vector26
-                Dim vector31 As Vector2 = MathUtils.Multiply(transformA.R, Me._axis)
+                Dim vector31 As Vector2 = MathUtils.Multiply(transformA.RoateMatrix, Me._axis)
                 Dim vector32 As Vector2 = MathUtils.Multiply(transformA, vector26)
                 If (Vector2.Dot((MathUtils.Multiply(transformB, vector27) - vector32), vector31) < 0!) Then
                     Me._axis = -Me._axis
@@ -112,22 +112,22 @@ Namespace Global.Box2D
         Public Function Evaluate(ByRef transformA As XForm, ByRef transformB As XForm) As Single
             Select Case Me._type
                 Case SeparationFunctionType.Points
-                    Dim d As Vector2 = MathUtils.MultiplyT(transformA.R, Me._axis)
-                    Dim vector2 As Vector2 = MathUtils.MultiplyT(transformB.R, -Me._axis)
+                    Dim d As Vector2 = MathUtils.MultiplyT(transformA.RoateMatrix, Me._axis)
+                    Dim vector2 As Vector2 = MathUtils.MultiplyT(transformB.RoateMatrix, -Me._axis)
                     Dim supportVertex As Vector2 = Me._shapeA.GetSupportVertex(d)
                     Dim v As Vector2 = Me._shapeB.GetSupportVertex(vector2)
                     Dim vector5 As Vector2 = MathUtils.Multiply(transformA, supportVertex)
                     Return Vector2.Dot((MathUtils.Multiply(transformB, v) - vector5), Me._axis)
                 Case SeparationFunctionType.FaceA
-                    Dim vector7 As Vector2 = MathUtils.Multiply(transformA.R, Me._axis)
+                    Dim vector7 As Vector2 = MathUtils.Multiply(transformA.RoateMatrix, Me._axis)
                     Dim vector8 As Vector2 = MathUtils.Multiply(transformA, Me._localPoint)
-                    Dim vector9 As Vector2 = MathUtils.MultiplyT(transformB.R, -vector7)
+                    Dim vector9 As Vector2 = MathUtils.MultiplyT(transformB.RoateMatrix, -vector7)
                     Dim vector10 As Vector2 = Me._shapeB.GetSupportVertex(vector9)
                     Return Vector2.Dot((MathUtils.Multiply(transformB, vector10) - vector8), vector7)
                 Case SeparationFunctionType.FaceB
-                    Dim vector12 As Vector2 = MathUtils.Multiply(transformB.R, Me._axis)
+                    Dim vector12 As Vector2 = MathUtils.Multiply(transformB.RoateMatrix, Me._axis)
                     Dim vector13 As Vector2 = MathUtils.Multiply(transformB, Me._localPoint)
-                    Dim vector14 As Vector2 = MathUtils.MultiplyT(transformA.R, -vector12)
+                    Dim vector14 As Vector2 = MathUtils.MultiplyT(transformA.RoateMatrix, -vector12)
                     Dim vector15 As Vector2 = Me._shapeA.GetSupportVertex(vector14)
                     Return Vector2.Dot((MathUtils.Multiply(transformA, vector15) - vector13), vector12)
             End Select

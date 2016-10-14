@@ -89,8 +89,8 @@ Namespace Global.Box2D
             End If
             body.GetXForm(form)
             body2.GetXForm(form2)
-            Dim a As Vector2 = MathUtils.Multiply(form.R, (Me._localAnchor1 - body.GetLocalCenter))
-            Dim vector2 As Vector2 = MathUtils.Multiply(form2.R, (Me._localAnchor2 - body2.GetLocalCenter))
+            Dim a As Vector2 = MathUtils.Multiply(form.RoateMatrix, (Me._localAnchor1 - body.GetLocalCenter))
+            Dim vector2 As Vector2 = MathUtils.Multiply(form2.RoateMatrix, (Me._localAnchor2 - body2.GetLocalCenter))
             Dim num As Single = body._invMass
             Dim num2 As Single = body2._invMass
             Dim num3 As Single = body._invI
@@ -205,8 +205,8 @@ Namespace Global.Box2D
             End If
             body.GetXForm(form)
             body2.GetXForm(form2)
-            Dim a As Vector2 = MathUtils.Multiply(form.R, (Me._localAnchor1 - body.GetLocalCenter))
-            Dim vector2 As Vector2 = MathUtils.Multiply(form2.R, (Me._localAnchor2 - body2.GetLocalCenter))
+            Dim a As Vector2 = MathUtils.Multiply(form.RoateMatrix, (Me._localAnchor1 - body.GetLocalCenter))
+            Dim vector2 As Vector2 = MathUtils.Multiply(form2.RoateMatrix, (Me._localAnchor2 - body2.GetLocalCenter))
             Dim vec As Vector2 = (((body2._sweep.c + vector2) - body._sweep.c) - a)
             num2 = vec.Length
             Dim num8 As Single = body._invMass
@@ -266,8 +266,8 @@ Namespace Global.Box2D
                 Dim form2 As XForm
                 body.GetXForm(form)
                 body2.GetXForm(form2)
-                Dim a As Vector2 = MathUtils.Multiply(form.R, (Me._localAnchor1 - body.GetLocalCenter))
-                Dim vector4 As Vector2 = MathUtils.Multiply(form2.R, (Me._localAnchor2 - body2.GetLocalCenter))
+                Dim a As Vector2 = MathUtils.Multiply(form.RoateMatrix, (Me._localAnchor1 - body.GetLocalCenter))
+                Dim vector4 As Vector2 = MathUtils.Multiply(form2.RoateMatrix, (Me._localAnchor2 - body2.GetLocalCenter))
                 Dim vector5 As Vector2 = (((vector2 + MathUtils.Cross(num2, vector4)) - vector) - MathUtils.Cross(s, a))
                 Dim num11 As Single = (num2 - s)
                 Dim vector6 As New Vector3(vector5.X, vector5.Y, num11)
@@ -307,8 +307,8 @@ Namespace Global.Box2D
                 Dim form4 As XForm
                 body.GetXForm(form3)
                 body2.GetXForm(form4)
-                Dim vector11 As Vector2 = MathUtils.Multiply(form3.R, (Me._localAnchor1 - body.GetLocalCenter))
-                Dim vector12 As Vector2 = MathUtils.Multiply(form4.R, (Me._localAnchor2 - body2.GetLocalCenter))
+                Dim vector11 As Vector2 = MathUtils.Multiply(form3.RoateMatrix, (Me._localAnchor1 - body.GetLocalCenter))
+                Dim vector12 As Vector2 = MathUtils.Multiply(form4.RoateMatrix, (Me._localAnchor2 - body2.GetLocalCenter))
                 Dim vector13 As Vector2 = (((vector2 + MathUtils.Cross(num2, vector12)) - vector) - MathUtils.Cross(s, vector11))
                 Dim vector14 As Vector2 = Me._mass.Solve22(-vector13)
                 Me._impulse.X = (Me._impulse.X + vector14.X)

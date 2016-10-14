@@ -15,8 +15,8 @@ Namespace Global.Box2D
             xf = New XForm
             xf.Position = (((1! - alpha) * Me.c0) + (alpha * Me.c))
             Dim angle As Single = (((1! - alpha) * Me.a0) + (alpha * Me.a))
-            xf.R.SetValue(angle)
-            xf.Position = (xf.Position - MathUtils.Multiply(xf.R, Me.localCenter))
+            xf.RoateMatrix.SetValue(angle)
+            xf.Position = (xf.Position - MathUtils.Multiply(xf.RoateMatrix, Me.localCenter))
         End Sub
 
         Public Sub Advance(ByVal t As Single)

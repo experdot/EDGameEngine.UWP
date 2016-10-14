@@ -7,7 +7,7 @@ Namespace Global.Box2D
         Implements IComparable(Of Pair)
         Public proxyIdA As Integer
         Public proxyIdB As Integer
-        Public [next] As Integer
+        Public [Next] As Integer
         Public Function CompareTo(ByVal other As Pair) As Integer Implements IComparable(Of Pair).CompareTo
             If (Me.proxyIdA < other.proxyIdA) Then
                 Return -1

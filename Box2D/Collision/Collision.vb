@@ -3,6 +3,9 @@ Imports System.Runtime.InteropServices
 Imports Box2D.UWPExtensions
 
 Namespace Global.Box2D
+    ''' <summary>
+    ''' 碰撞检测器
+    ''' </summary>
     Public Class Collision
 
         ' Methods
@@ -36,17 +39,17 @@ Namespace Global.Box2D
 
         Public Shared Sub CollideCircles(ByRef manifold As Manifold, ByVal circle1 As CircleShape, ByRef xf1 As XForm, ByVal circle2 As CircleShape, ByRef xf2 As XForm)
             manifold._pointCount = 0
-            Dim vector As Vector2 = MathUtils.Multiply(xf1, circle1._p)
-            Dim vector3 As Vector2 = (MathUtils.Multiply(xf2, circle2._p) - vector)
+            Dim vector As Vector2 = MathUtils.Multiply(xf1, circle1.Position)
+            Dim vector3 As Vector2 = (MathUtils.Multiply(xf2, circle2.Position) - vector)
             Dim num As Single = Vector2.Dot(vector3, vector3)
-            Dim num2 As Single = (circle1._radius + circle2._radius)
+            Dim num2 As Single = (circle1.Radius + circle2.Radius)
             If (num <= (num2 * num2)) Then
                 manifold._type = ManifoldType.Circles
-                manifold._localPoint = circle1._p
+                manifold._localPoint = circle1.Position
                 manifold._localPlaneNormal = Vector2.Zero
                 manifold._pointCount = 1
                 Dim point As ManifoldPoint = manifold._points.Item(0)
-                point.LocalPoint = circle2._p
+                point.LocalPoint = circle2.Position
                 point.Id.Key = 0
                 manifold._points.Item(0) = point
             End If
@@ -54,15 +57,15 @@ Namespace Global.Box2D
 
         Public Shared Sub CollidePolygonAndCircle(ByRef manifold As Manifold, ByVal polygon As PolygonShape, ByRef xf1 As XForm, ByVal circle As CircleShape, ByRef xf2 As XForm)
             manifold._pointCount = 0
-            Dim v As Vector2 = MathUtils.Multiply(xf2, circle._p)
+            Dim v As Vector2 = MathUtils.Multiply(xf2, circle.Position)
             Dim vector2 As Vector2 = MathUtils.MultiplyT(xf1, v)
             Dim num As Integer = 0
             Dim num2 As Single = -Settings.b2_FLT_MAX
-            Dim num3 As Single = (polygon._radius + circle._radius)
-            Dim num4 As Integer = polygon._vertexCount
+            Dim num3 As Single = (polygon.Radius + circle.Radius)
+            Dim num4 As Integer = polygon.VertexCount
             Dim i As Integer
             For i = 0 To num4 - 1
-                Dim num10 As Single = Vector2.Dot(polygon._normals.Item(i), (vector2 - polygon._vertices.Item(i)))
+                Dim num10 As Single = Vector2.Dot(polygon.Normals.Item(i), (vector2 - polygon.Vertices.Item(i)))
                 If (num10 > num3) Then
                     Return
                 End If
@@ -73,15 +76,15 @@ Namespace Global.Box2D
             Next i
             Dim num5 As Integer = num
             Dim num6 As Integer = If(((num5 + 1) < num4), (num5 + 1), 0)
-            Dim vector3 As Vector2 = polygon._vertices.Item(num5)
-            Dim vector4 As Vector2 = polygon._vertices.Item(num6)
+            Dim vector3 As Vector2 = polygon.Vertices.Item(num5)
+            Dim vector4 As Vector2 = polygon.Vertices.Item(num6)
             If (num2 < Settings.b2_FLT_EPSILON) Then
                 manifold._pointCount = 1
                 manifold._type = ManifoldType.FaceA
-                manifold._localPlaneNormal = polygon._normals.Item(num)
+                manifold._localPlaneNormal = polygon.Normals.Item(num)
                 manifold._localPoint = (0.5! * (vector3 + vector4))
                 Dim point As ManifoldPoint = manifold._points.Item(0)
-                point.LocalPoint = circle._p
+                point.LocalPoint = circle.Position
                 point.Id.Key = 0
                 manifold._points.Item(0) = point
             Else
@@ -95,7 +98,7 @@ Namespace Global.Box2D
                         Extension.Normalize(manifold._localPlaneNormal)
                         manifold._localPoint = vector3
                         Dim point2 As ManifoldPoint = manifold._points.Item(0)
-                        point2.LocalPoint = circle._p
+                        point2.LocalPoint = circle.Position
                         point2.Id.Key = 0
                         manifold._points.Item(0) = point2
                     End If
@@ -107,19 +110,19 @@ Namespace Global.Box2D
                         Extension.Normalize(manifold._localPlaneNormal)
                         manifold._localPoint = vector4
                         Dim point3 As ManifoldPoint = manifold._points.Item(0)
-                        point3.LocalPoint = circle._p
+                        point3.LocalPoint = circle.Position
                         point3.Id.Key = 0
                         manifold._points.Item(0) = point3
                     End If
                 Else
                     Dim vector5 As Vector2 = (0.5! * (vector3 + vector4))
-                    If (Vector2.Dot((vector2 - vector5), polygon._normals.Item(num5)) <= num3) Then
+                    If (Vector2.Dot((vector2 - vector5), polygon.Normals.Item(num5)) <= num3) Then
                         manifold._pointCount = 1
                         manifold._type = ManifoldType.FaceA
-                        manifold._localPlaneNormal = polygon._normals.Item(num5)
+                        manifold._localPlaneNormal = polygon.Normals.Item(num5)
                         manifold._localPoint = vector5
                         Dim point4 As ManifoldPoint = manifold._points.Item(0)
-                        point4.LocalPoint = circle._p
+                        point4.LocalPoint = circle.Position
                         point4.Id.Key = 0
                         manifold._points.Item(0) = point4
                     End If
@@ -129,7 +132,7 @@ Namespace Global.Box2D
 
         Public Shared Sub CollidePolygons(ByRef manifold As Manifold, ByVal polyA As PolygonShape, ByRef xfA As XForm, ByVal polyB As PolygonShape, ByRef xfB As XForm)
             manifold._pointCount = 0
-            Dim num As Single = (polyA._radius + polyB._radius)
+            Dim num As Single = (polyA.Radius + polyB.Radius)
             Dim edgeIndex As Integer = 0
             Dim num3 As Single = Collision.FindMaxSeparation(edgeIndex, polyA, xfA, polyB, xfB)
             If (num3 <= num) Then
@@ -165,14 +168,14 @@ Namespace Global.Box2D
                         num7 = 0
                     End If
                     Collision.FindIncidentEdge(array, shape, form, num6, shape2, form2)
-                    Dim num10 As Integer = shape._vertexCount
-                    Dim v As Vector2 = shape._vertices.Item(num6)
-                    Dim vector2 As Vector2 = If(((num6 + 1) < num10), shape._vertices.Item((num6 + 1)), shape._vertices.Item(0))
+                    Dim num10 As Integer = shape.VertexCount
+                    Dim v As Vector2 = shape.Vertices.Item(num6)
+                    Dim vector2 As Vector2 = If(((num6 + 1) < num10), shape.Vertices.Item((num6 + 1)), shape.Vertices.Item(0))
                     Dim a As Vector2 = (vector2 - v)
                     Dim vec As Vector2 = MathUtils.Cross(a, CSng(1.0!))
                     Extension.Normalize(vec)
                     Dim vector5 As Vector2 = (0.5! * (v + vector2))
-                    Dim vector6 As Vector2 = MathUtils.Multiply(form.R, (vector2 - v))
+                    Dim vector6 As Vector2 = MathUtils.Multiply(form.RoateMatrix, (vector2 - v))
                     Extension.Normalize(vector6)
                     Dim vector7 As Vector2 = MathUtils.Cross(vector6, CSng(1.0!))
                     v = MathUtils.Multiply(form, v)
@@ -203,36 +206,36 @@ Namespace Global.Box2D
         End Sub
 
         Private Shared Function EdgeSeparation(ByVal poly1 As PolygonShape, ByRef xf1 As XForm, ByVal edge1 As Integer, ByVal poly2 As PolygonShape, ByRef xf2 As XForm) As Single
-            Dim num As Integer = poly1._vertexCount
-            Dim num2 As Integer = poly2._vertexCount
+            Dim num As Integer = poly1.VertexCount
+            Dim num2 As Integer = poly2.VertexCount
             Debug.Assert(((0 <= edge1) AndAlso (edge1 < num)))
-            Dim v As Vector2 = MathUtils.Multiply(xf1.R, poly1._normals.Item(edge1))
-            Dim vector2 As Vector2 = MathUtils.MultiplyT(xf2.R, v)
+            Dim v As Vector2 = MathUtils.Multiply(xf1.RoateMatrix, poly1.Normals.Item(edge1))
+            Dim vector2 As Vector2 = MathUtils.MultiplyT(xf2.RoateMatrix, v)
             Dim num3 As Integer = 0
             Dim num4 As Single = Settings.b2_FLT_MAX
             Dim i As Integer
             For i = 0 To num2 - 1
-                Dim num7 As Single = Vector2.Dot(poly2._vertices.Item(i), vector2)
+                Dim num7 As Single = Vector2.Dot(poly2.Vertices.Item(i), vector2)
                 If (num7 < num4) Then
                     num4 = num7
                     num3 = i
                 End If
             Next i
-            Dim vector3 As Vector2 = MathUtils.Multiply(xf1, poly1._vertices.Item(edge1))
-            Return Vector2.Dot((MathUtils.Multiply(xf2, poly2._vertices.Item(num3)) - vector3), v)
+            Dim vector3 As Vector2 = MathUtils.Multiply(xf1, poly1.Vertices.Item(edge1))
+            Return Vector2.Dot((MathUtils.Multiply(xf2, poly2.Vertices.Item(num3)) - vector3), v)
         End Function
 
         Private Shared Sub FindIncidentEdge(<Out> ByRef c As FixedArray2(Of ClipVertex), ByVal poly1 As PolygonShape, ByRef xf1 As XForm, ByVal edge1 As Integer, ByVal poly2 As PolygonShape, ByRef xf2 As XForm)
             c = New FixedArray2(Of ClipVertex)
-            Dim num As Integer = poly1._vertexCount
-            Dim num2 As Integer = poly2._vertexCount
+            Dim num As Integer = poly1.VertexCount
+            Dim num2 As Integer = poly2.VertexCount
             Debug.Assert(((0 <= edge1) AndAlso (edge1 < num)))
-            Dim vector As Vector2 = MathUtils.MultiplyT(xf2.R, MathUtils.Multiply(xf1.R, poly1._normals.Item(edge1)))
+            Dim vector As Vector2 = MathUtils.MultiplyT(xf2.RoateMatrix, MathUtils.Multiply(xf1.RoateMatrix, poly1.Normals.Item(edge1)))
             Dim num3 As Integer = 0
             Dim num4 As Single = Settings.b2_FLT_MAX
             Dim i As Integer
             For i = 0 To num2 - 1
-                Dim num8 As Single = Vector2.Dot(vector, poly2._normals.Item(i))
+                Dim num8 As Single = Vector2.Dot(vector, poly2.Normals.Item(i))
                 If (num8 < num4) Then
                     num4 = num8
                     num3 = i
@@ -241,13 +244,13 @@ Namespace Global.Box2D
             Dim num5 As Integer = num3
             Dim num6 As Integer = If(((num5 + 1) < num2), (num5 + 1), 0)
             Dim vertex As ClipVertex = c.Item(0)
-            vertex.v = MathUtils.Multiply(xf2, poly2._vertices.Item(num5))
+            vertex.v = MathUtils.Multiply(xf2, poly2.Vertices.Item(num5))
             vertex.id.Features.ReferenceEdge = CType(edge1, Byte)
             vertex.id.Features.IncidentEdge = CType(num5, Byte)
             vertex.id.Features.IncidentVertex = 0
             c.Item(0) = vertex
             Dim vertex2 As ClipVertex = c.Item(1)
-            vertex2.v = MathUtils.Multiply(xf2, poly2._vertices.Item(num6))
+            vertex2.v = MathUtils.Multiply(xf2, poly2.Vertices.Item(num6))
             vertex2.id.Features.ReferenceEdge = CType(edge1, Byte)
             vertex2.id.Features.IncidentEdge = CType(num6, Byte)
             vertex2.id.Features.IncidentVertex = 1
@@ -259,14 +262,14 @@ Namespace Global.Box2D
             Dim num10 As Single
             Dim num11 As Integer
             edgeIndex = -1
-            Dim num As Integer = poly1._vertexCount
-            Dim v As Vector2 = (MathUtils.Multiply(xf2, poly2._centroid) - MathUtils.Multiply(xf1, poly1._centroid))
-            Dim vector2 As Vector2 = MathUtils.MultiplyT(xf1.R, v)
+            Dim num As Integer = poly1.VertexCount
+            Dim v As Vector2 = (MathUtils.Multiply(xf2, poly2.Centroid) - MathUtils.Multiply(xf1, poly1.Centroid))
+            Dim vector2 As Vector2 = MathUtils.MultiplyT(xf1.RoateMatrix, v)
             Dim num2 As Integer = 0
             Dim num3 As Single = -Settings.b2_FLT_MAX
             Dim i As Integer
             For i = 0 To num - 1
-                Dim num13 As Single = Vector2.Dot(poly1._normals.Item(i), vector2)
+                Dim num13 As Single = Vector2.Dot(poly1.Normals.Item(i), vector2)
                 If (num13 > num3) Then
                     num3 = num13
                     num2 = i

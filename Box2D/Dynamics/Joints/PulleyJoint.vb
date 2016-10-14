@@ -72,8 +72,8 @@ Namespace Global.Box2D
             Dim body2 As Body = MyBase._bodyB
             body.GetXForm(form)
             body2.GetXForm(form2)
-            Dim a As Vector2 = MathUtils.Multiply(form.R, (Me._localAnchor1 - body.GetLocalCenter))
-            Dim vector2 As Vector2 = MathUtils.Multiply(form2.R, (Me._localAnchor2 - body2.GetLocalCenter))
+            Dim a As Vector2 = MathUtils.Multiply(form.RoateMatrix, (Me._localAnchor1 - body.GetLocalCenter))
+            Dim vector2 As Vector2 = MathUtils.Multiply(form2.RoateMatrix, (Me._localAnchor2 - body2.GetLocalCenter))
             Dim vector3 As Vector2 = (body._sweep.c + a)
             Dim vector4 As Vector2 = (body2._sweep.c + vector2)
             Dim vector5 As Vector2 = Me._groundAnchor1
@@ -83,12 +83,12 @@ Namespace Global.Box2D
             Dim num As Single = Me._u1.Length
             Dim num2 As Single = Me._u2.Length
             If (num > Settings.b2_linearSlop) Then
-                Me._u1 = (Me._u1 * (1! / num))
+                Me._u1 = (Me._u1 * (1.0! / num))
             Else
                 Me._u1 = Vector2.Zero
             End If
             If (num2 > Settings.b2_linearSlop) Then
-                Me._u2 = (Me._u2 * (1! / num2))
+                Me._u2 = (Me._u2 * (1.0! / num2))
             Else
                 Me._u2 = Vector2.Zero
             End If
@@ -119,9 +119,9 @@ Namespace Global.Box2D
             Debug.Assert((Me._limitMass1 > Settings.b2_FLT_EPSILON))
             Debug.Assert((Me._limitMass2 > Settings.b2_FLT_EPSILON))
             Debug.Assert((Me._pulleyMass > Settings.b2_FLT_EPSILON))
-            Me._limitMass1 = (1! / Me._limitMass1)
-            Me._limitMass2 = (1! / Me._limitMass2)
-            Me._pulleyMass = (1! / Me._pulleyMass)
+            Me._limitMass1 = (1.0! / Me._limitMass1)
+            Me._limitMass2 = (1.0! / Me._limitMass2)
+            Me._pulleyMass = (1.0! / Me._pulleyMass)
             If [step].warmStarting Then
                 Me._impulse = (Me._impulse * [step].dtRatio)
                 Me._limitImpulse1 = (Me._limitImpulse1 * [step].dtRatio)
@@ -150,8 +150,8 @@ Namespace Global.Box2D
                 Dim form2 As XForm
                 body.GetXForm(form)
                 body2.GetXForm(form2)
-                Dim a As Vector2 = MathUtils.Multiply(form.R, (Me._localAnchor1 - body.GetLocalCenter))
-                Dim vector4 As Vector2 = MathUtils.Multiply(form2.R, (Me._localAnchor2 - body2.GetLocalCenter))
+                Dim a As Vector2 = MathUtils.Multiply(form.RoateMatrix, (Me._localAnchor1 - body.GetLocalCenter))
+                Dim vector4 As Vector2 = MathUtils.Multiply(form2.RoateMatrix, (Me._localAnchor2 - body2.GetLocalCenter))
                 Dim vector5 As Vector2 = (body._sweep.c + a)
                 Dim vector6 As Vector2 = (body2._sweep.c + vector4)
                 Me._u1 = (vector5 - vector)
@@ -159,12 +159,12 @@ Namespace Global.Box2D
                 Dim num2 As Single = Me._u1.Length
                 Dim num3 As Single = Me._u2.Length
                 If (num2 > Settings.b2_linearSlop) Then
-                    Me._u1 = (Me._u1 * (1! / num2))
+                    Me._u1 = (Me._u1 * (1.0! / num2))
                 Else
                     Me._u1 = Vector2.Zero
                 End If
                 If (num3 > Settings.b2_linearSlop) Then
-                    Me._u2 = (Me._u2 * (1! / num3))
+                    Me._u2 = (Me._u2 * (1.0! / num3))
                 Else
                     Me._u2 = Vector2.Zero
                 End If
@@ -178,18 +178,18 @@ Namespace Global.Box2D
                 body._sweep.a = (body._sweep.a + (body._invI * MathUtils.Cross(a, b)))
                 body2._sweep.c = (body2._sweep.c + (body2._invMass * vector8))
                 body2._sweep.a = (body2._sweep.a + (body2._invI * MathUtils.Cross(vector4, vector8)))
-                body.SynchronizeTransform
-                body2.SynchronizeTransform
+                body.SynchronizeTransform()
+                body2.SynchronizeTransform()
             End If
             If (Me._limitState1 = LimitState.AtUpper) Then
                 Dim form3 As XForm
                 body.GetXForm(form3)
-                Dim vector9 As Vector2 = MathUtils.Multiply(form3.R, (Me._localAnchor1 - body.GetLocalCenter))
+                Dim vector9 As Vector2 = MathUtils.Multiply(form3.RoateMatrix, (Me._localAnchor1 - body.GetLocalCenter))
                 Dim vector10 As Vector2 = (body._sweep.c + vector9)
                 Me._u1 = (vector10 - vector)
                 Dim num6 As Single = Me._u1.Length
                 If (num6 > Settings.b2_linearSlop) Then
-                    Me._u1 = (Me._u1 * (1! / num6))
+                    Me._u1 = (Me._u1 * (1.0! / num6))
                 Else
                     Me._u1 = Vector2.Zero
                 End If
@@ -200,17 +200,17 @@ Namespace Global.Box2D
                 Dim vector11 As Vector2 = (-num8 * Me._u1)
                 body._sweep.c = (body._sweep.c + (body._invMass * vector11))
                 body._sweep.a = (body._sweep.a + (body._invI * MathUtils.Cross(vector9, vector11)))
-                body.SynchronizeTransform
+                body.SynchronizeTransform()
             End If
             If (Me._limitState2 = LimitState.AtUpper) Then
                 Dim form4 As XForm
                 body2.GetXForm(form4)
-                Dim vector12 As Vector2 = MathUtils.Multiply(form4.R, (Me._localAnchor2 - body2.GetLocalCenter))
+                Dim vector12 As Vector2 = MathUtils.Multiply(form4.RoateMatrix, (Me._localAnchor2 - body2.GetLocalCenter))
                 Dim vector13 As Vector2 = (body2._sweep.c + vector12)
                 Me._u2 = (vector13 - vector2)
                 Dim num9 As Single = Me._u2.Length
                 If (num9 > Settings.b2_linearSlop) Then
-                    Me._u2 = (Me._u2 * (1! / num9))
+                    Me._u2 = (Me._u2 * (1.0! / num9))
                 Else
                     Me._u2 = Vector2.Zero
                 End If
@@ -221,7 +221,7 @@ Namespace Global.Box2D
                 Dim vector14 As Vector2 = (-num11 * Me._u2)
                 body2._sweep.c = (body2._sweep.c + (body2._invMass * vector14))
                 body2._sweep.a = (body2._sweep.a + (body2._invI * MathUtils.Cross(vector12, vector14)))
-                body2.SynchronizeTransform
+                body2.SynchronizeTransform()
             End If
             Return (num < Settings.b2_linearSlop)
         End Function
@@ -233,8 +233,8 @@ Namespace Global.Box2D
             Dim body2 As Body = MyBase._bodyB
             body.GetXForm(form)
             body2.GetXForm(form2)
-            Dim a As Vector2 = MathUtils.Multiply(form.R, (Me._localAnchor1 - body.GetLocalCenter))
-            Dim vector2 As Vector2 = MathUtils.Multiply(form2.R, (Me._localAnchor2 - body2.GetLocalCenter))
+            Dim a As Vector2 = MathUtils.Multiply(form.RoateMatrix, (Me._localAnchor1 - body.GetLocalCenter))
+            Dim vector2 As Vector2 = MathUtils.Multiply(form2.RoateMatrix, (Me._localAnchor2 - body2.GetLocalCenter))
             If (Me._state = LimitState.AtUpper) Then
                 Dim vector3 As Vector2 = (body._linearVelocity + MathUtils.Cross(body._angularVelocity, a))
                 Dim vector4 As Vector2 = (body2._linearVelocity + MathUtils.Cross(body2._angularVelocity, vector2))

@@ -86,8 +86,8 @@ Namespace Global.Box2D
                 Dim fixture2 As Fixture = contact._fixtureB
                 Dim shape As Shape = fixture.GetShape
                 Dim shape2 As Shape = fixture2.GetShape
-                Dim radiusA As Single = shape._radius
-                Dim radiusB As Single = shape2._radius
+                Dim radiusA As Single = shape.Radius
+                Dim radiusB As Single = shape2.Radius
                 Dim body As Body = fixture.GetBody
                 Dim body2 As Body = fixture2.GetBody
                 contact.GetManifold(manifold)
@@ -298,7 +298,7 @@ Label_060B:
                     vector13.X = (-point3.normalMass * vector12.X)
                     vector13.Y = 0!
                     x = 0!
-                    y = ((constraint.K.col1.Y * vector13.X) + vector12.Y)
+                    y = ((constraint.K.Column1.Y * vector13.X) + vector12.Y)
                     If ((vector13.X >= 0!) AndAlso (y >= 0!)) Then
                         Dim vector18 As New Vector2((vector13.X - v.X), (vector13.Y - v.Y))
                         Dim vector19 As New Vector2((vector18.X * normal.X), (vector18.X * normal.Y))
@@ -315,7 +315,7 @@ Label_060B:
                     Else
                         vector13.X = 0!
                         vector13.Y = (-point4.normalMass * vector12.Y)
-                        x = ((constraint.K.col2.X * vector13.Y) + vector12.X)
+                        x = ((constraint.K.Column2.X * vector13.Y) + vector12.X)
                         y = 0!
                         If ((vector13.Y >= 0!) AndAlso (x >= 0!)) Then
                             Dim vector22 As New Vector2((vector13.X - v.X), (vector13.Y - v.Y))

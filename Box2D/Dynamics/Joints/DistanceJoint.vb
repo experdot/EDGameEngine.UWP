@@ -41,8 +41,8 @@ Namespace Global.Box2D
             Dim body2 As Body = MyBase._bodyB
             body.GetXForm(form)
             body2.GetXForm(form2)
-            Dim a As Vector2 = MathUtils.Multiply(form.R, (Me._localAnchor1 - body.GetLocalCenter))
-            Dim vector2 As Vector2 = MathUtils.Multiply(form2.R, (Me._localAnchor2 - body2.GetLocalCenter))
+            Dim a As Vector2 = MathUtils.Multiply(form.RoateMatrix, (Me._localAnchor1 - body.GetLocalCenter))
+            Dim vector2 As Vector2 = MathUtils.Multiply(form2.RoateMatrix, (Me._localAnchor2 - body2.GetLocalCenter))
             Me._u = (((body2._sweep.c + vector2) - body._sweep.c) - a)
             Dim num As Single = Me._u.Length
             If (num > Settings.b2_linearSlop) Then
@@ -86,8 +86,8 @@ Namespace Global.Box2D
             Dim body2 As Body = MyBase._bodyB
             body.GetXForm(form)
             body2.GetXForm(form2)
-            Dim a As Vector2 = MathUtils.Multiply(form.R, (Me._localAnchor1 - body.GetLocalCenter))
-            Dim vector2 As Vector2 = MathUtils.Multiply(form2.R, (Me._localAnchor2 - body2.GetLocalCenter))
+            Dim a As Vector2 = MathUtils.Multiply(form.RoateMatrix, (Me._localAnchor1 - body.GetLocalCenter))
+            Dim vector2 As Vector2 = MathUtils.Multiply(form2.RoateMatrix, (Me._localAnchor2 - body2.GetLocalCenter))
             Dim vector3 As Vector2 = (((body2._sweep.c + vector2) - body._sweep.c) - a)
             Dim num As Single = vector3.Length
             vector3 = (vector3 / num)
@@ -112,8 +112,8 @@ Namespace Global.Box2D
             Dim body2 As Body = MyBase._bodyB
             body.GetXForm(form)
             body2.GetXForm(form2)
-            Dim a As Vector2 = MathUtils.Multiply(form.R, (Me._localAnchor1 - body.GetLocalCenter))
-            Dim vector2 As Vector2 = MathUtils.Multiply(form2.R, (Me._localAnchor2 - body2.GetLocalCenter))
+            Dim a As Vector2 = MathUtils.Multiply(form.RoateMatrix, (Me._localAnchor1 - body.GetLocalCenter))
+            Dim vector2 As Vector2 = MathUtils.Multiply(form2.RoateMatrix, (Me._localAnchor2 - body2.GetLocalCenter))
             Dim vector3 As Vector2 = (body._linearVelocity + MathUtils.Cross(body._angularVelocity, a))
             Dim vector4 As Vector2 = (body2._linearVelocity + MathUtils.Cross(body2._angularVelocity, vector2))
             Dim num As Single = Vector2.Dot(Me._u, (vector4 - vector3))

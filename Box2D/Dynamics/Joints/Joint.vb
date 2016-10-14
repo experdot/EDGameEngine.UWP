@@ -19,8 +19,8 @@ Namespace Global.Box2D
 
         Friend Sub ComputeXForm(<Out> ByRef xf As XForm, ByVal center As Vector2, ByVal localCenter As Vector2, ByVal angle As Single)
             xf = New XForm
-            xf.R.SetValue(angle)
-            xf.Position = (center - MathUtils.Multiply(xf.R, localCenter))
+            xf.RoateMatrix.SetValue(angle)
+            xf.Position = (center - MathUtils.Multiply(xf.RoateMatrix, localCenter))
         End Sub
 
         Friend Shared Function Create(ByVal def As JointDef) As Joint

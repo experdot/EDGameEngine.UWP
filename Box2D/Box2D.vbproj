@@ -107,7 +107,7 @@
     <Compile Include="Dynamics\Contacts\ContactSolver.vb" />
     <Compile Include="DebugDraw\DebugDraw.vb" />
     <Compile Include="DebugDraw\DebugDrawFlags.vb" />
-    <Compile Include="Collision\Shapes\DefaultContactFilter.vb" />
+    <Compile Include="Dynamics\Contacts\DefaultContactFilter.vb" />
     <Compile Include="Dynamics\Contacts\DefaultContactListener.vb" />
     <Compile Include="Collision\Distance.vb" />
     <Compile Include="Collision\DistanceInput.vb" />

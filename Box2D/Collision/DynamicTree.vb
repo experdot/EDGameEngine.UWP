@@ -10,9 +10,9 @@ Namespace Global.Box2D
             Me._nodes = New DynamicTreeNode(Me._nodeCapacity - 1) {}
             Dim i As Integer
             For i = 0 To (Me._nodeCapacity - 1) - 1
-                Me._nodes(i).parentOrNext = (i + 1)
+                Me._nodes(i).ParentOrNext = (i + 1)
             Next i
-            Me._nodes((Me._nodeCapacity - 1)).parentOrNext = DynamicTree.NullNode
+            Me._nodes((Me._nodeCapacity - 1)).ParentOrNext = DynamicTree.NullNode
             Me._freeList = 0
             Me._path = 0
         End Sub
@@ -26,16 +26,16 @@ Namespace Global.Box2D
                 Array.Copy(nodeArray, Me._nodes, Me._nodeCount)
                 Dim i As Integer
                 For i = Me._nodeCount To (Me._nodeCapacity - 1) - 1
-                    Me._nodes(i).parentOrNext = (i + 1)
+                    Me._nodes(i).ParentOrNext = (i + 1)
                 Next i
-                Me._nodes((Me._nodeCapacity - 1)).parentOrNext = DynamicTree.NullNode
+                Me._nodes((Me._nodeCapacity - 1)).ParentOrNext = DynamicTree.NullNode
                 Me._freeList = Me._nodeCount
             End If
             Dim index As Integer = Me._freeList
-            Me._freeList = Me._nodes(index).parentOrNext
-            Me._nodes(index).parentOrNext = DynamicTree.NullNode
-            Me._nodes(index).child1 = DynamicTree.NullNode
-            Me._nodes(index).child2 = DynamicTree.NullNode
+            Me._freeList = Me._nodes(index).ParentOrNext
+            Me._nodes(index).ParentOrNext = DynamicTree.NullNode
+            Me._nodes(index).Child1 = DynamicTree.NullNode
+            Me._nodes(index).Child2 = DynamicTree.NullNode
             Me._nodeCount += 1
             Return index
         End Function
@@ -50,17 +50,17 @@ Namespace Global.Box2D
             End If
             Debug.Assert(((0 <= nodeId) AndAlso (nodeId < Me._nodeCapacity)))
             Dim node As DynamicTreeNode = Me._nodes(nodeId)
-            Dim num As Integer = Me.ComputeHeight(node.child1)
-            Dim num2 As Integer = Me.ComputeHeight(node.child2)
+            Dim num As Integer = Me.ComputeHeight(node.Child1)
+            Dim num2 As Integer = Me.ComputeHeight(node.Child2)
             Return (1 + Math.Max(num, num2))
         End Function
 
         Public Function CreateProxy(ByRef aabb As AABB, ByVal userData As Integer) As Integer
             Dim index As Integer = Me.AllocateNode
             Dim vector As New Vector2(Settings.b2_aabbExtension, Settings.b2_aabbExtension)
-            Me._nodes(index).aabb.LowerBound = (aabb.LowerBound - vector)
-            Me._nodes(index).aabb.UpperBound = (aabb.UpperBound + vector)
-            Me._nodes(index).userData = userData
+            Me._nodes(index).AABB.LowerBound = (aabb.LowerBound - vector)
+            Me._nodes(index).AABB.UpperBound = (aabb.UpperBound + vector)
+            Me._nodes(index).Userdata = userData
             Me.InsertLeaf(index)
             Return index
         End Function
@@ -75,14 +75,14 @@ Namespace Global.Box2D
         Private Sub FreeNode(ByVal nodeId As Integer)
             Debug.Assert(((0 <= nodeId) AndAlso (nodeId < Me._nodeCapacity)))
             Debug.Assert((0 < Me._nodeCount))
-            Me._nodes(nodeId).parentOrNext = Me._freeList
+            Me._nodes(nodeId).ParentOrNext = Me._freeList
             Me._freeList = nodeId
             Me._nodeCount -= 1
         End Sub
 
         Public Function GetUserData(ByVal proxyId As Integer) As Integer
             If (proxyId < Me._nodeCapacity) Then
-                Return Me._nodes(proxyId).userData
+                Return Me._nodes(proxyId).Userdata
             End If
             Return 0
         End Function
@@ -90,16 +90,16 @@ Namespace Global.Box2D
         Private Sub InsertLeaf(ByVal leaf As Integer)
             If (Me._root = DynamicTree.NullNode) Then
                 Me._root = leaf
-                Me._nodes(Me._root).parentOrNext = DynamicTree.NullNode
+                Me._nodes(Me._root).ParentOrNext = DynamicTree.NullNode
             Else
-                Dim center As Vector2 = Me._nodes(leaf).aabb.Center
+                Dim center As Vector2 = Me._nodes(leaf).AABB.Center
                 Dim index As Integer = Me._root
                 If Not Me._nodes(index).IsLeaf Then
                     Do
-                        Dim num4 As Integer = Me._nodes(index).child1
-                        Dim num5 As Integer = Me._nodes(index).child2
-                        Dim vector2 As Vector2 = MathUtils.Abs((Me._nodes(num4).aabb.Center - center))
-                        Dim vector3 As Vector2 = MathUtils.Abs((Me._nodes(num5).aabb.Center - center))
+                        Dim num4 As Integer = Me._nodes(index).Child1
+                        Dim num5 As Integer = Me._nodes(index).Child2
+                        Dim vector2 As Vector2 = MathUtils.Abs((Me._nodes(num4).AABB.Center - center))
+                        Dim vector3 As Vector2 = MathUtils.Abs((Me._nodes(num5).AABB.Center - center))
                         Dim num6 As Single = (vector2.X + vector2.Y)
                         Dim num7 As Single = (vector3.X + vector3.Y)
                         If (num6 < num7) Then
@@ -109,34 +109,34 @@ Namespace Global.Box2D
                         End If
                     Loop While Not Me._nodes(index).IsLeaf
                 End If
-                Dim parentOrNext As Integer = Me._nodes(index).parentOrNext
+                Dim parentOrNext As Integer = Me._nodes(index).ParentOrNext
                 Dim num3 As Integer = Me.AllocateNode
-                Me._nodes(num3).parentOrNext = parentOrNext
-                Me._nodes(num3).userData = 0
-                Me._nodes(num3).aabb.Combine(Me._nodes(leaf).aabb, Me._nodes(index).aabb)
+                Me._nodes(num3).ParentOrNext = parentOrNext
+                Me._nodes(num3).Userdata = 0
+                Me._nodes(num3).AABB.Combine(Me._nodes(leaf).AABB, Me._nodes(index).AABB)
                 If (parentOrNext <> DynamicTree.NullNode) Then
-                    If (Me._nodes(Me._nodes(index).parentOrNext).child1 = index) Then
-                        Me._nodes(parentOrNext).child1 = num3
+                    If (Me._nodes(Me._nodes(index).ParentOrNext).Child1 = index) Then
+                        Me._nodes(parentOrNext).Child1 = num3
                     Else
-                        Me._nodes(parentOrNext).child2 = num3
+                        Me._nodes(parentOrNext).Child2 = num3
                     End If
-                    Me._nodes(num3).child1 = index
-                    Me._nodes(num3).child2 = leaf
-                    Me._nodes(index).parentOrNext = num3
-                    Me._nodes(leaf).parentOrNext = num3
+                    Me._nodes(num3).Child1 = index
+                    Me._nodes(num3).Child2 = leaf
+                    Me._nodes(index).ParentOrNext = num3
+                    Me._nodes(leaf).ParentOrNext = num3
                     Do
-                        If Me._nodes(parentOrNext).aabb.Contains(Me._nodes(num3).aabb) Then
+                        If Me._nodes(parentOrNext).AABB.Contains(Me._nodes(num3).AABB) Then
                             Exit Do
                         End If
-                        Me._nodes(parentOrNext).aabb.Combine(Me._nodes(Me._nodes(parentOrNext).child1).aabb, Me._nodes(Me._nodes(parentOrNext).child2).aabb)
+                        Me._nodes(parentOrNext).AABB.Combine(Me._nodes(Me._nodes(parentOrNext).Child1).AABB, Me._nodes(Me._nodes(parentOrNext).Child2).AABB)
                         num3 = parentOrNext
-                        parentOrNext = Me._nodes(parentOrNext).parentOrNext
+                        parentOrNext = Me._nodes(parentOrNext).ParentOrNext
                     Loop While (parentOrNext <> DynamicTree.NullNode)
                 Else
-                    Me._nodes(num3).child1 = index
-                    Me._nodes(num3).child2 = leaf
-                    Me._nodes(index).parentOrNext = num3
-                    Me._nodes(leaf).parentOrNext = num3
+                    Me._nodes(num3).Child1 = index
+                    Me._nodes(num3).Child2 = leaf
+                    Me._nodes(index).ParentOrNext = num3
+                    Me._nodes(leaf).ParentOrNext = num3
                     Me._root = num3
                 End If
             End If
@@ -145,11 +145,11 @@ Namespace Global.Box2D
         Public Sub MoveProxy(ByVal proxyId As Integer, ByRef aabb As AABB)
             Debug.Assert(((0 <= proxyId) AndAlso (proxyId < Me._nodeCapacity)))
             Debug.Assert(Me._nodes(proxyId).IsLeaf)
-            If Not Me._nodes(proxyId).aabb.Contains(aabb) Then
+            If Not Me._nodes(proxyId).AABB.Contains(aabb) Then
                 Me.RemoveLeaf(proxyId)
                 Dim vector As New Vector2(Settings.b2_aabbExtension, Settings.b2_aabbExtension)
-                Me._nodes(proxyId).aabb.LowerBound = (aabb.LowerBound - vector)
-                Me._nodes(proxyId).aabb.UpperBound = (aabb.UpperBound + vector)
+                Me._nodes(proxyId).AABB.LowerBound = (aabb.LowerBound - vector)
+                Me._nodes(proxyId).AABB.UpperBound = (aabb.UpperBound + vector)
                 Me.InsertLeaf(proxyId)
             End If
         End Sub
@@ -162,13 +162,13 @@ Namespace Global.Box2D
                 Dim index As Integer = DynamicTree.stack(num)
                 If (index <> DynamicTree.NullNode) Then
                     Dim node As DynamicTreeNode = Me._nodes(index)
-                    If AABB.TestOverlap(node.aabb, aabb) Then
+                    If AABB.TestOverlap(node.AABB, aabb) Then
                         If node.IsLeaf Then
-                            callback.Invoke(node.userData)
+                            callback.Invoke(node.Userdata)
                         Else
                             Debug.Assert(((num + 1) < DynamicTree.k_stackSize))
-                            DynamicTree.stack(num.ValueIncrement) = node.child1
-                            DynamicTree.stack(num.ValueIncrement) = node.child2
+                            DynamicTree.stack(num.ValueIncrement) = node.Child1
+                            DynamicTree.stack(num.ValueIncrement) = node.Child2
                         End If
                     End If
                 End If
@@ -195,9 +195,9 @@ Namespace Global.Box2D
                 Dim index As Integer = DynamicTree.stack(num2)
                 If (index <> DynamicTree.NullNode) Then
                     Dim node As DynamicTreeNode = Me._nodes(index)
-                    If AABB.TestOverlap(node.aabb, b) Then
-                        Dim center As Vector2 = node.aabb.Center
-                        Dim extents As Vector2 = node.aabb.Extents
+                    If AABB.TestOverlap(node.AABB, b) Then
+                        Dim center As Vector2 = node.AABB.Center
+                        Dim extents As Vector2 = node.AABB.Extents
                         Dim num4 As Single = (Math.Abs(Vector2.Dot(v, (vector - center))) - Vector2.Dot(vector5, extents))
                         If (num4 <= 0!) Then
                             If node.IsLeaf Then
@@ -206,7 +206,7 @@ Namespace Global.Box2D
                                 input2.p1 = input.p1
                                 input2.p2 = input.p2
                                 input2.maxFraction = maxFraction
-                                callback.Invoke(output, input2, node.userData)
+                                callback.Invoke(output, input2, node.Userdata)
                                 If output.hit Then
                                     If (output.fraction = 0!) Then
                                         Exit Do
@@ -218,8 +218,8 @@ Namespace Global.Box2D
                                 End If
                             Else
                                 Debug.Assert(((num2 + 1) < DynamicTree.k_stackSize))
-                                DynamicTree.stack(num2.ValueIncrement) = node.child1
-                                DynamicTree.stack(num2.ValueIncrement) = node.child2
+                                DynamicTree.stack(num2.ValueIncrement) = node.Child1
+                                DynamicTree.stack(num2.ValueIncrement) = node.Child2
                             End If
                         End If
                     End If
@@ -234,7 +234,7 @@ Namespace Global.Box2D
                     Dim index As Integer = Me._root
                     Dim j As Integer = 0
                     Do While Not Me._nodes(index).IsLeaf
-                        index = If(((((Me._path) >> j) And 1) = 0), Me._nodes(index).child1, Me._nodes(index).child1)
+                        index = If(((((Me._path) >> j) And 1) = 0), Me._nodes(index).Child1, Me._nodes(index).Child1)
                         j = ((j + 1) And &H1F)
                     Loop
                     Me._path += 1
@@ -249,32 +249,32 @@ Namespace Global.Box2D
                 Me._root = DynamicTree.NullNode
             Else
                 Dim num3 As Integer
-                Dim parentOrNext As Integer = Me._nodes(leaf).parentOrNext
-                Dim index As Integer = Me._nodes(parentOrNext).parentOrNext
-                If (Me._nodes(parentOrNext).child1 = leaf) Then
-                    num3 = Me._nodes(parentOrNext).child2
+                Dim parentOrNext As Integer = Me._nodes(leaf).ParentOrNext
+                Dim index As Integer = Me._nodes(parentOrNext).ParentOrNext
+                If (Me._nodes(parentOrNext).Child1 = leaf) Then
+                    num3 = Me._nodes(parentOrNext).Child2
                 Else
-                    num3 = Me._nodes(parentOrNext).child1
+                    num3 = Me._nodes(parentOrNext).Child1
                 End If
                 If (index <> DynamicTree.NullNode) Then
-                    If (Me._nodes(index).child1 = parentOrNext) Then
-                        Me._nodes(index).child1 = num3
+                    If (Me._nodes(index).Child1 = parentOrNext) Then
+                        Me._nodes(index).Child1 = num3
                     Else
-                        Me._nodes(index).child2 = num3
+                        Me._nodes(index).Child2 = num3
                     End If
-                    Me._nodes(num3).parentOrNext = index
+                    Me._nodes(num3).ParentOrNext = index
                     Me.FreeNode(parentOrNext)
                     Do While (index <> DynamicTree.NullNode)
-                        Dim aabb As AABB = Me._nodes(index).aabb
-                        Me._nodes(index).aabb.Combine(Me._nodes(Me._nodes(index).child1).aabb, Me._nodes(Me._nodes(index).child2).aabb)
-                        If aabb.Contains(Me._nodes(index).aabb) Then
+                        Dim aabb As AABB = Me._nodes(index).AABB
+                        Me._nodes(index).AABB.Combine(Me._nodes(Me._nodes(index).Child1).AABB, Me._nodes(Me._nodes(index).Child2).AABB)
+                        If aabb.Contains(Me._nodes(index).AABB) Then
                             Exit Do
                         End If
-                        index = Me._nodes(index).parentOrNext
+                        index = Me._nodes(index).ParentOrNext
                     Loop
                 Else
                     Me._root = num3
-                    Me._nodes(num3).parentOrNext = DynamicTree.NullNode
+                    Me._nodes(num3).ParentOrNext = DynamicTree.NullNode
                     Me.FreeNode(parentOrNext)
                 End If
             End If

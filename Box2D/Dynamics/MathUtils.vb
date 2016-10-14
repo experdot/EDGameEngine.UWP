@@ -59,19 +59,19 @@ Namespace Global.Box2D
         End Function
 
         Public Function Multiply(ByRef A As Mat22, ByVal v As Vector2) As Vector2
-            Return New Vector2(((A.col1.X * v.X) + (A.col2.X * v.Y)), ((A.col1.Y * v.X) + (A.col2.Y * v.Y)))
+            Return New Vector2(((A.Column1.X * v.X) + (A.Column2.X * v.Y)), ((A.Column1.Y * v.X) + (A.Column2.Y * v.Y)))
         End Function
 
         Public Function Multiply(ByRef T As XForm, ByVal v As Vector2) As Vector2
-            Return (T.Position + MathUtils.Multiply(T.R, v))
+            Return (T.Position + MathUtils.Multiply(T.RoateMatrix, v))
         End Function
 
         Public Function MultiplyT(ByRef A As Mat22, ByVal v As Vector2) As Vector2
-            Return New Vector2(Vector2.Dot(v, A.col1), Vector2.Dot(v, A.col2))
+            Return New Vector2(Vector2.Dot(v, A.Column1), Vector2.Dot(v, A.Column2))
         End Function
 
         Public Function MultiplyT(ByRef T As XForm, ByVal v As Vector2) As Vector2
-            Return MathUtils.MultiplyT(T.R, (v - T.Position))
+            Return MathUtils.MultiplyT(T.RoateMatrix, (v - T.Position))
         End Function
 
         Public Sub Swap(Of T)(ByRef a As T, ByRef b As T)

@@ -21,8 +21,8 @@ Namespace Global.Box2D
             End If
             Me._world = world
             Me._xf.Position = bd.position
-            Me._xf.R.SetValue(bd.angle)
-            Me._sweep.localCenter = bd.massData.center
+            Me._xf.RoateMatrix.SetValue(bd.angle)
+            Me._sweep.localCenter = bd.massData.Centroid
             Me._sweep.t0 = 1.0!
             Me._sweep.a0 = Me._sweep.a.SetValue(bd.angle)
             Me._sweep.c0 = Me._sweep.c.SetValue(MathUtils.Multiply(Me._xf, Me._sweep.localCenter))
@@ -42,11 +42,11 @@ Namespace Global.Box2D
             Me._invMass = 0!
             Me._I = 0!
             Me._invI = 0!
-            Me._mass = bd.massData.mass
+            Me._mass = bd.massData.Mass
             If (Me._mass > 0!) Then
                 Me._invMass = (1.0! / Me._mass)
             End If
-            Me._I = bd.massData.i
+            Me._I = bd.massData.InertiaMoment
             If ((Me._I > 0!) AndAlso ((Me._flags And BodyFlags.FixedRotation) = BodyFlags.None)) Then
                 Me._invI = (1.0! / Me._I)
             End If
@@ -249,7 +249,7 @@ Namespace Global.Box2D
         End Function
 
         Public Function GetLocalVector(ByVal worldVector As Vector2) As Vector2
-            Return MathUtils.MultiplyT(Me._xf.R, worldVector)
+            Return MathUtils.MultiplyT(Me._xf.RoateMatrix, worldVector)
         End Function
 
         Public Function GetMass() As Single
@@ -258,9 +258,9 @@ Namespace Global.Box2D
 
         Public Function GetMassData() As MassData
             Dim data As MassData
-            data.mass = Me._mass
-            data.i = Me._I
-            data.center = Me.WorldCenter
+            data.Mass = Me._mass
+            data.InertiaMoment = Me._I
+            data.Centroid = Me.WorldCenter
             Return data
         End Function
 
@@ -302,7 +302,7 @@ Namespace Global.Box2D
         End Property
 
         Public Function GetWorldVector(ByVal localVector As Vector2) As Vector2
-            Return MathUtils.Multiply(Me._xf.R, localVector)
+            Return MathUtils.Multiply(Me._xf.RoateMatrix, localVector)
         End Function
 
         Public Sub GetXForm(<Out> ByRef xf As XForm)
@@ -343,15 +343,15 @@ Namespace Global.Box2D
                 Me._invMass = 0!
                 Me._I = 0!
                 Me._invI = 0!
-                Me._mass = massData.mass
+                Me._mass = massData.Mass
                 If (Me._mass > 0!) Then
                     Me._invMass = (1.0! / Me._mass)
                 End If
-                Me._I = massData.i
+                Me._I = massData.InertiaMoment
                 If ((Me._I > 0!) AndAlso ((Me._flags And BodyFlags.FixedRotation) = BodyFlags.None)) Then
                     Me._invI = (1.0! / Me._I)
                 End If
-                Me._sweep.localCenter = massData.center
+                Me._sweep.localCenter = massData.Centroid
                 Me._sweep.c0 = Me._sweep.c.SetValue(MathUtils.Multiply(Me._xf, Me._sweep.localCenter))
                 Dim type As BodyType = Me._type
                 If ((Me._invMass = 0!) AndAlso (Me._invI = 0!)) Then
@@ -381,9 +381,9 @@ Namespace Global.Box2D
                 Do While (fixture IsNot Nothing)
                     Dim data As MassData
                     fixture.ComputeMass(data)
-                    Me._mass = (Me._mass + data.mass)
-                    vector = (vector + (data.mass * data.center))
-                    Me._I = (Me._I + data.i)
+                    Me._mass = (Me._mass + data.Mass)
+                    vector = (vector + (data.Mass * data.Centroid))
+                    Me._I = (Me._I + data.InertiaMoment)
                     fixture = fixture._next
                 Loop
                 If (Me._mass > 0!) Then
@@ -419,7 +419,7 @@ Namespace Global.Box2D
         Public Sub SetXForm(ByVal position As Vector2, ByVal angle As Single)
             Debug.Assert(Not Me._world.IsLocked)
             If Not Me._world.IsLocked Then
-                Me._xf.R.SetValue(angle)
+                Me._xf.RoateMatrix.SetValue(angle)
                 Me._xf.Position = position
                 Me._sweep.c0 = Me._sweep.c.SetValue(MathUtils.Multiply(Me._xf, Me._sweep.localCenter))
                 Me._sweep.a0 = Me._sweep.a.SetValue(angle)
@@ -435,8 +435,8 @@ Namespace Global.Box2D
 
         Friend Sub SynchronizeFixtures()
             Dim form As New XForm
-            form.R.SetValue(Me._sweep.a0)
-            form.Position = (Me._sweep.c0 - MathUtils.Multiply(form.R, Me._sweep.localCenter))
+            form.RoateMatrix.SetValue(Me._sweep.a0)
+            form.Position = (Me._sweep.c0 - MathUtils.Multiply(form.RoateMatrix, Me._sweep.localCenter))
             Dim broadPhase As BroadPhase = Me._world._contactManager._broadPhase
             Dim fixture As Fixture = Me._fixtureList
             Do While (fixture IsNot Nothing)
@@ -446,8 +446,8 @@ Namespace Global.Box2D
         End Sub
 
         Friend Sub SynchronizeTransform()
-            Me._xf.R.SetValue(Me._sweep.a)
-            Me._xf.Position = (Me._sweep.c - MathUtils.Multiply(Me._xf.R, Me._sweep.localCenter))
+            Me._xf.RoateMatrix.SetValue(Me._sweep.a)
+            Me._xf.Position = (Me._sweep.c - MathUtils.Multiply(Me._xf.RoateMatrix, Me._sweep.localCenter))
         End Sub
 
         Public Sub WakeUp()
