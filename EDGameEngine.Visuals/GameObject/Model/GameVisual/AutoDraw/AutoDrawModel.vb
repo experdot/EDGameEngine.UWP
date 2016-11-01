@@ -26,19 +26,23 @@ Public Class AutoDrawModel
     Public Property PointsCountMax As Integer = 800
 
     Public Overrides Sub StartEx()
+        ImageSize = New Size(Image.Bounds.Width, Image.Bounds.Height)
         DrawingMgr = New DrawingManager
-        Dim tempPixels As New PixelData(Image.GetPixelColors, CInt(Image.Bounds.Width), CInt(Image.Bounds.Height))
-        Dim sizes As Single() = {16, 8, 4, 2, 1}
-        Dim alphas As Byte() = {16, 32, 64, 128, 255}
-        Dim noises As Integer() = {50, 50, 50, 50, 0}
-        For i = 0 To 4
-            DrawingMgr.Drawings.Add(New Drawing(tempPixels, i + 3) With {.PenAlpha = alphas(i), .PenSize = sizes(i)})
-        Next
+        Dim sizes As Single() = {16, 8, 4, 2}
+        Dim alphas As Byte() = {120, 160, 200, 240}
+        Dim noises As Integer() = {180, 160, 140, 120}
+        Dim tempPixels As New PixelData
         For i = 0 To 3
+            Dim tempImage As CanvasBitmap = CType(GaussianBlurEffect.EffectStatic(Image, Scene.World.ResourceCreator, 3 - i), CanvasBitmap)
+            tempPixels = New PixelData(tempImage.GetPixelColors, CInt(Image.Bounds.Width), CInt(Image.Bounds.Height))
+            DrawingMgr.Drawings.Add(New Drawing(tempPixels, i + 3) With {.PenAlpha = alphas(i), .PenSize = sizes(i)})
             DrawingMgr.Drawings(i).Denoising(noises(i))
             DrawingMgr.Drawings(i).MatchAverageColor()
+            DrawingMgr.Drawings(i).MatchLineSize()
         Next
-        ImageSize = New Size(Image.Bounds.Width, Image.Bounds.Height)
+        tempPixels = New PixelData(Image.GetPixelColors, CInt(Image.Bounds.Width), CInt(Image.Bounds.Height))
+        DrawingMgr.Drawings.Add(New Drawing(tempPixels, 7) With {.PenAlpha = 255, .PenSize = 1})
+
         GameComponents.Effects.Add(New GhostEffect() With {.SourceRect = Image.Bounds})
         GameComponents.Effects.Add(New ShadowEffect)
     End Sub

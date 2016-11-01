@@ -15,7 +15,7 @@ Public Class Line
             Dim Mid As Single
             For i = 0 To Points.Count - 1
                 Mid = CSng(Math.Abs(i - Points.Count / 2))
-                'Points(i).Size = 1 '- Mid / Points.Count * 2
+                Points(i).Size = CSng(Math.Log10(Mid)) / 2
             Next
         End If
     End Sub
