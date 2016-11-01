@@ -130,11 +130,14 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GameObject\Model\GameVisual\AutoDraw\AI\Drawing.vb" />
+    <Compile Include="GameObject\Model\GameVisual\AutoDraw\AI\DrawingManager.vb" />
+    <Compile Include="GameObject\Model\GameVisual\AutoDraw\AI\PixelData.vb" />
     <Compile Include="GameObject\Model\GameVisual\AutoDraw\AutoDrawModel.vb" />
-    <Compile Include="GameObject\Model\GameVisual\AutoDraw\PointSequence.vb" />
-    <Compile Include="GameObject\Model\GameVisual\AutoDraw\ScanMode.vb" />
-    <Compile Include="GameObject\Model\GameVisual\AutoDraw\SeqManager.vb" />
-    <Compile Include="GameObject\Model\GameVisual\AutoDraw\SequenceAI.vb" />
+    <Compile Include="GameObject\Model\GameVisual\AutoDraw\AI\Point.vb" />
+    <Compile Include="GameObject\Model\GameVisual\AutoDraw\AI\Line.vb" />
+    <Compile Include="GameObject\Model\GameVisual\AutoDraw\AI\ScanMode.vb" />
+    <Compile Include="GameObject\Model\GameVisual\AutoDraw\AI\SequenceAI.vb" />
     <Compile Include="GameObject\Model\GameVisual\Fractal\Mandelbrot.vb" />
     <Compile Include="GameObject\Model\GameVisual\Partical\ParticalFollow.vb" />
     <Compile Include="GameObject\Model\GameVisual\Plant\Plant.vb" />

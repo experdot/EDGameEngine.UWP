@@ -1,13 +1,13 @@
 ﻿Imports System.Numerics
+Imports Windows.UI
 ''' <summary>
 ''' 表示自动循迹并生成绘制序列的AI
 ''' </summary>
 Public Class SequenceAI
     ''' <summary>
-    ''' 线条序列List
+    ''' 线条集
     ''' </summary>
-    ''' <returns></returns>
-    Public Property Sequences As List(Of PointSequence)
+    Public Property Lines As List(Of Line)
     ''' <summary>
     ''' 扫描方式
     ''' </summary>
@@ -19,38 +19,21 @@ Public Class SequenceAI
     ''' 创建并初始化一个可自动生成绘制序列AI的实例
     ''' </summary>
     Public Sub New(BolArr(,) As Integer)
-        Sequences = New List(Of PointSequence)
+        Lines = New List(Of Line)
         CalculateSequence(BolArr)
-        For Each SubItem In Sequences
-            SubItem.CalcSize()
-        Next
     End Sub
 
-    Public Sub Denoising(Optional count As Integer = 10)
-        Dim actions As New List(Of Action)
-        For Each SubSeq In Sequences
-            If SubSeq.Points.Count < count Then
-                actions.Add(Sub()
-                                Sequences.Remove(SubSeq)
-                            End Sub)
-            End If
-        Next
-        For Each SubAct In actions
-            SubAct.Invoke
-        Next
-        actions.Clear()
-    End Sub
     ''' <summary>
     ''' 新增一个序列
     ''' </summary>
     Private Sub CreateNewSequence()
-        Sequences.Add(New PointSequence)
+        Lines.Add(New Line)
     End Sub
     ''' <summary>
     ''' 在序列List末尾项新增一个点
     ''' </summary>
-    Private Sub AddPoint(point As Vector2)
-        Sequences.Last.Points.Add(point)
+    Private Sub AddPoint(p As Vector2)
+        Lines.Last.Points.Add(New Point() With {.Position = p, .Size = 1})
     End Sub
     ''' <summary>
     ''' 计算序列
@@ -65,11 +48,10 @@ Public Class SequenceAI
     ''' <summary>
     ''' 圆形扫描
     ''' </summary>
-    ''' <param name="BolArr"></param>
     Private Sub ScanCircle(BolArr(,) As Integer)
         Dim xCount As Integer = BolArr.GetUpperBound(0)
         Dim yCount As Integer = BolArr.GetUpperBound(1)
-        Dim CP As New Point(xCount / 2, yCount / 2)
+        Dim CP As New Vector2(CSng(xCount / 2), CSng(yCount / 2))
         Dim R As Integer = 0
         For R = 0 To If(xCount > yCount, xCount, yCount)
             For Theat = 0 To Math.PI * 2 Step 1 / R
