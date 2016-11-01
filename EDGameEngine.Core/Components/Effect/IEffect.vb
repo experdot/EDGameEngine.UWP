@@ -8,5 +8,5 @@ Public Interface IEffect
     ''' <summary>
     ''' 返回当前效果变换
     ''' </summary>
-    Function Effect(source As IGraphicsEffectSource, DrawingSession As CanvasDrawingSession) As IGraphicsEffectSource
+    Function Effect(source As IGraphicsEffectSource, resourceCreator As ICanvasResourceCreator) As IGraphicsEffectSource
 End Interface

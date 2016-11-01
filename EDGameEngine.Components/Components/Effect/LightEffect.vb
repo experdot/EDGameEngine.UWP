@@ -8,7 +8,7 @@ Imports Windows.UI
 ''' </summary>
 Public Class LightEffect
     Inherits EffectBase
-    Public Overrides Function Effect(source As IGraphicsEffectSource, DrawingSession As CanvasDrawingSession) As IGraphicsEffectSource
+    Public Overrides Function Effect(source As IGraphicsEffectSource, resourceCreator As ICanvasResourceCreator) As IGraphicsEffectSource
         Static ShadowColor As Color = Color.FromArgb(255, 128, 128, 128)
         Static LightColor As Color = Color.FromArgb(255, 255, 255, 255)
         Static ScanVec As New Vector2(1, 0)
@@ -16,7 +16,7 @@ Public Class LightEffect
         Static w, h As Integer
         Static LightLoc As New Vector2(0, 30)
         Static Rnd As New Random
-        Using bmp As CanvasBitmap = BitmapCacheHelper.CacheImage(DrawingSession, CType(source, ICanvasImage))
+        Using bmp As CanvasBitmap = BitmapCacheHelper.CacheImage(CType(resourceCreator, CanvasDrawingSession), CType(source, ICanvasImage))
             Dim RawColors() As Color = bmp.GetPixelColors
             Dim NowColors(RawColors.Count - 1) As Color
             w = CInt(bmp.Bounds.Width)
@@ -51,7 +51,7 @@ Public Class LightEffect
                 Next
             Next
 
-            Return CanvasBitmap.CreateFromColors(DrawingSession, NowColors, CInt(bmp.Bounds.Width), CInt(bmp.Bounds.Height))
+            Return CanvasBitmap.CreateFromColors(resourceCreator, NowColors, CInt(bmp.Bounds.Width), CInt(bmp.Bounds.Height))
         End Using
     End Function
 End Class

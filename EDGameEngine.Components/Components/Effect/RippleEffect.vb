@@ -17,8 +17,8 @@ Public Class RippleEffect
         ReDim Buffer1(width * height - 1)
         ReDim Buffer2(width * height - 1)
     End Sub
-    Public Overrides Function Effect(source As IGraphicsEffectSource, DrawingSession As CanvasDrawingSession) As IGraphicsEffectSource
-        Dim srcData() As Color = BitmapCacheHelper.CacheImageClip(DrawingSession, CType(source, ICanvasImage), New Rect(0, 0, Width, Height)).GetPixelColors
+    Public Overrides Function Effect(source As IGraphicsEffectSource, resourceCreator As ICanvasResourceCreator) As IGraphicsEffectSource
+        Dim srcData() As Color = BitmapCacheHelper.CacheImageClip(CType(resourceCreator, CanvasDrawingSession), CType(source, ICanvasImage), New Rect(0, 0, Width, Height)).GetPixelColors
         Dim desData() As Color = CType(srcData.Clone, Color())
         Dim xoff, yoff As Integer
         Dim k As Integer = Width
@@ -37,7 +37,7 @@ Public Class RippleEffect
                 k += 1
             Next
         Next
-        Return CanvasBitmap.CreateFromColors(DrawingSession, desData, Width, Height)
+        Return CanvasBitmap.CreateFromColors(resourceCreator, desData, Width, Height)
     End Function
     ''' <summary>
     ''' 投放波源

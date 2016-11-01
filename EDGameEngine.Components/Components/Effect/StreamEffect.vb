@@ -8,7 +8,7 @@ Imports Windows.Graphics.Effects
 ''' </summary>
 Public Class StreamEffect
     Inherits EffectBase
-    Public Overrides Function Effect(source As IGraphicsEffectSource, DrawingSession As CanvasDrawingSession) As IGraphicsEffectSource
+    Public Overrides Function Effect(source As IGraphicsEffectSource, resourceCreator As ICanvasResourceCreator) As IGraphicsEffectSource
         Static ts As Single
         ts = CSng((ts + 0.01)) Mod CSng((Math.PI * 2))
         Dim dispX As Single = 75.0F * CSng(Math.Sin(ts))
