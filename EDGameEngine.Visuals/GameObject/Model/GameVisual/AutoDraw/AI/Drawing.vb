@@ -18,7 +18,7 @@ Public Class Drawing
 
     Public Sub New(pixels As PixelData, split As Integer)
         Dim temp As Integer = CInt(255 / split)
-        For i = 0 To split - 1
+        For i = 0 To split
             Dim tempAI = New SequenceAI(GetImageBolLimit(pixels.Colors, pixels.Width, pixels.Height, CInt(i * temp - temp / 2), CInt(i * temp + temp / 2)))
             Lines.AddRange(tempAI.Lines)
         Next
@@ -32,7 +32,8 @@ Public Class Drawing
         For Each SubSeq In Lines
             If SubSeq.Points.Count < count Then
                 actions.Add(Sub()
-                                Lines.Remove(SubSeq)
+                                ' Lines.Remove(SubSeq)
+                                SubSeq.Points.Clear()
                             End Sub)
             End If
         Next

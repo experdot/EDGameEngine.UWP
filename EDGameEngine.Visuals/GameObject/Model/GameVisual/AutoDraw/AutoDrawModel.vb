@@ -28,13 +28,14 @@ Public Class AutoDrawModel
     Public Overrides Sub StartEx()
         DrawingMgr = New DrawingManager
         Dim tempPixels As New PixelData(Image.GetPixelColors, CInt(Image.Bounds.Width), CInt(Image.Bounds.Height))
-        Dim sizes As Single() = {32, 16, 8, 4, 1}
+        Dim sizes As Single() = {16, 8, 4, 2, 1}
         Dim alphas As Byte() = {16, 32, 64, 128, 255}
+        Dim noises As Integer() = {50, 50, 50, 50, 0}
         For i = 0 To 4
             DrawingMgr.Drawings.Add(New Drawing(tempPixels, i + 3) With {.PenAlpha = alphas(i), .PenSize = sizes(i)})
         Next
         For i = 0 To 3
-            DrawingMgr.Drawings(i).Denoising(50 - i * 10)
+            DrawingMgr.Drawings(i).Denoising(noises(i))
             DrawingMgr.Drawings(i).MatchAverageColor()
         Next
         ImageSize = New Size(Image.Bounds.Width, Image.Bounds.Height)
@@ -44,7 +45,7 @@ Public Class AutoDrawModel
     Public Overrides Sub UpdateEx()
         Static ImageVec As Vector2 = New Vector2(CSng(ImageSize.Width), CSng(ImageSize.Height)) / 2
         '图像位置居中
-        Transform.Translation = New Vector2(Scene.Width, Scene.Height) / 2 - ImageVec '- Loc / 4
+        Transform.Translation = New Vector2(Scene.Width, Scene.Height) / 2 - ImageVec
         '更新绘制序列
         UpdateDrawings()
     End Sub

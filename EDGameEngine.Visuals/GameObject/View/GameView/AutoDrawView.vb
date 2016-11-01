@@ -9,7 +9,7 @@ Public Class AutoDrawView
         MyBase.New(Target)
     End Sub
     Public Overrides Sub OnDraw(DrawingSession As CanvasDrawingSession)
-        Static SubPoint As Point
+        Dim SubPoint As Point
         Using cmdList = New CanvasCommandList(DrawingSession)
             Using Dl = cmdList.CreateDrawingSession
                 If Target.CurrentPoints.Count > 0 Then
