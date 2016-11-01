@@ -14,7 +14,7 @@ Public Class CreateBodyScript
         Dim fill As New FillStyle(True) With {.Color = Color.FromArgb(CByte(Rnd.Next(256)), CByte(Rnd.Next(256)), CByte(Rnd.Next(256)), CByte(Rnd.Next(256)))}
         Dim border As New BorderStyle(True) With {.Color = Color.FromArgb(CByte(Rnd.Next(256)), CByte(Rnd.Next(256)), CByte(Rnd.Next(256)), CByte(Rnd.Next(256))), .Width = 1}
         Dim circleModel As New VisualCircle() With {.Radius = 50 * CSng(Rnd.NextDouble), .Border = border, .Fill = fill}
-        circleModel.Transform.Translation = loc + Camera.Transform.Translation
+        circleModel.Transform.Translation = loc - Camera.Transform.Translation
         Scene.AddGameVisual(circleModel, New CircleView(circleModel) With {.CacheAllowed = False}, 0)
         circleModel.GameComponents.Behaviors.Add(New KeyControlScript With {.MaxSpeed = 5.0F * CSng(Rnd.NextDouble)})
     End Sub
