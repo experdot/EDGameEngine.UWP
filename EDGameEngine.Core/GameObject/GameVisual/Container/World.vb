@@ -15,7 +15,6 @@ Public MustInherit Class World
     Public Sub New(ActualWidth#, ActualHeight#)
         OnSizeChanged(CInt(ActualWidth), CInt(ActualHeight))
         CreateScene()
-
     End Sub
     Public MustOverride Sub CreateScene()
     Public Sub Update(sender As ICanvasAnimatedControl, args As CanvasAnimatedUpdateEventArgs)

@@ -11,8 +11,9 @@ Public Class ShadowEffect
         Using cac = New CanvasRenderTarget(DrawingSession, New Size(rect.Width, rect.Height))
             Dim sizepx = cac.SizeInPixels
             Using ds = cac.CreateDrawingSession
-                ds.DrawImage(CType(source, ICanvasImage))
                 Using shadow = New Effects.ShadowEffect With {.Source = Target.Presenter.CommandList}
+                    ds.Clear(Windows.UI.Colors.Transparent)
+                    ds.DrawImage(CType(source, ICanvasImage))
                     ds.DrawImage(shadow)
                     ds.DrawRectangle(shadow.GetBounds(DrawingSession), Windows.UI.Colors.Black)
                 End Using

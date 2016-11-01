@@ -57,12 +57,12 @@ Public MustInherit Class Scene
         Await LoadAsync(World.ResourceCreator)
         Await Task.Run(New Action(Sub()
                                       CreateObject()
+                                      For Each SubLayer In GameLayers
+                                          SubLayer.Start()
+                                      Next
+                                      Camera.Start()
+                                      GameComponents.Start()
                                   End Sub))
-        For Each SubLayer In GameLayers
-            SubLayer.Start()
-        Next
-        Camera.Start()
-        GameComponents.Start()
         State = SceneState.Loop
     End Sub
     Public Sub Update() Implements IScene.Update
