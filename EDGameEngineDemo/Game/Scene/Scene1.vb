@@ -34,12 +34,13 @@ Public Class Scene1
         'Dim tempModel4 As New Pointer
         'Me.AddGameVisual(tempModel4, New PointerView(tempModel4))
         'tempModel4.GameComponents.Effects.Add(New GhostEffect With {.SourceRect = New Rect(0, 0, Width, Height), .Opacity = 0.96})
-        'Me.GameComponents.Behaviors.Add(New CreateBodyScript())
+
 
         'Dim tempModel5 As New Mandelbrot
         'Me.AddGameVisual(tempModel5, New MandelbrotView(tempModel5))
 
-        'Me.GameComponents.Effects.Add(New GhostEffect With {.SourceRect = New Rect(0, 0, Width, Height), .Opacity = 1})
+        'Me.GameComponents.Effects.Add(New GhostEffect With {.SourceRect = New Rect(0, 0, Width, Height), .Opacity = 0.96})
+        'Me.GameComponents.Behaviors.Add(New CreateBodyScript())
         Me.Camera.GameComponents.Behaviors.Add(New KeyControlScript With {.MaxSpeed = 5.0F})
     End Sub
 End Class

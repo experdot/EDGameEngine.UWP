@@ -39,6 +39,7 @@ Public Interface IScene
     ''' </summary>
     ''' <returns></returns>
     Property State As SceneState
+    Property Progress As Progress
     ''' <summary>
     ''' 加载场景资源
     ''' </summary>

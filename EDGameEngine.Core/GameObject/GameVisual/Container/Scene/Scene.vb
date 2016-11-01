@@ -17,7 +17,7 @@ Public MustInherit Class Scene
     Public Property Camera As ICamera Implements IScene.Camera
     Public Property Inputs As Inputs Implements IScene.Inputs
     Public Property State As SceneState Implements IScene.State
-
+    Public Property Progress As Progress Implements IScene.Progress
     Public Property Scene As IScene = Me Implements IGameVisual.Scene
     Public Property Transform As Transform Implements IGameVisual.Transform
         Get
@@ -54,13 +54,17 @@ Public MustInherit Class Scene
         While World.ResourceCreator Is Nothing
             Await Task.Delay(10)
         End While
+        Progress = New Progress(0.1, "加载外部资源")
         Await LoadAsync(World.ResourceCreator)
         Await Task.Run(New Action(Sub()
+                                      Progress.Description = "创建游戏物体"
                                       CreateObject()
+                                      Progress.Description = "初始化游戏物体"
                                       For Each SubLayer In GameLayers
                                           SubLayer.Start()
                                       Next
                                       Camera.Start()
+                                      Progress.Description = "初始化游戏组件"
                                       GameComponents.Start()
                                   End Sub))
         State = SceneState.Loop
@@ -106,7 +110,11 @@ Public MustInherit Class Scene
         End If
     End Sub
     Public Overridable Sub LoadingDraw(drawingSession As CanvasDrawingSession)
-        drawingSession.DrawText("场景加载中，请稍后...", New Vector2(Width, Height) / 2, Colors.Black, TextFormat.Center)
+        Static Dots As String() = {" ", ".", "..", "..."}
+        Static Index As Integer
+        Index = (Index + 1) Mod 80
+        drawingSession.DrawText("场景加载中，请稍后" & Dots(CInt(Math.Truncate(Index / 20))), New Vector2(Width, Height) / 2, Colors.Black, TextFormat.Center)
+        drawingSession.DrawText(Progress.Description, New Vector2(Width, Height + 50) / 2, Colors.Black, TextFormat.CenterL)
     End Sub
     Public Overridable Sub LoadedDraw(drawingSession As CanvasDrawingSession)
         Presenter.BeginDraw(drawingSession)

@@ -144,6 +144,7 @@
     <Compile Include="Components\Effect\TransformEffect.vb" />
     <Compile Include="Components\Media\IMedia.vb" />
     <Compile Include="Components\Trigger\ITrigger.vb" />
+    <Compile Include="GameObject\GameVisual\Container\Scene\Progress\Progress.vb" />
     <Compile Include="GameObject\GameView\ContainerView\LayerView.vb" />
     <Compile Include="GameObject\GameView\ContainerView\SceneView.vb" />
     <Compile Include="GameObject\GameVisual\Body\Particals\IParticals.vb" />
