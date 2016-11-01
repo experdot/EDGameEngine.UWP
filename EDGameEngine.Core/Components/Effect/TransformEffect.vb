@@ -15,7 +15,7 @@ Public Class TransformEffect
     Public Sub New(ByRef trans As Transform)
         Transform = trans
     End Sub
-    Public Overrides Function Effect(source As IGraphicsEffectSource, DrawingSession As CanvasDrawingSession) As IGraphicsEffectSource
+    Public Overrides Function Effect(source As IGraphicsEffectSource, resourceCreator As ICanvasResourceCreator) As IGraphicsEffectSource
         Dim trans = New Transform2DEffect With {.Source = source}
         trans.TransformMatrix = Matrix3x2.CreateScale(Transform.Scale, Transform.Center) *
                                 Matrix3x2.CreateRotation(Transform.Rotation, Transform.Center) *
