@@ -134,6 +134,7 @@
     <Compile Include="Components\Behavior\KeyControlScript.vb" />
     <Compile Include="Components\Behavior\PhysicsScript.vb" />
     <Compile Include="Components\Behavior\TransformScript.vb" />
+    <Compile Include="Components\Effect\FrostedEffect.vb" />
     <Compile Include="Components\Effect\GaussianBlurEffect.vb" />
     <Compile Include="Components\Effect\GhostEffect.vb" />
     <Compile Include="Components\Effect\LightEffect.vb" />

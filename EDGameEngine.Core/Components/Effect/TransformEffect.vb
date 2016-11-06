@@ -23,7 +23,7 @@ Public Class TransformEffect
         Return trans
     End Function
 
-    Public Shared Function EffectStatic(source As IGraphicsEffectSource, DrawingSession As CanvasDrawingSession, trans As Transform) As IGraphicsEffectSource
+    Public Shared Function EffectStatic(source As IGraphicsEffectSource, drawingSession As CanvasDrawingSession, trans As Transform) As IGraphicsEffectSource
         Dim eff = New Transform2DEffect With {.Source = source}
         eff.TransformMatrix = Matrix3x2.CreateScale(trans.Scale, trans.Center) *
                                 Matrix3x2.CreateRotation(trans.Rotation, trans.Center) *
