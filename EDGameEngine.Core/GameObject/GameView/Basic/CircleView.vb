@@ -8,12 +8,12 @@ Public Class CircleView
         MyBase.New(Target)
     End Sub
 
-    Public Overrides Sub OnDraw(DrawingSession As CanvasDrawingSession)
+    Public Overrides Sub OnDraw(drawingSession As CanvasDrawingSession)
         If Target.Fill.State Then
-            DrawingSession.FillCircle(Vector2.Zero, Target.Radius, Target.Fill.Color)
+            drawingSession.FillCircle(Vector2.Zero, Target.Radius, Target.Fill.Color)
         End If
         If Target.Border.State Then
-            DrawingSession.DrawCircle(Vector2.Zero, Target.Radius, Target.Border.Color, Target.Border.Width)
+            drawingSession.DrawCircle(Vector2.Zero, Target.Radius, Target.Border.Color, Target.Border.Width)
         End If
     End Sub
 End Class

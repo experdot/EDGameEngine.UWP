@@ -1,15 +1,13 @@
-﻿Imports System.Numerics
-Imports EDGameEngine.Core
-Imports Microsoft.Graphics.Canvas
-Imports Windows.UI
+﻿Imports Microsoft.Graphics.Canvas
+
 Public Class SpriteView
-    Inherits TypedGameView(Of Sprite)
-    Public Sub New(Target As Sprite)
+    Inherits TypedGameView(Of ISprite)
+    Public Sub New(Target As ISprite)
         MyBase.New(Target)
     End Sub
-    Public Overrides Sub OnDraw(DrawingSession As CanvasDrawingSession)
+    Public Overrides Sub OnDraw(drawingSession As CanvasDrawingSession)
         If Target.Image IsNot Nothing Then
-            DrawingSession.DrawImage(CType(Target.Image, ICanvasImage))
+            drawingSession.DrawImage(Target.Image)
         End If
     End Sub
 End Class

@@ -15,6 +15,6 @@ Public Interface IGameView
     ''' 绘图命令
     ''' </summary>
     Property CommandList As CanvasCommandList
-    Sub BeginDraw(DrawingSession As CanvasDrawingSession)
-    Sub OnDraw(DrawingSession As CanvasDrawingSession)
+    Sub BeginDraw(drawingSession As CanvasDrawingSession)
+    Sub OnDraw(drawingSession As CanvasDrawingSession)
 End Interface
