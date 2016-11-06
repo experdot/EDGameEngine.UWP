@@ -15,7 +15,7 @@ Public NotInheritable Class UserGameBox
     ''' </summary>
     Public ReadOnly Property Canvas As CanvasAnimatedControl
         Get
-            Return DirectCast(AnimBox, CanvasAnimatedControl)
+            Return AnimBox
         End Get
     End Property
     WithEvents Form As CoreWindow = Window.Current.CoreWindow
@@ -29,10 +29,10 @@ Public NotInheritable Class UserGameBox
         TreeUpdate = AddressOf World.Update
     End Sub
     Private Sub AnimBox_Update(sender As ICanvasAnimatedControl, args As CanvasAnimatedUpdateEventArgs) Handles AnimBox.Update
-        TreeUpdate(sender, args)
+        TreeUpdate?.Invoke(sender, args)
     End Sub
     Private Sub AnimBox_Draw(sender As ICanvasAnimatedControl, args As CanvasAnimatedDrawEventArgs) Handles AnimBox.Draw
-        TreeDraw(sender, args)
+        TreeDraw?.Invoke(sender, args)
     End Sub
     Private Sub AnimBox_PointerMoved(sender As Object, e As PointerRoutedEventArgs) Handles AnimBox.PointerMoved
         Dim p = e.GetCurrentPoint(AnimBox).Position
