@@ -145,7 +145,6 @@
     <Compile Include="GameObject\Model\GameVisual\Pointer\Pointer.vb" />
     <Compile Include="GameObject\View\GameView\AutoDrawView.vb" />
     <Compile Include="GameObject\View\GameView\MandelbrotView.vb" />
-    <Compile Include="GameObject\View\GameView\ParticalView.vb" />
     <Compile Include="GameObject\View\GameView\PlantView.vb" />
     <Compile Include="GameObject\View\GameView\PointerView.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />

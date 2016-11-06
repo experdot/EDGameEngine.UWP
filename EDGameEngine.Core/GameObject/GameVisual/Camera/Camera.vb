@@ -4,8 +4,8 @@ Imports EDGameEngine.Core
 ''' 场景摄像机
 ''' </summary>
 Public Class Camera
+    Inherits GameBody
     Implements ICamera
-
     ''' <summary>
     ''' 摄像机位置
     ''' </summary>
@@ -17,17 +17,10 @@ Public Class Camera
             Transform.Translation = value
         End Set
     End Property
-    Public Property Scene As IScene Implements ICamera.Scene
+    Public Overrides Sub StartEx()
 
-    Public Property Transform As Transform = Transform.Normal Implements IGameVisual.Transform
-    Public Property Appearance As Appearance = Appearance.Normal Implements IGameVisual.Appearance
-    Public Property GameComponents As New GameComponents(Me) Implements IGameVisual.GameComponents
-    Public Property Presenter As IGameView Implements IGameVisual.Presenter
-
-    Public Overridable Sub Start() Implements ICamera.Start
-        GameComponents.Start()
     End Sub
-    Public Overridable Sub Update() Implements ICamera.Update
-        GameComponents.Update()
+    Public Overrides Sub UpdateEx()
+
     End Sub
 End Class

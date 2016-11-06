@@ -1,10 +1,14 @@
-﻿Imports Microsoft.Graphics.Canvas
+﻿Imports EDGameEngine.Core
+Imports Microsoft.Graphics.Canvas
 ''' <summary>
 ''' 贴图
 ''' </summary>
 Public Class Sprite
     Inherits GameBody
-    Public Property Image As CanvasBitmap
+    Implements ISprite
+    Public Property Image As ICanvasImage Implements ISprite.Image
+
+
     Public Overrides Sub StartEx()
 
     End Sub

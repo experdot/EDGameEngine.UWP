@@ -4,7 +4,7 @@ Imports EDGameEngine.Core
 ''' 表示场景摄像机
 ''' </summary>
 Public Interface ICamera
-    Inherits IGameVisual
+    Inherits IGameBody
     ''' <summary>
     ''' 摄像机位置
     ''' </summary>
