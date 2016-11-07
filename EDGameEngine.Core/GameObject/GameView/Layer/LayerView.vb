@@ -10,7 +10,7 @@ Public Class LayerView
     End Sub
     Public Overrides Sub OnDraw(drawingSession As CanvasDrawingSession)
         For Each SubBody In Target.GameBodys
-            SubBody.Presenter.BeginDraw(drawingSession)
+            SubBody.GameView.BeginDraw(drawingSession)
         Next
     End Sub
 End Class

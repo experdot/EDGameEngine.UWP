@@ -11,7 +11,7 @@ Public Class ShadowEffect
         Using cac = New CanvasRenderTarget(CType(resourceCreator, ICanvasResourceCreatorWithDpi), New Size(rect.Width, rect.Height))
             Dim sizepx = cac.SizeInPixels
             Using ds = cac.CreateDrawingSession
-                Using shadow = New Effects.ShadowEffect With {.Source = Target.Presenter.CommandList}
+                Using shadow = New Effects.ShadowEffect With {.Source = Target.GameView.CommandList}
                     ds.Clear(Windows.UI.Colors.Transparent)
                     ds.DrawImage(CType(source, ICanvasImage))
                     ds.DrawImage(shadow)

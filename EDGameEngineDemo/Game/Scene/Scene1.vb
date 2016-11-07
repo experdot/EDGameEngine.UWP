@@ -25,8 +25,8 @@ Public Class Scene1
         'Me.AddGameVisual(tempModel, New ParticalView(tempModel))
         'tempModel.GameComponents.Effects.Add(New GhostEffect With {.SourceRect = New Rect(0, 0, Width, Height)})
 
-        Dim tempModel2 As New Plant(New Vector2(Width / 2, Height * 0.8))
-        Me.AddGameVisual(tempModel2, New PlantView(tempModel2))
+        'Dim tempModel2 As New Plant(New Vector2(Width / 2, Height * 0.8))
+        'Me.AddGameVisual(tempModel2, New PlantView(tempModel2))
 
         'Dim tempModel3 As New AutoDrawModel() With {.Image = ImageManager.GetResource(ImageResourceID.Scenery1)}
         'Me.AddGameVisual(tempModel3, New AutoDrawView(tempModel3))
@@ -39,10 +39,11 @@ Public Class Scene1
         'Dim tempModel5 As New Mandelbrot
         'Me.AddGameVisual(tempModel5, New MandelbrotView(tempModel5))
 
-        'Dim tempModel6 As New Sprite() With {.Image = ImageManager.GetResource(ImageResourceID.YellowFlower1)}
-        'Me.AddGameVisual(tempModel6, New SpriteView(tempModel6) With {.CacheAllowed = False})
-        'tempModel2.GameComponents.Effects.Add(New FrostedEffect() With {.Amount = 10})
-        'Me.GameComponents.Effects.Add(New GhostEffect With {.SourceRect = New Rect(0, 0, Width, Height), .Opacity = 0.96})
+        Dim tempModel6 As New Sprite() With {.Image = ImageManager.GetResource(ImageResourceID.Scenery1)}
+        Me.AddGameVisual(tempModel6, New SpriteView(tempModel6) With {.CacheAllowed = False})
+        tempModel6.GameComponents.Effects.Add(New FrostedEffect() With {.Amount = 10})
+
+
         Me.GameComponents.Behaviors.Add(New CreateBodyScript())
         Me.Camera.GameComponents.Behaviors.Add(New KeyControlScript With {.MaxSpeed = 5.0F})
     End Sub

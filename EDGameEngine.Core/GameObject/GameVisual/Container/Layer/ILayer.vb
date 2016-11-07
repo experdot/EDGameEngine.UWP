@@ -8,8 +8,4 @@ Public Interface ILayer
     ''' 图层包含的可视化对象
     ''' </summary>
     Property GameBodys As List(Of IGameBody)
-    ''' <summary>
-    ''' 图层绘制
-    ''' </summary>
-    Sub OnDraw(drawingSession As CanvasDrawingSession)
 End Interface
