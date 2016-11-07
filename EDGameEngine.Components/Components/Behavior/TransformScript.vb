@@ -10,8 +10,9 @@ Public Class TransformScript
     End Sub
 
     Public Overrides Sub Update()
-        Target.Transform.Translation = New Vector2(Target.Scene.Width / 2, Target.Scene.Height / 2)
-        'Target.Transform.Rotation = (Target.Transform.Rotation + 0.1 * Rnd.NextDouble) Mod （Math.PI * 2)
-        'Target.Transform.Scale = New Vector2(Math.Sin(Target.Transform.Rotation), Math.Cos(Target.Transform.Rotation))
+        'Target.Transform.Translation = New Vector2(Target.Scene.Width / 2, Target.Scene.Height / 2)
+        Target.Transform.Center = New Vector2(Target.Scene.Width / 2, Target.Scene.Height / 2)
+        Target.Transform.Rotation = CSng((Target.Transform.Rotation + 0.001) Mod （Math.PI * 2))
+        Target.Transform.Scale = New Vector2(CSng(Math.Sin(Target.Transform.Rotation)), CSng(Math.Cos(Target.Transform.Rotation)))
     End Sub
 End Class

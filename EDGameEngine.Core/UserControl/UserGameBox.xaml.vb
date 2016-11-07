@@ -23,10 +23,13 @@ Public NotInheritable Class UserGameBox
     Dim TreeDraw As Action(Of ICanvasAnimatedControl, CanvasAnimatedDrawEventArgs)
     Dim TreeUpdate As Action(Of ICanvasAnimatedControl, CanvasAnimatedUpdateEventArgs)
 
-    Private Sub AnimBox_CreateResources(sender As CanvasAnimatedControl, args As CanvasCreateResourcesEventArgs) Handles AnimBox.CreateResources
+    Private Async Sub AnimBox_CreateResources(sender As CanvasAnimatedControl, args As CanvasCreateResourcesEventArgs) Handles AnimBox.CreateResources
+        While World Is Nothing
+            Await Task.Delay(10)
+        End While
         World.ResourceCreator = sender
-        TreeDraw = AddressOf World.Draw
         TreeUpdate = AddressOf World.Update
+        TreeDraw = AddressOf World.Draw
     End Sub
     Private Sub AnimBox_Update(sender As ICanvasAnimatedControl, args As CanvasAnimatedUpdateEventArgs) Handles AnimBox.Update
         TreeUpdate?.Invoke(sender, args)
@@ -36,7 +39,7 @@ Public NotInheritable Class UserGameBox
     End Sub
     Private Sub AnimBox_PointerMoved(sender As Object, e As PointerRoutedEventArgs) Handles AnimBox.PointerMoved
         Dim p = e.GetCurrentPoint(AnimBox).Position
-        World?.OnPointerMove(CInt(p.X), CInt(p.Y))
+        World?.OnPointerMove(New Numerics.Vector2(CInt(p.X), CInt(p.Y)))
     End Sub
     Private Sub AnimBox_SizeChanged(sender As Object, e As SizeChangedEventArgs) Handles AnimBox.SizeChanged
         World?.OnSizeChanged(CInt(AnimBox.ActualWidth), CInt(AnimBox.ActualHeight))

@@ -36,7 +36,7 @@ Public MustInherit Class Scene
         End Set
     End Property
     Public Property GameComponents As GameComponents Implements IGameVisual.GameComponents
-    Public Property GameView As IGameView = New SceneView(Me) Implements IGameVisual.GameView
+    Public Property Presenter As IGameView = New SceneView(Me) Implements IGameVisual.Presenter
 
     Public MustOverride Sub CreateObject() Implements IScene.CreateObject
 
@@ -46,6 +46,7 @@ Public MustInherit Class Scene
         Me.Inputs = New Inputs
         Me.Camera = New Camera With {.Scene = Me}
         Me.GameComponents = New GameComponents(Me)
+        Me.Progress = New Progress(0, "")
         Width = CSng(WindowSize.Width)
         Height = CSng(WindowSize.Height)
     End Sub
@@ -84,7 +85,7 @@ Public MustInherit Class Scene
     End Sub
     Public Sub AddGameVisual(model As IGameBody, view As IGameView, Optional LayerIndex As Integer = 0) Implements IScene.AddGameVisual
         model.Scene = Me
-        model.GameView = view
+        model.Presenter = view
         Dim modifyAct = Sub()
                             While (GameLayers.Count <= LayerIndex)
                                 GameLayers.Add(New Layer With {.Scene = Me})
@@ -117,7 +118,7 @@ Public MustInherit Class Scene
         drawingSession.DrawText(Progress.Description, New Vector2(Width, Height + 50) / 2, Colors.Black, TextFormat.CenterL)
     End Sub
     Public Overridable Sub LoadedDraw(drawingSession As CanvasDrawingSession)
-        GameView.BeginDraw(drawingSession)
+        Presenter?.BeginDraw(drawingSession)
     End Sub
 
 #Region "IDisposable Support"

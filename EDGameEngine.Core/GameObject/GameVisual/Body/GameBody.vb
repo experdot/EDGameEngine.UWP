@@ -8,7 +8,7 @@ Public MustInherit Class GameBody
     Public Overridable Property Transform As Transform = Transform.Normal Implements IGameBody.Transform
     Public Overridable Property GameComponents As GameComponents = New GameComponents(Me) Implements IGameBody.GameComponents
     Public Overridable Property Scene As IScene Implements IGameBody.Scene
-    Public Overridable Property GameView As IGameView Implements IGameBody.GameView
+    Public Overridable Property Presenter As IGameView Implements IGameBody.Presenter
     Public Shared Property Rnd As New Random
     Public Sub Start() Implements IGameBody.Start
         StartEx()

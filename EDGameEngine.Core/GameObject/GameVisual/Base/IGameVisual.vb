@@ -19,7 +19,7 @@ Public Interface IGameVisual
     ''' <summary>
     ''' 视图
     ''' </summary>
-    Property GameView As IGameView
+    Property Presenter As IGameView
     ''' <summary>
     ''' 所属场景
     ''' </summary>

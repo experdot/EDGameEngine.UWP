@@ -10,7 +10,7 @@ Public Class SceneView
     End Sub
     Public Overrides Sub OnDraw(drawingSession As CanvasDrawingSession)
         For Each SubLayer In Target.GameLayers
-            SubLayer.GameView.BeginDraw(drawingSession)
+            SubLayer.Presenter.BeginDraw(drawingSession)
         Next
     End Sub
 End Class

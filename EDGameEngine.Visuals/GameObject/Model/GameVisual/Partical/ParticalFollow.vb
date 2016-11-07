@@ -24,7 +24,7 @@ Public Class ParticalFollow
         For i = 0 To Count - 1
             Particals.Add(New Partical(New Vector2(Scene.Width / 2, Scene.Height / 2)))
             Particals(i).Mass = CSng(1 + Rnd.NextDouble * 99)
-            Particals(i).Size = CSng(0.1 + Rnd.NextDouble * 2)
+            Particals(i).Size = CSng(0.1 + Rnd.NextDouble * 4)
             Particals(i).ImageSize = CSng(2 + Rnd.NextDouble * 2)
             Particals(i).Color = Color.FromArgb(255, 0, 0, 0)
         Next

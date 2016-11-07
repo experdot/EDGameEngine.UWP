@@ -18,10 +18,10 @@ Public MustInherit Class World
     End Sub
     Public MustOverride Sub CreateScene()
     Public Sub Update(sender As ICanvasAnimatedControl, args As CanvasAnimatedUpdateEventArgs)
-        CurrentScene.Update()
+        CurrentScene?.Update()
     End Sub
     Public Sub Draw(sender As ICanvasAnimatedControl, args As CanvasAnimatedDrawEventArgs)
-        CurrentScene.OnDraw(args.DrawingSession)
+        CurrentScene?.OnDraw(args.DrawingSession)
     End Sub
     Public Sub OnSizeChanged(sX As Integer, sY As Integer)
         Width = sX
@@ -43,8 +43,8 @@ Public MustInherit Class World
     Public Sub OnPointerReleased(loc As Vector2)
         CurrentScene?.Inputs.Mouse.OnPointerReleased(loc)
     End Sub
-    Public Sub OnPointerMove(mX As Integer, mY As Integer)
-        CurrentScene.Inputs.Mouse.Location = New Vector2(mX, mY)
+    Public Sub OnPointerMove(loc As Vector2)
+        CurrentScene?.Inputs.Mouse.OnPointerMoved(loc)
     End Sub
 #Region "IDisposable Support"
     Private disposedValue As Boolean ' 要检测冗余调用
