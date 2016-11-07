@@ -47,6 +47,7 @@ Public MustInherit Class Scene
         Me.Camera = New Camera With {.Scene = Me}
         Me.GameComponents = New GameComponents(Me)
         Me.Progress = New Progress(0, "")
+        Me.State = SceneState.Wait
         Width = CSng(WindowSize.Width)
         Height = CSng(WindowSize.Height)
     End Sub
@@ -91,6 +92,9 @@ Public MustInherit Class Scene
                                 GameLayers.Add(New Layer With {.Scene = Me})
                             End While
                             GameLayers(LayerIndex).GameBodys.Add(model)
+                            If State = SceneState.Loop Then
+                                model.Start()
+                            End If
                         End Sub
         If State = SceneState.Loop Then
             ModifyActions.Add(modifyAct)
