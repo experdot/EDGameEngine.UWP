@@ -10,9 +10,12 @@ Public Class PointerView
         MyBase.New(Target)
     End Sub
     Public Overrides Sub OnDraw(DrawingSession As CanvasDrawingSession)
-        For i = 0 To Target.LocQueue.Count - 1
-            Dim subVec = Target.LocQueue(i)
-            DrawingSession.DrawLine(Target.Location, SubVec, Colors.Black)
+        Static col As Color = Colors.Black
+        Dim index As Integer = 1
+        For Each SubVec In Target.LocQueue
+            col.A = CByte(CInt(255 * (index / Target.LocQueue.Count)))
+            DrawingSession.FillCircle(SubVec, CSng(10 * (index / Target.LocQueue.Count)), col)
+            index += 1
         Next
     End Sub
 End Class
