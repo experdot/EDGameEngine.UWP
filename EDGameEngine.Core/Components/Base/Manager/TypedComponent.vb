@@ -20,7 +20,9 @@ Public Class TypedComponent(Of T As IGameComponent)
     End Sub
     Public Sub Add(item As T)
         item.Target = Target
-        item.Start()
+        If Target.Scene.State = SceneState.Loop Then
+            item.Start()
+        End If
         Items.Add(item)
     End Sub
 End Class
