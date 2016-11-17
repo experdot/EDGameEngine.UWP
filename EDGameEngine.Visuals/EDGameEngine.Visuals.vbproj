@@ -138,6 +138,15 @@
     <Compile Include="GameObject\Model\GameVisual\AutoDraw\AI\Line.vb" />
     <Compile Include="GameObject\Model\GameVisual\AutoDraw\AI\ScanMode.vb" />
     <Compile Include="GameObject\Model\GameVisual\AutoDraw\AI\SequenceAI.vb" />
+    <Compile Include="GameObject\Model\GameVisual\AutoStitch\Container\FragmentContainer.vb" />
+    <Compile Include="GameObject\Model\GameVisual\AutoStitch\Container\MapCellAround.vb" />
+    <Compile Include="GameObject\Model\GameVisual\AutoStitch\Fragment\FragmentSide.vb" />
+    <Compile Include="GameObject\Model\GameVisual\AutoStitch\Fragment\FragmentBorder.vb" />
+    <Compile Include="GameObject\Model\GameVisual\AutoStitch\Container\FragmentContainerMap.vb" />
+    <Compile Include="GameObject\Model\GameVisual\AutoStitch\Container\MapCell.vb" />
+    <Compile Include="GameObject\Model\GameVisual\AutoStitch\Fragment\Fragment.vb" />
+    <Compile Include="GameObject\Model\GameVisual\AutoStitch\FragmentSplicer.vb" />
+    <Compile Include="GameObject\Model\GameVisual\AutoStitch\AutoStitchModel.vb" />
     <Compile Include="GameObject\Model\GameVisual\Fractal\Mandelbrot.vb" />
     <Compile Include="GameObject\Model\GameVisual\Partical\ParticalFollow.vb" />
     <Compile Include="GameObject\Model\GameVisual\Plant\Plant.vb" />
