@@ -17,8 +17,8 @@ Public Class Scene1
 
         'Me.AddGameVisual(rectModel, New RectangleView(rectModel) With {.CacheAllowed = True}, 1)
         'Me.AddGameVisual(circleModel, New CircleView(circleModel) With {.CacheAllowed = True}, 0)
-        ''circleModel.GameComponents.Behaviors.Add(New KeyControlScript With {.MaxSpeed = 2.0F})
-        ''rectModel.GameComponents.Behaviors.Add(New KeyControlScript With {.MaxSpeed = 5.0F})
+        'circleModel.GameComponents.Behaviors.Add(New KeyControlScript With {.MaxSpeed = 2.0F})
+        'rectModel.GameComponents.Behaviors.Add(New KeyControlScript With {.MaxSpeed = 5.0F})
         'circleModel.GameComponents.Behaviors.Add(New PhysicsScript)
 
         'Dim tempModel As New ParticalFollow()
@@ -29,23 +29,23 @@ Public Class Scene1
         'Dim tempModel2 As New Plant(New Vector2(Width / 2, Height * 0.8))
         'Me.AddGameVisual(tempModel2, New PlantView(tempModel2))
 
-        'Dim tempModel3 As New AutoDrawModel() With {.Image = ImageManager.GetResource(ImageResourceID.Scenery1)}
-        'Me.AddGameVisual(tempModel3, New AutoDrawView(tempModel3))
-
+        Dim tempModel3 As New AutoDrawModel() With {.Image = ImageManager.GetResource(ImageResourceID.Scenery1)}
+        tempModel3.GameComponents.Behaviors.Add(New TransformScript)
+        Me.AddGameVisual(tempModel3, New AutoDrawView(tempModel3))
         'Dim tempModel4 As New Pointer
-        'Me.AddGameVisual(tempModel4, New PointerView(tempModel4))
+        'Me.AddGameVisual(tempModel4, New PointerView(tempModel4), 1)
         'tempModel4.GameComponents.Effects.Add(New GhostEffect With {.SourceRect = New Rect(0, 0, Width, Height), .Opacity = 0.96})
 
+        'Dim tempModel5 As New GastonJulia
+        'Me.AddGameVisual(tempModel5, New FractalView(tempModel5))
 
-        'Dim tempModel5 As New Mandelbrot
-        'Me.AddGameVisual(tempModel5, New MandelbrotView(tempModel5))
-
-        Dim tempModel6 As New Sprite() With {.Image = ImageManager.GetResource(ImageResourceID.Scenery1)}
-        Me.AddGameVisual(tempModel6, New SpriteView(tempModel6) With {.CacheAllowed = True})
-        tempModel6.GameComponents.Effects.Add(New FrostedEffect() With {.Amount = 10})
+        'Dim tempModel6 As New Sprite() With {.Image = ImageManager.GetResource(ImageResourceID.Scenery1)}
+        'Me.AddGameVisual(tempModel6, New SpriteView(tempModel6) With {.CacheAllowed = True})
+        'tempModel6.GameComponents.Effects.Add(New FrostedEffect() With {.Amount = 10})
         'tempModel6.GameComponents.Behaviors.Add(New TransformScript)
 
-        Me.GameComponents.Behaviors.Add(New CreateBodyScript())
-        Me.Camera.GameComponents.Behaviors.Add(New KeyControlScript With {.MaxSpeed = 5.0F})
+        'Me.GameComponents.Behaviors.Add(New CreateBodyScript())
+        'Me.Camera.GameComponents.Behaviors.Add(New KeyControlScript With {.MaxSpeed = 5.0F})
+        'Me.GameComponents.Effects.Add(New GhostEffect With {.SourceRect = New Rect(0, 0, Width, Height), .Opacity = 1})
     End Sub
 End Class

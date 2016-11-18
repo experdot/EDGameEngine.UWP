@@ -2,7 +2,6 @@
 Imports Microsoft.Graphics.Canvas
 Imports Microsoft.Graphics.Canvas.UI.Xaml
 Imports Windows.System
-Imports Windows.UI
 ''' <summary>
 ''' 表示一个可以初始化、更新可视化对象空间
 ''' </summary>
@@ -27,8 +26,7 @@ Public MustInherit Class World
         Width = sX
         Height = sY
         If CurrentScene IsNot Nothing Then
-            CurrentScene.Width = sX
-            CurrentScene.Height = sY
+            CurrentScene.Rect = New Rect(0, 0, sX, sY)
         End If
     End Sub
     Public Sub OnKeyDown(keycode As VirtualKey)

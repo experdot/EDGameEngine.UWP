@@ -27,13 +27,14 @@ Public Class AutoDrawModel
 
     Public Overrides Sub StartEx()
         ImageSize = New Size(Image.Bounds.Width, Image.Bounds.Height)
+        Me.Rect = New Rect(0, 0, ImageSize.Width, ImageSize.Height)
         DrawingMgr = New DrawingManager
         Dim sizes As Single() = {16, 8, 4, 2}
         Dim alphas As Byte() = {120, 160, 200, 240}
-        Dim noises As Integer() = {180, 160, 140, 120}
+        Dim noises As Integer() = {160, 140, 120, 100}
         Dim tempPixels As New PixelData
         For i = 0 To 3
-            Dim tempImage As CanvasBitmap = CType(GaussianBlurEffect.EffectStatic(Image, Scene.World.ResourceCreator, 3 - i), CanvasBitmap)
+            Dim tempImage As CanvasBitmap = CType(GaussianBlurEffect.EffectStatic(Image, Scene.World.ResourceCreator, 4 - i), CanvasBitmap)
             tempPixels = New PixelData(tempImage.GetPixelColors, CInt(Image.Bounds.Width), CInt(Image.Bounds.Height))
             DrawingMgr.Drawings.Add(New Drawing(tempPixels, i + 3) With {.PenAlpha = alphas(i), .PenSize = sizes(i)})
             DrawingMgr.Drawings(i).Denoising(noises(i))
@@ -47,9 +48,6 @@ Public Class AutoDrawModel
         GameComponents.Effects.Add(New ShadowEffect)
     End Sub
     Public Overrides Sub UpdateEx()
-        Static ImageVec As Vector2 = New Vector2(CSng(ImageSize.Width), CSng(ImageSize.Height)) / 2
-        '图像位置居中
-        Transform.Translation = New Vector2(Scene.Width, Scene.Height) / 2 - ImageVec
         '更新绘制序列
         UpdateDrawings()
     End Sub

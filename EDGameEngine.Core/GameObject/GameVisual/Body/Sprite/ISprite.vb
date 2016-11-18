@@ -7,5 +7,5 @@ Public Interface ISprite
     ''' <summary>
     ''' 贴图
     ''' </summary>
-    Property Image As ICanvasImage
+    Property Image As CanvasBitmap
 End Interface

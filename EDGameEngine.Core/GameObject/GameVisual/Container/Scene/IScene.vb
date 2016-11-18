@@ -9,11 +9,11 @@ Public Interface IScene
     ''' <summary>
     ''' 场景宽度
     ''' </summary>
-    Property Width As Single
+    ReadOnly Property Width As Single
     ''' <summary>
     ''' 场景高度
     ''' </summary>
-    Property Height As Single
+    ReadOnly Property Height As Single
     ''' <summary>
     ''' 所属世界
     ''' </summary>

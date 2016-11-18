@@ -9,10 +9,10 @@ Public Class RectangleView
     End Sub
     Public Overrides Sub OnDraw(drawingSession As CanvasDrawingSession)
         If Target.Fill.State Then
-            drawingSession.FillRectangle(Target.Rect, Target.Fill.Color)
+            drawingSession.FillRectangle(Target.Rectangle, Target.Fill.Color)
         End If
         If Target.Border.State Then
-            drawingSession.DrawRectangle(Target.Rect, Target.Border.Color, Target.Border.Width)
+            drawingSession.DrawRectangle(Target.Rectangle, Target.Border.Color, Target.Border.Width)
         End If
     End Sub
 End Class

@@ -11,8 +11,16 @@ Public MustInherit Class Scene
 
     Public Property ImageManager As ImageResourceManager Implements IScene.ImageManager
     Public Property GameLayers As New List(Of ILayer) Implements IScene.GameLayers
-    Public Property Width As Single Implements IScene.Width
-    Public Property Height As Single Implements IScene.Height
+    Public ReadOnly Property Width As Single Implements IScene.Width
+        Get
+            Return CSng(Rect.Width)
+        End Get
+    End Property
+    Public ReadOnly Property Height As Single Implements IScene.Height
+        Get
+            Return CSng(Rect.Height)
+        End Get
+    End Property
     Public Property World As World Implements IScene.World
     Public Property Camera As ICamera Implements IScene.Camera
     Public Property Inputs As Inputs Implements IScene.Inputs
@@ -37,6 +45,7 @@ Public MustInherit Class Scene
     End Property
     Public Property GameComponents As GameComponents Implements IGameVisual.GameComponents
     Public Property Presenter As IGameView = New SceneView(Me) Implements IGameVisual.Presenter
+    Public Property Rect As Rect Implements IGameVisual.Rect
 
     Public MustOverride Sub CreateObject() Implements IScene.CreateObject
 
@@ -48,8 +57,7 @@ Public MustInherit Class Scene
         Me.GameComponents = New GameComponents(Me)
         Me.Progress = New Progress(0, "")
         Me.State = SceneState.Wait
-        Width = CSng(WindowSize.Width)
-        Height = CSng(WindowSize.Height)
+        Rect = New Rect(0, 0, WindowSize.Width, WindowSize.Height)
     End Sub
 
     Public Async Sub Start() Implements IGameObject.Start

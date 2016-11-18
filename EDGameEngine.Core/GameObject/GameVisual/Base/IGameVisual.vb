@@ -24,4 +24,8 @@ Public Interface IGameVisual
     ''' 所属场景
     ''' </summary>
     Property Scene As IScene
+    ''' <summary>
+    ''' 矩形框
+    ''' </summary>
+    Property Rect As Rect
 End Interface
