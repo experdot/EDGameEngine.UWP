@@ -1,5 +1,7 @@
 ﻿Imports Microsoft.Graphics.Canvas
-
+''' <summary>
+''' 贴图物体的视图
+''' </summary>
 Public Class SpriteView
     Inherits TypedGameView(Of ISprite)
     Public Sub New(Target As ISprite)

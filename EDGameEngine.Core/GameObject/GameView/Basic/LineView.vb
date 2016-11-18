@@ -1,8 +1,7 @@
-﻿Imports System.Numerics
-Imports EDGameEngine.Core
-Imports Microsoft.Graphics.Canvas
-Imports Windows.UI
-
+﻿Imports Microsoft.Graphics.Canvas
+''' <summary>
+''' 可视化直线的视图
+''' </summary>
 Public Class LineView
     Inherits TypedGameView(Of VisualLine)
     Public Sub New(Target As VisualLine)

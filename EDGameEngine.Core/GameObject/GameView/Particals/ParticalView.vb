@@ -2,7 +2,9 @@
 Imports EDGameEngine.Core
 Imports Microsoft.Graphics.Canvas
 Imports Windows.UI
-
+''' <summary>
+''' 粒子系统视图
+''' </summary>
 Public Class ParticalView
     Inherits TypedGameView(Of IParticals)
     Public Sub New(Target As IParticals)

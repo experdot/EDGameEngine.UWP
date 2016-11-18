@@ -1,7 +1,8 @@
 ﻿Imports System.Numerics
-Imports EDGameEngine.Core
 Imports Microsoft.Graphics.Canvas
-
+''' <summary>
+''' 可视化圆的视图
+''' </summary>
 Public Class CircleView
     Inherits TypedGameView(Of VisualCircle)
     Public Sub New(Target As VisualCircle)

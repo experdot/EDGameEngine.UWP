@@ -1,5 +1,7 @@
-﻿Imports EDGameEngine.Core
-Imports Microsoft.Graphics.Canvas
+﻿Imports Microsoft.Graphics.Canvas
+''' <summary>
+''' 视图基类
+''' </summary>
 Public MustInherit Class GameView
     Implements IGameView
 

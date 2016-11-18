@@ -1,5 +1,7 @@
 ﻿Imports Microsoft.Graphics.Canvas
-
+''' <summary>
+''' 可视化文字的视图
+''' </summary>
 Public Class TextView
     Inherits TypedGameView(Of IVisualText)
     Public Sub New(Target As IVisualText)

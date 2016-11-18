@@ -1,8 +1,8 @@
 ﻿Imports Microsoft.Graphics.Canvas
-Imports System.Numerics
-Imports Windows.UI
 Imports EDGameEngine.Core
-
+''' <summary>
+''' 自动绘图的视图
+''' </summary>
 Public Class AutoDrawView
     Inherits TypedGameView(Of AutoDrawModel)
     Public Sub New(Target As AutoDrawModel)

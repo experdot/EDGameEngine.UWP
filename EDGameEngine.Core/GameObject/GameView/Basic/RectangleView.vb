@@ -1,8 +1,7 @@
-﻿Imports System.Numerics
-Imports EDGameEngine.Core
-Imports Microsoft.Graphics.Canvas
-Imports Windows.UI
-
+﻿Imports Microsoft.Graphics.Canvas
+''' <summary>
+''' 可视化矩形的视图
+''' </summary>
 Public Class RectangleView
     Inherits TypedGameView(Of VisualRectangle)
     Public Sub New(Target As VisualRectangle)

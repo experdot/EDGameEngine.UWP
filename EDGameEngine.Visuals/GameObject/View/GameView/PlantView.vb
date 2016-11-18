@@ -2,7 +2,9 @@
 Imports EDGameEngine.Core
 Imports Microsoft.Graphics.Canvas
 Imports Windows.UI
-
+''' <summary>
+''' 植物的视图
+''' </summary>
 Public Class PlantView
     Inherits TypedGameView(Of Plant)
     Public Sub New(Target As Plant)
