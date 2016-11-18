@@ -148,6 +148,7 @@
     <Compile Include="GameObject\Model\GameVisual\AutoStitch\FragmentSplicer.vb" />
     <Compile Include="GameObject\Model\GameVisual\AutoStitch\AutoStitchModel.vb" />
     <Compile Include="GameObject\Model\GameVisual\Fractal\Base\IFractal.vb" />
+    <Compile Include="GameObject\Model\GameVisual\Fractal\GastonJulia.vb" />
     <Compile Include="GameObject\Model\GameVisual\Fractal\NatureTree.vb" />
     <Compile Include="GameObject\Model\GameVisual\Fractal\Mandelbrot.vb" />
     <Compile Include="GameObject\Model\GameVisual\Partical\ParticalFollow.vb" />
