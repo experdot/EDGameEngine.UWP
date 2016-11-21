@@ -31,7 +31,7 @@ Public Class AutoDrawModel
         DrawingMgr = New DrawingManager
         Dim sizes As Single() = {16, 8, 4, 2}
         Dim alphas As Byte() = {120, 160, 200, 240}
-        Dim noises As Integer() = {160, 140, 120, 100}
+        Dim noises As Integer() = {60, 40, 20, 10}
         Dim tempPixels As New PixelData
         For i = 0 To 3
             Dim tempImage As CanvasBitmap = CType(GaussianBlurEffect.EffectStatic(Image, Scene.World.ResourceCreator, 4 - i), CanvasBitmap)

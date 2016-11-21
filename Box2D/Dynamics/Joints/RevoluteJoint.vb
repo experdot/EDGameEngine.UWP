@@ -95,15 +95,15 @@ Namespace Global.Box2D
             Dim num2 As Single = body2._invMass
             Dim num3 As Single = body._invI
             Dim num4 As Single = body2._invI
-            Me._mass.col1.X = (((num + num2) + ((a.Y * a.Y) * num3)) + ((vector2.Y * vector2.Y) * num4))
-            Me._mass.col2.X = (((-a.Y * a.X) * num3) - ((vector2.Y * vector2.X) * num4))
-            Me._mass.col3.X = ((-a.Y * num3) - (vector2.Y * num4))
-            Me._mass.col1.Y = Me._mass.col2.X
-            Me._mass.col2.Y = (((num + num2) + ((a.X * a.X) * num3)) + ((vector2.X * vector2.X) * num4))
-            Me._mass.col3.Y = ((a.X * num3) + (vector2.X * num4))
-            Me._mass.col1.Z = Me._mass.col3.X
-            Me._mass.col2.Z = Me._mass.col3.Y
-            Me._mass.col3.Z = (num3 + num4)
+            Me._mass.Column1.X = (((num + num2) + ((a.Y * a.Y) * num3)) + ((vector2.Y * vector2.Y) * num4))
+            Me._mass.Column2.X = (((-a.Y * a.X) * num3) - ((vector2.Y * vector2.X) * num4))
+            Me._mass.Column3.X = ((-a.Y * num3) - (vector2.Y * num4))
+            Me._mass.Column1.Y = Me._mass.Column2.X
+            Me._mass.Column2.Y = (((num + num2) + ((a.X * a.X) * num3)) + ((vector2.X * vector2.X) * num4))
+            Me._mass.Column3.Y = ((a.X * num3) + (vector2.X * num4))
+            Me._mass.Column1.Z = Me._mass.Column3.X
+            Me._mass.Column2.Z = Me._mass.Column3.Y
+            Me._mass.Column3.Z = (num3 + num4)
             Me._motorMass = (1.0! / (num3 + num4))
             If Not Me._enableMotor Then
                 Me._motorImpulse = 0!

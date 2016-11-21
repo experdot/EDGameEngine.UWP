@@ -28,34 +28,33 @@ Public Class GastonJulia
         Dim tc As Integer = 0
 
         Dim x, y, x0, y0, x1, y1 As Double
-
         For x0 = xstart To 1 Step pStep
             For y0 = ystart To 1 Step pStep
                 x = x0 : y = y0
                 If x0 * x0 + y0 * y0 < 1 Then
-                    Dim tempColor = Color.FromArgb(CByte(255 - Math.Sqrt(x0 * x0 + y0 * y0) * 200),
-                                                   CByte(x0 * x0 * 200),
-                                                   CByte(y0 * y0 * 200),
-                                                   CByte(Math.Sqrt(x0 * x0 + y0 * y0) * 200))
-                    Vertexs.Add(New ColorVertex(New Vector2(CSng(pWidth / 2 + x0 * (pHeight / 2)), CSng(pHeight / 2 - y0 * (pHeight / 2))), tempColor))
+                    'Dim tempColor = Color.FromArgb(CByte(255 - Math.Sqrt(x0 * x0 + y0 * y0) * 255),
+                    '                                   CByte(x * x * 255),
+                    '                                   CByte(y * y * 255),
+                    '                                   CByte(Math.Abs(x * y) * 255))
+                    'Vertexs.Add(New ColorVertex(New Vector2(CSng(pWidth / 2 + x0 * (pHeight / 2)), CSng(pHeight / 2 - y0 * (pHeight / 2))), tempColor))
                     tc += 1
-                    For n = 1 To 20
+                    For n = 1 To 30
                         x1 = x * x - y * y + a
                         y1 = 2 * x * y + b
                         x = x1
                         y = y1
                         If (x * x + y * y) < 1 Then
-                            tempColor = Color.FromArgb(CByte(200 + (n - 10) * 5),
-                                                       CByte(x * x * 160 + n * 1),
-                                                       CByte(y * y * 160 + n * 2),
-                                                       CByte(Math.Sqrt(x * x + y * y) * 160 + n * 3))
+                            Dim tempColor = Color.FromArgb(CByte(255 - (x0 * x0 + y0 * y0) * 255),
+                                                           CByte(x * x * 100 + n * 2),
+                                                           CByte(y * y * 100 + n * 3),
+                                                           CByte(Math.Abs(x * y) * 100 + n * 4))
                             Vertexs.Add(New ColorVertex(New Vector2(CSng(pWidth / 2 + x0 * (pHeight / 2)), CSng(pHeight / 2 - y0 * (pHeight / 2))), tempColor))
                             tc += 1
                         End If
                     Next
                 End If
             Next
-            If tc > 5000 Then
+            If tc > 2000 Then
                 xstart = x
                 ystart = y
                 Exit Sub

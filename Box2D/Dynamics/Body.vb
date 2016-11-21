@@ -21,7 +21,7 @@ Namespace Global.Box2D
             End If
             Me._world = world
             Me._xf.Position = bd.position
-            Me._xf.RoateMatrix.SetValue(bd.angle)
+            Me._xf.RoateMatrix.CreateFromAngle(bd.angle)
             Me._sweep.localCenter = bd.massData.Centroid
             Me._sweep.t0 = 1.0!
             Me._sweep.a0 = Me._sweep.a.SetValue(bd.angle)
@@ -419,7 +419,7 @@ Namespace Global.Box2D
         Public Sub SetXForm(ByVal position As Vector2, ByVal angle As Single)
             Debug.Assert(Not Me._world.IsLocked)
             If Not Me._world.IsLocked Then
-                Me._xf.RoateMatrix.SetValue(angle)
+                Me._xf.RoateMatrix.CreateFromAngle(angle)
                 Me._xf.Position = position
                 Me._sweep.c0 = Me._sweep.c.SetValue(MathUtils.Multiply(Me._xf, Me._sweep.localCenter))
                 Me._sweep.a0 = Me._sweep.a.SetValue(angle)
@@ -435,7 +435,7 @@ Namespace Global.Box2D
 
         Friend Sub SynchronizeFixtures()
             Dim form As New XForm
-            form.RoateMatrix.SetValue(Me._sweep.a0)
+            form.RoateMatrix.CreateFromAngle(Me._sweep.a0)
             form.Position = (Me._sweep.c0 - MathUtils.Multiply(form.RoateMatrix, Me._sweep.localCenter))
             Dim broadPhase As BroadPhase = Me._world._contactManager._broadPhase
             Dim fixture As Fixture = Me._fixtureList
@@ -446,7 +446,7 @@ Namespace Global.Box2D
         End Sub
 
         Friend Sub SynchronizeTransform()
-            Me._xf.RoateMatrix.SetValue(Me._sweep.a)
+            Me._xf.RoateMatrix.CreateFromAngle(Me._sweep.a)
             Me._xf.Position = (Me._sweep.c - MathUtils.Multiply(Me._xf.RoateMatrix, Me._sweep.localCenter))
         End Sub
 

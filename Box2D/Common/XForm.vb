@@ -42,7 +42,7 @@ Namespace Global.Box2D
         ''' <param name="angle"></param>
         Public Sub SetValue(ByVal p As Vector2, ByVal angle As Single)
             Me.Position = p
-            Me.RoateMatrix.SetValue(angle)
+            Me.RoateMatrix.CreateFromAngle(angle)
         End Sub
     End Structure
 End Namespace

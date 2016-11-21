@@ -136,9 +136,9 @@ Namespace Global.Box2D
             Dim num8 As Single = (num3 + num4)
             Dim num9 As Single = ((num3 * Me._a1) + (num4 * Me._a2))
             Dim num10 As Single = (((num + num2) + ((num3 * Me._a1) * Me._a1)) + ((num4 * Me._a2) * Me._a2))
-            Me._K.col1 = New Vector3(num5, num6, num7)
-            Me._K.col2 = New Vector3(num6, num8, num9)
-            Me._K.col3 = New Vector3(num7, num9, num10)
+            Me._K.Column1 = New Vector3(num5, num6, num7)
+            Me._K.Column2 = New Vector3(num6, num8, num9)
+            Me._K.Column3 = New Vector3(num7, num9, num10)
             If Me._enableLimit Then
                 Dim num11 As Single = Vector2.Dot(Me._axis, vector3)
                 If (Math.Abs((Me._upperTranslation - Me._lowerTranslation)) < (2.0! * Settings.b2_linearSlop)) Then
@@ -260,9 +260,9 @@ Namespace Global.Box2D
                 Dim num16 As Single = (num11 + num12)
                 Dim num17 As Single = ((num11 * Me._a1) + (num12 * Me._a2))
                 Dim num18 As Single = (((num9 + num10) + ((num11 * Me._a1) * Me._a1)) + ((num12 * Me._a2) * Me._a2))
-                Me._K.col1 = New Vector3(num13, num14, num15)
-                Me._K.col2 = New Vector3(num14, num16, num17)
-                Me._K.col3 = New Vector3(num15, num17, num18)
+                Me._K.Column1 = New Vector3(num13, num14, num15)
+                Me._K.Column2 = New Vector3(num14, num16, num17)
+                Me._K.Column3 = New Vector3(num15, num17, num18)
                 Dim b As New Vector3(-vector7.X, -vector7.Y, -num5)
                 vector6 = Me._K.Solve33(b)
             Else
@@ -273,8 +273,8 @@ Namespace Global.Box2D
                 Dim num23 As Single = (((num19 + num20) + ((num21 * Me._s1) * Me._s1)) + ((num22 * Me._s2) * Me._s2))
                 Dim num24 As Single = ((num21 * Me._s1) + (num22 * Me._s2))
                 Dim num25 As Single = (num21 + num22)
-                Me._K.col1 = New Vector3(num23, num24, 0!)
-                Me._K.col2 = New Vector3(num24, num25, 0!)
+                Me._K.Column1 = New Vector3(num23, num24, 0!)
+                Me._K.Column2 = New Vector3(num24, num25, 0!)
                 Dim vector10 As Vector2 = Me._K.Solve22(-vector7)
                 vector6.X = vector10.X
                 vector6.Y = vector10.Y
@@ -330,7 +330,7 @@ Namespace Global.Box2D
                 ElseIf (Me._limitState = LimitState.AtUpper) Then
                     Me._impulse.Z = Math.Min(Me._impulse.Z, 0!)
                 End If
-                Dim b As Vector2 = (-vector3 - ((Me._impulse.Z - vector6.Z) * New Vector2(Me._K.col3.X, Me._K.col3.Y)))
+                Dim b As Vector2 = (-vector3 - ((Me._impulse.Z - vector6.Z) * New Vector2(Me._K.Column3.X, Me._K.Column3.Y)))
                 Dim vector9 As Vector2 = (Me._K.Solve22(b) + New Vector2(vector6.X, vector6.Y))
                 Me._impulse.X = vector9.X
                 Me._impulse.Y = vector9.Y

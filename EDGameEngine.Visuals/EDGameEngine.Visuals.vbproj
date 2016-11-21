@@ -152,6 +152,7 @@
     <Compile Include="GameObject\Model\GameVisual\Fractal\NatureTree.vb" />
     <Compile Include="GameObject\Model\GameVisual\Fractal\Mandelbrot.vb" />
     <Compile Include="GameObject\Model\GameVisual\Partical\ParticalFollow.vb" />
+    <Compile Include="GameObject\Model\GameVisual\Plant\IPlant.vb" />
     <Compile Include="GameObject\Model\GameVisual\Plant\Plant.vb" />
     <Compile Include="GameObject\Model\GameVisual\Plant\TreeNode.vb" />
     <Compile Include="GameObject\Model\GameVisual\Pointer\Pointer.vb" />

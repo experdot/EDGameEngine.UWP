@@ -227,7 +227,7 @@ Namespace Global.Box2D
             Dim t As New XForm With {
                 .Position = center
             }
-            t.RoateMatrix.SetValue(angle)
+            t.RoateMatrix.CreateFromAngle(angle)
             Dim i As Integer
             For i = 0 To Me.VertexCount - 1
                 Me.Vertices.Item(i) = MathUtils.Multiply(t, Me.Vertices.Item(i))

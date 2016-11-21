@@ -19,7 +19,7 @@ Namespace Global.Box2D
 
         Friend Sub ComputeXForm(<Out> ByRef xf As XForm, ByVal center As Vector2, ByVal localCenter As Vector2, ByVal angle As Single)
             xf = New XForm
-            xf.RoateMatrix.SetValue(angle)
+            xf.RoateMatrix.CreateFromAngle(angle)
             xf.Position = (center - MathUtils.Multiply(xf.RoateMatrix, localCenter))
         End Sub
 
