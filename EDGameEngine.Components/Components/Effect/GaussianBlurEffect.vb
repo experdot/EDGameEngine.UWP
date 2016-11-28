@@ -10,6 +10,7 @@ Public Class GaussianBlurEffect
     ''' 模糊半径
     ''' </summary>
     Public Property BlurAmount As Integer = 3
+
     Public Overrides Function Effect(source As IGraphicsEffectSource, resourceCreator As ICanvasResourceCreator) As IGraphicsEffectSource
         Dim rect = CType(source, ICanvasImage).GetBounds(resourceCreator)
         Using cac = New CanvasRenderTarget(CType(resourceCreator, ICanvasResourceCreatorWithDpi), New Size(rect.Width, rect.Height))

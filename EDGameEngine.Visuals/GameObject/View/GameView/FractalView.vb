@@ -9,11 +9,9 @@ Public Class FractalView
         MyBase.New(Target)
     End Sub
     Public Overrides Sub OnDraw(DrawingSession As CanvasDrawingSession)
-        If Target.Vertexs.Count > 0 Then
-            For Each SubVertex In Target.Vertexs
-                DrawingSession.DrawRectangle(SubVertex.Position.X, SubVertex.Position.Y, 1, 1, SubVertex.Color)
-            Next
-            Target.Vertexs.Clear()
-        End If
+        Dim tempVertex As ColorVertex
+        While Target.Vertexs.TryDequeue(tempVertex)
+            DrawingSession.DrawRectangle(tempVertex.Position.X, tempVertex.Position.Y, 1, 1, tempVertex.Color)
+        End While
     End Sub
 End Class

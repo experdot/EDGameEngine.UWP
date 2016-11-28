@@ -9,9 +9,9 @@ Public Class AutoDrawView
         MyBase.New(Target)
     End Sub
     Public Overrides Sub OnDraw(drawingSession As CanvasDrawingSession)
-        For Each SubPoint In Target.CurrentPoints
-            drawingSession.FillCircle(SubPoint.Position, SubPoint.Size, SubPoint.Color)
-        Next
-        Target.CurrentPoints.Clear()
+        Dim tempPoint As New Point
+        While Target.CurrentPoints.TryDequeue(tempPoint)
+            drawingSession.FillCircle(tempPoint.Position, tempPoint.Size, tempPoint.Color)
+        End While
     End Sub
 End Class

@@ -19,7 +19,7 @@ Public Class AutoDrawModel
     ''' <summary>
     ''' 绘制序列
     ''' </summary>
-    Public Property CurrentPoints As New List(Of Point)
+    Public Property CurrentPoints As New Concurrent.ConcurrentQueue(Of Point)
     ''' <summary>
     ''' 每帧绘制长度
     ''' </summary>
@@ -54,7 +54,7 @@ Public Class AutoDrawModel
     Private Sub UpdateDrawings()
         If CurrentPoints.Count = 0 Then
             For i = 0 To PointsCountMax - 1
-                CurrentPoints.Add(DrawingMgr.NextPoint())
+                CurrentPoints.Enqueue(DrawingMgr.NextPoint())
             Next
             If PointsCountMax < 3000 Then PointsCountMax += 1
         End If

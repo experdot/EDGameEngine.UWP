@@ -8,7 +8,7 @@ Imports Windows.UI
 Public Class NatureTree
     Inherits GameBody
     Implements IFractal
-    Public Property Vertexs As New List(Of ColorVertex） Implements IFractal.Vertexs
+    Public Property Vertexs As New Concurrent.ConcurrentQueue(Of ColorVertex） Implements IFractal.Vertexs
 
     Public Overrides Sub StartEx()
         Me.GameComponents.Effects.Add(New GhostEffect() With {.SourceRect = New Rect(0, 0, Scene.Width, Scene.Height)})
@@ -46,7 +46,7 @@ Public Class NatureTree
             End If
             x0 = x1 : y0 = y1
             Dim myColor = Color.FromArgb(255, CByte(x0 * x0 * 200 * r), CByte(y0 * y0 * 200 * r), CByte(x0 * y0 * 255))
-            Vertexs.Add(New ColorVertex(New Vector2(CSng(Scene.Width * 0.75 - x1 * Scene.Height), CSng(Scene.Height - y1 * Scene.Height)), myColor))
+            Vertexs.Enqueue(New ColorVertex(New Vector2(CSng(Scene.Width * 0.75 - x1 * Scene.Height), CSng(Scene.Height - y1 * Scene.Height)), myColor))
             count += 1
             If count > 100 Then
                 iStart = i

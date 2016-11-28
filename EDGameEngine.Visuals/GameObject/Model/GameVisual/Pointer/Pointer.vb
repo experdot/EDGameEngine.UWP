@@ -18,10 +18,10 @@ Public Class Pointer
         If LocQueue.Count > 1 Then
             LocQueue.TryDequeue(Nothing)
         End If
-        If LocQueue.Count = 1 Then
-            LocQueue.TryDequeue(Nothing)
-            LocQueue.Enqueue(Location)
-        End If
+        'If LocQueue.Count = 1 Then
+        '    LocQueue.TryDequeue(Nothing)
+        '    LocQueue.Enqueue(Location)
+        'End If
     End Sub
     Private Sub MouseChanged(loc As Vector2)
         MouseLocation = loc

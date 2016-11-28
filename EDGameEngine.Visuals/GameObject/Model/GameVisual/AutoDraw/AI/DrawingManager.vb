@@ -1,7 +1,12 @@
 ﻿Imports System.Numerics
 Imports Windows.UI
-
+''' <summary>
+''' 线条画管理器
+''' </summary>
 Public Class DrawingManager
+    ''' <summary>
+    ''' 线条画集合
+    ''' </summary>
     Public Property Drawings As List(Of Drawing)
 
     Public Sub New()

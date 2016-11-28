@@ -34,7 +34,7 @@ Public Class Scene1
 
         '自动画画
         Dim tempModel3 As New AutoDrawModel() With {.Image = ImageManager.GetResource(ImageResourceID.Scenery1)}
-        tempModel3.GameComponents.Behaviors.Add(New TransformScript)
+        'tempModel3.GameComponents.Behaviors.Add(New TransformScript)
         Me.AddGameVisual(tempModel3, New AutoDrawView(tempModel3))
 
         '指针
@@ -57,6 +57,6 @@ Public Class Scene1
         '键盘控制摄像机
         'Me.Camera.GameComponents.Behaviors.Add(New KeyControlScript With {.MaxSpeed = 5.0F})
         '场景全局残影
-        'Me.GameComponents.Effects.Add(New GhostEffect With {.SourceRect = New Rect(0, 0, Width, Height), .Opacity = 1})
+        'Me.GameComponents.Effects.Add(New GhostEffect With {.SourceRect = New Rect(0, 0, Width, Height), .Opacity = 0.5})
     End Sub
 End Class
