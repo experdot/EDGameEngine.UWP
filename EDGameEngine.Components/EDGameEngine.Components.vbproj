@@ -143,6 +143,7 @@
     <Compile Include="Components\Effect\StreamEffect.vb" />
     <Compile Include="Components\Effect\ThresholdEffect.vb" />
     <Compile Include="Components\Effect\TransformEffect.vb" />
+    <Compile Include="Components\Effect\WaveEffect.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <EmbeddedResource Include="My Project\EDGameEngine.Components.rd.xml" />
   </ItemGroup>

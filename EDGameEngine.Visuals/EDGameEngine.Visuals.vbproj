@@ -134,7 +134,6 @@
     <Compile Include="GameObject\Model\GameVisual\AutoDraw\AI\DrawingManager.vb" />
     <Compile Include="GameObject\Model\GameVisual\AutoDraw\AI\PixelData.vb" />
     <Compile Include="GameObject\Model\GameVisual\AutoDraw\AutoDrawModel.vb" />
-    <Compile Include="GameObject\Model\GameVisual\AutoDraw\AI\Point.vb" />
     <Compile Include="GameObject\Model\GameVisual\AutoDraw\AI\Line.vb" />
     <Compile Include="GameObject\Model\GameVisual\AutoDraw\AI\ScanMode.vb" />
     <Compile Include="GameObject\Model\GameVisual\AutoDraw\AI\SequenceAI.vb" />
@@ -161,6 +160,7 @@
     <Compile Include="GameObject\View\GameView\PlantView.vb" />
     <Compile Include="GameObject\View\GameView\PointerView.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="Utilities\Point\Point.vb" />
     <EmbeddedResource Include="My Project\EDGameEngine.Visuals.rd.xml" />
   </ItemGroup>
   <ItemGroup>

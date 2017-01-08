@@ -2,30 +2,36 @@
 Imports Windows.UI
 
 Public Class BitmapCacheHelper
-    Public Shared Function CacheImage(drawingSession As CanvasDrawingSession, Source As ICanvasImage) As CanvasBitmap
-        Dim reg = Source.GetBounds(DrawingSession)
-        Using cac = New CanvasRenderTarget(DrawingSession, CSng(reg.Width), CSng(reg.Height))
+    Public Shared Function CacheImage(resourceCreator As ICanvasResourceCreator, Source As ICanvasImage) As CanvasBitmap
+        Dim reg = Source.GetBounds(resourceCreator)
+        If reg.Width < 1 Then reg.Width = 1
+        If reg.Height < 1 Then reg.Height = 1
+        Using cac = New CanvasRenderTarget(CType(resourceCreator, ICanvasResourceCreatorWithDpi), CSng(reg.Width), CSng(reg.Height))
             Dim sizepx = cac.SizeInPixels
             Using ds = cac.CreateDrawingSession
                 ds.Clear(Colors.Transparent)
                 ds.DrawImage(Source, CSng(-reg.Left), CSng(-reg.Top))
             End Using
-            Return CanvasBitmap.CreateFromColors(DrawingSession, cac.GetPixelColors, CInt(sizepx.Width), CInt(sizepx.Height))
+            Return CanvasBitmap.CreateFromColors(resourceCreator, cac.GetPixelColors, CInt(sizepx.Width), CInt(sizepx.Height))
         End Using
     End Function
-    Public Shared Function CacheEntireImage(drawingSession As CanvasDrawingSession, Source As ICanvasImage) As CanvasBitmap
-        Dim reg = Source.GetBounds(DrawingSession)
-        Return CacheImageClip(DrawingSession, Source, reg)
+    Public Shared Function CacheEntireImage(resourceCreator As ICanvasResourceCreator, Source As ICanvasImage) As CanvasBitmap
+        Dim reg = Source.GetBounds(resourceCreator)
+        If reg.Width < 1 Then reg.Width = 1
+        If reg.Height < 1 Then reg.Height = 1
+        If Double.IsInfinity(reg.Left) Then reg.X = 0
+        If Double.IsInfinity(reg.Top) Then reg.Y = 0
+        Return CacheImageClip(resourceCreator, Source, reg)
     End Function
 
-    Public Shared Function CacheImageClip(drawingSession As CanvasDrawingSession, Source As ICanvasImage, reg As Rect) As CanvasBitmap
-        Using cac = New CanvasRenderTarget(DrawingSession, CSng(reg.Width + reg.Left), CSng(reg.Height + reg.Top))
+    Public Shared Function CacheImageClip(resourceCreator As ICanvasResourceCreator, Source As ICanvasImage, reg As Rect) As CanvasBitmap
+        Using cac = New CanvasRenderTarget(CType(resourceCreator, ICanvasResourceCreatorWithDpi), CSng(reg.Width + reg.Left), CSng(reg.Height + reg.Top))
             Dim sizepx = cac.SizeInPixels
             Using ds = cac.CreateDrawingSession
                 ds.Clear(Colors.Transparent)
                 ds.DrawImage(Source)
             End Using
-            Return CanvasBitmap.CreateFromColors(DrawingSession, cac.GetPixelColors, CInt(sizepx.Width), CInt(sizepx.Height))
+            Return CanvasBitmap.CreateFromColors(resourceCreator, cac.GetPixelColors, CInt(sizepx.Width), CInt(sizepx.Height))
         End Using
     End Function
 

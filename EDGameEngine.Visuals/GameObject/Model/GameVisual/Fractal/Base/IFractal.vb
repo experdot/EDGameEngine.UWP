@@ -7,5 +7,5 @@ Public Interface IFractal
     ''' <summary>
     ''' 顶点集合
     ''' </summary>
-    Property Vertexs As Concurrent.ConcurrentQueue(Of ColorVertex）
+    Property Vertexs As Concurrent.ConcurrentQueue(Of Point）
 End Interface

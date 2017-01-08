@@ -21,8 +21,6 @@ Public Class BitmapPixelHelper
     ''' <summary>
     ''' 返回指定位图的颜色数组
     ''' </summary>
-    ''' <param name="bmp"></param>
-    ''' <returns></returns>
     Public Shared Function GetColorArr(ByRef bmp As CanvasBitmap) As Color(,)
         Dim RawArr = bmp.GetPixelColors()
         Dim TempArr(CInt(bmp.Bounds.Width) - 1, CInt(bmp.Bounds.Height) - 1) As Color
@@ -36,9 +34,6 @@ Public Class BitmapPixelHelper
     ''' <summary>
     ''' 返回指定图位图的二值化原始像素图像
     ''' </summary>
-    ''' <param name="bmp"></param>
-    ''' <param name="split"></param>
-    ''' <returns></returns>
     Public Shared Function GetThresholdImageRaw(drawingSession As CanvasDrawingSession, bmp As CanvasBitmap, split As Single) As CanvasBitmap
         Dim RawColors() As Color = bmp.GetPixelColors
         Dim NowColors(RawColors.Count - 1) As Color
@@ -52,8 +47,6 @@ Public Class BitmapPixelHelper
     ''' <summary>
     ''' 返回指定位图的二值化数组
     ''' </summary>
-    ''' <param name="bmp"></param>
-    ''' <returns></returns>
     Public Shared Function GetImageBol(ByVal bmp As CanvasBitmap, Optional split As Integer = 128) As Integer(,)
         Dim ResultArr(CInt(bmp.Bounds.Width) - 1, CInt(bmp.Bounds.Height) - 1) As Integer
         Dim RawColors() As Color = bmp.GetPixelColors
@@ -67,8 +60,6 @@ Public Class BitmapPixelHelper
     ''' <summary>
     ''' 返回指定位图的二值化特定范围数组
     ''' </summary>
-    ''' <param name="bmp"></param>
-    ''' <returns></returns>
     Public Shared Function GetImageBolLimit(ByVal bmp As CanvasBitmap, Optional lower As Integer = 128, Optional upper As Integer = 129) As Integer(,)
         Dim ResultArr(CInt(bmp.Bounds.Width) - 1, CInt(bmp.Bounds.Height) - 1) As Integer
         Dim RawColors() As Color = bmp.GetPixelColors

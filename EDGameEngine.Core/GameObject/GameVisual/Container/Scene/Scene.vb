@@ -67,14 +67,14 @@ Public MustInherit Class Scene
         Progress = New Progress(0.1, "加载外部资源")
         Await LoadAsync(World.ResourceCreator)
         Await Task.Run(New Action(Sub()
-                                      Progress.Description = "创建游戏物体"
+                                      Progress.Description = "创建实体"
                                       CreateObject()
-                                      Progress.Description = "初始化游戏物体"
+                                      Progress.Description = "初始化场景"
                                       For Each SubLayer In GameLayers
                                           SubLayer.Start()
                                       Next
                                       Camera.Start()
-                                      Progress.Description = "初始化游戏组件"
+                                      Progress.Description = "初始化组件"
                                       GameComponents.Start()
                                   End Sub))
         State = SceneState.Loop

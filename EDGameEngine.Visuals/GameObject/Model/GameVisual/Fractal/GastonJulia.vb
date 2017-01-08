@@ -8,7 +8,7 @@ Imports Windows.UI
 Public Class GastonJulia
     Inherits GameBody
     Implements IFractal
-    Public Property Vertexs As New Concurrent.ConcurrentQueue(Of ColorVertex） Implements IFractal.Vertexs
+    Public Property Vertexs As New Concurrent.ConcurrentQueue(Of Point） Implements IFractal.Vertexs
 
     Public Overrides Sub StartEx()
         Me.GameComponents.Effects.Add(New GhostEffect() With {.SourceRect = New Rect(0, 0, Scene.Width, Scene.Height)})
@@ -17,44 +17,49 @@ Public Class GastonJulia
     Public Overrides Sub UpdateEx()
         If Vertexs.Count > 0 Then Exit Sub
 
-        Static xstart As Double = -1
-        Static ystart As Double = -1
-        Static a As Double = -Rnd.NextDouble
-        Static b As Double = Rnd.NextDouble
+        Static XStart As Double = -1
+        Static YStart As Double = -1
+        Static A As Double = -Rnd.NextDouble
+        Static B As Double = Rnd.NextDouble
 
-        Dim pWidth As Integer = CInt(Scene.Width)
-        Dim pHeight As Integer = CInt(Scene.Height)
-        Dim pStep As Double = 2 / pHeight
+        Dim w As Integer = CInt(Scene.Width)
+        Dim h As Integer = CInt(Scene.Height)
+        Dim pStep As Double = 2 / h * 20
         Dim tc As Integer = 0
 
         Dim x, y, x0, y0, x1, y1 As Double
-        For x0 = xstart To 1 Step pStep
-            For y0 = ystart To 1 Step pStep
+        For x0 = XStart To 1 Step pStep
+            For y0 = YStart To 1 Step pStep
                 x = x0 : y = y0
                 If x0 * x0 + y0 * y0 < 1 Then
                     tc += 1
-                    For n = 1 To 12
-                        x1 = x * x - y * y + a
-                        y1 = 2 * x * y + b
+                    For n = 1 To 15
+                        x1 = x * x - y * y + A
+                        y1 = 2 * x * y + B
                         x = x1
                         y = y1
+
                         If (x * x + y * y) < 1 Then
-                            Dim tempColor = Color.FromArgb(CByte((1 - x0 * x0 - y0 * y0) * 255),
-                                                           CByte((x * x * 255 * n) Mod 255),
-                                                           CByte((y * y * 255 * n) Mod 255),
-                                                           CByte((Math.Abs(x * y) * 255 * n) Mod 255))
-                            Vertexs.Enqueue(New ColorVertex(New Vector2(CSng(pWidth / 2 + x0 * (pHeight / 2)), CSng(pHeight / 2 - y0 * (pHeight / 2))), tempColor))
+                            Dim tempColor = Color.FromArgb(CByte((1 - x * x - y * y) * 255 Mod 255),
+                                                           CByte((x * x * 255 * n * 10) Mod 255),
+                                                           CByte((y * y * 255 * n * 30) Mod 255),
+                                                           CByte((Math.Abs(x * y) * 255 + n * 50) Mod 255))
+                            Vertexs.Enqueue(New Point() With {.Position = New Vector2(CSng(w / 2 + x0 * (h / 2)),
+                                                                                      CSng(h / 2 - y0 * (h / 2))),
+                                                              .Color = tempColor,
+                                                              .Size = CSng((16 - n) / 2)})
                             tc += 1
                         End If
                     Next
                 End If
             Next
             If tc > 2000 Then
-                xstart = x0
-                ystart = y0
+                XStart = x0
+                YStart = y0
                 Exit Sub
             End If
-            ystart = -1
+            YStart = -1
         Next
+
     End Sub
 End Class
