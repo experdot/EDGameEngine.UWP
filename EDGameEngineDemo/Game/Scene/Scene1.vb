@@ -49,15 +49,19 @@ Public Class Scene1
         'Me.AddGameVisual(tempModel5, New FractalView(tempModel5))
 
         '贴图
-        Dim tempModel6 As New Sprite() With {.Image = ImageManager.GetResource(ImageResourceID.Scenery1)}
-        Me.AddGameVisual(tempModel6, New SpriteView(tempModel6) With {.CacheAllowed = False})
-        tempModel6.GameComponents.Effects.Add(New WaveEffect() With {.Amount = 10})
-        tempModel6.GameComponents.Behaviors.Add(New TransformScript)
+        'Dim tempModel6 As New Sprite() With {.Image = ImageManager.GetResource(ImageResourceID.Scenery1)}
+        'Me.AddGameVisual(tempModel6, New SpriteView(tempModel6) With {.CacheAllowed = False})
+        'tempModel6.GameComponents.Effects.Add(New WaveEffect() With {.Amount = 10})
+        'tempModel6.GameComponents.Behaviors.Add(New TransformScript)
 
+        '元胞自动机
+        Dim tempModel7 As New CellularAutomataModel With {.Image = ImageManager.GetResource(ImageResourceID.Scenery1)}
+        Me.AddGameVisual(tempModel7, New CelluarAutomataView(tempModel7))
+        tempModel7.GameComponents.Behaviors.Add(New TransformScript)
         '创建物体脚本
         'Me.GameComponents.Behaviors.Add(New CreateBodyScript())
         '键盘控制摄像机
-        Me.Camera.GameComponents.Behaviors.Add(New KeyControlScript With {.MaxSpeed = 5.0F})
+        'Me.Camera.GameComponents.Behaviors.Add(New KeyControlScript With {.MaxSpeed = 5.0F})
         '场景全局残影
         'Me.GameComponents.Effects.Add(New GhostEffect With {.SourceRect = New Rect(0, 0, Width, Height), .Opacity = 0.5})
     End Sub
