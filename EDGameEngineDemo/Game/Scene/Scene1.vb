@@ -49,10 +49,10 @@ Public Class Scene1
         'Me.AddGameVisual(tempModel5, New FractalView(tempModel5))
 
         '贴图
-        'Dim tempModel6 As New Sprite() With {.Image = ImageManager.GetResource(ImageResourceID.Scenery1)}
-        'Me.AddGameVisual(tempModel6, New SpriteView(tempModel6) With {.CacheAllowed = False})
+        Dim tempModel6 As New Sprite() With {.Image = ImageManager.GetResource(ImageResourceID.Scenery1)}
+        Me.AddGameVisual(tempModel6, New SpriteView(tempModel6) With {.CacheAllowed = True})
         'tempModel6.GameComponents.Effects.Add(New WaveEffect() With {.Amount = 10})
-        'tempModel6.GameComponents.Behaviors.Add(New TransformScript)
+        tempModel6.GameComponents.Behaviors.Add(New TransformScript)
 
         '元胞自动机
         Dim tempModel7 As New CellularAutomataModel With {.Image = ImageManager.GetResource(ImageResourceID.Scenery1)}
