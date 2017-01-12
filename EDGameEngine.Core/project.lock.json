@@ -311,6 +311,27 @@
           "lib/netstandard1.0/_._": {}
         }
       },
+      "SharpDX/3.1.1": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net45+netcore45+wpa81+MonoAndroid1+MonoTouch1/SharpDX.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+netcore45+wpa81+MonoAndroid1+MonoTouch1/SharpDX.dll": {}
+        }
+      },
+      "SharpDX.XAudio2/3.1.1": {
+        "type": "package",
+        "dependencies": {
+          "SharpDX": "3.1.1"
+        },
+        "compile": {
+          "lib/portable-net45+netcore45+wpa81+MonoAndroid1+MonoTouch1/SharpDX.XAudio2.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+netcore45+wpa81+MonoAndroid1+MonoTouch1/SharpDX.XAudio2.dll": {}
+        }
+      },
       "System.AppContext/4.1.0": {
         "type": "package",
         "dependencies": {
@@ -2141,7 +2162,7 @@
           }
         }
       },
-      "Win2D.uwp/1.19.0": {
+      "Win2D.uwp/1.20.0": {
         "type": "package",
         "compile": {
           "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
@@ -2726,6 +2747,27 @@
         "type": "package",
         "native": {
           "runtimes/win8-arm/native/clrcompression.dll": {}
+        }
+      },
+      "SharpDX/3.1.1": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net45+netcore45+wpa81+MonoAndroid1+MonoTouch1/SharpDX.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+netcore45+wpa81+MonoAndroid1+MonoTouch1/SharpDX.dll": {}
+        }
+      },
+      "SharpDX.XAudio2/3.1.1": {
+        "type": "package",
+        "dependencies": {
+          "SharpDX": "3.1.1"
+        },
+        "compile": {
+          "lib/portable-net45+netcore45+wpa81+MonoAndroid1+MonoTouch1/SharpDX.XAudio2.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+netcore45+wpa81+MonoAndroid1+MonoTouch1/SharpDX.XAudio2.dll": {}
         }
       },
       "System.AppContext/4.1.0": {
@@ -4412,7 +4454,7 @@
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Win2D.uwp/1.19.0": {
+      "Win2D.uwp/1.20.0": {
         "type": "package",
         "compile": {
           "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
@@ -5025,6 +5067,27 @@
         },
         "native": {
           "runtimes/win8-arm-aot/native/_._": {}
+        }
+      },
+      "SharpDX/3.1.1": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net45+netcore45+wpa81+MonoAndroid1+MonoTouch1/SharpDX.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+netcore45+wpa81+MonoAndroid1+MonoTouch1/SharpDX.dll": {}
+        }
+      },
+      "SharpDX.XAudio2/3.1.1": {
+        "type": "package",
+        "dependencies": {
+          "SharpDX": "3.1.1"
+        },
+        "compile": {
+          "lib/portable-net45+netcore45+wpa81+MonoAndroid1+MonoTouch1/SharpDX.XAudio2.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+netcore45+wpa81+MonoAndroid1+MonoTouch1/SharpDX.XAudio2.dll": {}
         }
       },
       "System.AppContext/4.1.0": {
@@ -6711,7 +6774,7 @@
           "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Win2D.uwp/1.19.0": {
+      "Win2D.uwp/1.20.0": {
         "type": "package",
         "compile": {
           "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
@@ -7294,6 +7357,27 @@
         },
         "runtime": {
           "runtimes/win/lib/netcore50/System.Private.Uri.dll": {}
+        }
+      },
+      "SharpDX/3.1.1": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net45+netcore45+wpa81+MonoAndroid1+MonoTouch1/SharpDX.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+netcore45+wpa81+MonoAndroid1+MonoTouch1/SharpDX.dll": {}
+        }
+      },
+      "SharpDX.XAudio2/3.1.1": {
+        "type": "package",
+        "dependencies": {
+          "SharpDX": "3.1.1"
+        },
+        "compile": {
+          "lib/portable-net45+netcore45+wpa81+MonoAndroid1+MonoTouch1/SharpDX.XAudio2.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+netcore45+wpa81+MonoAndroid1+MonoTouch1/SharpDX.XAudio2.dll": {}
         }
       },
       "System.AppContext/4.1.0": {
@@ -8980,7 +9064,7 @@
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Win2D.uwp/1.19.0": {
+      "Win2D.uwp/1.20.0": {
         "type": "package",
         "compile": {
           "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
@@ -9604,6 +9688,27 @@
           "runtimes/aot/lib/netcore50/System.Private.Uri.dll": {}
         }
       },
+      "SharpDX/3.1.1": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net45+netcore45+wpa81+MonoAndroid1+MonoTouch1/SharpDX.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+netcore45+wpa81+MonoAndroid1+MonoTouch1/SharpDX.dll": {}
+        }
+      },
+      "SharpDX.XAudio2/3.1.1": {
+        "type": "package",
+        "dependencies": {
+          "SharpDX": "3.1.1"
+        },
+        "compile": {
+          "lib/portable-net45+netcore45+wpa81+MonoAndroid1+MonoTouch1/SharpDX.XAudio2.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+netcore45+wpa81+MonoAndroid1+MonoTouch1/SharpDX.XAudio2.dll": {}
+        }
+      },
       "System.AppContext/4.1.0": {
         "type": "package",
         "dependencies": {
@@ -11288,7 +11393,7 @@
           "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Win2D.uwp/1.19.0": {
+      "Win2D.uwp/1.20.0": {
         "type": "package",
         "compile": {
           "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
@@ -11871,6 +11976,27 @@
         },
         "runtime": {
           "runtimes/win/lib/netcore50/System.Private.Uri.dll": {}
+        }
+      },
+      "SharpDX/3.1.1": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net45+netcore45+wpa81+MonoAndroid1+MonoTouch1/SharpDX.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+netcore45+wpa81+MonoAndroid1+MonoTouch1/SharpDX.dll": {}
+        }
+      },
+      "SharpDX.XAudio2/3.1.1": {
+        "type": "package",
+        "dependencies": {
+          "SharpDX": "3.1.1"
+        },
+        "compile": {
+          "lib/portable-net45+netcore45+wpa81+MonoAndroid1+MonoTouch1/SharpDX.XAudio2.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+netcore45+wpa81+MonoAndroid1+MonoTouch1/SharpDX.XAudio2.dll": {}
         }
       },
       "System.AppContext/4.1.0": {
@@ -13557,7 +13683,7 @@
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Win2D.uwp/1.19.0": {
+      "Win2D.uwp/1.20.0": {
         "type": "package",
         "compile": {
           "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
@@ -14179,6 +14305,27 @@
         },
         "runtime": {
           "runtimes/aot/lib/netcore50/System.Private.Uri.dll": {}
+        }
+      },
+      "SharpDX/3.1.1": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net45+netcore45+wpa81+MonoAndroid1+MonoTouch1/SharpDX.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+netcore45+wpa81+MonoAndroid1+MonoTouch1/SharpDX.dll": {}
+        }
+      },
+      "SharpDX.XAudio2/3.1.1": {
+        "type": "package",
+        "dependencies": {
+          "SharpDX": "3.1.1"
+        },
+        "compile": {
+          "lib/portable-net45+netcore45+wpa81+MonoAndroid1+MonoTouch1/SharpDX.XAudio2.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+netcore45+wpa81+MonoAndroid1+MonoTouch1/SharpDX.XAudio2.dll": {}
         }
       },
       "System.AppContext/4.1.0": {
@@ -15865,7 +16012,7 @@
           "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Win2D.uwp/1.19.0": {
+      "Win2D.uwp/1.20.0": {
         "type": "package",
         "compile": {
           "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
@@ -17077,6 +17224,30 @@
         "runtime.win8-arm.runtime.native.System.IO.Compression.4.0.1.nupkg.sha512",
         "runtime.win8-arm.runtime.native.System.IO.Compression.nuspec",
         "runtimes/win8-arm/native/clrcompression.dll"
+      ]
+    },
+    "SharpDX/3.1.1": {
+      "sha512": "AwZP0te4uhq6KXo+H54S4HX8HVZGMHYIMnqJsgb15H+IykzeDt1OQ7YBh1OAbPk/66Q0nNID2WLbLjc3hTEloQ==",
+      "type": "package",
+      "files": [
+        "SharpDX.3.1.1.nupkg.sha512",
+        "SharpDX.nuspec",
+        "lib/net45/SharpDX.dll",
+        "lib/net45/SharpDX.xml",
+        "lib/portable-net45+netcore45+wpa81+MonoAndroid1+MonoTouch1/SharpDX.dll",
+        "lib/portable-net45+netcore45+wpa81+MonoAndroid1+MonoTouch1/SharpDX.xml"
+      ]
+    },
+    "SharpDX.XAudio2/3.1.1": {
+      "sha512": "6ndUXxhpo74BhH2tJDFgJfeoJwHCXRKwsS+atZjRzkEgg8JuMMG2AhdEkL6AJCPrPac9t5NCf/Dry3tUhRcqeQ==",
+      "type": "package",
+      "files": [
+        "SharpDX.XAudio2.3.1.1.nupkg.sha512",
+        "SharpDX.XAudio2.nuspec",
+        "lib/net45/SharpDX.XAudio2.dll",
+        "lib/net45/SharpDX.XAudio2.xml",
+        "lib/portable-net45+netcore45+wpa81+MonoAndroid1+MonoTouch1/SharpDX.XAudio2.dll",
+        "lib/portable-net45+netcore45+wpa81+MonoAndroid1+MonoTouch1/SharpDX.XAudio2.xml"
       ]
     },
     "System.AppContext/4.1.0": {
@@ -21884,11 +22055,11 @@
         "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll"
       ]
     },
-    "Win2D.uwp/1.19.0": {
-      "sha512": "pLL/gLb3uY75IlswAKzOvQnwwiGrMxZyBl2DbJOjuzG6SOWMp0sg+tkj+HZU8uyQ8jIdAbOE0Iu5+z9zyT5E6Q==",
+    "Win2D.uwp/1.20.0": {
+      "sha512": "sFyNT2EiV6vmEFMrkiJdSolaKNyOyk+kfjgvXN8XqUhdEPqBd2zPrFdl7SojNHQGm2Br6JLIBOdrj9fB1Qy4GA==",
       "type": "package",
       "files": [
-        "Win2D.uwp.1.19.0.nupkg.sha512",
+        "Win2D.uwp.1.20.0.nupkg.sha512",
         "Win2D.uwp.nuspec",
         "Win2d.githash.txt",
         "build/native/Win2D.uwp.targets",
@@ -21905,7 +22076,8 @@
   "projectFileDependencyGroups": {
     "": [
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.2.2",
-      "Win2D.uwp >= 1.19.0"
+      "SharpDX.XAudio2 >= 3.1.1",
+      "Win2D.uwp >= 1.20.0"
     ],
     "UAP,Version=v10.0": []
   }

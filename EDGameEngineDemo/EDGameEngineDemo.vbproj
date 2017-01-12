@@ -126,6 +126,7 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Audio\8186.wav" />
     <Content Include="Image\back.png" />
     <Content Include="Image\explosion.dds" />
     <Content Include="Image\Flower_Yellow.png" />

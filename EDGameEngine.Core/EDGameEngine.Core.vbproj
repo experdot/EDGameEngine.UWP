@@ -131,6 +131,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Components\Media\Animation\IAnimation.vb" />
+    <Compile Include="Components\Media\Audio\Audio.vb" />
     <Compile Include="Components\Media\Audio\IAudio.vb" />
     <Compile Include="Components\Behavior\BehaviorBase.vb" />
     <Compile Include="Components\Behavior\IBehavior.vb" />

@@ -6,7 +6,7 @@ Public Class TypedComponent(Of T As IGameComponent)
 
     Public Property CompnentType As ComponentType Implements IGameComponent.CompnentType
     Public Property Target As IGameVisual Implements IGameComponent.Target
-    Public Items As New List(Of T)
+    Public Property Items As New List(Of T)
 
     Public Sub Start() Implements IGameComponent.Start
         For Each SubItem In Items
