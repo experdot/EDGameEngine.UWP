@@ -9,7 +9,8 @@ Public Class CustomWorld
     End Sub
     Public Overrides Sub Start()
         Scenes.Add("Main", New Scene1(Me, New Size(Width, Height)))
-        Scenes.Add("Second", New Scene2(Me, New Size(Width, Height)))
-        SwitchScene("Second")
+        Scenes.Add("Test", New Scene2(Me, New Size(Width, Height)))
+        Scenes.Add("Physic", New Scene3(Me, New Size(Width, Height)))
+        SwitchScene("Physic")
     End Sub
 End Class

@@ -106,6 +106,7 @@
     </Compile>
     <Compile Include="Game\Scene\Scene1.vb" />
     <Compile Include="Game\Scene\Scene2.vb" />
+    <Compile Include="Game\Scene\Scene3.vb" />
     <Compile Include="Game\World\CustomWorld.vb" />
     <Compile Include="Xaml\ScenarioManager\SampleConfiguration.vb" />
     <Compile Include="Xaml\ScenarioManager\ScenarioBindingConverter.vb" />
