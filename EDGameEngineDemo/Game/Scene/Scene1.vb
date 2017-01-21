@@ -49,16 +49,34 @@ Public Class Scene1
         'Me.AddGameVisual(tempModel5, New FractalView(tempModel5))
 
         '贴图
-        Dim tempModel6 As New Sprite() With {.Image = ImageManager.GetResource(ImageResourceID.Scenery1)}
-        Me.AddGameVisual(tempModel6, New SpriteView(tempModel6) With {.CacheAllowed = True})
+        Dim tempModel7 As New Sprite() With {.Image = ImageManager.GetResource(ImageResourceID.Scenery1)}
+        Me.AddGameVisual(tempModel7, New SpriteView(tempModel7) With {.CacheAllowed = True})
         'tempModel6.GameComponents.Effects.Add(New WaveEffect() With {.Amount = 10})
-        tempModel6.GameComponents.Behaviors.Add(New TransformScript)
-        tempModel6.GameComponents.Behaviors.Add(New AudioControlScript)
-        tempModel6.GameComponents.Sounds.Add(New Audio With {.AudioFileName = "Audio\8186.wav"})
+        tempModel7.GameComponents.Behaviors.Add(New TransformScript)
+        tempModel7.GameComponents.Behaviors.Add(New AudioControlScript)
+
+        tempModel7.GameComponents.Sounds.Add(New Audio With {.AudioFileName = "Audio\c1.wav"})
+        tempModel7.GameComponents.Sounds.Add(New Audio With {.AudioFileName = "Audio\c2.wav"})
+        tempModel7.GameComponents.Sounds.Add(New Audio With {.AudioFileName = "Audio\c3.wav"})
+        tempModel7.GameComponents.Sounds.Add(New Audio With {.AudioFileName = "Audio\c4.wav"})
+        tempModel7.GameComponents.Sounds.Add(New Audio With {.AudioFileName = "Audio\c5.wav"})
+        tempModel7.GameComponents.Sounds.Add(New Audio With {.AudioFileName = "Audio\c6.wav"})
+        tempModel7.GameComponents.Sounds.Add(New Audio With {.AudioFileName = "Audio\c7.wav"})
+
         '元胞自动机
         'Dim tempModel7 As New CellularAutomataModel With {.Image = ImageManager.GetResource(ImageResourceID.Scenery1)}
         'Me.AddGameVisual(tempModel7, New CelluarAutomataView(tempModel7))
         'tempModel7.GameComponents.Behaviors.Add(New TransformScript)
+
+        'tempModel7.GameComponents.Sounds.Add(New Audio With {.AudioFileName = "Audio\c1.wav"})
+        'tempModel7.GameComponents.Sounds.Add(New Audio With {.AudioFileName = "Audio\c2.wav"})
+        'tempModel7.GameComponents.Sounds.Add(New Audio With {.AudioFileName = "Audio\c3.wav"})
+        'tempModel7.GameComponents.Sounds.Add(New Audio With {.AudioFileName = "Audio\c4.wav"})
+        'tempModel7.GameComponents.Sounds.Add(New Audio With {.AudioFileName = "Audio\c5.wav"})
+        'tempModel7.GameComponents.Sounds.Add(New Audio With {.AudioFileName = "Audio\c6.wav"})
+        'tempModel7.GameComponents.Sounds.Add(New Audio With {.AudioFileName = "Audio\c7.wav"})
+
+
         '创建物体脚本
         'Me.GameComponents.Behaviors.Add(New CreateBodyScript())
         '键盘控制摄像机

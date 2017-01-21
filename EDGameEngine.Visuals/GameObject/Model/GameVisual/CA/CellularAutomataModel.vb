@@ -40,7 +40,7 @@ Public Class CellularAutomataModel
             Next
         Next
         'GameComponents.Effects.Add(New ShadowEffect)
-        GameComponents.Effects.Add(New GhostEffect With {.SourceRect = New Rect(0, 0, Width, Height), .Opacity = 0.5})
+        'GameComponents.Effects.Add(New GhostEffect With {.SourceRect = New Rect(0, 0, Width, Height), .Opacity = 0.5})
     End Sub
 
     Public Overrides Sub UpdateEx()
@@ -48,29 +48,25 @@ Public Class CellularAutomataModel
         bc += 1
         Debug.WriteLine(bc)
         Static count As Integer = 0
-        If count < 2 Then
+        If count < 32 Then
             count += 1
             Exit Sub
         Else
             count = 0
         End If
+
+        Dim carr(8) As Integer
         Dim generation(Width - 1, Height - 1) As ICell
         For i = 0 To Width - 1
             For j = 0 To Height - 1
                 Dim temp As Integer = GetAroundValue(Cells, i, j, Width, Height)
+                carr(temp) += 1
                 If Cells(i, j) Is Nothing Then
                     If temp = 3 Then
                         generation(i, j) = New Cell With {.Location = New Vector2(i * Size, j * Size), .Size = Size}
                         generation(i, j).Color = GetAroundColor(Cells, i, j, Width, Height)
                     End If
                 Else
-                    'If temp > 1 AndAlso temp < 5 Then
-                    '    Cells(i, j).Grow()
-                    '    Cells(i, j).Move()
-                    '    If Cells(i, j).Age < 3 Then
-                    '        generation(i, j) = Cells(i, j)
-                    '    End If
-                    'End If
                     If temp = 2 OrElse temp = 3 Then
                         generation(i, j) = Cells(i, j)
                         If generation(i, j).Color.A > 10 Then
@@ -81,6 +77,8 @@ Public Class CellularAutomataModel
                 End If
             Next
         Next
+        Dim index As Integer = carr.ToList.IndexOf(carr.Max())
+        GameComponents.Sounds.Items(index Mod 7).Play()
         Cells = generation
     End Sub
 

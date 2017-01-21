@@ -10,6 +10,7 @@ Public NotInheritable Class UserGameBox
     ''' 游戏世界
     ''' </summary>
     Public Property World As World
+
     ''' <summary>
     ''' 游戏画布
     ''' </summary>

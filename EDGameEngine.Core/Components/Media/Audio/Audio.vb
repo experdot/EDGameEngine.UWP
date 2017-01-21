@@ -73,7 +73,7 @@ Public Class Audio
     Public Async Function LoadFile(fileName As String) As Task(Of Boolean)
         Try
             Voice = Await CreateVoiceFromFile(Device, fileName)
-            LoadBuffer()
+            'LoadBuffer()
             Return True
         Catch
             Return False

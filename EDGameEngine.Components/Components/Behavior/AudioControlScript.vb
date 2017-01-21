@@ -16,8 +16,8 @@ Public Class AudioControlScript
     End Sub
 
     Private Sub KeyDown(KeyCode As VirtualKey)
-        Static KeyArr() As VirtualKey = {VirtualKey.W, VirtualKey.A, VirtualKey.S, VirtualKey.D}
-        For i = 0 To 3
+        Static KeyArr() As VirtualKey = {VirtualKey.Number0, VirtualKey.Number1, VirtualKey.Number2, VirtualKey.Number3, VirtualKey.Number4, VirtualKey.Number5, VirtualKey.Number6, VirtualKey.Number7}
+        For i = 0 To 6
             If KeyCode = (KeyArr(i)) Then
                 Try
                     Target.GameComponents.Sounds.Items(i).Play()

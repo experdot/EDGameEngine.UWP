@@ -12,5 +12,7 @@
     
     <Grid>
         <cv:CanvasAnimatedControl x:Name="AnimBox"/>
+        <Grid x:Name="Grid0">
+        </Grid>
     </Grid>
 </UserControl>

@@ -3,46 +3,62 @@ Imports Microsoft.Graphics.Canvas
 Imports Microsoft.Graphics.Canvas.UI.Xaml
 Imports Windows.System
 ''' <summary>
-''' 表示一个可以初始化、更新可视化对象空间
+''' 游戏世界
 ''' </summary>
 Public MustInherit Class World
     Implements IDisposable
     Public Property ResourceCreator As ICanvasResourceCreator
     Public Property Width As Integer
     Public Property Height As Integer
-    Public Property CurrentScene As IScene
+    ''' <summary>
+    ''' 场景集合
+    ''' </summary>
+    Public Property Scenes As New Dictionary(Of String, Scene)
+    ''' <summary>
+    ''' 活动的场景
+    ''' </summary>
+    Public Property ActiveScene As IScene
     Public Sub New(ActualWidth#, ActualHeight#)
         OnSizeChanged(CInt(ActualWidth), CInt(ActualHeight))
-        CreateScene()
+        Start()
     End Sub
-    Public MustOverride Sub CreateScene()
+    Public MustOverride Sub Start()
+    ''' <summary>
+    ''' 切换至指定的场景
+    ''' </summary>
+    Public Sub SwitchScene(key As String, Optional restart As Boolean = False)
+        ActiveScene = Scenes.Item(key)
+        If ActiveScene.State = SceneState.Wait OrElse restart = True Then
+            ActiveScene.Start()
+        End If
+    End Sub
     Public Sub Update(sender As ICanvasAnimatedControl, args As CanvasAnimatedUpdateEventArgs)
-        CurrentScene?.Update()
+        ActiveScene?.Update()
     End Sub
     Public Sub Draw(sender As ICanvasAnimatedControl, args As CanvasAnimatedDrawEventArgs)
-        CurrentScene?.OnDraw(args.DrawingSession)
+        ActiveScene?.OnDraw(args.DrawingSession)
     End Sub
     Public Sub OnSizeChanged(sX As Integer, sY As Integer)
         Width = sX
         Height = sY
-        If CurrentScene IsNot Nothing Then
-            CurrentScene.Rect = New Rect(0, 0, sX, sY)
+        If ActiveScene IsNot Nothing Then
+            ActiveScene.Rect = New Rect(0, 0, sX, sY)
         End If
     End Sub
     Public Sub OnKeyDown(keycode As VirtualKey)
-        CurrentScene?.Inputs.Keyboard.RaiseKeyDown(keycode)
+        ActiveScene?.Inputs.Keyboard.RaiseKeyDown(keycode)
     End Sub
     Public Sub OnKeyUp(keycode As VirtualKey)
-        CurrentScene?.Inputs.Keyboard.RaiseKeyUp(keycode)
+        ActiveScene?.Inputs.Keyboard.RaiseKeyUp(keycode)
     End Sub
     Public Sub OnPointerPressed(loc As Vector2)
-        CurrentScene?.Inputs.Mouse.OnPointerPressed(loc)
+        ActiveScene?.Inputs.Mouse.OnPointerPressed(loc)
     End Sub
     Public Sub OnPointerReleased(loc As Vector2)
-        CurrentScene?.Inputs.Mouse.OnPointerReleased(loc)
+        ActiveScene?.Inputs.Mouse.OnPointerReleased(loc)
     End Sub
     Public Sub OnPointerMove(loc As Vector2)
-        CurrentScene?.Inputs.Mouse.OnPointerMoved(loc)
+        ActiveScene?.Inputs.Mouse.OnPointerMoved(loc)
     End Sub
 #Region "IDisposable Support"
     Private disposedValue As Boolean ' 要检测冗余调用
@@ -52,7 +68,7 @@ Public MustInherit Class World
         If Not disposedValue Then
             If disposing Then
                 ' TODO: 释放托管状态(托管对象)。
-                CurrentScene?.Dispose()
+                ActiveScene?.Dispose()
             End If
 
             ' TODO: 释放未托管资源(未托管对象)并在以下内容中替代 Finalize()。
