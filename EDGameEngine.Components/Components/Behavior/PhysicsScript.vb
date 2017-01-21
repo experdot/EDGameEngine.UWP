@@ -1,5 +1,5 @@
 ﻿Imports System.Numerics
-Imports Box2D
+Imports Box2D.UWP
 Imports EDGameEngine.Core
 ''' <summary>
 ''' 物理仿真脚本
@@ -9,12 +9,12 @@ Public Class PhysicsScript
     Const TimeStep As Single = 1 / 60
     Const Iterations As Integer = 10
     Dim PhyAABB As AABB
-    Dim PhyWorld As Box2D.World
+    Dim PhyWorld As Box2D.UWP.World
     Dim BoxBody, GroundBody As Body
     Dim Gravity As New Vector2(0, -10)
     Public Overrides Sub Start()
         '创建世界实例
-        PhyWorld = New Box2D.World(Gravity, True)
+        PhyWorld = New Box2D.UWP.World(Gravity, True)
         '开启连续物理测试
         PhyWorld.ContinuousPhysics = False
         '创建物体
@@ -29,7 +29,7 @@ Public Class PhysicsScript
         Dim bodyFixture As Fixture = BoxBody.CreateFixture(bodyFixtureDef)
         bodyFixture.SetDensity(2)
         BoxBody.SetMassFromShapes()
-        Debug.WriteLine(BoxBody.GetMassData.Mass)
+        Debug.WriteLine(BoxBody.GetMassData.mass)
         'BoxBody.SetMassData(New MassData() With {.Mass = 10})
 
         GroundBody = PhyWorld.CreateBody(New BodyDef With {.position = New Vector2(0, -10)})
@@ -37,13 +37,13 @@ Public Class PhysicsScript
         shape2.SetAsBox(50, 10)
         bodyFixtureDef.shape = shape2
         GroundBody.CreateFixture(bodyFixtureDef)
-        GroundBody.SetMassData(New MassData() With {.Mass = 10})
+        GroundBody.SetMassData(New MassData() With {.mass = 10})
 
     End Sub
     Public Overrides Sub Update()
         PhyWorld.Step(TimeStep, Iterations, Iterations)
-        Debug.WriteLine(BoxBody.Position.Y & "," & BoxBody.LinearVelocity.Y & "," & GroundBody.Position.Y)
-        Target.Transform.Translation = New Vector2(BoxBody.Position.X, -BoxBody.Position.Y)
-        Target.Transform.Rotation = BoxBody.Angle
+        Debug.WriteLine(BoxBody.GetPosition.Y & "," & BoxBody.GetLinearVelocity.Y & "," & GroundBody.GetPosition.Y)
+        Target.Transform.Translation = New Vector2(BoxBody.GetPosition.X, -BoxBody.GetPosition.Y)
+        Target.Transform.Rotation = BoxBody.GetAngle
     End Sub
 End Class
