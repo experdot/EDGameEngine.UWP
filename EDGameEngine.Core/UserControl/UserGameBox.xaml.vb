@@ -10,7 +10,14 @@ Public NotInheritable Class UserGameBox
     ''' 游戏世界
     ''' </summary>
     Public Property World As World
-
+        Set(value As World)
+            m_World = value
+            m_World.UIContainer = Grid0
+        End Set
+        Get
+            Return m_World
+        End Get
+    End Property
     ''' <summary>
     ''' 游戏画布
     ''' </summary>
@@ -21,6 +28,7 @@ Public NotInheritable Class UserGameBox
     End Property
     WithEvents Form As CoreWindow = Window.Current.CoreWindow
 
+    Private m_World As World
     Dim TreeDraw As Action(Of ICanvasAnimatedControl, CanvasAnimatedDrawEventArgs)
     Dim TreeUpdate As Action(Of ICanvasAnimatedControl, CanvasAnimatedUpdateEventArgs)
 

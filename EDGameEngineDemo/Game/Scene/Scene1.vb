@@ -84,4 +84,8 @@ Public Class Scene1
         '场景全局残影
         'Me.GameComponents.Effects.Add(New GhostEffect With {.SourceRect = New Rect(0, 0, Width, Height), .Opacity = 0.5})
     End Sub
+
+    Public Overrides Sub CreateUI()
+
+    End Sub
 End Class

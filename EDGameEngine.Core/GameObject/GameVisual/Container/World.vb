@@ -8,6 +8,7 @@ Imports Windows.System
 Public MustInherit Class World
     Implements IDisposable
     Public Property ResourceCreator As ICanvasResourceCreator
+    Public Property UIContainer As Grid
     Public Property Width As Integer
     Public Property Height As Integer
     ''' <summary>

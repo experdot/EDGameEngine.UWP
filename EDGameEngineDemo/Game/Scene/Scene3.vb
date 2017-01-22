@@ -9,21 +9,12 @@ Public Class Scene3
         MyBase.New(world, WindowSize)
     End Sub
     Public Overrides Sub CreateObject()
-        Dim rect As New Rect(0, 0, 100, 20)
-        Dim rect2 As New Rect(0, 0, 10, 10)
-        Dim rect3 As New Rect(0, 0, 20, 20)
-        Dim fill As New FillStyle(True) With {.Color = Colors.Red}
-        Dim border As New BorderStyle(True) With {.Color = Colors.Black, .Width = 1}
 
-        Dim rectModel As New VisualRectangle() With {.Rectangle = rect, .Border = border, .Fill = fill}
-        Dim rectModel2 As New VisualRectangle() With {.Rectangle = rect2, .Border = border, .Fill = fill}
-        Dim rectModel3 As New VisualRectangle() With {.Rectangle = rect3, .Border = border, .Fill = fill}
+        Scene.GameComponents.Behaviors.Add(New PhysicsScript)
 
-        Me.AddGameVisual(rectModel, New RectangleView(rectModel) With {.CacheAllowed = True}, 0)
-        Me.AddGameVisual(rectModel2, New RectangleView(rectModel2) With {.CacheAllowed = True}, 0)
-        Me.AddGameVisual(rectModel3, New RectangleView(rectModel3) With {.CacheAllowed = True}, 0)
-        rectModel.Transform.Translation = New Vector2(0, 200)
+    End Sub
 
-        rectModel2.GameComponents.Behaviors.Add(New PhysicsScript With {.target1 = rectModel2, .target2 = rectModel3, .target3 = rectModel})
+    Public Overrides Sub CreateUI()
+
     End Sub
 End Class

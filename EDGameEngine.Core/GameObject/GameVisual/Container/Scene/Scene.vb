@@ -48,6 +48,7 @@ Public MustInherit Class Scene
     Public Property Rect As Rect Implements IGameVisual.Rect
 
     Public MustOverride Sub CreateObject() Implements IScene.CreateObject
+    Public MustOverride Sub CreateUI()
 
     Dim ModifyActions As New List(Of Action)
     Public Sub New(world As World, WindowSize As Size)
@@ -66,9 +67,13 @@ Public MustInherit Class Scene
         End While
         Progress = New Progress(0.1, "加载外部资源")
         Await LoadAsync(World.ResourceCreator)
-        Await Task.Run(New Action(Sub()
+        Await Task.Run(New Action(Async Sub()
                                       Progress.Description = "创建实体"
                                       CreateObject()
+                                      Await World.UIContainer.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal,
+                                                                                  Sub()
+                                                                                      CreateUI()
+                                                                                  End Sub)
                                       Progress.Description = "初始化场景"
                                       For Each SubLayer In GameLayers
                                           SubLayer.Start()
@@ -79,6 +84,8 @@ Public MustInherit Class Scene
                                   End Sub))
         State = SceneState.Loop
     End Sub
+
+
     Public Sub Update() Implements IScene.Update
         If State = SceneState.Loop Then
             For Each SubLayer In GameLayers
@@ -92,6 +99,19 @@ Public MustInherit Class Scene
             ModifyActions.Clear()
         End If
     End Sub
+    Public Sub AddUIElement(element As UIElement, Optional LayerIndex As Integer = 0)
+        Dim modifyAct = Sub()
+                            While (GameLayers.Count <= LayerIndex)
+                                GameLayers.Add(New ControlLayer With {.Scene = Me})
+                            End While
+                            CType(GameLayers(LayerIndex), ControlLayer).AddControl(element)
+                        End Sub
+        If State = SceneState.Loop Then
+            ModifyActions.Add(modifyAct)
+        Else
+            modifyAct.Invoke()
+        End If
+    End Sub
     Public Sub AddGameVisual(model As IGameBody, view As IGameView, Optional LayerIndex As Integer = 0) Implements IScene.AddGameVisual
         model.Scene = Me
         model.Presenter = view
@@ -100,7 +120,7 @@ Public MustInherit Class Scene
                                 GameLayers.Add(New Layer With {.Scene = Me})
                             End While
                             GameLayers(LayerIndex).GameBodys.Add(model)
-                            If State = SceneState.Loop Then
+                            If Not State = SceneState.Wait Then
                                 model.Start()
                             End If
                         End Sub

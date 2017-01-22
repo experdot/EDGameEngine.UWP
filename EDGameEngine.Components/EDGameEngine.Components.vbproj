@@ -183,10 +183,6 @@
     <Folder Include="Components\Input\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Box2D.uwp\Box2D.uwp.csproj">
-      <Project>{22194F92-21E9-4923-9792-525F26CF3931}</Project>
-      <Name>Box2D.uwp</Name>
-    </ProjectReference>
     <ProjectReference Include="..\EDGameEngine.Core\EDGameEngine.Core.vbproj">
       <Project>{f563111c-4331-4735-a6c9-447662049482}</Project>
       <Name>EDGameEngine.Core</Name>

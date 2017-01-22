@@ -12,4 +12,8 @@ Public Class Scene2
         Me.AddGameVisual(tempModel, New ParticalView(tempModel))
         tempModel.GameComponents.Effects.Add(New GhostEffect With {.SourceRect = New Rect(0, 0, Width, Height)})
     End Sub
+    Public Overrides Sub CreateUI()
+        Dim b As New Button
+        Me.AddUIElement(New Button, 1)
+    End Sub
 End Class
