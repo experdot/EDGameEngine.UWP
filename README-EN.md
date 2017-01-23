@@ -1,6 +1,6 @@
 Translation:[Simple-Chinese](./README.md)(简体中文)
 
-# What's EDGameEngine?
+## What's EDGameEngine?
 2D Game Graphics Engine For Universal Windows Platform
 
 ## Newest activity 
