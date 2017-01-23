@@ -26,8 +26,8 @@ Translation：[English](./README-EN.md)
 
 ##### 自然树
 - [树枝/花朵贴图](Documentation/Image/NatureTree/Sample_NatureTree.png)
-- [植物生长](Documentation/Image/NatureTree/Dynamic/Dynamic_NatureTree_02.png)
-- [植物摇曳](Documentation/Image/NatureTree/Dynamic/Dynamic_NatureTree_01.png)
+- [植物生长](Documentation/Image/NatureTree/Dynamic/Dynamic_NatureTree_02.gif)
+- [植物摇曳](Documentation/Image/NatureTree/Dynamic/Dynamic_NatureTree_01.gif)
 
 ##### 自动机
 - [二维元胞自动机](Documentation/Image/Automata/Sample_CelluarAutomata.png)
