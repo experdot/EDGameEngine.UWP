@@ -6,7 +6,7 @@ Translation:[Simple-Chinese](./README.md)(简体中文)
 ## Newest activity 
 - Realistic 2D world. Now engine has joined the FarsserPhysics!
 
-![Physics](Documentation/Image/Physics/Sample_Physic.png)
+![Physics](Documentation/Image/Physics/Sample_Physic_01.png)
 
 ## Game Model
 Library provides you with a wealth of game models.
@@ -23,10 +23,10 @@ Library provides you with a wealth of game models.
 ##### Fractal
 - [GastonJulia](Documentation/Image/Fractal/Sample_Fractal_03.png)
 - [Mandelbrot](Documentation/Image/Fractal/Sample_Fractal_01.png)
-- [IFS：Tree](Documentation/Image/Fractal/Sample_Fractal_02.png)
+- [Iterated Function System：Tree](Documentation/Image/Fractal/Sample_Fractal_02.png)
 
 ##### Nature-Tree
-- [Sprite](Documentation/Image/NatureTree/Sample_NatureTree_01.png)
+- [Bloom](Documentation/Image/NatureTree/Sample_NatureTree_01.png)
 - [Grow up](Documentation/Image/NatureTree/Dynamic/Dynamic_NatureTree_02.gif)
 - [Sway](Documentation/Image/NatureTree/Dynamic/Dynamic_NatureTree_01.gif)
 
@@ -36,10 +36,12 @@ Library provides you with a wealth of game models.
 
 ##### AutoDraw
 - Painting automaticlly
+
 ##### AutoStitch
 - Stitching automaticlly(Disabled）
 
 *A few of models are still in the testing phase,then there will be major changes.
+
 ## Feedback
 * Email：experdot@foxmail.com
 * Blog: [@ExperDot](http://www.cnblogs.com/experdot/)
