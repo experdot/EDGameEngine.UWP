@@ -16,9 +16,9 @@ Translation：[English](./README-EN.md)
 - 不规则多边形（暂不支持）
 
 ##### 粒子系统
-- [粒子集群](Documentation/Image/PartialSystem/Sample_PartialSystem_01.png)
-- [水花飞溅](Documentation/Image/PartialSystem/Sample_PartialSystem_02.png)
-- [光芒四射](Documentation/Image/PartialSystem/Sample_PartialSystem_03.png)
+- [粒子集群](Documentation/Image/ParticalSystem/Sample_ParticalSystem_01.png)
+- [水花飞溅](Documentation/Image/ParticalSystem/Sample_ParticalSystem_02.png)
+- [光芒四射](Documentation/Image/ParticalSystem/Sample_ParticalSystem_03.png)
 
 ##### 分形
 - [朱利亚集](Documentation/Image/Fractal/Sample_Fractal_03.png)
