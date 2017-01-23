@@ -24,7 +24,7 @@ Public Class GastonJulia
 
         Dim w As Integer = CInt(Scene.Width)
         Dim h As Integer = CInt(Scene.Height)
-        Dim pStep As Double = 2 / h * 20
+        Dim pStep As Double = 2 / h
         Dim tc As Integer = 0
 
         Dim x, y, x0, y0, x1, y1 As Double
