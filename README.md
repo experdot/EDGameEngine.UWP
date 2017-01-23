@@ -15,14 +15,14 @@ Translation：[English](./README-EN.md)
 - 不规则多边形（暂不支持）
 
 ##### 粒子系统
-- [粒子集群](Documentation\Image\PartialSystem\Sample_PartialSystem_01.png)
-- [水花飞溅](Documentation\Image\PartialSystem\Sample_PartialSystem_02.png)
-- [光芒四射](Documentation\Image\PartialSystem\Sample_PartialSystem_03.png)
+- [粒子集群](Documentation/Image/PartialSystem/Sample_PartialSystem_01.png)
+- [水花飞溅](Documentation/Image/PartialSystem/Sample_PartialSystem_02.png)
+- [光芒四射](Documentation/Image/PartialSystem/Sample_PartialSystem_03.png)
 
 ##### 分形
-- [朱利亚集](Documentation\Image\Fractal\Sample_Fractal_03.png)
-- [曼德布罗集](Documentation\Image\Fractal\Sample_Fractal_01.png)
-- [迭代函数系统：树木](Documentation\Image\Fractal\Sample_Fractal_02.png)
+- [朱利亚集](Documentation/Image/Fractal/Sample_Fractal_03.png)
+- [曼德布罗集](Documentation/Image/Fractal/Sample_Fractal_01.png)
+- [迭代函数系统：树木](Documentation/Image/Fractal/Sample_Fractal_02.png)
 
 ##### 自然树
 - [树枝/花朵贴图](Documentation/Image/NatureTree/Sample_NatureTree.png)
