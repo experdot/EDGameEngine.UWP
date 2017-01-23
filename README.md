@@ -3,11 +3,10 @@ Translation：[English](./README-EN.md)
 # ExperDot.EDGameEngine
 适用于UWP的2D游戏图形引擎- 2D Game Graphics Engine For Universal Windows Platform
 
-## 最新更新
-现在，已加入FarsserPhysics引擎！
+## 最近，已加入FarsserPhysics引擎！
 ![Physics](Documentation/Image/Physics/Sample_Physic.png)
 
-## 预制物体
+## 游戏模型
 核心库或模型库为您提供丰富的的游戏模型
 
 ##### 几何图元
