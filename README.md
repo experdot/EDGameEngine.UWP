@@ -1,86 +1,45 @@
+Translation：[English](./README-EN.md)
+
 # ExperDot.EDGameEngine
 适用于UWP的2D游戏图形引擎- 2D Game Graphics Engine For Universal Windows Platform
 
-## 模型层次
-##### 世界-World
-- 提供对场景的创建、更新和销毁的统一资源管理
-- 默认一块画布对应唯一World
-- 同一时间只有一个场景是活动的
-
-##### 场景-Scene
-- 提供对图层或物体的创建、更新和销毁的统一资源管理
-- 场景包含若干图层
-- 场景包含若干摄像机，但同一时间只有一个是活动的
-- 场景包含资源管理器，提供对文本、位图、音频和用户自定义数据的统一管理
-
-##### 图层-Layer
-- 提供对物体的创建、更新和销毁的统一资源管理
-- 静态类型图层由一副静态位图组成
-- 动态类型图层由区块、角色组成
-- 控制类型图层由UI元素组成
-
-##### 物体-GameBody
-- 游戏中最基本的可见元素
-
-## 可视化对象
-#### 属性
-为可视化对象或图层提供属性描述
-
-名称      | 说明               | 备注
-----------|--------------------|----
-Transform | 描述对象的平面变换 | 变换包括平移(Translation)、旋转(Rotation)和缩放(Scale)
-Appearance| 描述对象的可视外观 | 外观包括可见性(Visible)和不透明度(Opacity)
-
-#### 行为
-可视化对象整个生命周期中具有的行为
-
-名称      | 说明               | 备注
-----------|--------------------|----
-Start     | 初始化对象状态 | 通常对象生命周期中只执行一次
-Update    | 每帧执行的过程 | 部分游戏对象不必要每帧都更新
-Draw      | 由视图完成渲染 | 同一个模型可绑定到不同的视图
-
-## 游戏组件
-表示可附加在游戏对象上的扩展组件
-
-名称                   | 说明                       | 备注
-----------------------|--------------------------|----
-动画器(Animation)| 为对象提供游戏实时动画     | 用于在时间线的控制下播放一段动画
-效果器(Effect)   | 为对象提供位图变换效果     | 用于将一或多效果作用于可视化对象
-音效器(AUdio)    | 为对象提供可播放的音频     | 用于播放一段动态感和方位感的音频
-触发器(Trigger)  | 为对象提供事件触发行为     | 用于在触发条件达成后执行特定行为
-命令器(Command)  | 为对象提供自定义的命令     | 用于决定游戏对象如何进行下步动作
-输入器(Input)    | 为对象提供玩家输入信息     | 用于处理任何的用户输入设备的消息
-
-#### 预制效果
-核心库或组件库提供的位图效果
-
-名称      | 说明                     | 备注
-----------|--------------------------|----
-Transform | 定义实现变换效果         | 变换包括平移(Translation)、旋转(Rotation)和缩放(Scale)
-Ghost     | 定义实现残影效果         | 残影不透明度(Opacity)可调
-Stream    | 定义实现水流效果         | 噪声颗粒度(Octaves)与流向(Directon)可调
-Ripple    | 定义实现水波效果         | 波源投放位置(Position)可调
-Light     | 定义实现光照效果         | 光源位置(Position)可调
-Threshold | 定义实现灰度效果         | 灰度阈值(Threshold)可调
+## 最新更新
+现在，已加入FarsserPhysics引擎！
+![Physics](Documentation/Image/Physics/Sample_Physic.png)
 
 ## 预制物体
-核心库或模型库提供的游戏物体
+核心库或模型库为您提供丰富的的游戏模型
 
-##### 几何图元-Basic
+##### 几何图元
 - 线段、矩形、圆
+- 不规则多边形（暂不支持）
 
-##### 粒子系统-Partical
-- 提供对粒子的多种行为支持
-- 简单的力学模拟
+##### 粒子系统
+- [粒子集群](Documentation/Image/PartialSystem/Sample_PartialSystem_01.png)
+- [水花飞溅](Documentation/Image/PartialSystem/Sample_PartialSystem_02.png)
+- [光芒四射](Documentation/Image/PartialSystem/Sample_PartialSystem_03.png)
 
-##### 自然树模型-Plant
-- 模拟植物生长、凋亡
-- 模拟植物随风摇曳
+##### 分形
+- [朱利亚集](Documentation/Image/Fractal/Sample_Fractal_03.png)
+- [曼德布罗集](Documentation/Image/Fractal/Sample_Fractal_01.png)
+- [迭代函数系统：树木](Documentation/Image/Fractal/Sample_Fractal_02.png)
 
-##### 自动绘图AI-AutoDraw
-- 实现全自动化绘图
-- 高效的循迹AI
-- 适应的笔触与色彩
+##### 自然树
+- [树枝/花朵贴图](Documentation/Image/NatureTree/Sample_NatureTree.png)
+- [植物生长](Documentation/Image/NatureTree/Dynamic/Dynamic_NatureTree_02.gif)
+- [植物摇曳](Documentation/Image/NatureTree/Dynamic/Dynamic_NatureTree_01.gif)
+
+##### 自动机
+- [二维元胞自动机](Documentation/Image/Automata/Sample_CelluarAutomata.png)
+
+##### 自动绘图
+- 全自动绘制图形
+
+##### 自动拼图
+- 全自动拼接图像
 
 *上述部分可视化模型仍在测试阶段，随后会有较大的改动
+
+## 联系方式
+* 邮件：experdot@foxmail.com
+* 博客园: [@ExperDot](http://www.cnblogs.com/experdot/)
