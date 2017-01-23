@@ -3,14 +3,6 @@
   "version": 1,
   "targets": {
     "UAP,Version=v10.0": {
-      "FarseerPhysics.Portable/3.5.1": {
-        "compile": {
-          "lib/portable-net4+sl4+wp8+win8/FarseerPhysics.Portable.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net4+sl4+wp8+win8/FarseerPhysics.Portable.dll": {}
-        }
-      },
       "Microsoft.CSharp/4.0.1": {
         "dependencies": {
           "System.Collections": "4.0.11",
@@ -278,14 +270,6 @@
         },
         "compile": {
           "ref/netstandard1.3/Microsoft.Win32.Primitives.dll": {}
-        }
-      },
-      "MonoGame.Framework.WindowsUniversal/3.5.1.1679": {
-        "compile": {
-          "lib/netcore/MonoGame.Framework.dll": {}
-        },
-        "runtime": {
-          "lib/netcore/MonoGame.Framework.dll": {}
         }
       },
       "runtime.native.System.IO.Compression/4.1.0": {
@@ -2090,14 +2074,6 @@
       }
     },
     "UAP,Version=v10.0/win10-arm": {
-      "FarseerPhysics.Portable/3.5.1": {
-        "compile": {
-          "lib/portable-net4+sl4+wp8+win8/FarseerPhysics.Portable.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net4+sl4+wp8+win8/FarseerPhysics.Portable.dll": {}
-        }
-      },
       "Microsoft.CSharp/4.0.1": {
         "dependencies": {
           "System.Collections": "4.0.11",
@@ -2313,14 +2289,6 @@
         },
         "compile": {
           "ref/netstandard1.3/Microsoft.Win32.Primitives.dll": {}
-        }
-      },
-      "MonoGame.Framework.WindowsUniversal/3.5.1.1679": {
-        "compile": {
-          "lib/netcore/MonoGame.Framework.dll": {}
-        },
-        "runtime": {
-          "lib/netcore/MonoGame.Framework.dll": {}
         }
       },
       "runtime.any.System.Collections/4.0.11": {
@@ -4246,14 +4214,6 @@
       }
     },
     "UAP,Version=v10.0/win10-arm-aot": {
-      "FarseerPhysics.Portable/3.5.1": {
-        "compile": {
-          "lib/portable-net4+sl4+wp8+win8/FarseerPhysics.Portable.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net4+sl4+wp8+win8/FarseerPhysics.Portable.dll": {}
-        }
-      },
       "Microsoft.CSharp/4.0.1": {
         "dependencies": {
           "System.Collections": "4.0.11",
@@ -4470,14 +4430,6 @@
         },
         "compile": {
           "ref/netstandard1.3/Microsoft.Win32.Primitives.dll": {}
-        }
-      },
-      "MonoGame.Framework.WindowsUniversal/3.5.1.1679": {
-        "compile": {
-          "lib/netcore/MonoGame.Framework.dll": {}
-        },
-        "runtime": {
-          "lib/netcore/MonoGame.Framework.dll": {}
         }
       },
       "runtime.aot.System.Collections/4.0.10": {
@@ -6441,14 +6393,6 @@
       }
     },
     "UAP,Version=v10.0/win10-x64": {
-      "FarseerPhysics.Portable/3.5.1": {
-        "compile": {
-          "lib/portable-net4+sl4+wp8+win8/FarseerPhysics.Portable.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net4+sl4+wp8+win8/FarseerPhysics.Portable.dll": {}
-        }
-      },
       "Microsoft.CSharp/4.0.1": {
         "dependencies": {
           "System.Collections": "4.0.11",
@@ -6668,14 +6612,6 @@
         },
         "compile": {
           "ref/netstandard1.3/Microsoft.Win32.Primitives.dll": {}
-        }
-      },
-      "MonoGame.Framework.WindowsUniversal/3.5.1.1679": {
-        "compile": {
-          "lib/netcore/MonoGame.Framework.dll": {}
-        },
-        "runtime": {
-          "lib/netcore/MonoGame.Framework.dll": {}
         }
       },
       "runtime.any.System.Collections/4.0.11": {
@@ -8606,14 +8542,6 @@
       }
     },
     "UAP,Version=v10.0/win10-x64-aot": {
-      "FarseerPhysics.Portable/3.5.1": {
-        "compile": {
-          "lib/portable-net4+sl4+wp8+win8/FarseerPhysics.Portable.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net4+sl4+wp8+win8/FarseerPhysics.Portable.dll": {}
-        }
-      },
       "Microsoft.CSharp/4.0.1": {
         "dependencies": {
           "System.Collections": "4.0.11",
@@ -8834,14 +8762,6 @@
         },
         "compile": {
           "ref/netstandard1.3/Microsoft.Win32.Primitives.dll": {}
-        }
-      },
-      "MonoGame.Framework.WindowsUniversal/3.5.1.1679": {
-        "compile": {
-          "lib/netcore/MonoGame.Framework.dll": {}
-        },
-        "runtime": {
-          "lib/netcore/MonoGame.Framework.dll": {}
         }
       },
       "runtime.aot.System.Collections/4.0.10": {
@@ -10810,14 +10730,6 @@
       }
     },
     "UAP,Version=v10.0/win10-x86": {
-      "FarseerPhysics.Portable/3.5.1": {
-        "compile": {
-          "lib/portable-net4+sl4+wp8+win8/FarseerPhysics.Portable.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net4+sl4+wp8+win8/FarseerPhysics.Portable.dll": {}
-        }
-      },
       "Microsoft.CSharp/4.0.1": {
         "dependencies": {
           "System.Collections": "4.0.11",
@@ -11037,14 +10949,6 @@
         },
         "compile": {
           "ref/netstandard1.3/Microsoft.Win32.Primitives.dll": {}
-        }
-      },
-      "MonoGame.Framework.WindowsUniversal/3.5.1.1679": {
-        "compile": {
-          "lib/netcore/MonoGame.Framework.dll": {}
-        },
-        "runtime": {
-          "lib/netcore/MonoGame.Framework.dll": {}
         }
       },
       "runtime.any.System.Collections/4.0.11": {
@@ -12975,14 +12879,6 @@
       }
     },
     "UAP,Version=v10.0/win10-x86-aot": {
-      "FarseerPhysics.Portable/3.5.1": {
-        "compile": {
-          "lib/portable-net4+sl4+wp8+win8/FarseerPhysics.Portable.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net4+sl4+wp8+win8/FarseerPhysics.Portable.dll": {}
-        }
-      },
       "Microsoft.CSharp/4.0.1": {
         "dependencies": {
           "System.Collections": "4.0.11",
@@ -13203,14 +13099,6 @@
         },
         "compile": {
           "ref/netstandard1.3/Microsoft.Win32.Primitives.dll": {}
-        }
-      },
-      "MonoGame.Framework.WindowsUniversal/3.5.1.1679": {
-        "compile": {
-          "lib/netcore/MonoGame.Framework.dll": {}
-        },
-        "runtime": {
-          "lib/netcore/MonoGame.Framework.dll": {}
         }
       },
       "runtime.aot.System.Collections/4.0.10": {
@@ -15180,15 +15068,6 @@
     }
   },
   "libraries": {
-    "FarseerPhysics.Portable/3.5.1": {
-      "sha512": "lOlwGyDonsk5xHfa1+a4jGUdkENWq4h6HiWoeUtVo0sWDqvrb64TLKBgRAMvZ5V+r6eZpPeeqMTX51CQ3G/BHw==",
-      "type": "package",
-      "files": [
-        "FarseerPhysics.Portable.3.5.1.nupkg.sha512",
-        "FarseerPhysics.Portable.nuspec",
-        "lib/portable-net4+sl4+wp8+win8/FarseerPhysics.Portable.dll"
-      ]
-    },
     "Microsoft.CSharp/4.0.1": {
       "sha512": "17h8b5mXa87XYKrrVqdgZ38JefSUqLChUQpXgSnpzsM0nDOhE40FTeNWOJ/YmySGV6tG6T8+hjz6vxbknHJr6A==",
       "type": "package",
@@ -15478,26 +15357,6 @@
         "ref/xamarinmac20/_._",
         "ref/xamarintvos10/_._",
         "ref/xamarinwatchos10/_._"
-      ]
-    },
-    "MonoGame.Framework.WindowsUniversal/3.5.1.1679": {
-      "sha512": "ocVIHOGX1PA4HdvpI3/uKQVp6x1CPbmKvSdpk2bmpqHZ2PIOKqp5BjbkbOwKbZp8IdaLNbWQjG3Aonkezn2eBQ==",
-      "type": "package",
-      "files": [
-        "MonoGame.Framework.WindowsUniversal.3.5.1.1679.nupkg.sha512",
-        "MonoGame.Framework.WindowsUniversal.nuspec",
-        "lib/netcore/MonoGame.Framework.dll",
-        "lib/netcore/MonoGame.Framework.pri",
-        "lib/netcore/MonoGame.Framework.xml",
-        "lib/netcore/MonoGame.Framework/MonoGame.Framework.xr.xml",
-        "lib/netcore/MonoGame.Framework/Themes/generic.xbf",
-        "lib/netcore/SharpDX.DXGI.dll",
-        "lib/netcore/SharpDX.Direct2D1.dll",
-        "lib/netcore/SharpDX.Direct3D11.dll",
-        "lib/netcore/SharpDX.MediaFoundation.dll",
-        "lib/netcore/SharpDX.XAudio2.dll",
-        "lib/netcore/SharpDX.dll",
-        "readme.txt"
       ]
     },
     "runtime.any.System.Collections/4.0.11": {

@@ -248,7 +248,12 @@
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\FarsserPhysics.UWP\FarsserPhysics.UWP.csproj">
+      <Project>{c3d370ac-2fbc-43d6-a3a6-cea3b4b48aca}</Project>
+      <Name>FarsserPhysics.UWP</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
