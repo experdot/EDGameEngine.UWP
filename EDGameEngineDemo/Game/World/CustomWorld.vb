@@ -13,4 +13,5 @@ Public Class CustomWorld
         Scenes.Add("Physic", New Scene3(Me, New Size(Width, Height)))
         SwitchScene("Physic")
     End Sub
+
 End Class

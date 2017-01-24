@@ -839,7 +839,7 @@ namespace FarseerPhysics.Dynamics
         /// Applies a force at the center of mass.
         /// </summary>
         /// <param name="force">The force.</param>
-        public void ApplyForce(ref Vector2 force)
+        public void ApplyForceRef(ref Vector2 force)
         {
             ApplyForce(ref force, ref _xf.p);
         }

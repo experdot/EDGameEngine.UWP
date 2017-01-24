@@ -23,9 +23,17 @@ Public Class GhostEffect
                 ds.Clear(Windows.UI.Colors.Transparent)
             End Using
         End If
-        Using ds = RenderTarget.CreateDrawingSession
-            ds.DrawImage(CType(source, ICanvasImage))
+        Dim temp = New CanvasRenderTarget(CType(resourceCreator, ICanvasResourceCreatorWithDpi), CInt(SourceRect.Width), CInt(SourceRect.Height))
+
+        Using op = New Effects.OpacityEffect() With {.Source = RenderTarget, .Opacity = Opacity}
+            Using ds = temp.CreateDrawingSession
+                ds.Clear(Windows.UI.Colors.Transparent)
+                ds.DrawImage(op)
+                ds.DrawImage(CType(source, ICanvasImage))
+            End Using
         End Using
+        RenderTarget.Dispose()
+        RenderTarget = temp
         Return RenderTarget
     End Function
 End Class
