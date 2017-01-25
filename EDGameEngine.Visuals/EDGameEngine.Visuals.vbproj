@@ -146,10 +146,14 @@
     <Compile Include="GameObject\Model\GameVisual\AutoStitch\Fragment\Fragment.vb" />
     <Compile Include="GameObject\Model\GameVisual\AutoStitch\FragmentSplicer.vb" />
     <Compile Include="GameObject\Model\GameVisual\AutoStitch\AutoStitchModel.vb" />
-    <Compile Include="GameObject\Model\GameVisual\CA\Cell.vb" />
+    <Compile Include="GameObject\Model\GameVisual\CA\Base\IGeometryCA.vb" />
+    <Compile Include="GameObject\Model\GameVisual\CA\Cell\Cell.vb" />
     <Compile Include="GameObject\Model\GameVisual\CA\CellularAutomataModel.vb" />
     <Compile Include="GameObject\Model\GameVisual\CA\Base\ICellularAutomata.vb" />
-    <Compile Include="GameObject\Model\GameVisual\CA\Base\ICell.vb" />
+    <Compile Include="GameObject\Model\GameVisual\CA\Cell\ICell.vb" />
+    <Compile Include="GameObject\Model\GameVisual\CA\HexgonCA.vb" />
+    <Compile Include="GameObject\Model\GameVisual\CA\Base\GeometyCABase.vb" />
+    <Compile Include="GameObject\Model\GameVisual\CA\SquareCA.vb" />
     <Compile Include="GameObject\Model\GameVisual\Fractal\Base\IFractal.vb" />
     <Compile Include="GameObject\Model\GameVisual\Fractal\GastonJulia.vb" />
     <Compile Include="GameObject\Model\GameVisual\Fractal\NatureTree.vb" />
@@ -160,7 +164,7 @@
     <Compile Include="GameObject\Model\GameVisual\Plant\TreeNode.vb" />
     <Compile Include="GameObject\Model\GameVisual\Pointer\Pointer.vb" />
     <Compile Include="GameObject\View\GameView\AutoDrawView.vb" />
-    <Compile Include="GameObject\View\GameView\CellularAutomataView.vb" />
+    <Compile Include="GameObject\View\GameView\GeometryCAView.vb" />
     <Compile Include="GameObject\View\GameView\FractalView.vb" />
     <Compile Include="GameObject\View\GameView\PlantView.vb" />
     <Compile Include="GameObject\View\GameView\PointerView.vb" />
