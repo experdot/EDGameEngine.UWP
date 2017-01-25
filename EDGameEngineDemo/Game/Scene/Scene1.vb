@@ -9,15 +9,17 @@ Public Class Scene1
         MyBase.New(world, WindowSize)
     End Sub
     Public Overrides Sub CreateObject()
-        'Dim rect As New Rect(50, 50, 30, 30)
-        'Dim fill As New FillStyle(True) With {.Color = Colors.Red}
-        'Dim border As New BorderStyle(True) With {.Color = Colors.Black, .Width = 1}
-        'Dim rectModel As New VisualRectangle() With {.Rect = rect, .Border = border, .Fill = fill}
-        'Dim circleModel As New VisualCircle() With {.Radius = 50, .Border = border, .Fill = fill}
-
+        Dim points As Vector2() = {New Vector2(0, 0), New Vector2(20, 0), New Vector2(20, 20)}
+        Dim rect As New Rect(50, 50, 30, 30)
+        Dim fill As New FillStyle(True) With {.Color = Colors.Red}
+        Dim border As New BorderStyle(True) With {.Color = Colors.Black, .Width = 1}
+        Dim rectModel As New VisualRectangle() With {.Rect = rect, .Border = border, .Fill = fill}
+        Dim circleModel As New VisualCircle() With {.Radius = 50, .Border = border, .Fill = fill}
+        Dim polygonModel As New VisualPolygon(World.ResourceCreator, 6, 20) With {.Border = border, .Fill = fill}
         '几何形状
         'Me.AddGameVisual(rectModel, New RectangleView(rectModel) With {.CacheAllowed = True}, 1)
         'Me.AddGameVisual(circleModel, New CircleView(circleModel) With {.CacheAllowed = True}, 0)
+        Me.AddGameVisual(polygonModel, New PolygonView(polygonModel))
         'circleModel.GameComponents.Behaviors.Add(New KeyControlScript With {.MaxSpeed = 2.0F})
         'rectModel.GameComponents.Behaviors.Add(New KeyControlScript With {.MaxSpeed = 5.0F})
         'circleModel.GameComponents.Behaviors.Add(New PhysicsScript)
@@ -80,7 +82,7 @@ Public Class Scene1
         '创建物体脚本
         'Me.GameComponents.Behaviors.Add(New CreateBodyScript())
         '键盘控制摄像机
-        'Me.Camera.GameComponents.Behaviors.Add(New KeyControlScript With {.MaxSpeed = 5.0F})
+        Me.Camera.GameComponents.Behaviors.Add(New KeyControlScript With {.MaxSpeed = 5.0F})
         '场景全局残影
         'Me.GameComponents.Effects.Add(New GhostEffect With {.SourceRect = New Rect(0, 0, Width, Height), .Opacity = 0.5})
     End Sub

@@ -77,8 +77,6 @@ Public Class CellularAutomataModel
                 End If
             Next
         Next
-        Dim index As Integer = carr.ToList.IndexOf(carr.Max())
-        GameComponents.Sounds.Items(index Mod 7).Play()
         Cells = generation
     End Sub
 
