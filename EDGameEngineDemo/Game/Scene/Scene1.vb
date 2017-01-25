@@ -8,7 +8,9 @@ Public Class Scene1
     Public Sub New(world As World, WindowSize As Size)
         MyBase.New(world, WindowSize)
     End Sub
-    Public Overrides Sub CreateObject()
+    Public Overrides Async Sub CreateObject()
+
+        Await Task.Delay(1000)
         'Dim points As Vector2() = {New Vector2(0, 0), New Vector2(20, 0), New Vector2(20, 20)}
         'Dim geo = GeometryHelper.CreateRegularPolygon(World.ResourceCreator, 6, 20)
         'Dim rect As New Rect(50, 50, 30, 30)
@@ -52,8 +54,9 @@ Public Class Scene1
         'Me.AddGameVisual(tempModel5, New FractalView(tempModel5))
 
         '贴图
-        'Dim tempModel7 As New Sprite() With {.Image = ImageManager.GetResource(ImageResourceID.Scenery1)}
-        'Me.AddGameVisual(tempModel7, New SpriteView(tempModel7) With {.CacheAllowed = True})
+        'Dim tempModel6 As New Sprite() With {.Image = ImageManager.GetResource(ImageResourceID.Scenery1)}
+        'Me.AddGameVisual(tempModel6, New SpriteView(tempModel6) With {.CacheAllowed = True})
+        'tempModel6.GameComponents.Behaviors.Add(New TransformScript)
         ''tempModel6.GameComponents.Effects.Add(New WaveEffect() With {.Amount = 10})
         'tempModel7.GameComponents.Behaviors.Add(New TransformScript)
         'tempModel7.GameComponents.Behaviors.Add(New AudioControlScript)
@@ -67,7 +70,7 @@ Public Class Scene1
         'tempModel7.GameComponents.Sounds.Add(New Audio With {.AudioFileName = "Audio\c7.wav"})
 
         '元胞自动机
-        Dim tempModel7 As New HexgonCA
+        Dim tempModel7 As New SquareCA With {.Image = ImageManager.GetResource(ImageResourceID.Scenery1)}
         Me.AddGameVisual(tempModel7, New GeometryCAView(tempModel7))
         tempModel7.GameComponents.Behaviors.Add(New TransformScript)
 
@@ -84,6 +87,7 @@ Public Class Scene1
         'Me.GameComponents.Behaviors.Add(New CreateBodyScript())
         '键盘控制摄像机
         Me.Camera.GameComponents.Behaviors.Add(New KeyControlScript With {.MaxSpeed = 5.0F})
+        'Me.GameComponents.Effects.Add(New StreamEffect)
         '场景全局残影
         'Me.GameComponents.Effects.Add(New GhostEffect With {.SourceRect = New Rect(0, 0, Width, Height), .Opacity = 0.5})
     End Sub

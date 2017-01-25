@@ -148,7 +148,6 @@
     <Compile Include="GameObject\Model\GameVisual\AutoStitch\AutoStitchModel.vb" />
     <Compile Include="GameObject\Model\GameVisual\CA\Base\IGeometryCA.vb" />
     <Compile Include="GameObject\Model\GameVisual\CA\Cell\Cell.vb" />
-    <Compile Include="GameObject\Model\GameVisual\CA\CellularAutomataModel.vb" />
     <Compile Include="GameObject\Model\GameVisual\CA\Base\ICellularAutomata.vb" />
     <Compile Include="GameObject\Model\GameVisual\CA\Cell\ICell.vb" />
     <Compile Include="GameObject\Model\GameVisual\CA\HexgonCA.vb" />
