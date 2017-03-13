@@ -89,7 +89,7 @@ Public Class Scene1
         Me.Camera.GameComponents.Behaviors.Add(New KeyControlScript With {.MaxSpeed = 5.0F})
         'Me.GameComponents.Effects.Add(New StreamEffect)
         '场景全局残影
-        'Me.GameComponents.Effects.Add(New GhostEffect With {.SourceRect = New Rect(0, 0, Width, Height), .Opacity = 0.5})
+        Me.GameComponents.Effects.Add(New GhostEffect With {.SourceRect = New Rect(0, 0, Width, Height), .Opacity = 1})
     End Sub
 
     Public Overrides Sub CreateUI()

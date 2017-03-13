@@ -8,7 +8,7 @@ Imports Windows.UI
 Public Class SquareCA
     Inherits GeometyCABase
 
-    Public Property Size As Integer = 1
+    Public Property Size As Integer = 3
 
     Dim colorArr As Color()
 
@@ -24,11 +24,12 @@ Public Class SquareCA
         ReDim Cells(Width - 1, Height - 1)
         For i = 0 To Width - 1
             For j = 0 To Height - 1
-                If colorArr(CInt(j * Image.Bounds.Width + i)).R = 0 Then
+                If Rnd.NextDouble > 0.618 Then
                     Cells(i, j) = New Cell With {.Location = New Vector2(i * Size, j * Size),
                                                  .Color = Colors.Black,
                                                  .Size = Size}
-                    Cells(i, j).Color = colorArr(CInt(j * Image.Bounds.Width + i))
+                    ' Cells(i, j).Color = colorArr(CInt(j * Image.Bounds.Width + i))
+                    Cells(i, j).Color = Color.FromArgb(255, CByte(Rnd.Next(256)), CByte(Rnd.Next(256)), CByte(Rnd.Next(256)))
                 Else
                     Cells(i, j) = Nothing
                 End If
@@ -36,7 +37,8 @@ Public Class SquareCA
         Next
 
         Rect = New Rect(0, 0, Width * Size, Height * Size)
-        GameComponents.Effects.Add(New GhostEffect With {.SourceRect = New Rect(0, 0, Width, Height), .Opacity = 1})
+        'GameComponents.Effects.Add(New ShadowEffect)
+        'GameComponents.Effects.Add(New GhostEffect With {.SourceRect = New Rect(0, 0, Width, Height), .Opacity = 1})
 
     End Sub
 
@@ -59,7 +61,7 @@ Public Class SquareCA
                         generation(i, j).Color = GetAroundColor(Cells, i, j, Width, Height)
                     End If
                 Else
-                    If temp = 2 OrElse temp = 3 OrElse temp = 4 Then
+                    If temp = 2 OrElse temp = 3 Then
                         generation(i, j) = Cells(i, j)
                     End If
                 End If
@@ -111,8 +113,8 @@ Public Class SquareCA
         Next
 
         If ResultValue > 0 Then
-            a = CInt(a / ResultValue) - 5
-            If a < 0 Then a = 0
+            a = CInt(a / ResultValue) '- 20
+            'If a < 0 Then a = 0
             r = CalcRGB(r, ResultValue)
             g = CalcRGB(g, ResultValue)
             b = CalcRGB(b, ResultValue)
