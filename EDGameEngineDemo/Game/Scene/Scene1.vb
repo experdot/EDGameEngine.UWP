@@ -8,9 +8,8 @@ Public Class Scene1
     Public Sub New(world As World, WindowSize As Size)
         MyBase.New(world, WindowSize)
     End Sub
-    Public Overrides Async Sub CreateObject()
+    Public Overrides Sub CreateObject()
 
-        Await Task.Delay(1000)
         'Dim points As Vector2() = {New Vector2(0, 0), New Vector2(20, 0), New Vector2(20, 20)}
         'Dim geo = GeometryHelper.CreateRegularPolygon(World.ResourceCreator, 6, 20)
         'Dim rect As New Rect(50, 50, 30, 30)
@@ -95,4 +94,15 @@ Public Class Scene1
     Public Overrides Sub CreateUI()
 
     End Sub
+
+    Public Overrides Async Function CreateResouces(imgRes As ImageResourceManager) As Task
+        Await imgRes.Add(ImageResourceID.TreeBranch1, "Image/Tree_Black.png")
+        Await imgRes.Add(ImageResourceID.TreeBranch2, "Image/Tree_White.png")
+        Await imgRes.Add(ImageResourceID.YellowFlower1, "Image/Flower_Yellow.png")
+        Await imgRes.Add(ImageResourceID.SmokePartial1, "Image/smoke.dds")
+        Await imgRes.Add(ImageResourceID.ExplosionPartial1, "Image/explosion.dds")
+        Await imgRes.Add(ImageResourceID.Back1, "Image/back.png")
+        Await imgRes.Add(ImageResourceID.Water1, "Image/Water.png")
+        Await imgRes.Add(ImageResourceID.Scenery1, "Image/Scenery1.png")
+    End Function
 End Class

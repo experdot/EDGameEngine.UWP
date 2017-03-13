@@ -22,4 +22,8 @@ Public Class Scene3
     Public Overrides Sub CreateUI()
 
     End Sub
+
+    Public Overrides Function CreateResouces(imgRes As ImageResourceManager) As Task
+        Throw New NotImplementedException()
+    End Function
 End Class

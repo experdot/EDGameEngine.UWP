@@ -16,4 +16,8 @@ Public Class Scene2
         Dim b As New Button
         Me.AddUIElement(New Button, 1)
     End Sub
+
+    Public Overrides Function CreateResouces(imgRes As ImageResourceManager) As Task
+        Throw New NotImplementedException()
+    End Function
 End Class

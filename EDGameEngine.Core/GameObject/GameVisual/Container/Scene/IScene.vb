@@ -45,10 +45,6 @@ Public Interface IScene
     ''' </summary>
     Function LoadAsync(resourceCreator As ICanvasResourceCreator) As Task
     ''' <summary>
-    ''' 创建场景物体
-    ''' </summary>
-    Sub CreateObject()
-    ''' <summary>
     ''' 添加场景物体
     ''' </summary>
     Sub AddGameVisual(model As IGameBody, view As IGameView, Optional LayerIndex As Integer = Nothing)
