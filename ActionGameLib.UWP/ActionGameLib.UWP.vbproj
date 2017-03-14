@@ -122,27 +122,35 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Ability\Base\AbilityBase.vb" />
-    <Compile Include="Ability\AblilityManager.vb" />
-    <Compile Include="Ability\General\Attack\Attack.vb" />
-    <Compile Include="Ability\Base\IAbility.vb" />
-    <Compile Include="Ability\Counter\EventArgs\ExpiredEventArgs.vb" />
-    <Compile Include="Ability\Counter\Flags\ExpiredFlags.vb" />
-    <Compile Include="Ability\General\Jump\Jump.vb" />
-    <Compile Include="Ability\Counter\RemainingCounter.vb" />
-    <Compile Include="Character\Base\Character.vb" />
-    <Compile Include="Character\Base\ICharacter.vb" />
-    <Compile Include="Character\NonePlayer\Camp.vb" />
-    <Compile Include="Character\NonePlayer\NPC.vb" />
-    <Compile Include="Character\Player\Player.vb" />
+    <Compile Include="Mission\Character\Ability\Base\AbilityBase.vb" />
+    <Compile Include="Mission\Character\Ability\AbilityManager.vb" />
+    <Compile Include="Mission\Character\Ability\General\Attack\Attack.vb" />
+    <Compile Include="Mission\Character\Ability\Base\IAbility.vb" />
+    <Compile Include="Mission\Character\Ability\Counter\EventArgs\ExpiredEventArgs.vb" />
+    <Compile Include="Mission\Character\Ability\Counter\Flags\ExpiredFlags.vb" />
+    <Compile Include="Mission\Character\Ability\General\Jump\Jump.vb" />
+    <Compile Include="Mission\Character\Ability\Counter\RemainingCounter.vb" />
+    <Compile Include="Mission\Character\Ability\General\Move\MoveLeft.vb" />
+    <Compile Include="Mission\Character\Ability\General\Move\MoveRight.vb" />
+    <Compile Include="Mission\Character\Base\Character.vb" />
+    <Compile Include="Mission\Character\Base\ICharacter.vb" />
+    <Compile Include="Mission\Character\NonePlayer\Camp\Camp.vb" />
+    <Compile Include="Mission\Character\NonePlayer\NPC.vb" />
+    <Compile Include="Mission\Character\Player\Player.vb" />
+    <Compile Include="Collide\Collide.vb" />
+    <Compile Include="Collide\ICollision.vb" />
     <Compile Include="Foundation\AvaliableValue.vb" />
     <Compile Include="Foundation\ResourceId.vb" />
-    <Compile Include="GameMode\MultiplayerMode.vb" />
-    <Compile Include="Mission\Block.vb" />
-    <Compile Include="Mission\Directions.vb" />
-    <Compile Include="Mission\Location.vb" />
-    <Compile Include="Mission\MissionData.vb" />
+    <Compile Include="Foundation\Transform\ILocateble.vb" />
+    <Compile Include="Foundation\Transform\IRotateble.vb" />
+    <Compile Include="Foundation\Transform\ITransform.vb" />
+    <Compile Include="Mission\Block\Block.vb" />
+    <Compile Include="Mission\Enum\Directions.vb" />
+    <Compile Include="Mission\Block\Base\IBlock.vb" />
+    <Compile Include="Mission\Base\IMission.vb" />
+    <Compile Include="Mission\Mission.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="World\GameWorld.vb" />
     <EmbeddedResource Include="My Project\ActionGameLib.UWP.rd.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -176,8 +184,13 @@
     <Import Include="Windows.UI.Xaml.Navigation" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Character\NonePlayer\Camp\" />
-    <Folder Include="Character\NonePlayer\Monster\" />
+    <Folder Include="Mission\Character\NonePlayer\Monster\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FarsserPhysics.UWP\FarsserPhysics.UWP.csproj">
+      <Project>{c3d370ac-2fbc-43d6-a3a6-cea3b4b48aca}</Project>
+      <Name>FarsserPhysics.UWP</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

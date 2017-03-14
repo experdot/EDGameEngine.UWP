@@ -8,13 +8,6 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Pivot Margin="0" Title="Pivot">
-            <PivotItem Header="PivotItem 0">
-                <Grid/>
-            </PivotItem>
-            <PivotItem Header="PivotItem 1">
-                <Grid/>
-            </PivotItem>
-        </Pivot>
+        <TextBlock Text="Press 'Game'to start" HorizontalAlignment="Center" VerticalAlignment="Center" />
     </Grid>
 </Page>

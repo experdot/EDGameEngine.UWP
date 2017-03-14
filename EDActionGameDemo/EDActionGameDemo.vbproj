@@ -107,6 +107,10 @@
     <Compile Include="Controls\HamburgerBox.xaml.vb">
       <DependentUpon>HamburgerBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Game\GameVisual\Model\ActionGameModel.vb" />
+    <Compile Include="Game\GameVisual\View\ActionGameView.vb" />
+    <Compile Include="Game\Resources\BlockImageID.vb" />
+    <Compile Include="Game\Resources\CharacterImageID.vb" />
     <Compile Include="Game\Scene\Scene1.vb" />
     <Compile Include="Game\World\CustomWorld.vb" />
     <Compile Include="Xaml\MainPage.xaml.vb">
@@ -132,6 +136,9 @@
   <ItemGroup>
     <Content Include="Assets\MenuImages\Coffee.png" />
     <Content Include="Assets\MenuImages\Fish.png" />
+    <Content Include="Images\Brick_Question.png" />
+    <Content Include="Images\Hero.png" />
+    <Content Include="Images\Brick_Blank.png" />
     <Content Include="My Project\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -218,10 +225,12 @@
       <Project>{009060f5-be36-4f13-8427-a9a6ff14a47c}</Project>
       <Name>EDGameEngine.Visuals</Name>
     </ProjectReference>
+    <ProjectReference Include="..\FarsserPhysics.UWP\FarsserPhysics.UWP.csproj">
+      <Project>{c3d370ac-2fbc-43d6-a3a6-cea3b4b48aca}</Project>
+      <Name>FarsserPhysics.UWP</Name>
+    </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Game\Resources\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
