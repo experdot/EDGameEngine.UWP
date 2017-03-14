@@ -11,7 +11,7 @@ Public Class KeyControlScript
     Public Property MaxSpeed As Single = 5.0F
     Public Overrides Sub Update()
         Static VecArr() As Vector2 = {New Vector2(0, -1), New Vector2(-1, 0), New Vector2(0, 1), New Vector2(1, 0)}
-        Static KeyArr() As VirtualKey = {VirtualKey.W, VirtualKey.A, VirtualKey.S, VirtualKey.D}
+        Static KeyArr() As VirtualKey = {VirtualKey.Down, VirtualKey.Right, VirtualKey.Up, VirtualKey.Left}
         Static SpeedArr() As Single = {0, 0, 0, 0}
         Dim TempVec As New Vector2
         For i = 0 To 3
