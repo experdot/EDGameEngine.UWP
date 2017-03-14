@@ -16,24 +16,23 @@ Public Class GhostEffect
     ''' </summary>
     Public Property Opacity As Single = 1.0F
     Public Overrides Function Effect(source As IGraphicsEffectSource, resourceCreator As ICanvasResourceCreator) As IGraphicsEffectSource
-        Static RenderTarget As CanvasRenderTarget
-        If RenderTarget Is Nothing Then
-            RenderTarget = New CanvasRenderTarget(CType(resourceCreator, ICanvasResourceCreatorWithDpi), CInt(SourceRect.Width), CInt(SourceRect.Height))
-            Using ds = RenderTarget.CreateDrawingSession
+        Static LastSource As IGraphicsEffectSource
+        If LastSource Is Nothing Then
+            Dim render = New CanvasRenderTarget(CType(resourceCreator, ICanvasResourceCreatorWithDpi), CInt(SourceRect.Width), CInt(SourceRect.Height))
+            Using ds = render.CreateDrawingSession
                 ds.Clear(Windows.UI.Colors.Transparent)
             End Using
+            LastSource = render
         End If
         Dim temp = New CanvasRenderTarget(CType(resourceCreator, ICanvasResourceCreatorWithDpi), CInt(SourceRect.Width), CInt(SourceRect.Height))
 
-        Using op = New Effects.OpacityEffect() With {.Source = RenderTarget, .Opacity = Opacity}
-            Using ds = temp.CreateDrawingSession
-                ds.Clear(Windows.UI.Colors.Transparent)
-                ds.DrawImage(op)
-                ds.DrawImage(CType(source, ICanvasImage))
-            End Using
+        Using ds = temp.CreateDrawingSession
+            ds.Clear(Windows.UI.Colors.Transparent)
+            ds.DrawImage(CType(LastSource, ICanvasImage), Vector2.Zero, SourceRect, Opacity)
+            ds.DrawImage(CType(source, ICanvasImage))
         End Using
-        RenderTarget.Dispose()
-        RenderTarget = temp
-        Return RenderTarget
+        LastSource = temp
+
+        Return CanvasBitmap.CreateFromColors(resourceCreator, temp.GetPixelColors, CInt(temp.Bounds.Width), CInt(temp.Bounds.Height))
     End Function
 End Class
