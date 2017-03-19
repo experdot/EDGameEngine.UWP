@@ -12,13 +12,14 @@ Public Class Scene1
     Public Overrides Sub CreateObject()
 
         Dim temp As New ActionGameModel
-        temp.GameComponents.Behaviors.Add(New TransformScript)
+        'temp.GameComponents.Behaviors.Add(New TransformScript)
         AddGameVisual(temp, New ActionGameView(temp))
 
         '键盘控制摄像机
-        Me.Camera.GameComponents.Behaviors.Add(New KeyControlScript With {.MaxSpeed = 5.0F})
+
+        'Me.Camera.GameComponents.Behaviors.Add(New KeyControlScript With {.MaxSpeed = 5.0F})
         '场景全局残影
-        Me.GameComponents.Effects.Add(New GhostEffect With {.SourceRect = New Rect(0, 0, Width, Height), .Opacity = 0.96})
+        'Me.GameComponents.Effects.Add(New GhostEffect With {.SourceRect = New Rect(0, 0, Width, Height), .Opacity = 0.96})
     End Sub
 
     Public Overrides Sub CreateUI()

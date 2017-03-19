@@ -1,7 +1,6 @@
 ﻿Imports System.Numerics
 Imports ActionGameLib.UWP
 Imports EDGameEngine.Core
-Imports FarseerPhysics.Dynamics
 Imports Windows.System
 
 Public Class ActionGameModel
@@ -19,6 +18,14 @@ Public Class ActionGameModel
     ''' 缩放
     ''' </summary>
     Public Property Scale As Single = 64
+    ''' <summary>
+    ''' 是否启用摄像机跟随
+    ''' </summary>
+    Public Property IsCameraFollow As Boolean = True
+    ''' <summary>
+    ''' 键盘
+    ''' </summary>
+    WithEvents Keyboard As KeyboardDescription
 
     Public Overrides Sub StartEx()
         Dim w As Integer = 20
@@ -52,11 +59,16 @@ Public Class ActionGameModel
         ActionGame = New GameWorld() With {.Mission = Mission}
         '开始游戏
         ActionGame.Start()
+        Keyboard = Scene.Inputs.Keyboard
     End Sub
 
     Public Overrides Sub UpdateEx()
         '更新
         ActionGame.Update()
+        '摄像机跟随
+        If IsCameraFollow Then
+            CameraFollowTarget(ActionGame.Mission.Characters.First.Location, New Size(Scale, Scale))
+        End If
 
         '按键测试
         KeyDown()
@@ -64,12 +76,24 @@ Public Class ActionGameModel
 
     Private Sub KeyDown()
         Static KeyArr() As VirtualKey = {VirtualKey.A, VirtualKey.D, VirtualKey.W, VirtualKey.S}
-
-        For i = 0 To 3
+        For i = 0 To 1
             If Scene.Inputs.Keyboard.KeyStatus(KeyArr(i)) Then
                 ActionGame.KeyDown(ChrW(KeyArr(i)))
             End If
         Next
     End Sub
 
+    Private Sub KeyBoard_KeyDown(keyCode As VirtualKey) Handles Keyboard.KeyDown
+        If keyCode = VirtualKey.W Then
+            ActionGame.KeyDown(ChrW(keyCode))
+        End If
+    End Sub
+
+    Private Sub KeyBoard_KeyUp(keyCode As VirtualKey) Handles Keyboard.KeyUp
+
+    End Sub
+
+    Private Sub CameraFollowTarget(loc As Vector2, size As Size)
+        Scene.Camera.Transform.Translation = New Vector2(Scene.Width, Scene.Height) / 2 - New Vector2(size.Width, size.Height) / 2 - loc * Scale
+    End Sub
 End Class
