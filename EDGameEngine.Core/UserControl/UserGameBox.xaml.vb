@@ -59,7 +59,9 @@ Public NotInheritable Class UserGameBox
         Debug.WriteLine("画布已从控件分离")
     End Sub
     Private Sub Form_KeyDown(sender As CoreWindow, args As KeyEventArgs) Handles Form.KeyDown
-        World?.OnKeyDown(args.VirtualKey)
+        If Not args.KeyStatus.WasKeyDown Then
+            World?.OnKeyDown(args.VirtualKey)
+        End If
     End Sub
     Private Sub Form_KeyUp(sender As CoreWindow, args As KeyEventArgs) Handles Form.KeyUp
         World?.OnKeyUp(args.VirtualKey)

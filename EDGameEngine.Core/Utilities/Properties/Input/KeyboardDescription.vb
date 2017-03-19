@@ -10,24 +10,24 @@ Public Class KeyboardDescription
     ''' <summary>
     ''' 按键按下时发生
     ''' </summary>
-    Public Event KeyDown(ByVal KeyCode As VirtualKey)
+    Public Event KeyDown(ByVal keyCode As VirtualKey)
     ''' <summary>
     ''' 按键释放时发生
     ''' </summary>
-    Public Event KeyUp(ByVal KeyCode As VirtualKey)
+    Public Event KeyUp(ByVal keyCode As VirtualKey)
     ''' <summary>
     ''' 触发按键按下
     ''' </summary>
-    Friend Sub RaiseKeyDown(ByVal KeyCode As VirtualKey)
-        KeyStatus(KeyCode) = True
-        RaiseEvent KeyDown(KeyCode)
+    Friend Sub RaiseKeyDown(ByVal keyCode As VirtualKey)
+        KeyStatus(keyCode) = True
+        RaiseEvent KeyDown(keyCode)
     End Sub
     ''' <summary>
     ''' 触发按键释放
     ''' </summary>
-    Friend Sub RaiseKeyUp(ByVal KeyCode As VirtualKey)
-        KeyStatus(KeyCode) = False
-        RaiseEvent KeyUp(KeyCode)
+    Friend Sub RaiseKeyUp(ByVal keyCode As VirtualKey)
+        KeyStatus(keyCode) = False
+        RaiseEvent KeyUp(keyCode)
     End Sub
     Public Sub New()
         ReDim KeyStatus(255)
