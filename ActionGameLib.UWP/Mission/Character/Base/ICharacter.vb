@@ -3,7 +3,7 @@
 ''' 游戏角色接口
 ''' </summary>
 Public Interface ICharacter
-    Inherits ITransform, ICollision
+    Inherits ITransform, ICollision, IUpdateable
     ''' <summary>
     ''' 名称
     ''' </summary>
@@ -21,12 +21,4 @@ Public Interface ICharacter
     ''' 能力管理器
     ''' </summary>
     Property AbilityManager As AbilityManager
-    ''' <summary>
-    ''' 普通攻击
-    ''' </summary>
-    Sub Attack()
-    ''' <summary>
-    ''' 普通跳跃
-    ''' </summary>
-    Sub Jump()
 End Interface

@@ -15,4 +15,11 @@ Public Class Collide
     ''' 碰撞实体
     ''' </summary>
     Public Property Body As Body
+    ''' <summary>
+    ''' 同步平面变换
+    ''' </summary>
+    Public Sub SyncTransform(target As ITransform)
+        target.Location = Body.Position
+        target.Rotation = Body.Rotation
+    End Sub
 End Class

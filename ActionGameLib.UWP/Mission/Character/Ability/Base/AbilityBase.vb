@@ -11,37 +11,47 @@ Public MustInherit Class AbilityBase
     ''' 计数器
     ''' </summary>
     Public Property Counter As RemainingCounter Implements IAbility.Counter
-
     ''' <summary>
     ''' 执行能力
     ''' </summary>
-    Protected MustOverride Sub Perform(character As ICharacter)
+    Protected MustOverride Sub Perform(target As ICharacter)
 
     Public Sub New()
         Counter = New RemainingCounter
     End Sub
     ''' <summary>
+    ''' 初始化状态
+    ''' </summary>
+    Public Overridable Sub Start(target As ICharacter) Implements IAbility.Start
+        'null
+    End Sub
+    ''' <summary>
+    ''' 更新状态
+    ''' </summary>
+    Public Overridable Sub Update(target As ICharacter) Implements IAbility.Update
+        'null
+    End Sub
+    ''' <summary>
     ''' 释放能力
     ''' </summary>
-    Public Overridable Sub Release(character As ICharacter) Implements IAbility.Release
+    Public Overridable Sub Release(target As ICharacter) Implements IAbility.Release
         If Counter.Availiable Then
-            PerformBefore(character)
-            Perform(character)
-            PerformOver(character)
+            PerformBefore(target)
+            Perform(target)
+            PerformOver(target)
         End If
     End Sub
     ''' <summary>
     ''' 执行之前
     ''' </summary>
-    Protected Overridable Sub PerformBefore(Character As ICharacter)
-        '默认不做任何事情
+    Protected Overridable Sub PerformBefore(target As ICharacter)
+        'null
     End Sub
     ''' <summary>
     ''' 执行结束
     ''' </summary>
-    Protected Overridable Sub PerformOver(Character As ICharacter)
+    Protected Overridable Sub PerformOver(target As ICharacter)
         '计数器数量减一
         Counter.Change(CounterTypes.Count, -1)
     End Sub
-
 End Class

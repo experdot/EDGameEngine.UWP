@@ -6,5 +6,5 @@ Public Class NPC
     ''' <summary>
     ''' 阵营
     ''' </summary>
-    Public Property Camp As Camp
+    Public Overridable Property Camp As Camp
 End Class

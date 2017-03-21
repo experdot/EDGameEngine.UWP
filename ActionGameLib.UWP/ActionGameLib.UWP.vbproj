@@ -122,6 +122,9 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AI\AIContorller.vb" />
+    <Compile Include="Mission\Base\ITypedUpdateble.vb" />
+    <Compile Include="Mission\Base\IUpdateable.vb" />
     <Compile Include="Mission\Character\Ability\Base\AbilityBase.vb" />
     <Compile Include="Mission\Character\Ability\AbilityManager.vb" />
     <Compile Include="Mission\Character\Ability\General\Attack\Attack.vb" />
@@ -130,11 +133,13 @@
     <Compile Include="Mission\Character\Ability\Counter\Flags\ExpiredFlags.vb" />
     <Compile Include="Mission\Character\Ability\General\Jump\Jump.vb" />
     <Compile Include="Mission\Character\Ability\Counter\RemainingCounter.vb" />
+    <Compile Include="Mission\Character\Ability\General\Jump\JumpStateMachine.vb" />
     <Compile Include="Mission\Character\Ability\General\Move\MoveLeft.vb" />
     <Compile Include="Mission\Character\Ability\General\Move\MoveRight.vb" />
     <Compile Include="Mission\Character\Base\Character.vb" />
     <Compile Include="Mission\Character\Base\ICharacter.vb" />
     <Compile Include="Mission\Character\NonePlayer\Camp\Camp.vb" />
+    <Compile Include="Mission\Character\NonePlayer\Monster\Monster.vb" />
     <Compile Include="Mission\Character\NonePlayer\NPC.vb" />
     <Compile Include="Mission\Character\Player\Player.vb" />
     <Compile Include="Collide\Collide.vb" />
@@ -183,9 +188,7 @@
     <Import Include="Windows.UI.Xaml.Media.Imaging" />
     <Import Include="Windows.UI.Xaml.Navigation" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Mission\Character\NonePlayer\Monster\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\FarsserPhysics.UWP\FarsserPhysics.UWP.csproj">
       <Project>{c3d370ac-2fbc-43d6-a3a6-cea3b4b48aca}</Project>

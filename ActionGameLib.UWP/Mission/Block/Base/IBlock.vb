@@ -2,7 +2,7 @@
 Imports ActionGameLib.UWP
 
 Public Interface IBlock
-    Inherits ITransform, ICollision
+    Inherits ITransform, ICollision, IUpdateable
     ''' <summary>
     ''' 方向
     ''' </summary>

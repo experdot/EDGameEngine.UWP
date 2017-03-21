@@ -1,4 +1,5 @@
-﻿''' <summary>
+﻿Imports ActionGameLib.UWP
+''' <summary>
 ''' 关卡
 ''' </summary>
 Public Class Mission
@@ -24,6 +25,18 @@ Public Class Mission
         Characters = New List(Of ICharacter)
     End Sub
 
+    Public Sub Start() Implements IUpdateable.Start
+        For Each SubCharacter In Characters
+            SubCharacter.Start()
+        Next
+    End Sub
+
+    Public Sub Update() Implements IUpdateable.Update
+        For Each SubCharacter In Characters
+            SubCharacter.Update()
+        Next
+    End Sub
+
     ''' <summary>
     ''' 返回指定名称的角色
     ''' </summary>
@@ -35,4 +48,5 @@ Public Class Mission
         Next
         Return Nothing
     End Function
+
 End Class

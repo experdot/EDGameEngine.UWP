@@ -5,7 +5,6 @@ Imports ActionGameLib.UWP
 ''' </summary>
 Public Class Character
     Implements ICharacter
-
     ''' <summary>
     ''' 角色死亡时发生的事件
     ''' </summary>
@@ -49,15 +48,21 @@ Public Class Character
         AddHandler HP.Expired, AddressOf HP_Expired
     End Sub
 
-    Public Sub Attack() Implements ICharacter.Attack
-        AbilityManager.FindAbilityByName("Attack").Release(Me)
-    End Sub
-
-    Public Sub Jump() Implements ICharacter.Jump
-        AbilityManager.FindAbilityByName("Jump").Release(Me)
-    End Sub
-
     Private Sub HP_Expired(sender As Object, e As ExpiredEventArgs)
         RaiseEvent Died(Me, Nothing)
+    End Sub
+
+    Public Sub Start() Implements IUpdateable.Start
+        For Each SubAbility In AbilityManager.Abilities.Values
+            SubAbility.Start(Me)
+        Next
+        Collide.SyncTransform(Me)
+    End Sub
+
+    Public Sub Update() Implements IUpdateable.Update
+        For Each SubAbility In AbilityManager.Abilities.Values
+            SubAbility.Update(Me)
+        Next
+        Collide.SyncTransform(Me)
     End Sub
 End Class

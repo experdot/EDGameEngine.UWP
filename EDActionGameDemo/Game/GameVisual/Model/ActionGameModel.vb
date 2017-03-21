@@ -17,7 +17,7 @@ Public Class ActionGameModel
     ''' <summary>
     ''' 缩放
     ''' </summary>
-    Public Property Scale As Single = 64
+    Public Property Scale As Single = 32
     ''' <summary>
     ''' 是否启用摄像机跟随
     ''' </summary>
@@ -47,13 +47,21 @@ Public Class ActionGameModel
                     Else
                         blocks(i, j).Image = ResourceId.Create(BlockImageID.Blank)
                     End If
+                    'blocks(i, j).Collide.Rect = New Rect(0, 0, 0.5 + Rnd.NextDouble * 0.5, 0.5 + Rnd.NextDouble * 0.5)
                 End If
             Next
         Next
         Mission.Blocks = blocks
-        '初始化角色
+        '添加角色
         Mission.Characters.Add(New Player With {.Location = New Vector2(2, -2),
                                                 .Image = ResourceId.Create(CharacterImageID.Default)})
+        Mission.Characters.Last.Collide.Rect = New Rect(0, 0, 0.5, 0.5)
+        '添加怪物
+        For i = 0 To 5
+            Mission.Characters.Add(New Monster With {.Location = New Vector2(5 + i, -2),
+                                                .Image = ResourceId.Create(CharacterImageID.Default)})
+            Mission.Characters.Last.Collide.Rect = New Rect(0, 0, 0.5 + Rnd.NextDouble * 0.5, 0.5 + Rnd.NextDouble * 0.5)
+        Next
 
         '初始化世界
         ActionGame = New GameWorld() With {.Mission = Mission}
@@ -67,7 +75,7 @@ Public Class ActionGameModel
         ActionGame.Update()
         '摄像机跟随
         If IsCameraFollow Then
-            CameraFollowTarget(ActionGame.Mission.Characters.First.Location, New Size(Scale, Scale))
+            CameraFollowTarget(ActionGame.Mission.Characters.First.Location)
         End If
 
         '按键测试
@@ -93,7 +101,7 @@ Public Class ActionGameModel
 
     End Sub
 
-    Private Sub CameraFollowTarget(loc As Vector2, size As Size)
-        Scene.Camera.Transform.Translation = New Vector2(Scene.Width, Scene.Height) / 2 - New Vector2(size.Width, size.Height) / 2 - loc * Scale
+    Private Sub CameraFollowTarget(loc As Vector2)
+        Scene.Camera.Transform.Translation = New Vector2(Scene.Width, Scene.Height) / 2 - loc * Scale
     End Sub
 End Class

@@ -3,6 +3,7 @@
 ''' 关卡接口
 ''' </summary>
 Public Interface IMission
+    Inherits IUpdateable
     ''' <summary>
     ''' 地图块集合
     ''' </summary>

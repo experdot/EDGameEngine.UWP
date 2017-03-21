@@ -6,36 +6,45 @@
 ## Newest activity 
 - Realistic 2D world. Now engine has joined the FarsserPhysics!
 
-![Physics](Documentation/Image/Physics/Sample_Physic_01.png)
+![Physics](Documentation/Images/Physics/Sample_Physic_01.png)
 
-## Game Model
-Library provides you with a wealth of game models.
+## Functions
+C# or VB.NET allows you to easily use it!
+- Using Win2D render graphics
+- Play music and sound effects
+- Handling keyboard and mouse input
+- Supports Scene inline Xaml controls
+- Provides a platform-jumping game engine
+- Provides FarsserPhysics engine which supports 2D physics simulation
+
+## Game Models
+Engine provides you with kinds of game models.
 
 ##### Geometry
 - Line、Rectangle、Cicle
-- Polygon（Disabled）
+- Polygon
 
-##### PaticalSystem
-- [Particle cluster](Documentation/Image/ParticalSystem/Sample_ParticalSystem_01.png)
-- [Splish splash](Documentation/Image/ParticalSystem/Sample_ParticalSystem_02.png)
-- [Brilliant light](Documentation/Image/ParticalSystem/Sample_ParticalSystem_03.png)
+##### ParticalSystem
+- [Partical cluster](Documentation/Images/ParticalSystem/Sample_ParticalSystem_01.png)
+- [Splish splash](Documentation/Images/ParticalSystem/Sample_ParticalSystem_02.png)
+- [Brilliant light](Documentation/Images/ParticalSystem/Sample_ParticalSystem_03.png)
 
 ##### Fractal
-- [GastonJulia](Documentation/Image/Fractal/Sample_Fractal_03.png)
-- [Mandelbrot](Documentation/Image/Fractal/Sample_Fractal_01.png)
-- [Iterated Function System：Tree](Documentation/Image/Fractal/Sample_Fractal_02.png)
+- [GastonJulia](Documentation/Images/Fractal/Sample_Fractal_03.png)
+- [Mandelbrot](Documentation/Images/Fractal/Sample_Fractal_01.png)
+- [Iterated Function System：Tree](Documentation/Images/Fractal/Sample_Fractal_02.png)
 
 ##### Nature-Tree
-- [Bloom](Documentation/Image/NatureTree/Sample_NatureTree_01.png)
-- [Grow up](Documentation/Image/NatureTree/Dynamic/Dynamic_NatureTree_02.gif)
-- [Sway](Documentation/Image/NatureTree/Dynamic/Dynamic_NatureTree_01.gif)
+- [Bloom](Documentation/Images/NatureTree/Sample_NatureTree_01.png)
+- [Grow up](Documentation/Images/NatureTree/Dynamic/Dynamic_NatureTree_02.gif)
+- [Sway](Documentation/Images/NatureTree/Dynamic/Dynamic_NatureTree_01.gif)
 
 ##### Automata
-- [Game of life](Documentation/Image/Automata/Sample_CelluarAutomata_01.png)
-- [Ink infection](Documentation/Image/Automata/Sample_CelluarAutomata_02.png)
+- [Game of life](Documentation/Images/Automata/Sample_CelluarAutomata_01.png)
+- [Ink infection](Documentation/Images/Automata/Sample_CelluarAutomata_02.png)
 
 ##### AutoDraw
-- Painting automaticlly
+- Painting automaticlly(another version for WinForm,[Click me!](https://github.com/experdot/ExperDot.AutomaticDrawing))
 
 ##### AutoStitch
 - Stitching automaticlly(Disabled）

@@ -5,7 +5,6 @@ Imports ActionGameLib.UWP
 ''' </summary>
 Public Class Block
     Implements IBlock
-
     ''' <summary>
     ''' 地图块贴图
     ''' </summary>
@@ -35,4 +34,11 @@ Public Class Block
         Collide = New Collide
     End Sub
 
+    Public Sub Start() Implements IUpdateable.Start
+        Collide.SyncTransform(Me)
+    End Sub
+
+    Public Sub Update() Implements IUpdateable.Update
+        Collide.SyncTransform(Me)
+    End Sub
 End Class
