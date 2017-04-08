@@ -33,9 +33,8 @@ Public Class Scene1
         'tempModel.GameComponents.Effects.Add(New FrostedEffect() With {.Amount = 10})
 
         '植物
-        'Dim tempModel2 As New Plant(New Vector2(Width / 2, Height * 0.8))
-        'Me.AddGameVisual(tempModel2, New PlantView(tempModel2))
-        'Me.GameComponents.Effects.Add(New LightEffect)
+        Dim tempModel2 As New Plant(New Vector2(Width / 2, Height * 0.8))
+        Me.AddGameVisual(tempModel2, New PlantView(tempModel2))
 
         '自动画画
         'Dim tempModel3 As New AutoDrawModel() With {.Image = ImageManager.GetResource(ImageResourceID.Scenery1)}
@@ -69,9 +68,9 @@ Public Class Scene1
         'tempModel7.GameComponents.Sounds.Add(New Audio With {.AudioFileName = "Audio\c7.wav"})
 
         '元胞自动机
-        Dim tempModel7 As New SquareCA With {.Image = ImageManager.GetResource(ImageResourceID.Scenery1)}
-        Me.AddGameVisual(tempModel7, New GeometryCAView(tempModel7))
-        tempModel7.GameComponents.Behaviors.Add(New TransformScript)
+        'Dim tempModel7 As New SquareCA With {.Image = ImageManager.GetResource(ImageResourceID.Scenery1)}
+        'Me.AddGameVisual(tempModel7, New GeometryCAView(tempModel7))
+        'tempModel7.GameComponents.Behaviors.Add(New TransformScript)
 
         'tempModel7.GameComponents.Sounds.Add(New Audio With {.AudioFileName = "Audio\c1.wav"})
         'tempModel7.GameComponents.Sounds.Add(New Audio With {.AudioFileName = "Audio\c2.wav"})
@@ -88,7 +87,7 @@ Public Class Scene1
         Me.Camera.GameComponents.Behaviors.Add(New KeyControlScript With {.MaxSpeed = 5.0F})
         'Me.GameComponents.Effects.Add(New StreamEffect)
         '场景全局残影
-        Me.GameComponents.Effects.Add(New GhostEffect With {.SourceRect = New Rect(0, 0, Width, Height), .Opacity = 1})
+        'Me.GameComponents.Effects.Add(New GhostEffect With {.SourceRect = New Rect(0, 0, Width, Height), .Opacity = 1})
     End Sub
 
     Public Overrides Sub CreateUI()

@@ -141,7 +141,7 @@
     <Compile Include="Components\Effect\LightEffect.vb" />
     <Compile Include="Components\Effect\RippleEffect.vb" />
     <Compile Include="Components\Effect\ShadowEffect.vb" />
-    <Compile Include="StreamEffect.vb" />
+    <Compile Include="Components\Effect\StreamEffect.vb" />
     <Compile Include="Components\Effect\ThresholdEffect.vb" />
     <Compile Include="Components\Effect\TransformEffect.vb" />
     <Compile Include="Components\Effect\WaveEffect.vb" />

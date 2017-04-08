@@ -1,10 +1,13 @@
-﻿Public MustInherit Class GameComponentBase
+﻿''' <summary>
+''' 游戏组件基类
+''' </summary>
+Public MustInherit Class GameComponentBase
     Implements IGameComponent
     ''' <summary>
     ''' 目标对象
     ''' </summary>
     Public Property Target As IGameVisual Implements IGameComponent.Target
-    Public MustOverride Property CompnentType As ComponentType Implements IGameComponent.CompnentType
+    Public MustOverride Property ComponentType As ComponentType Implements IGameComponent.ComponentType
     ''' <summary>
     ''' 当前组件目标对象所在的场景
     ''' </summary>

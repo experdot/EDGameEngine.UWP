@@ -6,7 +6,7 @@ Imports Windows.Graphics.Effects
 Public MustInherit Class EffectBase
     Inherits GameComponentBase
     Implements IEffect
-    Public Overrides Property CompnentType As ComponentType = ComponentType.Effect
+    Public Overrides Property ComponentType As ComponentType = ComponentType.Effect
     Public MustOverride Function Effect(source As IGraphicsEffectSource, resourceCreator As ICanvasResourceCreator) As IGraphicsEffectSource Implements IEffect.Effect
     Public Overrides Sub Start()
 

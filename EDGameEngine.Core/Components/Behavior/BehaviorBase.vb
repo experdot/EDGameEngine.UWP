@@ -4,5 +4,5 @@
 Public MustInherit Class BehaviorBase
     Inherits GameComponentBase
     Implements IBehavior
-    Public Overrides Property CompnentType As ComponentType = ComponentType.Behavior
+    Public Overrides Property ComponentType As ComponentType = ComponentType.Behavior
 End Class

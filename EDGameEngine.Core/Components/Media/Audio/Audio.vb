@@ -6,7 +6,7 @@ Imports SharpDX.XAudio2
 Public Class Audio
     Implements IAudio, IDisposable
 
-    Public Property CompnentType As ComponentType = ComponentType.Audio Implements IGameComponent.CompnentType
+    Public Property ComponentType As ComponentType = ComponentType.Audio Implements IGameComponent.ComponentType
     Public Property Target As IGameVisual Implements IGameComponent.Target
 
     ''' <summary>

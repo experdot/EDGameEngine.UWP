@@ -10,5 +10,5 @@ Public Interface IGameComponent
     ''' <summary>
     ''' 类型标记
     ''' </summary>
-    Property CompnentType As ComponentType
+    Property ComponentType As ComponentType
 End Interface

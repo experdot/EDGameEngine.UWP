@@ -4,7 +4,7 @@
 Public Class TypedComponent(Of T As IGameComponent)
     Implements IGameComponent
 
-    Public Property CompnentType As ComponentType Implements IGameComponent.CompnentType
+    Public Property ComponentType As ComponentType Implements IGameComponent.ComponentType
     Public Property Target As IGameVisual Implements IGameComponent.Target
     Public Property Items As New List(Of T)
 
