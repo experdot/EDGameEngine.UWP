@@ -14,10 +14,20 @@ Public Class Scene2
     End Sub
     Public Overrides Sub CreateUI()
         Dim b As New Button
-        Me.AddUIElement(New Button, 1)
+        Me.AddUIElement(b, 1)
+        AddHandler b.Click, Sub()
+                                World.SwitchScene("Main")
+                            End Sub
     End Sub
 
-    Public Overrides Function CreateResouces(imgRes As ImageResourceManager) As Task
-        Throw New NotImplementedException()
+    Public Overrides Async Function CreateResoucesAsync(imgResManager As ImageResourceManager) As Task
+        Await imgResManager.Add(ImageResourceID.TreeBranch1, "Image/Tree_Black.png")
+        Await imgResManager.Add(ImageResourceID.TreeBranch2, "Image/Tree_White.png")
+        Await imgResManager.Add(ImageResourceID.YellowFlower1, "Image/Flower_Yellow.png")
+        Await imgResManager.Add(ImageResourceID.SmokePartial1, "Image/smoke.dds")
+        Await imgResManager.Add(ImageResourceID.ExplosionPartial1, "Image/explosion.dds")
+        Await imgResManager.Add(ImageResourceID.Back1, "Image/back.png")
+        Await imgResManager.Add(ImageResourceID.Water1, "Image/Water.png")
+        Await imgResManager.Add(ImageResourceID.Scenery1, "Image/Scenery1.png")
     End Function
 End Class

@@ -1,6 +1,8 @@
 ﻿Imports Microsoft.Graphics.Canvas
 Imports Windows.UI
-
+''' <summary>
+''' 位图像素辅助类
+''' </summary>
 Public Class BitmapPixelHelper
     ''' <summary> 
     ''' 由指定阈值判断两个RGB颜色是否相近

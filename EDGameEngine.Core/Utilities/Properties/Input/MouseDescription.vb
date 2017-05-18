@@ -35,6 +35,7 @@ Public Class MouseDescription
     ''' 指针释放时发生
     ''' </summary>
     Public Event PointerReleased(ByVal loc As Vector2)
+
     Private m_Location As Vector2
 
     Friend Sub OnPointerPressed(ByVal loc As Vector2)

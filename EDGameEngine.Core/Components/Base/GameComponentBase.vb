@@ -7,6 +7,9 @@ Public MustInherit Class GameComponentBase
     ''' 目标对象
     ''' </summary>
     Public Property Target As IGameVisual Implements IGameComponent.Target
+    ''' <summary>
+    ''' 类型标记
+    ''' </summary>
     Public MustOverride Property ComponentType As ComponentType Implements IGameComponent.ComponentType
     ''' <summary>
     ''' 当前组件目标对象所在的场景

@@ -194,7 +194,7 @@
     <Compile Include="GameObject\GameView\Basic\LineView.vb" />
     <Compile Include="GameObject\GameView\Basic\RectangleView.vb" />
     <Compile Include="GameObject\GameView\GameView.vb" />
-    <Compile Include="GameObject\GameView\IGameView.vb" />
+    <Compile Include="GameObject\GameView\Base\IGameView.vb" />
     <Compile Include="GameObject\GameView\TypedGameView.vb" />
     <Compile Include="GameObject\Base\IGameObject.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -206,7 +206,7 @@
     <Compile Include="Utilities\Color\ColorEx.vb" />
     <Compile Include="Utilities\Geometry\Style\BorderStyle.vb" />
     <Compile Include="Utilities\Geometry\Style\FillStyle.vb" />
-    <Compile Include="Utilities\Mathmatical\PhysicUnit.vb" />
+    <Compile Include="Utilities\Physical\PhysicUnit.vb" />
     <Compile Include="Utilities\Mathmatical\Vector2Extensions.vb" />
     <Compile Include="Utilities\Properties\Appearance.vb" />
     <Compile Include="Utilities\Properties\Transform.vb" />

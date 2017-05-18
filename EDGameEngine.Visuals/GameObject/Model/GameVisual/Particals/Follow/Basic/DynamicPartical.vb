@@ -17,6 +17,8 @@ Public Class DynamicPartical
     Public Property Age As Single = 0 '生命周期
     Public Property ImageSize As Single
 
+    Public Property VelocityUpon As Single = 5.0F
+
     Public Shared Rnd As New Random
     ''' <summary>
     ''' 初始化一个粒子
@@ -37,7 +39,7 @@ Public Class DynamicPartical
     ''' </summary>
     Public Sub Move()
         Velocity += Acceleration '更新速度
-        Velocity.LimitMag(5) '粒子限速
+        Velocity.LimitMag(VelocityUpon) '粒子限速
         Location += Velocity '更新位置
         Acceleration = Vector2.Zero
     End Sub

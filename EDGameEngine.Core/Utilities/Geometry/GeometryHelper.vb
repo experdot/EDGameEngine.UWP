@@ -2,7 +2,7 @@
 Imports Microsoft.Graphics.Canvas
 Imports Microsoft.Graphics.Canvas.Geometry
 ''' <summary>
-''' 几何体帮助类
+''' 几何体辅助类
 ''' </summary>
 Public Class GeometryHelper
     ''' <summary>
@@ -19,7 +19,6 @@ Public Class GeometryHelper
         Next
         Return CanvasGeometry.CreatePolygon(resourceCreator, points.ToArray)
     End Function
-
     ''' <summary>
     ''' 由指定的顶点集合创建多边形
     ''' </summary>

@@ -60,7 +60,6 @@ Public Class Audio
         Voice?.Stop()
     End Sub
 
-
     Public Async Sub Start() Implements IGameObject.Start
         Await LoadFile(AudioFileName)
     End Sub

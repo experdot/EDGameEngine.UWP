@@ -26,7 +26,7 @@ Public Class Scene1
 
     End Sub
 
-    Public Overrides Async Function CreateResouces(imgRes As ImageResourceManager) As Task
+    Public Overrides Async Function CreateResoucesAsync(imgRes As ImageResourceManager) As Task
         Await imgRes.Add(BlockImageID.Blank, "Images/Brick_Blank.png")
         Await imgRes.Add(BlockImageID.Question, "Images/Brick_Question.png")
         Await imgRes.Add(CharacterImageID.Default, "Images/Hero.png")

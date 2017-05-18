@@ -47,12 +47,12 @@ Public MustInherit Class Scene
     Public Property Presenter As IGameView = New SceneView(Me) Implements IGameVisual.Presenter
     Public Property Rect As Rect Implements IGameVisual.Rect
 
-    Public MustOverride Function CreateResouces(imgRes As ImageResourceManager) As Task
+    Public MustOverride Function CreateResoucesAsync(imgRes As ImageResourceManager) As Task
     Public MustOverride Sub CreateObject()
     Public MustOverride Sub CreateUI()
 
-
     Dim ModifyActions As New List(Of Action)
+
     Public Sub New(world As World, WindowSize As Size)
         Me.World = world
         Me.Inputs = New Inputs
@@ -86,7 +86,6 @@ Public MustInherit Class Scene
                            State = SceneState.Loop
                        End Function)
     End Sub
-
 
     Public Sub Update() Implements IScene.Update
         If State = SceneState.Loop Then
@@ -134,7 +133,7 @@ Public MustInherit Class Scene
     End Sub
     Public Async Function LoadAsync(resourceCreator As ICanvasResourceCreator) As Task Implements IScene.LoadAsync
         ImageManager = New ImageResourceManager(resourceCreator)
-        Await CreateResouces(ImageManager)
+        Await CreateResoucesAsync(ImageManager)
     End Function
     Public Sub OnDraw(drawingSession As CanvasDrawingSession) Implements IScene.OnDraw
         If State = SceneState.Loop Then

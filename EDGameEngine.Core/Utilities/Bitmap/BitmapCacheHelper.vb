@@ -1,6 +1,8 @@
 ﻿Imports Microsoft.Graphics.Canvas
 Imports Windows.UI
-
+''' <summary>
+''' 位图缓存辅助类
+''' </summary>
 Public Class BitmapCacheHelper
     Public Shared Function CacheImage(resourceCreator As ICanvasResourceCreator, Source As ICanvasImage) As CanvasBitmap
         Dim reg = Source.GetBounds(resourceCreator)

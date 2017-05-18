@@ -11,13 +11,14 @@ Public Class Appearance
     ''' <summary>
     ''' 可见性
     ''' </summary>
-    ''' <returns></returns>
     Public Property Visible As Boolean
     ''' <summary>
     ''' 不透明度
     ''' </summary>
-    ''' <returns></returns>
     Public Property Opcacity As Single
+    ''' <summary>
+    ''' 由指定的参数创建并初始化一个实例
+    ''' </summary>
     Public Sub New(visible As Boolean, opcacity As Single)
         Me.Visible = visible
         Me.Opcacity = opcacity

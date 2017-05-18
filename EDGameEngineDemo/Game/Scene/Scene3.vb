@@ -23,7 +23,7 @@ Public Class Scene3
 
     End Sub
 
-    Public Overrides Function CreateResouces(imgRes As ImageResourceManager) As Task
+    Public Overrides Function CreateResoucesAsync(imgRes As ImageResourceManager) As Task
         Throw New NotImplementedException()
     End Function
 End Class

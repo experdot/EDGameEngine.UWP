@@ -30,6 +30,7 @@ Public Class Scene1
         Dim tempModel As New ParticalsLightning()
         Me.AddGameVisual(tempModel, New ParticalsView(tempModel))
         tempModel.GameComponents.Effects.Add(New GhostEffect With {.SourceRect = New Rect(0, 0, Width, Height)})
+        'tempModel.GameComponents.Effects.Add(New GaussianBlurEffect())
         'tempModel.GameComponents.Effects.Add(New FrostedEffect() With {.Amount = 10})
         Me.GameLayers(0).Background = Colors.Black
         '植物
@@ -94,14 +95,14 @@ Public Class Scene1
 
     End Sub
 
-    Public Overrides Async Function CreateResouces(imgRes As ImageResourceManager) As Task
-        Await imgRes.Add(ImageResourceID.TreeBranch1, "Image/Tree_Black.png")
-        Await imgRes.Add(ImageResourceID.TreeBranch2, "Image/Tree_White.png")
-        Await imgRes.Add(ImageResourceID.YellowFlower1, "Image/Flower_Yellow.png")
-        Await imgRes.Add(ImageResourceID.SmokePartial1, "Image/smoke.dds")
-        Await imgRes.Add(ImageResourceID.ExplosionPartial1, "Image/explosion.dds")
-        Await imgRes.Add(ImageResourceID.Back1, "Image/back.png")
-        Await imgRes.Add(ImageResourceID.Water1, "Image/Water.png")
-        Await imgRes.Add(ImageResourceID.Scenery1, "Image/Scenery1.png")
+    Public Overrides Async Function CreateResoucesAsync(imgResManager As ImageResourceManager) As Task
+        Await imgResManager.Add(ImageResourceID.TreeBranch1, "Image/Tree_Black.png")
+        Await imgResManager.Add(ImageResourceID.TreeBranch2, "Image/Tree_White.png")
+        Await imgResManager.Add(ImageResourceID.YellowFlower1, "Image/Flower_Yellow.png")
+        Await imgResManager.Add(ImageResourceID.SmokePartial1, "Image/smoke.dds")
+        Await imgResManager.Add(ImageResourceID.ExplosionPartial1, "Image/explosion.dds")
+        Await imgResManager.Add(ImageResourceID.Back1, "Image/back.png")
+        Await imgResManager.Add(ImageResourceID.Water1, "Image/Water.png")
+        Await imgResManager.Add(ImageResourceID.Scenery1, "Image/Scenery1.png")
     End Function
 End Class

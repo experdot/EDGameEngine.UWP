@@ -29,6 +29,9 @@ Public Class KeyboardDescription
         KeyStatus(keyCode) = False
         RaiseEvent KeyUp(keyCode)
     End Sub
+    ''' <summary>
+    ''' 创建并初始化一个实例
+    ''' </summary>
     Public Sub New()
         ReDim KeyStatus(255)
     End Sub

@@ -7,9 +7,22 @@ Imports Windows.System
 ''' </summary>
 Public MustInherit Class World
     Implements IDisposable
+    ''' <summary>
+    ''' 图形资源创建器
+    ''' </summary>
+    ''' <returns></returns>
     Public Property ResourceCreator As ICanvasResourceCreator
+    ''' <summary>
+    ''' UI容器
+    ''' </summary>
     Public Property UIContainer As Grid
+    ''' <summary>
+    ''' 宽度
+    ''' </summary>
     Public Property Width As Integer
+    ''' <summary>
+    ''' 高度
+    ''' </summary>
     Public Property Height As Integer
     ''' <summary>
     ''' 场景集合
