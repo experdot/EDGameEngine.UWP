@@ -146,10 +146,11 @@
     <Compile Include="Components\Media\IMedia.vb" />
     <Compile Include="Components\Trigger\ITrigger.vb" />
     <Compile Include="GameObject\GameView\Basic\PolygonView.vb" />
-    <Compile Include="GameObject\GameView\Particals\ParticalView.vb" />
+    <Compile Include="GameObject\GameView\Particals\ParticalsView.vb" />
     <Compile Include="GameObject\GameView\Sprite\SpriteView.vb" />
     <Compile Include="GameObject\GameView\Text\TextView.vb" />
     <Compile Include="GameObject\GameVisual\Body\Geometry\VisualPolygon.vb" />
+    <Compile Include="GameObject\GameVisual\Body\Particals\IPartical.vb" />
     <Compile Include="GameObject\GameVisual\Body\Sprite\ISprite.vb" />
     <Compile Include="GameObject\GameVisual\Body\Sprite\Sprite.vb" />
     <Compile Include="GameObject\GameVisual\Body\Text\IVisualText.vb" />
@@ -157,7 +158,6 @@
     <Compile Include="GameObject\GameView\Layer\LayerView.vb" />
     <Compile Include="GameObject\GameView\Scene\SceneView.vb" />
     <Compile Include="GameObject\GameVisual\Body\Particals\IParticals.vb" />
-    <Compile Include="GameObject\GameVisual\Body\Particals\Partical.vb" />
     <Compile Include="GameObject\GameVisual\Body\Particals\ParticalsBase.vb" />
     <Compile Include="GameObject\GameVisual\Body\Text\VisualString.vb" />
     <Compile Include="GameObject\GameVisual\Camera\Camera.vb" />

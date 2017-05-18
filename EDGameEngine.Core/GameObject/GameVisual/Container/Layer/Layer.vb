@@ -2,6 +2,7 @@
 Imports EDGameEngine.Core
 Imports Microsoft.Graphics.Canvas
 Imports Windows.Graphics.Effects
+Imports Windows.UI
 ''' <summary>
 ''' 图层
 ''' </summary>
@@ -14,6 +15,7 @@ Public Class Layer
     Public Overridable Property GameComponents As GameComponents = New GameComponents(Me) Implements ILayer.GameComponents
     Public Overridable Property Presenter As IGameView = New LayerView(Me) Implements IGameVisual.Presenter
     Public Overridable Property Rect As Rect Implements IGameVisual.Rect
+    Public Overridable Property Background As Color = Colors.Transparent Implements ILayer.Background
 
     Public Overridable Sub Start() Implements IGameObject.Start
         For Each SubBody In GameBodys

@@ -23,7 +23,7 @@ Public Class AutoDrawModel
     ''' <summary>
     ''' 每帧绘制长度
     ''' </summary>
-    Public Property PointsCountMax As Integer = 400
+    Public Property PointsCountMax As Integer = 10
 
     Public Overrides Sub StartEx()
         ImageSize = New Size(Image.Bounds.Width, Image.Bounds.Height)
@@ -53,7 +53,7 @@ Public Class AutoDrawModel
             For i = 0 To PointsCountMax - 1
                 CurrentPoints.Enqueue(DrawingMgr.NextPoint())
             Next
-            If PointsCountMax < 800 Then PointsCountMax += 1
+            If PointsCountMax < 100 Then PointsCountMax += 1
         End If
     End Sub
 End Class

@@ -10,7 +10,13 @@ Public Class SceneView
     End Sub
     Public Overrides Sub OnDraw(drawingSession As CanvasDrawingSession)
         For Each SubLayer In Target.GameLayers
-            SubLayer.Presenter.BeginDraw(drawingSession)
+            Using cmdList = New CanvasCommandList(drawingSession)
+                Using dl = cmdList.CreateDrawingSession
+                    dl.Clear(SubLayer.Background)
+                    SubLayer.Presenter.BeginDraw(dl)
+                End Using
+                drawingSession.DrawImage(cmdList)
+            End Using
         Next
     End Sub
 End Class

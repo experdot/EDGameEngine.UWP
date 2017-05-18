@@ -27,14 +27,14 @@ Public Class Scene1
         'circleModel.GameComponents.Behaviors.Add(New PhysicsScript)
 
         '粒子系统
-        'Dim tempModel As New ParticalFollow()
-        'Me.AddGameVisual(tempModel, New ParticalView(tempModel))
-        'tempModel.GameComponents.Effects.Add(New GhostEffect With {.SourceRect = New Rect(0, 0, Width, Height)})
+        Dim tempModel As New ParticalsLightning()
+        Me.AddGameVisual(tempModel, New ParticalsView(tempModel))
+        tempModel.GameComponents.Effects.Add(New GhostEffect With {.SourceRect = New Rect(0, 0, Width, Height)})
         'tempModel.GameComponents.Effects.Add(New FrostedEffect() With {.Amount = 10})
-
+        Me.GameLayers(0).Background = Colors.Black
         '植物
-        Dim tempModel2 As New Plant(New Vector2(Width / 2, Height * 0.8))
-        Me.AddGameVisual(tempModel2, New PlantView(tempModel2))
+        'Dim tempModel2 As New Plant(New Vector2(Width / 2, Height * 0.8))
+        'Me.AddGameVisual(tempModel2, New PlantView(tempModel2))
 
         '自动画画
         'Dim tempModel3 As New AutoDrawModel() With {.Image = ImageManager.GetResource(ImageResourceID.Scenery1)}

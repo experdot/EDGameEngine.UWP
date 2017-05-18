@@ -1,6 +1,6 @@
 ﻿Imports EDGameEngine.Core
 ''' <summary>
-''' 粒子系统
+''' 粒子系统接口
 ''' </summary>
 Public Interface IParticals
     Inherits IGameBody
@@ -11,5 +11,5 @@ Public Interface IParticals
     ''' <summary>
     ''' 粒子集合
     ''' </summary>
-    Property Particals As List(Of Partical)
+    Property Particals As IEnumerable(Of IPartical)
 End Interface
