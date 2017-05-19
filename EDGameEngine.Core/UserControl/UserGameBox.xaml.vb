@@ -44,6 +44,7 @@ Public NotInheritable Class UserGameBox
         TreeUpdate?.Invoke(sender, args)
     End Sub
     Private Sub AnimBox_Draw(sender As ICanvasAnimatedControl, args As CanvasAnimatedDrawEventArgs) Handles AnimBox.Draw
+        'TreeUpdate?.Invoke(sender, Nothing)
         TreeDraw?.Invoke(sender, args)
     End Sub
     Private Sub AnimBox_PointerMoved(sender As Object, e As PointerRoutedEventArgs) Handles AnimBox.PointerMoved

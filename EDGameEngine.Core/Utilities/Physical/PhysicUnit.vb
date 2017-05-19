@@ -1,5 +1,20 @@
 ﻿Imports System.Numerics
 Public Class PhysicUnit
+
+    ''' <summary>
+    ''' 所有方向
+    ''' </summary>
+    Public Shared VecAll() As Vector2 = {New Vector2(0, 1), New Vector2(0, -1), New Vector2(-1, 0), New Vector2(1, 0), New Vector2(0.7, -0.7), New Vector2(0.7, 0.7), New Vector2(-0.7, -0.7), New Vector2(-0.7, 0.7)}
+
+    ''' <summary>
+    ''' 向上方向
+    ''' </summary>
+    Public Shared VecUp() As Vector2 = {New Vector2(0, -1), New Vector2(0, -1), New Vector2(-1, 0), New Vector2(1, 0), New Vector2(0.7, -0.7), New Vector2(0.7, -0.7), New Vector2(-0.7, -0.7), New Vector2(-0.7, -0.7)}
+    ''' <summary>
+    ''' 向下方向
+    ''' </summary>
+    Public Shared VecDown() As Vector2 = {New Vector2(0, 1), New Vector2(0, 1), New Vector2(-1, 0), New Vector2(1, 0), New Vector2(0.7, 0.7), New Vector2(0.7, 0.7), New Vector2(-0.7, 0.7), New Vector2(-0.7, 0.7)}
+
     '''' <summary>
     '''' 摩擦力
     '''' </summary>
