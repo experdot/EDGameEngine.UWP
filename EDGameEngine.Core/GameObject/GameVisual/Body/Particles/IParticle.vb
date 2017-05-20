@@ -3,7 +3,7 @@ Imports Windows.UI
 ''' <summary>
 ''' 粒子接口
 ''' </summary>
-Public Interface IPartical
+Public Interface IParticle
     ''' <summary>
     ''' 颜色
     ''' </summary>

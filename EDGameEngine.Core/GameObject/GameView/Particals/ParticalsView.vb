@@ -6,8 +6,8 @@ Imports Windows.UI
 ''' 粒子系统视图
 ''' </summary>
 Public Class ParticalsView
-    Inherits TypedGameView(Of IParticals)
-    Public Sub New(Target As IParticals)
+    Inherits TypedGameView(Of IParticles)
+    Public Sub New(Target As IParticles)
         MyBase.New(Target)
     End Sub
     Public Overrides Sub OnDraw(drawingSession As CanvasDrawingSession)

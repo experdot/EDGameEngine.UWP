@@ -27,7 +27,7 @@ Public Class Scene1
         'circleModel.GameComponents.Behaviors.Add(New PhysicsScript)
 
         '粒子系统
-        Dim tempModel As New ParticalsTree()
+        Dim tempModel As New ParticlesTree()
         Me.AddGameVisual(tempModel, New ParticalsView(tempModel))
         tempModel.GameComponents.Effects.Add(New GhostEffect With {.SourceRect = New Rect(0, 0, Width, Height)})
         'tempModel.GameComponents.Effects.Add(New GaussianBlurEffect())

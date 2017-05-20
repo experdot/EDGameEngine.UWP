@@ -2,7 +2,7 @@
 ''' <summary>
 ''' 粒子系统接口
 ''' </summary>
-Public Interface IParticals
+Public Interface IParticles
     Inherits IGameBody
     ''' <summary>
     ''' 粒子数量
@@ -11,5 +11,5 @@ Public Interface IParticals
     ''' <summary>
     ''' 粒子集合
     ''' </summary>
-    Property Particals As IEnumerable(Of IPartical)
+    Property Particals As IEnumerable(Of IParticle)
 End Interface

@@ -4,11 +4,11 @@ Imports Windows.UI
 ''' <summary>
 ''' 表示一个拥有加速度、速度和位置矢量的粒子
 ''' </summary>
-Public Class DynamicPartical
-    Implements IPartical
-    Public Property Location As Vector2 Implements IPartical.Location
-    Public Property Size As Single = 1 Implements IPartical.Size
-    Public Property Color As Color Implements IPartical.Color
+Public Class DynamicParticle
+    Implements IParticle
+    Public Property Location As Vector2 Implements IParticle.Location
+    Public Property Size As Single = 1 Implements IParticle.Size
+    Public Property Color As Color Implements IParticle.Color
 
     Public Property Velocity As Vector2 '速度
     Public Property Acceleration As Vector2 '加速度

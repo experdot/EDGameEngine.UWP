@@ -8,7 +8,7 @@ Public Class Scene2
         MyBase.New(world, WindowSize)
     End Sub
     Public Overrides Sub CreateObject()
-        Dim tempModel As New ParticalsFollow()
+        Dim tempModel As New ParticlesFollow()
         Me.AddGameVisual(tempModel, New ParticalsView(tempModel))
         tempModel.GameComponents.Effects.Add(New GhostEffect With {.SourceRect = New Rect(0, 0, Width, Height)})
     End Sub
