@@ -212,6 +212,7 @@
     <Compile Include="Utilities\Properties\Appearance.vb" />
     <Compile Include="Utilities\Properties\Transform.vb" />
     <Compile Include="Utilities\Properties\SceneState\SceneState.vb" />
+    <Compile Include="Utilities\Properties\RenderMode\RenderMode.vb" />
     <Compile Include="Utilities\Quality\EffectQuality.vb" />
     <Compile Include="Utilities\Text\TextFormat.vb" />
     <EmbeddedResource Include="My Project\EDGameEngine.Core.rd.xml" />

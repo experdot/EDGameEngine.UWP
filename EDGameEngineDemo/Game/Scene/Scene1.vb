@@ -25,7 +25,7 @@ Public Class Scene1
         'circleModel.GameComponents.Behaviors.Add(New KeyControlScript With {.MaxSpeed = 2.0F})
         'rectModel.GameComponents.Behaviors.Add(New KeyControlScript With {.MaxSpeed = 5.0F})
         'circleModel.GameComponents.Behaviors.Add(New PhysicsScript)
-
+        World.RenderMode = RenderMode.Sync
         '粒子系统
         Dim tempModel As New ParticlesTree()
         Me.AddGameVisual(tempModel, New ParticalsView(tempModel))
