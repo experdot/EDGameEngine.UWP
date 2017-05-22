@@ -25,9 +25,10 @@
 - 不规则多边形
 
 ##### 粒子系统
-- [粒子集群](Documentation/Images/ParticalSystem/Sample_ParticalSystem_01.png)
-- [水花飞溅](Documentation/Images/ParticalSystem/Sample_ParticalSystem_02.png)
-- [光芒四射](Documentation/Images/ParticalSystem/Sample_ParticalSystem_03.png)
+- [粒子集群](Documentation/Images/ParticleSystem/Sample_ParticleSystem_01.png)
+- [水花飞溅](Documentation/Images/ParticleSystem/Sample_ParticleSystem_02.png)
+- [光芒四射](Documentation/Images/ParticleSystem/Sample_ParticleSystem_03.png)
+- [枝繁叶茂](Documentation/Images/ParticleSystem/Sample_ParticleSystem_04.png)
 
 ##### 分形
 - [朱利亚集](Documentation/Images/Fractal/Sample_Fractal_03.png)

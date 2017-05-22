@@ -24,10 +24,11 @@ Engine provides you with kinds of game models.
 - Line、Rectangle、Cicle
 - Polygon
 
-##### ParticalSystem
-- [Partical cluster](Documentation/Images/ParticalSystem/Sample_ParticalSystem_01.png)
-- [Splish splash](Documentation/Images/ParticalSystem/Sample_ParticalSystem_02.png)
-- [Brilliant light](Documentation/Images/ParticalSystem/Sample_ParticalSystem_03.png)
+##### ParticleSystem
+- [Partical cluster](Documentation/Images/ParticleSystem/Sample_ParticleSystem_01.png)
+- [Splish splash](Documentation/Images/ParticleSystem/Sample_ParticleSystem_02.png)
+- [Brilliant light](Documentation/Images/ParticleSystem/Sample_ParticleSystem_03.png)
+- [Plant](Documentation/Images/ParticleSystem/Sample_ParticleSystem_04.png)
 
 ##### Fractal
 - [GastonJulia](Documentation/Images/Fractal/Sample_Fractal_03.png)
