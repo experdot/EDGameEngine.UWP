@@ -10,7 +10,7 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Pivot Margin="0" Title="Pivot">
             <PivotItem Header="PivotItem 0">
-                <Grid/>
+                <Button Content="Button" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Click="Button_Click"/>
             </PivotItem>
             <PivotItem Header="PivotItem 1">
                 <Grid/>

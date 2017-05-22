@@ -13,6 +13,18 @@ Public NotInheritable Class MainPage
         Current = Me
         SampleTitle.Text = FEATURE_NAME
     End Sub
+    ''' <summary>
+    ''' 选择指定索引的场景
+    ''' </summary>
+    Public Sub SelectScenario(index As Integer)
+        ScenarioControl.SelectedIndex = index
+    End Sub
+    ''' <summary>
+    ''' 设置HeaderPanel可见性
+    ''' </summary>
+    Public Sub SetHeaderPanelVisible(value As Visibility)
+        HeaderPanel.Visibility = value
+    End Sub
 
     Protected Overrides Sub OnNavigatedTo(e As NavigationEventArgs)
         ' Populate the scenario list from the SampleConfiguration.cs file

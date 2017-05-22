@@ -6,4 +6,9 @@
 Public NotInheritable Class Scenario1_Start
     Inherits Page
 
+    Private Sub Button_Click(sender As Object, e As RoutedEventArgs)
+        Windows.UI.ViewManagement.ApplicationView.GetForCurrentView().TryEnterFullScreenMode()
+        MainPage.Current.SetHeaderPanelVisible(Visibility.Collapsed)
+        MainPage.Current.SelectScenario(1)
+    End Sub
 End Class
