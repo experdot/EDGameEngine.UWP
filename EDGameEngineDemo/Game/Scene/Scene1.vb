@@ -2,6 +2,7 @@
 Imports EDGameEngine.Components
 Imports EDGameEngine.Core
 Imports EDGameEngine.Visuals
+Imports Microsoft.Graphics.Canvas
 Imports Windows.UI
 Public Class Scene1
     Inherits Scene
@@ -26,13 +27,19 @@ Public Class Scene1
         'rectModel.GameComponents.Behaviors.Add(New KeyControlScript With {.MaxSpeed = 5.0F})
         'circleModel.GameComponents.Behaviors.Add(New PhysicsScript)
         World.RenderMode = RenderMode.Sync
+
+        Dim image As CanvasBitmap = CType(ImageManager.GetResource(ImageResourceId.Scenery1), CanvasBitmap)
+        Dim pixels As Color() = image.GetPixelColors()
+        Dim bounds As Rect = image.Bounds
         '粒子系统
         Dim tempModel As New ParticlesTree()
-        Me.AddGameVisual(tempModel, New ParticalsView(tempModel))
-        tempModel.GameComponents.Effects.Add(New GhostEffect With {.SourceRect = New Rect(0, 0, Width, Height)})
+        Me.AddGameVisual(tempModel, New ParticlesImageView(tempModel) With {.ImageResourceId = ImageResourceId.YellowFlower1, .ImageScale = 4.0F, .Colors = pixels, .Bounds = bounds})
+
+
         'tempModel.GameComponents.Effects.Add(New GaussianBlurEffect())
         'tempModel.GameComponents.Effects.Add(New FrostedEffect() With {.Amount = 10})
-        Me.GameLayers(0).Background = Colors.Black
+        'Me.GameLayers(0).Background = Colors.Black
+        Me.GameLayers(0).GameComponents.Effects.Add(New GhostEffect With {.SourceRect = New Rect(0, 0, Width, Height)})
         '植物
         'Dim tempModel2 As New Plant(New Vector2(Width / 2, Height * 0.8))
         'Me.AddGameVisual(tempModel2, New PlantView(tempModel2))
@@ -96,13 +103,13 @@ Public Class Scene1
     End Sub
 
     Public Overrides Async Function CreateResoucesAsync(imgResManager As ImageResourceManager) As Task
-        Await imgResManager.Add(ImageResourceID.TreeBranch1, "Image/Tree_Black.png")
-        Await imgResManager.Add(ImageResourceID.TreeBranch2, "Image/Tree_White.png")
-        Await imgResManager.Add(ImageResourceID.YellowFlower1, "Image/Flower_Yellow.png")
-        Await imgResManager.Add(ImageResourceID.SmokePartial1, "Image/smoke.dds")
-        Await imgResManager.Add(ImageResourceID.ExplosionPartial1, "Image/explosion.dds")
-        Await imgResManager.Add(ImageResourceID.Back1, "Image/back.png")
-        Await imgResManager.Add(ImageResourceID.Water1, "Image/Water.png")
-        Await imgResManager.Add(ImageResourceID.Scenery1, "Image/Scenery1.png")
+        Await imgResManager.Add(ImageResourceId.TreeBranch1, "Image/Tree_Black.png")
+        Await imgResManager.Add(ImageResourceId.TreeBranch2, "Image/Tree_White.png")
+        Await imgResManager.Add(ImageResourceId.YellowFlower1, "Image/Flower_Yellow.png")
+        Await imgResManager.Add(ImageResourceId.SmokeParticle1, "Image/smoke.dds")
+        Await imgResManager.Add(ImageResourceId.ExplosionPartial1, "Image/explosion.dds")
+        Await imgResManager.Add(ImageResourceId.Back1, "Image/back.png")
+        Await imgResManager.Add(ImageResourceId.Water1, "Image/Water.png")
+        Await imgResManager.Add(ImageResourceId.Scenery1, "Image/Scenery13.png")
     End Function
 End Class

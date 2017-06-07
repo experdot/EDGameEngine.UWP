@@ -35,7 +35,7 @@ Public Class PlantView
         Dim branchWidth = Target.Root.Rank * 15 * Math.Pow(Tw(SubNode.Rank), 9 - SubNode.Rank) * SubNode.Percent
         Dim BranchHeight As Single = loc.Length * SubNode.Percent
         ds.Transform = Matrix3x2.CreateRotation(CSng(Math.Atan2(loc.Y, loc.X) - Math.PI / 2 + Math.PI * 2 * SubNode.DiePercent * 0）, tempV)
-        ds.DrawImage(Target.Scene.ImageManager.GetResource(ImageResourceID.TreeBranch1),
+        ds.DrawImage(Target.Scene.ImageManager.GetResource(ImageResourceId.TreeBranch1),
                      New Rect(tempV.X, tempV.Y, branchWidth, BranchHeight),
                      New Rect(0, 0, 100, 300),
                     CSng(0.9 + (0.1 / Target.Root.Rank) * SubNode.Rank))
@@ -44,7 +44,7 @@ Public Class PlantView
     Private Sub DrawFlower(ds As CanvasDrawingSession, Ratio As Single, SubNode As TreeNode, tempV As Vector2)
         If SubNode.HasFlower And SubNode.Percent > 0.5 Then
             Dim Border As Single = Ratio * SubNode.FlowerSize * SubNode.Percent
-            ds.DrawImage(DirectCast(Target.Scene.ImageManager.GetResource(ImageResourceID.YellowFlower1), CanvasBitmap),
+            ds.DrawImage(DirectCast(Target.Scene.ImageManager.GetResource(ImageResourceId.YellowFlower1), CanvasBitmap),
                          New Rect(tempV.X - Border, tempV.Y - Border, Border * 2, Border * 2))
         End If
     End Sub

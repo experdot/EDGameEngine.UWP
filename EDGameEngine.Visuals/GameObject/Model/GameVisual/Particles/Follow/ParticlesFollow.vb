@@ -13,23 +13,23 @@ Public Class ParticlesFollow
             dynamics.Add(New DynamicParticle(New Vector2(Scene.Width / 2, Scene.Height / 2)))
             dynamics(i).Mass = CSng(1 + Rnd.NextDouble * 99)
             dynamics(i).Size = CSng(0.1 + Rnd.NextDouble * 4)
-            dynamics(i).ImageSize = CSng(2 + Rnd.NextDouble * 2)
+            dynamics(i).ImageScale = CSng(2 + Rnd.NextDouble * 2)
             dynamics(i).Color = Color.FromArgb(255, 0, 0, 0)
         Next
-        Particals = dynamics
+        Particles = dynamics
         AddHandler Scene.Inputs.Mouse.MouseChanged, AddressOf OnMouseMove
     End Sub
 
     Public Overrides Sub UpdateEx()
         Dim center As New Vector2(Scene.Width / 2, Scene.Height / 2)
         Dim lenth As Single = CSng(Math.Sqrt(Scene.Width * Scene.Width / 4 + Scene.Height * Scene.Height / 4))
-        For Each SubEle As DynamicParticle In Particals
+        For Each SubEle As DynamicParticle In Particles
             SubEle.ApplyForce(Vectors(Rnd.Next(8)) * 2)
             'SubEle.ApplyForce(New Vector2(1 * Rnd.NextDouble, 0))
             'SubEle.ApplyForce(MouseVec - SubEle.Location)
             If (SubEle.Location - center).Length > lenth Then
                 Dim index As Integer = Rnd.Next(0, Count)
-                SubEle.MoveTo(Particals(index).Location)
+                SubEle.MoveTo(Particles(index).Location)
             End If
             SubEle.Move()
         Next

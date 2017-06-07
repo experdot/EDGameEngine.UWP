@@ -146,7 +146,8 @@
     <Compile Include="Components\Media\IMedia.vb" />
     <Compile Include="Components\Trigger\ITrigger.vb" />
     <Compile Include="GameObject\GameView\Basic\PolygonView.vb" />
-    <Compile Include="GameObject\GameView\Particals\ParticalsView.vb" />
+    <Compile Include="GameObject\GameView\Particles\ParticlesImageView.vb" />
+    <Compile Include="GameObject\GameView\Particles\ParticlesView.vb" />
     <Compile Include="GameObject\GameView\Sprite\SpriteView.vb" />
     <Compile Include="GameObject\GameView\Text\TextView.vb" />
     <Compile Include="GameObject\GameVisual\Body\Geometry\VisualPolygon.vb" />

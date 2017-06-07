@@ -157,9 +157,11 @@
     <Compile Include="GameObject\Model\GameVisual\Fractal\GastonJulia.vb" />
     <Compile Include="GameObject\Model\GameVisual\Fractal\NatureTree.vb" />
     <Compile Include="GameObject\Model\GameVisual\Fractal\Mandelbrot.vb" />
+    <Compile Include="GameObject\Model\GameVisual\Particles\Hexgon\Basic\LineParticle.vb" />
+    <Compile Include="GameObject\Model\GameVisual\Particles\Hexgon\ParticlesHexgon.vb" />
     <Compile Include="GameObject\Model\GameVisual\Particles\Tree\ParticlesTree.vb" />
     <Compile Include="GameObject\Model\GameVisual\Particles\Tree\Basic\SpotParticle.vb" />
-    <Compile Include="GameObject\Model\GameVisual\Particles\Follow\Basic\DynamicParticle.vb" />
+    <Compile Include="GameObject\Model\GameVisual\Particles\Base\DynamicParticle.vb" />
     <Compile Include="GameObject\Model\GameVisual\Particles\Follow\ParticlesFollow.vb" />
     <Compile Include="GameObject\Model\GameVisual\Plant\IPlant.vb" />
     <Compile Include="GameObject\Model\GameVisual\Plant\Plant.vb" />

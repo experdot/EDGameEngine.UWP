@@ -16,4 +16,12 @@ Public Interface IParticle
     ''' 大小
     ''' </summary>
     Property Size As Single
+    ''' <summary>
+    ''' 年龄
+    ''' </summary>
+    Property Age As Single
+    ''' <summary>
+    ''' 是否死亡
+    ''' </summary>
+    Property IsDead As Boolean
 End Interface

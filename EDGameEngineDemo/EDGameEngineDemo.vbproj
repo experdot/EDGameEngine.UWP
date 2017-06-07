@@ -142,6 +142,7 @@
     <Content Include="Image\Scenery1.png" />
     <Content Include="Image\Scenery11.png" />
     <Content Include="Image\Scenery12.png" />
+    <Content Include="Image\Scenery13.png" />
     <Content Include="Image\smoke.dds" />
     <Content Include="Image\Tree_Black.png" />
     <Content Include="Image\Tree_White.png" />

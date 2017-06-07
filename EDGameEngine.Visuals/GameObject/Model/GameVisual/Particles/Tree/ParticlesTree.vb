@@ -6,30 +6,24 @@ Imports Windows.UI
 ''' </summary>
 Public Class ParticlesTree
     Inherits ParticlesBase
-
     Dim Spots As List(Of SpotParticle)
 
     Public Overrides Sub StartEx()
-        Dim center As New Vector2(Scene.Width / 2, Scene.Height * 1.4F)
+        Dim center As New Vector2(Scene.Width / 2, Scene.Height * 0.85F)
         Spots = New List(Of SpotParticle)
-        Spots.Add(New SpotParticle(center) With {.Color = Color.FromArgb(20, 0, 0, 0), .Size = 4.0F * 24})
-        Spots.Last.Velocity = New Vector2(0, -12.0F)
-        Particals = Spots
+        Spots.Add(New SpotParticle(center) With {.Color = Color.FromArgb(255, 0, 0, 0), .Size = 128.0F})
+        Spots.Last.Velocity = New Vector2(0, -9.0F)
+        Spots.Last.Age = 60
+        Particles = Spots
     End Sub
 
     Public Overrides Sub UpdateEx()
-        Static count As Integer = 0
-
-        If Spots.Count < 3000000 Then
+        If Spots.Count > 0 Then
             For i = 0 To Spots.Count - 1
-                Spots(i).DivideRandom(Spots, RandomHelper.NextNorm(2, 4) - 1)
-                Spots(i).Update()
+                Spots(i).Update(Spots, RandomHelper.NextNorm(1, 3))
             Next
-        Else
-            For i = 0 To Spots.Count - 1
-                Spots(i).Update()
-            Next
+            KillDead(Of SpotParticle)(Spots)
         End If
-
     End Sub
+
 End Class

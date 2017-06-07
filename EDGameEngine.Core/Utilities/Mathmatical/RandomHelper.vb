@@ -10,7 +10,7 @@ Public Class RandomHelper
     Public Shared Function NextNorm(min As Integer, max As Integer, Optional count As Integer = 3) As Integer
         Dim temp As Long = 0
         For i = 0 To count - 1
-            temp += Rnd.Next(min, max)
+            temp += Rnd.Next(min, max + 1)
         Next
         Return CInt(temp / count)
     End Function

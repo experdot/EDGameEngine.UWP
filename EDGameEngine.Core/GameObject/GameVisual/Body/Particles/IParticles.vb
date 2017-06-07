@@ -11,5 +11,5 @@ Public Interface IParticles
     ''' <summary>
     ''' 粒子集合
     ''' </summary>
-    Property Particals As IEnumerable(Of IParticle)
+    Property Particles As IEnumerable(Of IParticle)
 End Interface
