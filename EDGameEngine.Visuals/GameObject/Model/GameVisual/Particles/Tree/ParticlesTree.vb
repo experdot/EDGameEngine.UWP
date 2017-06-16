@@ -10,10 +10,11 @@ Public Class ParticlesTree
 
     Public Overrides Sub StartEx()
         Dim center As New Vector2(Scene.Width / 2, Scene.Height * 0.85F)
-        Spots = New List(Of SpotParticle)
-        Spots.Add(New SpotParticle(center) With {.Color = Color.FromArgb(255, 0, 0, 0), .Size = 128.0F})
-        Spots.Last.Velocity = New Vector2(0, -9.0F)
-        Spots.Last.Age = 60
+        Spots = New List(Of SpotParticle) From {
+            New SpotParticle(center) With {.Color = Color.FromArgb(255, 0, 0, 0), .Size = 128.0F}
+        }
+        Spots.First.Velocity = New Vector2(0, -9.0F)
+        Spots.First.Age = 60
         Particles = Spots
     End Sub
 

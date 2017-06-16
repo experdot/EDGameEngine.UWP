@@ -1,4 +1,5 @@
-﻿Imports Windows.UI
+﻿Imports System.Numerics
+Imports Windows.UI
 ''' <summary>
 ''' 线条画
 ''' </summary>
@@ -15,37 +16,64 @@ Public Class Drawing
     ''' 画笔颜色Alpha通道
     ''' </summary>
     Public Property PenAlpha As Integer = 255
+    ''' <summary>
+    ''' 层索引
+    ''' </summary>
+    Public Property LayerIndex As Integer = 0
 
-    Public Sub New(pixels As PixelData, split As Integer)
-        Dim temp As Integer = CInt(255 / split)
+    Public Sub New(pixels As PixelData, split As Integer, index As Integer, Optional mode As ScanMode = ScanMode.Rect)
+        LayerIndex = index
+        Dim temp As Integer = CInt(256 / split)
         For i = 0 To split
-            Dim tempAI = New SequenceAI(GetImageBolLimit(pixels.Colors, pixels.Width, pixels.Height, CInt(i * temp - temp / 2), CInt(i * temp + temp / 2)))
-            Lines.AddRange(tempAI.Lines)
+            Using tempAI = New SequenceAI(GetImageBolLimit(pixels.Colors, pixels.Width, pixels.Height, CInt(i * temp - temp / 2), CInt(i * temp + temp / 2)), mode)
+                Lines.AddRange(tempAI.Lines)
+            End Using
         Next
         MatchLineColor(pixels)
+        UpdateLines()
     End Sub
+
+    Public Function NextLinesByLocation(loc As Vector2, distance As Single) As List(Of Line)
+        Dim result As New List(Of Line)
+        result.AddRange(Lines.Where(Function(line As Line)
+                                        Return line.IsNear(loc, distance)
+                                    End Function))
+        result.ForEach(Sub(line As Line)
+                           Lines.Remove(line)
+                       End Sub)
+        Return result
+    End Function
     ''' <summary>
     ''' 降噪
     ''' </summary>
     Public Sub Denoising(Optional count As Integer = 10)
-        Dim actions As New List(Of Action)
-        For Each SubSeq In Lines
-            If SubSeq.Points.Count < count Then
-                actions.Add(Sub()
-                                ' Lines.Remove(SubSeq)
-                                SubSeq.Points.Clear()
-                            End Sub)
-            End If
-        Next
-        For Each SubAct In actions
-            SubAct.Invoke
-        Next
-        actions.Clear()
+        Lines.RemoveAll(Function(line As Line)
+                            Return line.Points.Count <= count
+                        End Function)
     End Sub
+
+    ''' <summary>
+    ''' 更新线条大小
+    ''' </summary>
+    Public Sub UpdatePointsSizeOfLine()
+        For Each SubLine In Lines
+            SubLine.CalcSize()
+        Next
+    End Sub
+    ''' <summary>
+    ''' 更新线条颜色
+    ''' </summary>
+    Public Sub UpdatePointsColorOfLine()
+        For Each SubLine In Lines
+            SubLine.CalcAverageColor()
+        Next
+    End Sub
+
+
     ''' <summary>
     ''' 配色
     ''' </summary>
-    Public Sub MatchLineColor(pixels As PixelData)
+    Private Sub MatchLineColor(pixels As PixelData)
         For Each SubLine In Lines
             For Each SubPoint In SubLine.Points
                 SubPoint.Color = pixels.Colors(CInt(SubPoint.Position.Y) * pixels.Width + CInt(SubPoint.Position.X))
@@ -53,20 +81,16 @@ Public Class Drawing
         Next
     End Sub
     ''' <summary>
-    ''' 匹配大小
+    ''' 更新绘制点的层索引与位置
     ''' </summary>
-    Public Sub MatchLineSize()
+    Private Sub UpdateLines()
         For Each SubLine In Lines
-            SubLine.CalcSize()
+            SubLine.UpdateLayerIndex(Me.LayerIndex)
+            SubLine.CalcLocation()
         Next
-    End Sub
-    ''' <summary>
-    ''' 匹配平均色
-    ''' </summary>
-    Public Sub MatchAverageColor()
-        For Each SubLine In Lines
-            SubLine.CalcAverageColor()
-        Next
+        Lines.RemoveAll(Function(line)
+                            Return line.Points.Count = 0
+                        End Function)
     End Sub
 
     ''' <summary>

@@ -4,6 +4,7 @@ Imports Windows.UI
 ''' 表示自动循迹并生成绘制序列的AI
 ''' </summary>
 Public Class SequenceAI
+    Implements IDisposable
     ''' <summary>
     ''' 线条集
     ''' </summary>
@@ -18,7 +19,8 @@ Public Class SequenceAI
     ''' <summary>
     ''' 创建并初始化一个可自动生成绘制序列AI的实例
     ''' </summary>
-    Public Sub New(BolArr(,) As Integer)
+    Public Sub New(BolArr(,) As Integer, Optional mode As ScanMode = ScanMode.Rect)
+        Me.ScanMode = mode
         Lines = New List(Of Line)
         CalculateSequence(BolArr)
     End Sub
@@ -33,7 +35,7 @@ Public Class SequenceAI
     ''' 在序列List末尾项新增一个点
     ''' </summary>
     Private Sub AddPoint(p As Vector2)
-        Lines.Last.Points.Add(New Point() With {.Position = p, .Size = 1})
+        Lines.Last.Points.Add(New PointWithLayer() With {.Position = p, .Size = 1})
     End Sub
     ''' <summary>
     ''' 计算序列
@@ -49,15 +51,15 @@ Public Class SequenceAI
     ''' 圆形扫描
     ''' </summary>
     Private Sub ScanCircle(BolArr(,) As Integer)
-        Dim xCount As Integer = BolArr.GetUpperBound(0)
-        Dim yCount As Integer = BolArr.GetUpperBound(1)
-        Dim CP As New Vector2(CSng(xCount / 2), CSng(yCount / 2))
-        Dim R As Integer = 0
-        For R = 0 To If(xCount > yCount, xCount, yCount)
-            For Theat = 0 To Math.PI * 2 Step 1 / R
-                Dim dx As Integer = CInt(CP.X + R * Math.Cos(Theat))
-                Dim dy As Integer = CInt(CP.Y + R * Math.Sin(Theat))
-                If Not (dx > 0 And dy > 0 And dx < xCount And dy < yCount) Then Continue For
+        Dim xlength As Integer = BolArr.GetLength(0)
+        Dim ylength As Integer = BolArr.GetLength(1)
+        Dim center As New Vector2(CSng(xlength / 2), CSng(ylength / 2))
+        Dim radius As Integer = 0
+        For radius = 0 To CInt(Math.Sqrt(xlength * xlength + ylength * ylength))
+            For Theat = 0 To Math.PI * 2 Step 1 / radius
+                Dim dx As Integer = CInt(center.X + radius * Math.Cos(Theat))
+                Dim dy As Integer = CInt(center.Y + radius * Math.Sin(Theat))
+                If Not (dx >= 0 AndAlso dy >= 0 AndAlso dx < xlength AndAlso dy < ylength) Then Continue For
                 If BolArr(dx, dy) = 1 Then
                     BolArr(dx, dy) = 0
                     Me.CreateNewSequence()
@@ -140,5 +142,38 @@ Public Class SequenceAI
         Next
         Return ResultValue
     End Function
+
+#Region "IDisposable Support"
+    Private disposedValue As Boolean ' 要检测冗余调用
+
+    ' IDisposable
+    Protected Overridable Sub Dispose(disposing As Boolean)
+        If Not disposedValue Then
+            If disposing Then
+                ' TODO: 释放托管状态(托管对象)。
+                Lines.Clear()
+            End If
+
+            ' TODO: 释放未托管资源(未托管对象)并在以下内容中替代 Finalize()。
+            ' TODO: 将大型字段设置为 null。
+        End If
+        disposedValue = True
+    End Sub
+
+    ' TODO: 仅当以上 Dispose(disposing As Boolean)拥有用于释放未托管资源的代码时才替代 Finalize()。
+    'Protected Overrides Sub Finalize()
+    '    ' 请勿更改此代码。将清理代码放入以上 Dispose(disposing As Boolean)中。
+    '    Dispose(False)
+    '    MyBase.Finalize()
+    'End Sub
+
+    ' Visual Basic 添加此代码以正确实现可释放模式。
+    Public Sub Dispose() Implements IDisposable.Dispose
+        ' 请勿更改此代码。将清理代码放入以上 Dispose(disposing As Boolean)中。
+        Dispose(True)
+        ' TODO: 如果在以上内容中替代了 Finalize()，则取消注释以下行。
+        ' GC.SuppressFinalize(Me)
+    End Sub
+#End Region
 
 End Class

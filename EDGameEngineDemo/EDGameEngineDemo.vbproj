@@ -143,6 +143,8 @@
     <Content Include="Image\Scenery11.png" />
     <Content Include="Image\Scenery12.png" />
     <Content Include="Image\Scenery13.png" />
+    <Content Include="Image\Scenery14.png" />
+    <Content Include="Image\Scenery15.png" />
     <Content Include="Image\smoke.dds" />
     <Content Include="Image\Tree_Black.png" />
     <Content Include="Image\Tree_White.png" />

@@ -28,26 +28,26 @@ Public Class Scene1
         'circleModel.GameComponents.Behaviors.Add(New PhysicsScript)
         World.RenderMode = RenderMode.Sync
 
-        Dim image As CanvasBitmap = CType(ImageManager.GetResource(ImageResourceId.Scenery1), CanvasBitmap)
-        Dim pixels As Color() = image.GetPixelColors()
-        Dim bounds As Rect = image.Bounds
+        'Dim image As CanvasBitmap = CType(ImageManager.GetResource(ImageResourceId.Scenery1), CanvasBitmap)
+        'Dim pixels As Color() = image.GetPixelColors()
+        'Dim bounds As Rect = image.Bounds
         '粒子系统
-        Dim tempModel As New ParticlesTree()
-        Me.AddGameVisual(tempModel, New ParticlesImageView(tempModel) With {.ImageResourceId = ImageResourceId.YellowFlower1, .ImageScale = 4.0F, .Colors = pixels, .Bounds = bounds})
+        'Dim tempModel As New ParticlesTree()
+        'Me.AddGameVisual(tempModel, New ParticlesImageView(tempModel) With {.ImageResourceId = ImageResourceId.YellowFlower1, .ImageScale = 4.0F, .Colors = pixels, .Bounds = bounds})
 
 
         'tempModel.GameComponents.Effects.Add(New GaussianBlurEffect())
         'tempModel.GameComponents.Effects.Add(New FrostedEffect() With {.Amount = 10})
         'Me.GameLayers(0).Background = Colors.Black
-        Me.GameLayers(0).GameComponents.Effects.Add(New GhostEffect With {.SourceRect = New Rect(0, 0, Width, Height)})
+        'Me.GameLayers(0).GameComponents.Effects.Add(New GhostEffect With {.SourceRect = New Rect(0, 0, Width, Height)})
         '植物
         'Dim tempModel2 As New Plant(New Vector2(Width / 2, Height * 0.8))
         'Me.AddGameVisual(tempModel2, New PlantView(tempModel2))
 
         '自动画画
-        'Dim tempModel3 As New AutoDrawModel() With {.Image = ImageManager.GetResource(ImageResourceID.Scenery1)}
-        'tempModel3.GameComponents.Behaviors.Add(New TransformScript)
-        'Me.AddGameVisual(tempModel3, New AutoDrawView(tempModel3))
+        Dim tempModel3 As New AutoDrawModel() With {.Image = ImageManager.GetResource(ImageResourceId.Scenery1)}
+        tempModel3.GameComponents.Behaviors.Add(New TransformScript)
+        Me.AddGameVisual(tempModel3, New AutoDrawView(tempModel3))
 
 
         '指针
@@ -92,7 +92,7 @@ Public Class Scene1
         '创建物体脚本
         'Me.GameComponents.Behaviors.Add(New CreateBodyScript())
         '键盘控制摄像机
-        Me.Camera.GameComponents.Behaviors.Add(New KeyControlScript With {.MaxSpeed = 5.0F})
+        'Me.Camera.GameComponents.Behaviors.Add(New KeyControlScript With {.MaxSpeed = 5.0F})
         'Me.GameComponents.Effects.Add(New StreamEffect)
         '场景全局残影
         'Me.GameComponents.Effects.Add(New GhostEffect With {.SourceRect = New Rect(0, 0, Width, Height), .Opacity = 1})
@@ -110,6 +110,6 @@ Public Class Scene1
         Await imgResManager.Add(ImageResourceId.ExplosionPartial1, "Image/explosion.dds")
         Await imgResManager.Add(ImageResourceId.Back1, "Image/back.png")
         Await imgResManager.Add(ImageResourceId.Water1, "Image/Water.png")
-        Await imgResManager.Add(ImageResourceId.Scenery1, "Image/Scenery13.png")
+        Await imgResManager.Add(ImageResourceId.Scenery1, "Image/Scenery12.png")
     End Function
 End Class
