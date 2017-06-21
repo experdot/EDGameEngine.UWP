@@ -11,10 +11,22 @@ Public Class DrawingManager
     ''' 线条画集合
     ''' </summary>
     Public Property Drawings As List(Of Drawing)
-
+    ''' <summary>
+    ''' 图像宽度
+    ''' </summary>
     Public Property Width As Integer
+    ''' <summary>
+    ''' 图像高度
+    ''' </summary>
     Public Property Height As Integer
-
+    ''' <summary>
+    ''' 是否结束
+    ''' </summary>
+    Public Property IsOver As Boolean = False
+    ''' <summary>
+    ''' 是否重置
+    ''' </summary>
+    Dim IsReset As Boolean = True
     ''' <summary>
     ''' 创建并初始化一个实例
     ''' </summary>
@@ -29,11 +41,12 @@ Public Class DrawingManager
         Height = CInt(image.Bounds.Height)
         Dim sizes As Single() = {16.851, 12.234, 6.617, 3.618, 2, 0.618, 0.38}
         Dim alphas As Byte() = {90, 130, 160, 190, 210, 240, 250}
-        'Dim alphas As Byte() = {100, 125, 145, 160, 170, 175, 180}
         Dim noises As Integer() = {70, 50, 30, 20, 10, 5, 2}
         Dim splits As Integer() = {3, 4, 5, 6, 7, 8, 8}
 
         Drawings.Clear()
+
+        '过渡图层
         For i = 0 To count - 2
             Dim pixel As PixelData = GetGaussianPixelData(image, CInt((8 - i) / 2))
             Drawings.Add(New Drawing(pixel, i + 3, i, ScanMode.Circle) With {.PenAlpha = CInt(alphas(i) / 16), .PenSize = sizes(i) / 2})
@@ -41,30 +54,28 @@ Public Class DrawingManager
             Drawings(i).UpdatePointsSizeOfLine()
             Drawings(i).UpdatePointsColorOfLine()
         Next
+        '最终图层
         Dim tempPixels As New PixelData(image.GetPixelColors, CInt(image.Bounds.Width), CInt(image.Bounds.Height))
         Drawings.Add(New Drawing(tempPixels, 9, count - 1, ScanMode.Circle) With {.PenAlpha = 255, .PenSize = 1})
     End Sub
-
-    Private Function GetGaussianPixelData(image As CanvasBitmap, Optional amount As Integer = 3) As PixelData
-        Dim result As PixelData
-        Using render = New CanvasRenderTarget(image.Device, Width, Height, 96)
-            Using ds = render.CreateDrawingSession
-                Using gaussian = New Effects.GaussianBlurEffect With {.Source = image, .BlurAmount = amount}
-                    ds.Clear(Colors.Transparent)
-                    ds.DrawImage(gaussian)
-                End Using
-            End Using
-            result = New PixelData(render.GetPixelColors, CInt(image.Size.Width), CInt(image.Size.Height))
-        End Using
-        Return result
-    End Function
-
     ''' <summary>
-    ''' 返回快速的下一个点
+    ''' 重置
+    ''' </summary>
+    Public Sub Reset()
+        IsReset = True
+    End Sub
+    ''' <summary>
+    ''' 返回速度优先的下一个点
     ''' </summary>
     Public Function NextPointFast() As PointWithLayer
         Static Index0, Index1, Index2 As Integer
-        Static IsOver As Boolean
+        If IsReset Then
+            Index0 = 0
+            Index1 = 0
+            Index2 = 0
+            IsOver = False
+            IsReset = False
+        End If
         If IsOver Then
             Return New PointWithLayer() With {.Color = Colors.Transparent, .Position = Vector2.Zero, .Size = 1}
         End If
@@ -80,15 +91,15 @@ Public Class DrawingManager
                 End If
             End While
         End While
-        Dim tp As PointWithLayer = Drawings(Index0).Lines(Index1).Points(Index2)
-        Dim tc As Color = tp.Color
-        tc.A = CByte(Drawings(Index0).PenAlpha)
-        Dim size As Single = tp.Size * Drawings(Index0).PenSize
+        Dim point As PointWithLayer = Drawings(Index0).Lines(Index1).Points(Index2)
+        Dim size As Single = point.Size * Drawings(Index0).PenSize
+        Dim color As Color = point.Color
+        color.A = CByte(Drawings(Index0).PenAlpha)
         Index2 += 1
-        Return New PointWithLayer() With {.Color = tc, .Position = tp.Position, .Size = size, .LayerIndex = tp.LayerIndex}
+        Return New PointWithLayer() With {.Color = color, .Position = point.Position, .Size = size, .LayerIndex = point.LayerIndex}
     End Function
     ''' <summary>
-    ''' 返回高质量的下一个点
+    ''' 返回质量优先的下一个点
     ''' </summary>
     Public Function NextPointQuality() As PointWithLayer
         Static Max As Single = If(Width > Height, Width, Height)
@@ -102,24 +113,6 @@ Public Class DrawingManager
                 Collections.Add(NextLinesInCircle(radius))
                 Debug.WriteLine($"已完成{i + 1}个，完成度{Math.Round((i + 1) / count * 100, 2)}%")
             Next
-
-            'Dim templine1, templine2, templine3 As New Line
-            'For i = 0 To 0
-            '    templine1.Points.Add(New PointWithLayer() With {.Color = Colors.Black, .Position = New Vector2(i + 50, i + 50)})
-            'Next
-            'For i = 0 To 100
-            '    templine2.Points.Add(New PointWithLayer() With {.Color = Colors.Black, .Position = New Vector2(i + 100, i + 50)})
-            'Next
-            'For i = 0 To 200
-            '    templine3.Points.Add(New PointWithLayer() With {.Color = Colors.Black, .Position = New Vector2(i + 150, i + 50)})
-            'Next
-            'templine1.CalcSize()
-            'templine2.CalcSize()
-            'templine3.CalcSize()
-            'Collections.Add(New List(Of Line) From {templine1, templine2, templine3})
-
-
-
             Collections.RemoveAll(Function(lines As List(Of Line))
                                       Return lines.Count = 0
                                   End Function)
@@ -131,20 +124,25 @@ Public Class DrawingManager
         End If
 
         Static Index0, Index1, Index2 As Integer
-        Static IsOver As Boolean
-        If IsOver Then
-            Return New PointWithLayer() With {.Color = Colors.Transparent, .Position = Vector2.Zero, .Size = 1}
-        End If
-        While (Index1 >= Collections(Index0).Count)
+        If IsReset Then
+            Index0 = 0
             Index1 = 0
-            Collections.RemoveAt(Index0)
-            Index0 = CInt(Math.Abs(RandomHelper.NextNorm(-Collections.Count + 1, Collections.Count - 1)) * 0.15F)
-            'Index0 += 1
-            If Index0 >= Collections.Count Then
-                IsOver = True
-                Return New PointWithLayer() With {.Color = Colors.Transparent, .Position = Vector2.Zero, .Size = 0}
-            End If
-        End While
+            Index2 = 0
+            IsOver = False
+            IsReset = False
+        End If
+        If IsOver Then
+            Return Nothing
+        End If
+        'While (Index1 >= Collections(Index0).Count)
+        '    Index1 = 0
+        '    Collections.RemoveAt(Index0)
+        '    Index0 = CInt(Math.Abs(RandomHelper.NextNorm(-Collections.Count + 1, Collections.Count - 1)) * 0.15F)
+        '    If Index0 >= Collections.Count Then
+        '        IsOver = True
+        '        Return Nothing
+        '    End If
+        'End While
         While (Index2 >= Collections(Index0).Item(Index1).Points.Count)
             Index2 = 0
             Index1 += 1
@@ -152,29 +150,27 @@ Public Class DrawingManager
                 Index1 = 0
                 Collections.RemoveAt(Index0)
                 Index0 = CInt(Math.Abs(RandomHelper.NextNorm(-Collections.Count + 1, Collections.Count)) * 0.15F)
-                'Index0 += 1
                 If Index0 = 0 AndAlso Collections.Count = 1 Then
                     IsOver = IsOver
                 End If
                 If Index0 >= Collections.Count Then
                     IsOver = True
-                    Return New PointWithLayer() With {.Color = Colors.Transparent, .Position = Vector2.Zero, .Size = 0}
+                    Return Nothing
                 End If
             End While
         End While
 
-        Dim tp As PointWithLayer = Collections(Index0).Item(Index1).Points(Index2)
-        Dim tc As Color = tp.Color
-        tc.A = CByte(Drawings(tp.LayerIndex).PenAlpha)
-        Dim size As Single = tp.Size * Drawings(tp.LayerIndex).PenSize
+        Dim point As PointWithLayer = Collections(Index0).Item(Index1).Points(Index2)
+        Dim size As Single = point.Size * Drawings(point.LayerIndex).PenSize
+        Dim color As Color = point.Color
+        color.A = CByte(Drawings(point.LayerIndex).PenAlpha)
         Index2 += 1
-        Return New PointWithLayer() With {.Color = tc, .Position = tp.Position, .Size = size, .LayerIndex = tp.LayerIndex}
-
+        Return New PointWithLayer() With {.Color = color, .Position = point.Position, .Size = size, .LayerIndex = point.LayerIndex}
     End Function
     ''' <summary>
     ''' 返回参考图层的线段,矩形扫描
     ''' </summary>
-    Public Function NextLines(radius As Single) As List(Of Line)
+    Private Function NextLinesInRect(radius As Single) As List(Of Line)
         Static x As Single = 0
         Static y As Single = 0
         Static DistanceMax As Single = New Vector2(Width, Height).Length
@@ -188,7 +184,7 @@ Public Class DrawingManager
                 x += radius
             End If
             For i = 0 To Drawings.Count - 1
-                result.AddRange(Drawings(i).NextLinesByLocation(New Vector2(x, y), CSng((DistanceMax - i * Distance) * (1 - (i * i) / DCount))))
+                result.AddRange(Drawings(i).GetLinesByLocation(New Vector2(x, y), CSng((DistanceMax - i * Distance) * (1 - (i * i) / DCount))))
             Next
         End If
         Return result
@@ -196,7 +192,7 @@ Public Class DrawingManager
     ''' <summary>
     ''' 返回参考图层的线段,圆形扫描
     ''' </summary>
-    Public Function NextLinesInCircle(radius As Single) As List(Of Line)
+    Private Function NextLinesInCircle(radius As Single) As List(Of Line)
         Static xCount As Integer = Width - 1
         Static yCount As Integer = Height - 1
         Static CP As New Vector2(CSng(xCount / 2), CSng(yCount / 2))
@@ -214,7 +210,7 @@ Public Class DrawingManager
                 Dim dx As Integer = CInt(CP.X + r * Math.Cos(StartTheat))
                 Dim dy As Integer = CInt(CP.Y + r * Math.Sin(StartTheat))
                 For i = 0 To Drawings.Count - 1
-                    result.AddRange(Drawings(i).NextLinesByLocation(New Vector2(dx, dy), CSng((DistanceMax - i * Distance) * (1 - (i / Drawings.Count)))))
+                    result.AddRange(Drawings(i).GetLinesByLocation(New Vector2(dx, dy), CSng((DistanceMax - i * Distance) * (1 - (i / Drawings.Count)))))
                 Next
                 StartR = r
                 StartTheat += (1 / r) * radius * 0.38F
@@ -222,6 +218,23 @@ Public Class DrawingManager
             End While
             StartTheat = 0
         Next
+        Return result
+    End Function
+
+    ''' <summary>
+    ''' 返回指定图像高斯模糊处理后的像素数据
+    ''' </summary>
+    Private Function GetGaussianPixelData(image As CanvasBitmap, Optional amount As Integer = 3) As PixelData
+        Dim result As PixelData
+        Using render = New CanvasRenderTarget(image.Device, Width, Height, 96)
+            Using ds = render.CreateDrawingSession
+                Using gaussian = New Effects.GaussianBlurEffect With {.Source = image, .BlurAmount = amount}
+                    ds.Clear(Colors.Transparent)
+                    ds.DrawImage(gaussian)
+                End Using
+            End Using
+            result = New PixelData(render.GetPixelColors, CInt(image.Size.Width), CInt(image.Size.Height))
+        End Using
         Return result
     End Function
 End Class

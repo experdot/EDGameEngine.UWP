@@ -20,7 +20,9 @@ Public Class Drawing
     ''' 层索引
     ''' </summary>
     Public Property LayerIndex As Integer = 0
-
+    ''' <summary>
+    ''' 创建并初始化一个实例
+    ''' </summary>
     Public Sub New(pixels As PixelData, split As Integer, index As Integer, Optional mode As ScanMode = ScanMode.Rect)
         LayerIndex = index
         Dim temp As Integer = CInt(256 / split)
@@ -29,11 +31,13 @@ Public Class Drawing
                 Lines.AddRange(tempAI.Lines)
             End Using
         Next
-        MatchLineColor(pixels)
-        UpdateLines()
+        UpdateLinesColor(pixels)
+        UpdateLinesIndexAndLocation()
     End Sub
-
-    Public Function NextLinesByLocation(loc As Vector2, distance As Single) As List(Of Line)
+    ''' <summary>
+    ''' 返回指定位置附近的线条集合
+    ''' </summary>
+    Public Function GetLinesByLocation(loc As Vector2, distance As Single) As List(Of Line)
         Dim result As New List(Of Line)
         result.AddRange(Lines.Where(Function(line As Line)
                                         Return line.IsNear(loc, distance)
@@ -46,9 +50,9 @@ Public Class Drawing
     ''' <summary>
     ''' 降噪
     ''' </summary>
-    Public Sub Denoising(Optional count As Integer = 10)
+    Public Sub Denoising(Optional amount As Integer = 10)
         Lines.RemoveAll(Function(line As Line)
-                            Return line.Points.Count <= count
+                            Return line.Points.Count <= amount
                         End Function)
     End Sub
 
@@ -71,9 +75,9 @@ Public Class Drawing
 
 
     ''' <summary>
-    ''' 配色
+    ''' 更新配色
     ''' </summary>
-    Private Sub MatchLineColor(pixels As PixelData)
+    Private Sub UpdateLinesColor(pixels As PixelData)
         For Each SubLine In Lines
             For Each SubPoint In SubLine.Points
                 SubPoint.Color = pixels.Colors(CInt(SubPoint.Position.Y) * pixels.Width + CInt(SubPoint.Position.X))
@@ -83,7 +87,7 @@ Public Class Drawing
     ''' <summary>
     ''' 更新绘制点的层索引与位置
     ''' </summary>
-    Private Sub UpdateLines()
+    Private Sub UpdateLinesIndexAndLocation()
         For Each SubLine In Lines
             SubLine.UpdateLayerIndex(Me.LayerIndex)
             SubLine.CalcLocation()

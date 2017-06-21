@@ -11,6 +11,10 @@ Public Class Scene1
     End Sub
     Public Overrides Sub CreateObject()
 
+        '渲染模式
+        World.RenderMode = RenderMode.Sync
+
+        '几何形状
         'Dim points As Vector2() = {New Vector2(0, 0), New Vector2(20, 0), New Vector2(20, 20)}
         'Dim geo = GeometryHelper.CreateRegularPolygon(World.ResourceCreator, 6, 20)
         'Dim rect As New Rect(50, 50, 30, 30)
@@ -19,27 +23,25 @@ Public Class Scene1
         'Dim rectModel As New VisualRectangle() With {.Rect = rect, .Border = border, .Fill = fill}
         'Dim circleModel As New VisualCircle() With {.Radius = 50, .Border = border, .Fill = fill}
         'Dim polygonModel As New VisualPolygon() With {.Geometry = geo, .Border = border, .Fill = fill}
-        '几何形状
+
         'Me.AddGameVisual(rectModel, New RectangleView(rectModel) With {.CacheAllowed = True}, 1)
         'Me.AddGameVisual(circleModel, New CircleView(circleModel) With {.CacheAllowed = True}, 0)
         'Me.AddGameVisual(polygonModel, New PolygonView(polygonModel))
         'circleModel.GameComponents.Behaviors.Add(New KeyControlScript With {.MaxSpeed = 2.0F})
         'rectModel.GameComponents.Behaviors.Add(New KeyControlScript With {.MaxSpeed = 5.0F})
         'circleModel.GameComponents.Behaviors.Add(New PhysicsScript)
-        World.RenderMode = RenderMode.Sync
 
+        '粒子系统
         'Dim image As CanvasBitmap = CType(ImageManager.GetResource(ImageResourceId.Scenery1), CanvasBitmap)
         'Dim pixels As Color() = image.GetPixelColors()
         'Dim bounds As Rect = image.Bounds
-        '粒子系统
         'Dim tempModel As New ParticlesTree()
         'Me.AddGameVisual(tempModel, New ParticlesImageView(tempModel) With {.ImageResourceId = ImageResourceId.YellowFlower1, .ImageScale = 4.0F, .Colors = pixels, .Bounds = bounds})
-
-
         'tempModel.GameComponents.Effects.Add(New GaussianBlurEffect())
         'tempModel.GameComponents.Effects.Add(New FrostedEffect() With {.Amount = 10})
         'Me.GameLayers(0).Background = Colors.Black
         'Me.GameLayers(0).GameComponents.Effects.Add(New GhostEffect With {.SourceRect = New Rect(0, 0, Width, Height)})
+
         '植物
         'Dim tempModel2 As New Plant(New Vector2(Width / 2, Height * 0.8))
         'Me.AddGameVisual(tempModel2, New PlantView(tempModel2))
@@ -48,7 +50,6 @@ Public Class Scene1
         Dim tempModel3 As New AutoDrawModel() With {.Image = ImageManager.GetResource(ImageResourceId.Scenery1)}
         tempModel3.GameComponents.Behaviors.Add(New TransformScript)
         Me.AddGameVisual(tempModel3, New AutoDrawView(tempModel3))
-
 
         '指针
         'Dim tempModel4 As New Pointer
@@ -110,6 +111,6 @@ Public Class Scene1
         Await imgResManager.Add(ImageResourceId.ExplosionPartial1, "Image/explosion.dds")
         Await imgResManager.Add(ImageResourceId.Back1, "Image/back.png")
         Await imgResManager.Add(ImageResourceId.Water1, "Image/Water.png")
-        Await imgResManager.Add(ImageResourceId.Scenery1, "Image/Scenery12.png")
+        Await imgResManager.Add(ImageResourceId.Scenery1, "Image/Scenery14.png")
     End Function
 End Class

@@ -31,17 +31,18 @@ Public Class Line
     ''' </summary>
     Public Sub CalcAverageColor()
         If Points.Count > 0 Then
-            Dim R, G, B As Integer
+            Dim r, g, b As Integer
             For Each SubPoint In Points
-                R += SubPoint.Color.R
-                G += SubPoint.Color.G
-                B += SubPoint.Color.B
+                r += SubPoint.Color.R
+                g += SubPoint.Color.G
+                b += SubPoint.Color.B
             Next
-            Dim tempCol As Color = Color.FromArgb(255, CByte(R / Points.Count),
-                                                       CByte(G / Points.Count),
-                                                       CByte(B / Points.Count))
+            Dim tempCol As Color = Color.FromArgb(255, CByte(r / Points.Count),
+                                                       CByte(g / Points.Count),
+                                                       CByte(b / Points.Count))
+            Dim averageCol As Color = GetAverageColor(tempCol)
             For Each SubPoint In Points
-                SubPoint.Color = tempCol
+                SubPoint.Color = averageCol
             Next
         End If
     End Sub
@@ -59,9 +60,16 @@ Public Class Line
             Me.Location = New Vector2(x / Points.Count, y / Points.Count)
         End If
     End Sub
-
     ''' <summary>
-    ''' 是否与指定的位置向近
+    ''' 更新点的层索引
+    ''' </summary>
+    Public Sub UpdateLayerIndex(index As Integer)
+        Points.ForEach(Sub(point As PointWithLayer)
+                           point.LayerIndex = index
+                       End Sub)
+    End Sub
+    ''' <summary>
+    ''' 返回是否与指定的位置相近
     ''' </summary>
     Public Function IsNear(loc As Vector2, distance As Single) As Boolean
         If (loc - Location).Length <= distance Then
@@ -70,16 +78,12 @@ Public Class Line
             Return False
         End If
     End Function
-    ''' <summary>
-    ''' 更新点的层索引
-    ''' </summary>
-    Public Sub UpdateLayerIndex(index As Integer)
-        If Points.Count > 0 Then
-            For i = 0 To Points.Count - 1
-                Points(i).LayerIndex = index
-            Next
-        End If
-    End Sub
-
+    ''' <summary> 
+    ''' 返回指定颜色的中值颜色
+    ''' </summary> 
+    Private Function GetAverageColor(ByVal col As Color) As Color
+        Dim average As Byte = CByte((CInt(col.R) + CInt(col.G) + CInt(col.B)) / 3)
+        Return Color.FromArgb(col.A, average, average, average)
+    End Function
 
 End Class

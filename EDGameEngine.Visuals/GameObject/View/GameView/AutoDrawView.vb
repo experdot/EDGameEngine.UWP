@@ -16,9 +16,8 @@ Public Class AutoDrawView
             While Target.CurrentPoints.TryDequeue(point)
                 drawing.FillCircle(point)
             End While
-            Paint.OnDraw(drawingSession, drawing.Sessions.Last)
+            Paint.OnDraw(drawingSession)
         End Using
-
     End Sub
 
     ''' <summary>
@@ -55,7 +54,7 @@ Public Class AutoDrawView
         ''' <summary>
         ''' 绘制
         ''' </summary>
-        Public Sub OnDraw(drawingSession As CanvasDrawingSession, foreSession As CanvasDrawingSession)
+        Public Sub OnDraw(drawingSession As CanvasDrawingSession)
             For i = 0 To Canvas.Count - 1
                 drawingSession.DrawImage(Canvas(i))
             Next
@@ -85,6 +84,9 @@ Public Class AutoDrawView
             Sessions(Sessions.Count - 1) = paint.Foreground.CreateDrawingSession
             Sessions(Sessions.Count - 1).Clear(Colors.Transparent)
         End Sub
+        ''' <summary>
+        ''' 画圆
+        ''' </summary>
         Public Sub FillCircle(point As PointWithLayer)
             Sessions(point.LayerIndex).FillCircle(point.Position, point.Size, point.Color)
             Sessions.Last.FillCircle(point.Position, point.Size, Colors.Black)

@@ -13,16 +13,33 @@ Public Class SequenceAI
     ''' 扫描方式
     ''' </summary>
     Public Property ScanMode As ScanMode = ScanMode.Rect
-    Dim xArray() As Integer = {-1, 0, 1, 1, 1, 0, -1, -1}
-    Dim yArray() As Integer = {-1, -1, -1, 0, 1, 1, 1, 0}
-    Dim NewStart As Boolean
     ''' <summary>
-    ''' 创建并初始化一个可自动生成绘制序列AI的实例
+    ''' 最大搜索深度
     ''' </summary>
-    Public Sub New(BolArr(,) As Integer, Optional mode As ScanMode = ScanMode.Rect)
+    Public Property DepthMax As Integer = 1000
+    ''' <summary>
+    ''' 是否检查边界权值
+    ''' </summary>
+    Public Property IsCheckAround As Boolean = False
+    ''' <summary>
+    ''' 边界权值下界
+    ''' </summary>
+    Public Property AroundLower As Integer = 3
+    ''' <summary>
+    ''' 边界权值上界
+    ''' </summary>
+    Public Property AroundUpper As Integer = 7
+
+    Private Shared OffsetX() As Integer = {-1, 0, 1, 1, 1, 0, -1, -1}
+    Private Shared OffsetY() As Integer = {-1, -1, -1, 0, 1, 1, 1, 0}
+    Private NewLine As Boolean
+    ''' <summary>
+    ''' 创建并初始化一个示例
+    ''' </summary>
+    Public Sub New(bools(,) As Integer, Optional mode As ScanMode = ScanMode.Rect)
         Me.ScanMode = mode
         Lines = New List(Of Line)
-        CalculateSequence(BolArr)
+        CalculateSequence(bools)
     End Sub
 
     ''' <summary>
@@ -34,25 +51,25 @@ Public Class SequenceAI
     ''' <summary>
     ''' 在序列List末尾项新增一个点
     ''' </summary>
-    Private Sub AddPoint(p As Vector2)
-        Lines.Last.Points.Add(New PointWithLayer() With {.Position = p, .Size = 1})
+    Private Sub AddPoint(position As Vector2)
+        Lines.Last.Points.Add(New PointWithLayer() With {.Position = position, .Size = 1})
     End Sub
     ''' <summary>
     ''' 计算序列
     ''' </summary>
-    Private Sub CalculateSequence(BolArr(,) As Integer)
+    Private Sub CalculateSequence(bools(,) As Integer)
         If ScanMode = ScanMode.Rect Then
-            ScanRect(BolArr)
+            ScanRect(bools)
         Else
-            ScanCircle(BolArr)
+            ScanCircle(bools)
         End If
     End Sub
     ''' <summary>
     ''' 圆形扫描
     ''' </summary>
-    Private Sub ScanCircle(BolArr(,) As Integer)
-        Dim xlength As Integer = BolArr.GetLength(0)
-        Dim ylength As Integer = BolArr.GetLength(1)
+    Private Sub ScanCircle(bools(,) As Integer)
+        Dim xlength As Integer = bools.GetLength(0)
+        Dim ylength As Integer = bools.GetLength(1)
         Dim center As New Vector2(CSng(xlength / 2), CSng(ylength / 2))
         Dim radius As Integer = 0
         For radius = 0 To CInt(Math.Sqrt(xlength * xlength + ylength * ylength))
@@ -60,12 +77,12 @@ Public Class SequenceAI
                 Dim dx As Integer = CInt(center.X + radius * Math.Cos(Theat))
                 Dim dy As Integer = CInt(center.Y + radius * Math.Sin(Theat))
                 If Not (dx >= 0 AndAlso dy >= 0 AndAlso dx < xlength AndAlso dy < ylength) Then Continue For
-                If BolArr(dx, dy) = 1 Then
-                    BolArr(dx, dy) = 0
+                If bools(dx, dy) = 1 Then
+                    bools(dx, dy) = 0
                     Me.CreateNewSequence()
                     Me.AddPoint(New Vector2(dx, dy))
-                    CheckMove(BolArr, dx, dy, 0)
-                    NewStart = True
+                    MoveNext(bools, dx, dy, 0)
+                    NewLine = True
                 End If
             Next
         Next
@@ -73,7 +90,6 @@ Public Class SequenceAI
     ''' <summary>
     ''' 矩形扫描
     ''' </summary>
-    ''' <param name="BolArr"></param>
     Private Sub ScanRect(BolArr(,) As Integer)
         Dim xCount As Integer = BolArr.GetUpperBound(0)
         Dim yCount As Integer = BolArr.GetUpperBound(1)
@@ -86,61 +102,62 @@ Public Class SequenceAI
                     BolArr(dx, dy) = 0
                     Me.CreateNewSequence()
                     Me.AddPoint(New Vector2(dx, dy))
-                    CheckMove(BolArr, dx, dy, 0)
-                    NewStart = True
+                    MoveNext(BolArr, dx, dy, 0)
+                    NewLine = True
                 End If
             Next
         Next
     End Sub
     ''' <summary>
-    ''' 递归循迹算法
+    ''' 递归循迹
     ''' </summary>
-    Private Sub CheckMove(ByRef bolArr(,) As Integer, ByVal x As Integer, ByVal y As Integer, ByVal StepNum As Integer)
-        If StepNum > 1000 Then Return
-        Dim xBound As Integer = bolArr.GetUpperBound(0)
-        Dim yBound As Integer = bolArr.GetUpperBound(1)
+    Private Sub MoveNext(bools(,) As Integer, x As Integer, y As Integer, depth As Integer)
+        If depth > DepthMax Then Return
+        Dim xBound As Integer = bools.GetUpperBound(0)
+        Dim yBound As Integer = bools.GetUpperBound(1)
         Dim dx, dy As Integer
-        Dim AroundValue As Integer = GetAroundValue(bolArr, x, y)
-        '根据点权值轨迹将在当前点断开
-        'If AroundValue > 2 AndAlso AroundValue < 8 Then
-        'Return
-        'End If
-        For i = 0 To 7
-            dx = x + xArray(i)
-            dy = y + yArray(i)
-            If Not (dx > 0 And dy > 0 And dx < xBound And dy < yBound) Then
+        If IsCheckAround Then
+            Dim around As Integer = GetAroundValue(bools, x, y)
+            If around >= AroundLower AndAlso around <= AroundUpper Then
                 Return
-            ElseIf bolArr(dx, dy) = 1 Then
-                bolArr(dx, dy) = 0
-                If NewStart = True Then
+            End If
+        End If
+        For i = 0 To 7
+            dx = x + OffsetX(i)
+            dy = y + OffsetY(i)
+            If Not (dx >= 0 AndAlso dy >= 0 AndAlso dx <= xBound AndAlso dy <= yBound) Then
+                Return
+            ElseIf bools(dx, dy) = 1 Then
+                bools(dx, dy) = 0
+                If NewLine = True Then
                     Me.CreateNewSequence()
                     Me.AddPoint(New Vector2(dx, dy))
-                    NewStart = False
+                    NewLine = False
                 Else
                     Me.AddPoint(New Vector2(dx, dy))
                 End If
-                CheckMove(bolArr, dx, dy, StepNum + 1)
-                NewStart = True
+                MoveNext(bools, dx, dy, depth + 1)
+                NewLine = True
             End If
         Next
     End Sub
     ''' <summary>
     ''' 返回点权值
     ''' </summary>
-    Private Function GetAroundValue(ByRef BolArr(,) As Integer, ByVal x As Integer, ByVal y As Integer) As Integer
-        Dim dx, dy, ResultValue As Integer
-        Dim xBound As Integer = BolArr.GetUpperBound(0)
-        Dim yBound As Integer = BolArr.GetUpperBound(1)
+    Private Function GetAroundValue(bools(,) As Integer, x As Integer, y As Integer) As Integer
+        Dim dx, dy, result As Integer
+        Dim xBound As Integer = bools.GetUpperBound(0)
+        Dim yBound As Integer = bools.GetUpperBound(1)
         For i = 0 To 7
-            dx = x + xArray(i)
-            dy = y + yArray(i)
-            If dx > 0 And dy > 0 And dx < xBound And dy < yBound Then
-                If BolArr(dx, dy) = 1 Then
-                    ResultValue += 1
+            dx = x + OffsetX(i)
+            dy = y + OffsetY(i)
+            If dx >= 0 AndAlso dy >= 0 AndAlso dx <= xBound AndAlso dy <= yBound Then
+                If bools(dx, dy) = 1 Then
+                    result += 1
                 End If
             End If
         Next
-        Return ResultValue
+        Return result
     End Function
 
 #Region "IDisposable Support"
