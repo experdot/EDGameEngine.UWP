@@ -130,13 +130,13 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GameObject\Model\GameVisual\AutoDraw\AI\Drawing.vb" />
+    <Compile Include="GameObject\Model\GameVisual\AutoDraw\AI\Drawing\Drawing.vb" />
     <Compile Include="GameObject\Model\GameVisual\AutoDraw\AI\DrawingManager.vb" />
-    <Compile Include="GameObject\Model\GameVisual\AutoDraw\AI\PixelData.vb" />
+    <Compile Include="GameObject\Model\GameVisual\AutoDraw\AI\Drawing\PixelData\PixelData.vb" />
     <Compile Include="GameObject\Model\GameVisual\AutoDraw\AutoDrawModel.vb" />
-    <Compile Include="GameObject\Model\GameVisual\AutoDraw\AI\Line.vb" />
-    <Compile Include="GameObject\Model\GameVisual\AutoDraw\AI\ScanMode.vb" />
-    <Compile Include="GameObject\Model\GameVisual\AutoDraw\AI\SequenceAI.vb" />
+    <Compile Include="GameObject\Model\GameVisual\AutoDraw\AI\Drawing\Line\Line.vb" />
+    <Compile Include="GameObject\Model\GameVisual\AutoDraw\AI\Drawing\Sequence\Enums\ScanMode.vb" />
+    <Compile Include="GameObject\Model\GameVisual\AutoDraw\AI\Drawing\Sequence\SequenceAI.vb" />
     <Compile Include="GameObject\Model\GameVisual\AutoStitch\Container\FragmentContainer.vb" />
     <Compile Include="GameObject\Model\GameVisual\AutoStitch\Container\MapCellAround.vb" />
     <Compile Include="GameObject\Model\GameVisual\AutoStitch\Fragment\FragmentSide.vb" />

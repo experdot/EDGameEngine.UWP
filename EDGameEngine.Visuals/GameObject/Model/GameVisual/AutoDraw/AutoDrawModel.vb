@@ -31,6 +31,10 @@ Public Class AutoDrawModel
     ''' 图层数量
     ''' </summary>
     Public Property LayerCount As Integer = 8
+    ''' <summary>
+    ''' 绘圆的图层索引
+    ''' </summary>
+    Public Property CircleLayers As Integer() = {-1, -1, -2, -7}
 
     Public Overrides Sub StartEx()
         Me.Rect = New Rect(0, 0, Image.Bounds.Width, Image.Bounds.Height)
@@ -45,7 +49,7 @@ Public Class AutoDrawModel
     Private Sub UpdateDrawings()
         If CurrentPoints.Count = 0 AndAlso Not DrawingManager.IsOver Then
             For i = 0 To PointsCount - 1
-                CurrentPoints.Enqueue(DrawingManager.NextPointFast())
+                CurrentPoints.Enqueue(DrawingManager.NextPointQuality())
             Next
             If PointsCount < PointsCountMax Then PointsCount += 1
         End If

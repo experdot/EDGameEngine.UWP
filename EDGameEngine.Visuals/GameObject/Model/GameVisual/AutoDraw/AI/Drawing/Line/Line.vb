@@ -29,7 +29,7 @@ Public Class Line
     ''' <summary>
     ''' 计算画笔颜色
     ''' </summary>
-    Public Sub CalcAverageColor()
+    Public Sub CalcAverageColor(isAverage As Boolean)
         If Points.Count > 0 Then
             Dim r, g, b As Integer
             For Each SubPoint In Points
@@ -40,9 +40,11 @@ Public Class Line
             Dim tempCol As Color = Color.FromArgb(255, CByte(r / Points.Count),
                                                        CByte(g / Points.Count),
                                                        CByte(b / Points.Count))
-            Dim averageCol As Color = GetAverageColor(tempCol)
+            If isAverage Then
+                tempCol = GetAverageColor(tempCol)
+            End If
             For Each SubPoint In Points
-                SubPoint.Color = averageCol
+                SubPoint.Color = tempCol
             Next
         End If
     End Sub
@@ -58,6 +60,9 @@ Public Class Line
                 y += Points(i).Position.Y
             Next
             Me.Location = New Vector2(x / Points.Count, y / Points.Count)
+            Points.ForEach(Sub(point As PointWithLayer)
+                               point.Center = Me.Location
+                           End Sub)
         End If
     End Sub
     ''' <summary>

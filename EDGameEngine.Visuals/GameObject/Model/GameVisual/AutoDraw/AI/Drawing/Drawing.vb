@@ -23,11 +23,11 @@ Public Class Drawing
     ''' <summary>
     ''' 创建并初始化一个实例
     ''' </summary>
-    Public Sub New(pixels As PixelData, split As Integer, index As Integer, Optional mode As ScanMode = ScanMode.Rect)
+    Public Sub New(pixels As PixelData, split As Integer, index As Integer, Optional mode As ScanMode = ScanMode.Rect, Optional isCheckAround As Boolean = False)
         LayerIndex = index
         Dim temp As Integer = CInt(256 / split)
         For i = 0 To split
-            Using tempAI = New SequenceAI(GetImageBolLimit(pixels.Colors, pixels.Width, pixels.Height, CInt(i * temp - temp / 2), CInt(i * temp + temp / 2)), mode)
+            Using tempAI = New SequenceAI(GetImageBolLimit(pixels.Colors, pixels.Width, pixels.Height, CInt(i * temp - temp / 2), CInt(i * temp + temp / 2)), mode, isCheckAround)
                 Lines.AddRange(tempAI.Lines)
             End Using
         Next
@@ -67,9 +67,9 @@ Public Class Drawing
     ''' <summary>
     ''' 更新线条颜色
     ''' </summary>
-    Public Sub UpdatePointsColorOfLine()
+    Public Sub UpdatePointsColorOfLine(isAverage As Boolean)
         For Each SubLine In Lines
-            SubLine.CalcAverageColor()
+            SubLine.CalcAverageColor(isAverage)
         Next
     End Sub
 

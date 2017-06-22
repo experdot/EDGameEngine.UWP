@@ -36,8 +36,9 @@ Public Class SequenceAI
     ''' <summary>
     ''' 创建并初始化一个示例
     ''' </summary>
-    Public Sub New(bools(,) As Integer, Optional mode As ScanMode = ScanMode.Rect)
+    Public Sub New(bools(,) As Integer, Optional mode As ScanMode = ScanMode.Rect, Optional isCheckAround As Boolean = False)
         Me.ScanMode = mode
+        Me.IsCheckAround = isCheckAround
         Lines = New List(Of Line)
         CalculateSequence(bools)
     End Sub

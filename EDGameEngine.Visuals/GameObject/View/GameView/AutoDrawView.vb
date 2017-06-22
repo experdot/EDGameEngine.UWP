@@ -1,6 +1,7 @@
 ﻿Imports Microsoft.Graphics.Canvas
 Imports EDGameEngine.Core
 Imports Windows.UI
+Imports System.Numerics
 ''' <summary>
 ''' 自动绘图的视图
 ''' </summary>
@@ -14,7 +15,13 @@ Public Class AutoDrawView
         Using drawing = Paint.CreateLayerDrawing()
             Dim point As New PointWithLayer
             While Target.CurrentPoints.TryDequeue(point)
-                drawing.FillCircle(point)
+                If point IsNot Nothing Then
+                    If Target.CircleLayers.Contains(point.LayerIndex) Then
+                        drawing.FillCircle(point)
+                    Else
+                        drawing.DrawLine(point)
+                    End If
+                End If
             End While
             Paint.OnDraw(drawingSession)
         End Using
@@ -88,10 +95,23 @@ Public Class AutoDrawView
         ''' 画圆
         ''' </summary>
         Public Sub FillCircle(point As PointWithLayer)
-            Sessions(point.LayerIndex).FillCircle(point.Position, point.Size, point.Color)
-            Sessions.Last.FillCircle(point.Position, point.Size, Colors.Black)
+            Sessions(point.LayerIndex).FillCircle(point.Position, point.UserSize, point.UserColor)
+            Sessions.Last.FillCircle(point.Position, point.UserSize, Colors.Black)
         End Sub
-
+        ''' <summary>
+        ''' 画线
+        ''' </summary>
+        Public Sub DrawLine(point As PointWithLayer)
+            Static Rnd As New Random
+            Dim offset As Vector2 = If(Rnd.NextDouble > 0.5F, New Vector2(-1, 1), New Vector2(1, 1))
+            offset *= (RandomHelper.NextNorm(100, 800) / 100.0F) * CSng(7 - point.LayerIndex) * CSng(7 - point.LayerIndex)
+            offset.Rotate(RandomHelper.NextNorm(-1000, 1000) / 300.0F)
+            'Dim col = Color.FromArgb(CByte(20 - point.LayerIndex * 2), 0, 0, 0)
+            'Sessions(point.LayerIndex).DrawLine(point.Position, point.Center, point.Color, 1)
+            Sessions(point.LayerIndex).DrawLine(point.Position, point.Position + offset, point.UserColor, 1)
+            Sessions(point.LayerIndex).DrawLine(point.Position, point.Position - offset, point.UserColor, 1)
+            Sessions.Last.DrawLine(point.Position, point.Center, Colors.Black, 1.0F)
+        End Sub
 #Region "IDisposable Support"
         Private disposedValue As Boolean ' 要检测冗余调用
 

@@ -39,24 +39,27 @@ Public Class DrawingManager
     Public Sub InitFromImage(image As CanvasBitmap, count As Integer)
         Width = CInt(image.Bounds.Width)
         Height = CInt(image.Bounds.Height)
-        Dim sizes As Single() = {16.851, 12.234, 6.617, 3.618, 2, 0.618, 0.38}
-        Dim alphas As Byte() = {90, 130, 160, 190, 210, 240, 250}
-        Dim noises As Integer() = {70, 50, 30, 20, 10, 5, 2}
-        Dim splits As Integer() = {3, 4, 5, 6, 7, 8, 8}
-
+        Dim sizes As Single() = {16.851, 12.234, 6.617, 3.618, 2, 0.618, 0.38, 0.2}
+        'Dim alphas As Byte() = {8, 9, 10, 90, 120, 150, 180}
+        Dim alphas As Byte() = {8, 9, 10, 15, 25, 50, 100, 200}
+        Dim noises As Integer() = {120, 80, 40, 20, 10, 5, 2, 1}
+        Dim splits As Integer() = {3, 4, 5, 6, 7, 8, 8, 8, 8}
+        'Dim averages As Boolean() = {True, False, False, False, False, False, False}
+        Dim averages As Boolean() = {True, True, True, True, True, True, True, True}
+        'Dim averages As Boolean() = {False, False, False, False, False, False, False, False}
         Drawings.Clear()
 
         '过渡图层
-        For i = 0 To count - 2
+        For i = 0 To count - 1
             Dim pixel As PixelData = GetGaussianPixelData(image, CInt((8 - i) / 2))
-            Drawings.Add(New Drawing(pixel, i + 3, i, ScanMode.Circle) With {.PenAlpha = CInt(alphas(i) / 16), .PenSize = sizes(i) / 2})
-            Drawings(i).Denoising(CInt(noises(i) / 1.6))
+            Drawings.Add(New Drawing(pixel, i + 3, i, ScanMode.Rect, False) With {.PenAlpha = CInt(alphas(i)), .PenSize = sizes(i) / 4})
+            Drawings(i).Denoising(CInt(noises(i)))
             Drawings(i).UpdatePointsSizeOfLine()
-            Drawings(i).UpdatePointsColorOfLine()
+            Drawings(i).UpdatePointsColorOfLine(averages(i))
         Next
         '最终图层
-        Dim tempPixels As New PixelData(image.GetPixelColors, CInt(image.Bounds.Width), CInt(image.Bounds.Height))
-        Drawings.Add(New Drawing(tempPixels, 9, count - 1, ScanMode.Circle) With {.PenAlpha = 255, .PenSize = 1})
+        'Dim tempPixels As New PixelData(image.GetPixelColors, CInt(image.Bounds.Width), CInt(image.Bounds.Height))
+        'Drawings.Add(New Drawing(tempPixels, 9, count - 1, ScanMode.Rect, False) With {.PenAlpha = 255, .PenSize = 1})
     End Sub
     ''' <summary>
     ''' 重置
@@ -77,7 +80,7 @@ Public Class DrawingManager
             IsReset = False
         End If
         If IsOver Then
-            Return New PointWithLayer() With {.Color = Colors.Transparent, .Position = Vector2.Zero, .Size = 1}
+            Return Nothing
         End If
         While (Index2 >= Drawings(Index0).Lines(Index1).Points.Count)
             Index2 = 0
@@ -87,16 +90,17 @@ Public Class DrawingManager
                 Index0 += 1
                 If Index0 >= Drawings.Count Then
                     IsOver = True
-                    Return New PointWithLayer() With {.Color = Colors.Transparent, .Position = Vector2.Zero, .Size = 0}
+                    Return Nothing
                 End If
             End While
         End While
         Dim point As PointWithLayer = Drawings(Index0).Lines(Index1).Points(Index2)
-        Dim size As Single = point.Size * Drawings(Index0).PenSize
+        point.UserSize = point.Size * Drawings(point.LayerIndex).PenSize
         Dim color As Color = point.Color
-        color.A = CByte(Drawings(Index0).PenAlpha)
+        color.A = CByte(Drawings(point.LayerIndex).PenAlpha)
+        point.UserColor = color
         Index2 += 1
-        Return New PointWithLayer() With {.Color = color, .Position = point.Position, .Size = size, .LayerIndex = point.LayerIndex}
+        Return point
     End Function
     ''' <summary>
     ''' 返回质量优先的下一个点
@@ -104,7 +108,7 @@ Public Class DrawingManager
     Public Function NextPointQuality() As PointWithLayer
         Static Max As Single = If(Width > Height, Width, Height)
         Static radius As Single = CSng(Max / 20)
-        Static count As Integer = CInt((Max / radius) * (Max / radius)) * 2
+        Static count As Integer = CInt((Max / radius) * (Max / radius) * 2)
         Static Collections As New List(Of List(Of Line))
         Static IsCreate As Boolean = True
         If IsCreate Then
@@ -134,15 +138,15 @@ Public Class DrawingManager
         If IsOver Then
             Return Nothing
         End If
-        'While (Index1 >= Collections(Index0).Count)
-        '    Index1 = 0
-        '    Collections.RemoveAt(Index0)
-        '    Index0 = CInt(Math.Abs(RandomHelper.NextNorm(-Collections.Count + 1, Collections.Count - 1)) * 0.15F)
-        '    If Index0 >= Collections.Count Then
-        '        IsOver = True
-        '        Return Nothing
-        '    End If
-        'End While
+        While (Index1 >= Collections(Index0).Count)
+            Index1 = 0
+            Collections.RemoveAt(Index0)
+            Index0 = CInt(Math.Abs(RandomHelper.NextNorm(-Collections.Count + 1, Collections.Count - 1)) * 0.15F)
+            If Index0 >= Collections.Count Then
+                IsOver = True
+                Return Nothing
+            End If
+        End While
         While (Index2 >= Collections(Index0).Item(Index1).Points.Count)
             Index2 = 0
             Index1 += 1
@@ -161,11 +165,12 @@ Public Class DrawingManager
         End While
 
         Dim point As PointWithLayer = Collections(Index0).Item(Index1).Points(Index2)
-        Dim size As Single = point.Size * Drawings(point.LayerIndex).PenSize
+        point.UserSize = point.Size * Drawings(point.LayerIndex).PenSize
         Dim color As Color = point.Color
         color.A = CByte(Drawings(point.LayerIndex).PenAlpha)
+        point.UserColor = color
         Index2 += 1
-        Return New PointWithLayer() With {.Color = color, .Position = point.Position, .Size = size, .LayerIndex = point.LayerIndex}
+        Return point
     End Function
     ''' <summary>
     ''' 返回参考图层的线段,矩形扫描
