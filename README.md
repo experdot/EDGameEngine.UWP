@@ -21,11 +21,11 @@ C# or VB.NET allows you to easily use it!
 Engine provides you with kinds of game models.
 
 ##### Geometry
-- Line、Rectangle、Cicle
+- Line、Rectangle、Circle
 - Polygon
 
 ##### ParticleSystem
-- [Partical cluster](Documentation/Images/ParticleSystem/Sample_ParticleSystem_01.png)
+- [Particle cluster](Documentation/Images/ParticleSystem/Sample_ParticleSystem_01.png)
 - [Splish splash](Documentation/Images/ParticleSystem/Sample_ParticleSystem_02.png)
 - [Brilliant light](Documentation/Images/ParticleSystem/Sample_ParticleSystem_03.png)
 - [Plant](Documentation/Images/ParticleSystem/Sample_ParticleSystem_04.png)
