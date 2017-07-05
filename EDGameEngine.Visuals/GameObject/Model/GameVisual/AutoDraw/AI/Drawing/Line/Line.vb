@@ -14,6 +14,26 @@ Public Class Line
     Public Property Location As Vector2
 
     ''' <summary>
+    ''' 计算长度
+    ''' </summary>
+    Public Sub CalcLength(split As Integer)
+        Dim temp As New List(Of PointWithLayer)
+        For i = 0 To Points.Count - 1 Step split
+            temp.Add(Points(i))
+        Next
+        If temp.Count > 0 Then
+            If temp.Count > 1 Then
+                For i = 0 To temp.Count - 2
+                    temp(i).NextPoint = temp(i + 1)
+                Next
+            End If
+            temp.Last.NextPoint = temp.Last
+        End If
+        Points.Clear()
+        Points.AddRange(temp)
+    End Sub
+
+    ''' <summary>
     ''' 计算画笔大小
     ''' </summary>
     Public Sub CalcSize()

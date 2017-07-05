@@ -1,5 +1,5 @@
 ﻿''' <summary>
-''' 媒体效果器，动画器与音效器继承它
+''' 媒体效果器，动画器与音效器继承自它
 ''' </summary>
 Public Interface IMedia
     Inherits IGameComponent

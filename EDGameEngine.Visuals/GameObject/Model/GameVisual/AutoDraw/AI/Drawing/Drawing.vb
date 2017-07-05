@@ -27,7 +27,7 @@ Public Class Drawing
         LayerIndex = index
         Dim temp As Integer = CInt(256 / split)
         For i = 0 To split
-            Using tempAI = New SequenceAI(GetImageBolLimit(pixels.Colors, pixels.Width, pixels.Height, CInt(i * temp - temp / 2), CInt(i * temp + temp / 2)), mode, isCheckAround)
+            Using tempAI = New SequenceAI(GetImageBolLimit(pixels.Colors, pixels.Width, pixels.Height, CInt(i * temp - temp / 1.6), CInt(i * temp + temp / 1.6)), mode, isCheckAround)
                 Lines.AddRange(tempAI.Lines)
             End Using
         Next
@@ -59,9 +59,10 @@ Public Class Drawing
     ''' <summary>
     ''' 更新线条大小
     ''' </summary>
-    Public Sub UpdatePointsSizeOfLine()
+    Public Sub UpdatePointsSizeOfLine(split As Integer)
         For Each SubLine In Lines
-            SubLine.CalcSize()
+            'SubLine.CalcSize()
+            SubLine.CalcLength(split)
         Next
     End Sub
     ''' <summary>
@@ -101,14 +102,14 @@ Public Class Drawing
     ''' 返回指定颜色数组的二值化特定范围数组
     ''' </summary>
     Private Shared Function GetImageBolLimit(rawColors As Color(), w As Integer, h As Integer, Optional lower As Integer = 128, Optional upper As Integer = 129) As Integer(,)
-        Dim ResultArr(w - 1, h - 1) As Integer
+        Dim result(w - 1, h - 1) As Integer
         For i = 0 To w - 1
             For j = 0 To h - 1
                 Dim temp As Integer = GetColorAverage(rawColors(CInt(w * j + i)))
-                ResultArr(i, j) = If(temp >= lower AndAlso temp <= upper, 1, 0)
+                result(i, j) = If(temp >= lower AndAlso temp <= upper, 1, 0)
             Next
         Next
-        Return ResultArr
+        Return result
     End Function
     ''' <summary> 
     ''' 返回指定颜色的RGB平均值

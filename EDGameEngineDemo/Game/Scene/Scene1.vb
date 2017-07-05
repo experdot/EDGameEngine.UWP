@@ -47,9 +47,9 @@ Public Class Scene1
         'Me.AddGameVisual(tempModel2, New PlantView(tempModel2))
 
         '自动画画
-        Dim tempModel3 As New AutoDrawModel() With {.Image = ImageManager.GetResource(ImageResourceId.Scenery1)}
-        tempModel3.GameComponents.Behaviors.Add(New TransformScript)
-        Me.AddGameVisual(tempModel3, New AutoDrawView(tempModel3))
+        'Dim tempModel3 As New AutoDrawModel() With {.Image = ImageManager.GetResource(ImageResourceId.Scenery1)}
+        'tempModel3.GameComponents.Behaviors.Add(New TransformScript)
+        'Me.AddGameVisual(tempModel3, New AutoDrawView(tempModel3))
 
         '指针
         'Dim tempModel4 As New Pointer
@@ -61,10 +61,11 @@ Public Class Scene1
         'Me.AddGameVisual(tempModel5, New FractalView(tempModel5))
 
         '贴图
-        'Dim tempModel6 As New Sprite() With {.Image = ImageManager.GetResource(ImageResourceID.Scenery1)}
-        'Me.AddGameVisual(tempModel6, New SpriteView(tempModel6) With {.CacheAllowed = True})
-        'tempModel6.GameComponents.Behaviors.Add(New TransformScript)
-        ''tempModel6.GameComponents.Effects.Add(New WaveEffect() With {.Amount = 10})
+        Dim tempModel6 As New Sprite() With {.Image = ImageManager.GetResource(ImageResourceId.Scenery1)}
+        Me.AddGameVisual(tempModel6, New SpriteView(tempModel6) With {.CacheAllowed = False})
+        tempModel6.GameComponents.Behaviors.Add(New TransformScript)
+        tempModel6.GameComponents.Effects.Add(New PixelEffect)
+        'Me.GameLayers.First.Background = Colors.Black
         'tempModel7.GameComponents.Behaviors.Add(New TransformScript)
         'tempModel7.GameComponents.Behaviors.Add(New AudioControlScript)
 

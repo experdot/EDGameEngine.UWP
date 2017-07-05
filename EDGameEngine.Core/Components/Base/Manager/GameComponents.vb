@@ -4,9 +4,21 @@
 ''' </summary>
 Public Class GameComponents
     Implements IGameObject
+    ''' <summary>
+    ''' 目标模型
+    ''' </summary>
     Public Property Target As IGameVisual
+    ''' <summary>
+    ''' 音效器集合
+    ''' </summary>
     Public Property Sounds As TypedComponent(Of IAudio)
+    ''' <summary>
+    ''' 效果器集合
+    ''' </summary>
     Public Property Effects As TypedComponent(Of IEffect)
+    ''' <summary>
+    ''' 行为器集合
+    ''' </summary>
     Public Property Behaviors As TypedComponent(Of IBehavior)
     ''' <summary>
     ''' 由指定的可视化对象创建并初始化一个游戏组件管理对象的实例
@@ -17,7 +29,6 @@ Public Class GameComponents
         Effects = New TypedComponent(Of IEffect) With {.Target = Me.Target}
         Behaviors = New TypedComponent(Of IBehavior) With {.Target = Me.Target}
     End Sub
-
     ''' <summary>
     ''' 开始
     ''' </summary>

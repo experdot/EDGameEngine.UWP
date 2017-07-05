@@ -21,4 +21,8 @@ Public Class PointWithLayer
     ''' 用户定义的颜色
     ''' </summary>
     Public Property UserColor As Color
+    ''' <summary>
+    ''' 下一个点
+    ''' </summary>
+    Public Property NextPoint As PointWithLayer
 End Class

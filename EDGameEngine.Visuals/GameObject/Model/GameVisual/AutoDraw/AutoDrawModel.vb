@@ -34,7 +34,7 @@ Public Class AutoDrawModel
     ''' <summary>
     ''' 绘圆的图层索引
     ''' </summary>
-    Public Property CircleLayers As Integer() = {-1, -1, -2, -7}
+    Public Property CircleLayers As Integer() = {7}
 
     Public Overrides Sub StartEx()
         Me.Rect = New Rect(0, 0, Image.Bounds.Width, Image.Bounds.Height)

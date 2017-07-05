@@ -19,7 +19,7 @@ Public Class AutoDrawView
                     If Target.CircleLayers.Contains(point.LayerIndex) Then
                         drawing.FillCircle(point)
                     Else
-                        drawing.DrawLine(point)
+                        drawing.DrawCurve(point)
                     End If
                 End If
             End While
@@ -104,13 +104,20 @@ Public Class AutoDrawView
         Public Sub DrawLine(point As PointWithLayer)
             Static Rnd As New Random
             Dim offset As Vector2 = If(Rnd.NextDouble > 0.5F, New Vector2(-1, 1), New Vector2(1, 1))
-            offset *= (RandomHelper.NextNorm(100, 800) / 100.0F) * CSng(7 - point.LayerIndex) * CSng(7 - point.LayerIndex)
+            offset *= (RandomHelper.NextNorm(100, 400) / 100.0F) * CSng(7 - point.LayerIndex) * CSng(7 - point.LayerIndex)
             offset.Rotate(RandomHelper.NextNorm(-1000, 1000) / 300.0F)
             'Dim col = Color.FromArgb(CByte(20 - point.LayerIndex * 2), 0, 0, 0)
             'Sessions(point.LayerIndex).DrawLine(point.Position, point.Center, point.Color, 1)
             Sessions(point.LayerIndex).DrawLine(point.Position, point.Position + offset, point.UserColor, 1)
             Sessions(point.LayerIndex).DrawLine(point.Position, point.Position - offset, point.UserColor, 1)
             Sessions.Last.DrawLine(point.Position, point.Center, Colors.Black, 1.0F)
+        End Sub
+        ''' <summary>
+        ''' 画曲线
+        ''' </summary>
+        Public Sub DrawCurve(point As PointWithLayer)
+            Sessions(point.LayerIndex).DrawLine(point.Position, point.NextPoint.Position, point.UserColor, point.UserSize * 2)
+            Sessions.Last.DrawLine(point.Position, point.NextPoint.Position, Colors.Black, point.UserSize * 2)
         End Sub
 #Region "IDisposable Support"
         Private disposedValue As Boolean ' 要检测冗余调用

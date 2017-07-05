@@ -3,11 +3,18 @@
 ''' </summary>
 Public Class TypedComponent(Of T As IGameComponent)
     Implements IGameComponent
-
     Public Property ComponentType As ComponentType Implements IGameComponent.ComponentType
     Public Property Target As IGameVisual Implements IGameComponent.Target
+    ''' <summary>
+    ''' 组件集合
+    ''' </summary>
     Public Property Items As New List(Of T)
-
+    ''' <summary>
+    ''' 创建并初始化一个实例
+    ''' </summary>
+    Public Sub New()
+        Items = New List(Of T)
+    End Sub
     Public Sub Start() Implements IGameComponent.Start
         For Each SubItem In Items
             SubItem.Start()

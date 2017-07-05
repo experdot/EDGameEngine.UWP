@@ -39,27 +39,28 @@ Public Class DrawingManager
     Public Sub InitFromImage(image As CanvasBitmap, count As Integer)
         Width = CInt(image.Bounds.Width)
         Height = CInt(image.Bounds.Height)
-        Dim sizes As Single() = {16.851, 12.234, 6.617, 3.618, 2, 0.618, 0.38, 0.2}
-        'Dim alphas As Byte() = {8, 9, 10, 90, 120, 150, 180}
-        Dim alphas As Byte() = {8, 9, 10, 15, 25, 50, 100, 200}
-        Dim noises As Integer() = {120, 80, 40, 20, 10, 5, 2, 1}
-        Dim splits As Integer() = {3, 4, 5, 6, 7, 8, 8, 8, 8}
-        'Dim averages As Boolean() = {True, False, False, False, False, False, False}
-        Dim averages As Boolean() = {True, True, True, True, True, True, True, True}
+        Dim sizes As Single() = {38, 22, 14, 8, 5.0, 2.8, 1.6, 1}
+        Dim alphas As Byte() = {90, 120, 140, 155, 165, 170, 175}
+        Dim noises As Integer() = {40, 30, 20, 10, 6, 4, 2}
+        Dim splits As Integer() = {3, 4, 5, 6, 7, 8, 8}
+        Dim lengths As Integer() = {40, 30, 25, 20, 15, 12, 10}
+        Dim averages As Boolean() = {True, False, False, False, False, False, False}
+        'Dim averages As Boolean() = {True, True, True, True, True, True, True, True}
         'Dim averages As Boolean() = {False, False, False, False, False, False, False, False}
         Drawings.Clear()
 
         '过渡图层
-        For i = 0 To count - 1
+        For i = 0 To count - 2
             Dim pixel As PixelData = GetGaussianPixelData(image, CInt((8 - i) / 2))
-            Drawings.Add(New Drawing(pixel, i + 3, i, ScanMode.Rect, False) With {.PenAlpha = CInt(alphas(i)), .PenSize = sizes(i) / 4})
-            Drawings(i).Denoising(CInt(noises(i)))
-            Drawings(i).UpdatePointsSizeOfLine()
+            Drawings.Add(New Drawing(pixel, i + 3, i, ScanMode.Rect, False) With {.PenAlpha = CInt(alphas(i)), .PenSize = sizes(i)})
+            Drawings(i).Denoising(2 + CInt(noises(i) / 5))
+            Drawings(i).UpdatePointsSizeOfLine(lengths(i))
+            Drawings(i).Denoising(1)
             Drawings(i).UpdatePointsColorOfLine(averages(i))
         Next
         '最终图层
-        'Dim tempPixels As New PixelData(image.GetPixelColors, CInt(image.Bounds.Width), CInt(image.Bounds.Height))
-        'Drawings.Add(New Drawing(tempPixels, 9, count - 1, ScanMode.Rect, False) With {.PenAlpha = 255, .PenSize = 1})
+        Dim tempPixels As New PixelData(image.GetPixelColors, CInt(image.Bounds.Width), CInt(image.Bounds.Height))
+        Drawings.Add(New Drawing(tempPixels, 9, count - 1, ScanMode.Rect, False) With {.PenAlpha = 255, .PenSize = 1})
     End Sub
     ''' <summary>
     ''' 重置
@@ -108,7 +109,7 @@ Public Class DrawingManager
     Public Function NextPointQuality() As PointWithLayer
         Static Max As Single = If(Width > Height, Width, Height)
         Static radius As Single = CSng(Max / 20)
-        Static count As Integer = CInt((Max / radius) * (Max / radius) * 2)
+        Static count As Integer = CInt((Max / radius) * (Max / radius) * 3)
         Static Collections As New List(Of List(Of Line))
         Static IsCreate As Boolean = True
         If IsCreate Then
