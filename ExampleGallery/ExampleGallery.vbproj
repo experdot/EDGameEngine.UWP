@@ -104,6 +104,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Common\Game\GameStarter.vb" />
+    <Compile Include="Common\MultiWindow\MultiWindow.vb" />
     <Compile Include="Common\SampleConfiguration.vb" />
     <Compile Include="Controls\Gallery\ViewModel\GalleryVisuals.vb" />
     <Compile Include="Controls\Gallery\ViewModel\GalleryCompnents.vb" />
@@ -130,8 +131,6 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
-    <Compile Include="Common\MultiWindow\AppPartial.vb" />
-    <Compile Include="Common\MultiWindow\SecondaryViewHelper.vb" />
     <Compile Include="Xaml\Scenario1_Start.xaml.vb">
       <DependentUpon>Scenario1_Start.xaml</DependentUpon>
     </Compile>
