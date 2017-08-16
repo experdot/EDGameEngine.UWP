@@ -6,5 +6,5 @@ Public Interface IGalleryViewModel
     ''' <summary>
     ''' 示例组集合
     ''' </summary>
-    Property SampleGroups As ObservableCollection(Of SampleGroup)
+    Property SampleGroups As ObservableCollection(Of SampleGroupViewModel)
 End Interface

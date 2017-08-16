@@ -19,16 +19,4 @@ Public Class Sample
     ''' 示例编号
     ''' </summary>
     Public Property Id As Integer
-
-    ''' <summary>
-    ''' 激活指定的示例
-    ''' </summary>
-    Public Shared Async Sub AcitvedAsync(target As Sample)
-        If target.Id = -1 Then
-            Await New MessageDialog($"示例{target.Id}激活,这个示例是未实现的").ShowAsync()
-        Else
-            GameStarter.Start(target.Title)
-        End If
-    End Sub
-
 End Class

@@ -13,6 +13,6 @@ Public NotInheritable Class Scenario2_Visuals
 
         ' 在 InitializeComponent() 调用之后添加任何初始化。
 
-        GalleryBox.ViewModel = New GalleryVisuals
+        GalleryBox.ViewModel = New GalleryVisualsViewModel
     End Sub
 End Class

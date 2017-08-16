@@ -15,8 +15,8 @@
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
-        <Image Source="{Binding Image}" Grid.Row="0" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center"/>
-        <TextBlock Text="{Binding Title}" Grid.Row="1" Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold"  />
-        <TextBlock Text="{Binding Description}" Grid.Row="2" Margin="10,0,0,0"  Foreground="#FF505050" VerticalAlignment="Center" />
+        <Image Source="{x:Bind ViewModel.Image}" Grid.Row="0" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center"/>
+        <TextBlock Text="{x:Bind ViewModel.Title}" Grid.Row="1" Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold"  />
+        <TextBlock Text="{x:Bind ViewModel.Description}" Grid.Row="2" Margin="10,0,0,0"  Foreground="#FF505050" VerticalAlignment="Center" />
     </Grid>
 </UserControl>

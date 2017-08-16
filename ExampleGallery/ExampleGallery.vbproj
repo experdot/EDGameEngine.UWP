@@ -27,7 +27,8 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <Prefer32Bit>true</Prefer32Bit>
     <DocumentationFile>ExampleGallery.xml</DocumentationFile>
-    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
+    <NoWarn>42314</NoWarn>
+    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <DefineTrace>true</DefineTrace>
@@ -39,8 +40,9 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <Prefer32Bit>true</Prefer32Bit>
     <DocumentationFile>ExampleGallery.xml</DocumentationFile>
-    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
+    <NoWarn>42314</NoWarn>
     <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
     <DebugSymbols>true</DebugSymbols>
@@ -53,7 +55,8 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <Prefer32Bit>true</Prefer32Bit>
     <DocumentationFile>ExampleGallery.xml</DocumentationFile>
-    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
+    <NoWarn>42314</NoWarn>
+    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
     <DefineTrace>true</DefineTrace>
@@ -65,8 +68,9 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <Prefer32Bit>true</Prefer32Bit>
     <DocumentationFile>ExampleGallery.xml</DocumentationFile>
-    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
+    <NoWarn>42314</NoWarn>
     <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -79,7 +83,8 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <Prefer32Bit>true</Prefer32Bit>
     <DocumentationFile>ExampleGallery.xml</DocumentationFile>
-    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
+    <NoWarn>42314</NoWarn>
+    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <DefineTrace>true</DefineTrace>
@@ -91,8 +96,9 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <Prefer32Bit>true</Prefer32Bit>
     <DocumentationFile>ExampleGallery.xml</DocumentationFile>
-    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
+    <NoWarn>42314</NoWarn>
     <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
@@ -105,18 +111,20 @@
     <Compile Include="Common\Game\GameStarter.vb" />
     <Compile Include="Common\MultiWindow\MultiWindow.vb" />
     <Compile Include="Common\SampleConfiguration.vb" />
-    <Compile Include="Controls\Gallery\ViewModel\GalleryVisuals.vb" />
-    <Compile Include="Controls\Gallery\ViewModel\GalleryCompnents.vb" />
+    <Compile Include="Controls\Gallery\ViewModel\Gallery\Visuals\GalleryVisualsViewModel.vb" />
+    <Compile Include="Controls\Gallery\ViewModel\Gallery\Compnents\GalleryCompnentsViewModel.vb" />
     <Compile Include="Controls\Gallery\Model\SampleGroup.vb" />
     <Compile Include="Controls\Gallery\Model\Sample.vb" />
     <Compile Include="Controls\Gallery\ViewModel\Base\IGalleryViewModel.vb" />
-    <Compile Include="Controls\Gallery\View\GalleryBox.xaml.vb">
+    <Compile Include="Controls\Gallery\ViewModel\Sample\Group\SampleGroupViewModel.vb" />
+    <Compile Include="Controls\Gallery\ViewModel\Sample\SampleViewModel.vb" />
+    <Compile Include="Controls\Gallery\View\Gallery\GalleryBox.xaml.vb">
       <DependentUpon>GalleryBox.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Gallery\View\SampleGroupView.xaml.vb">
+    <Compile Include="Controls\Gallery\View\Sample\Group\SampleGroupView.xaml.vb">
       <DependentUpon>SampleGroupView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Gallery\View\SampleView.xaml.vb">
+    <Compile Include="Controls\Gallery\View\Sample\SampleView.xaml.vb">
       <DependentUpon>SampleView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\HamburgerBox.xaml.vb">
@@ -198,15 +206,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Controls\Gallery\View\GalleryBox.xaml">
+    <Page Include="Controls\Gallery\View\Gallery\GalleryBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\Gallery\View\SampleGroupView.xaml">
+    <Page Include="Controls\Gallery\View\Sample\Group\SampleGroupView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\Gallery\View\SampleView.xaml">
+    <Page Include="Controls\Gallery\View\Sample\SampleView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -298,7 +306,7 @@
     <OptionCompare>Binary</OptionCompare>
   </PropertyGroup>
   <PropertyGroup>
-    <OptionStrict>Off</OptionStrict>
+    <OptionStrict>On</OptionStrict>
   </PropertyGroup>
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>

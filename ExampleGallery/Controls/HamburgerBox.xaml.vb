@@ -26,7 +26,7 @@ Public NotInheritable Class HamburgerBox
     ''' </summary>
     Public Property IsReload As Boolean = False
 
-    Public Sub ClickMenuItem(item As HamburgerMenuGlyphItem, Optional isOption As Boolean = False)
+    Public Sub ClickMenuItem(item As HamburgerMenuItem, Optional isOption As Boolean = False)
         ContentGrid.DataContext = item
         If item IsNot Nothing Then
             If IsReload OrElse (item IsNot Menu.SelectedItem AndAlso item IsNot Menu.SelectedOptionsItem) Then
@@ -54,10 +54,10 @@ Public NotInheritable Class HamburgerBox
     End Sub
 
     Private Sub HamburgerMenuControl_ItemClick(sender As Object, e As ItemClickEventArgs) Handles HamburgerMenuControl.ItemClick
-        ClickMenuItem(TryCast(e.ClickedItem, HamburgerMenuGlyphItem))
+        ClickMenuItem(TryCast(e.ClickedItem, HamburgerMenuItem))
     End Sub
     Private Sub HamburgerMenuControl_OptionsItemClick(sender As Object, e As ItemClickEventArgs) Handles HamburgerMenuControl.OptionsItemClick
-        ClickMenuItem(TryCast(e.ClickedItem, HamburgerMenuGlyphItem))
+        ClickMenuItem(TryCast(e.ClickedItem, HamburgerMenuItem))
     End Sub
 
 End Class

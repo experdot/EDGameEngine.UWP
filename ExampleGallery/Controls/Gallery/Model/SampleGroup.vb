@@ -9,5 +9,5 @@ Public Class SampleGroup
     ''' <summary>
     ''' 示例集合
     ''' </summary>
-    Public Property Sameples As ObservableCollection(Of Sample)
+    Public Property Sameples As List(Of Sample)
 End Class

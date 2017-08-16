@@ -13,7 +13,7 @@
         <ScrollViewer HorizontalScrollMode="Disabled">
             <ItemsControl ItemsSource="{x:Bind ViewModel.SampleGroups}" >
                 <ItemsControl.ItemTemplate>
-                    <DataTemplate x:DataType="local:SampleGroupView">
+                    <DataTemplate x:DataType="local:SampleGroupViewModel">
                         <local:SampleGroupView Margin="10,10,10,0"/>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
