@@ -9,7 +9,7 @@
 ![Physics](Documentation/Images/Physics/Sample_Physic_01.png)
 
 ## Functions
-C# or VB.NET allows you to easily use it!
+You can use it easliy by C# or VB.NET!
 - Using Win2D render graphics
 - Play music and sound effects
 - Handling keyboard and mouse input
