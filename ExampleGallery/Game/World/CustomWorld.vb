@@ -4,14 +4,18 @@
 ''' </summary>
 Public Class CustomWorld
     Inherits World
-    Public Sub New(aw#, ah#)
+    Public ReadOnly Property Id As Integer
+    Public Sub New(aw#, ah#, id As Integer)
         MyBase.New(aw, ah)
+        Me.Id = id
+        Start()
     End Sub
     Public Overrides Sub Start()
-        Scenes.Add("Main", New Scene1(Me, New Size(Width, Height)))
-        'Scenes.Add("Test", New Scene2(Me, New Size(Width, Height)))
-        'Scenes.Add("Physic", New Scene3(Me, New Size(Width, Height)))
+        If Id >= 10000 Then
+            Scenes.Add("Main", New Scene_Visuals(Me, New Size(Width, Height), Id))
+        Else
+            Throw New NotImplementedException()
+        End If
         SwitchScene("Main")
     End Sub
-
 End Class

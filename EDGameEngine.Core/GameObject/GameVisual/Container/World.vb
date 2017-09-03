@@ -40,7 +40,6 @@ Public MustInherit Class World
     ''' </summary>
     Public Sub New(ActualWidth#, ActualHeight#)
         OnSizeChanged(CInt(ActualWidth), CInt(ActualHeight))
-        Start()
     End Sub
     ''' <summary>
     ''' 开始

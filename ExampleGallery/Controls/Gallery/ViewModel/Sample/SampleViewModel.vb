@@ -15,7 +15,7 @@ Public Class SampleViewModel
         If Source.Id = -1 Then
             Await New MessageDialog($"示例{Source.Id}激活,这个示例是未实现的").ShowAsync()
         Else
-            GameStarter.Start(Source.Title)
+            GameStarter.Start(Source.Id, Source.Title)
         End If
     End Sub
 

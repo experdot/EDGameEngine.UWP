@@ -11,10 +11,30 @@ Public Class SpotParticle
     Public Sub New(loc As Vector2)
         MyBase.New(loc)
 
-        AngleOffset = CSng(Rnd.NextDouble() * 0.2F - 0.1F)
+        AngleOffset = CSng(Rnd.NextDouble() * 0.03F - 0.015F)
         VelocityUpon = 16.0F
     End Sub
+    Public Sub Update(particals As List(Of SpotParticle), Optional count As Integer = 2)
+        If Age > 0 Then
+            Age -= 1
+            Size = Size * 0.995F
+            Velocity = Velocity.RotateNew(AngleOffset * 0.005F)
+            Velocity = Velocity.RotateNew(CSng(RandomHelper.NextNorm(-100, 100) * 0.001))
+            Color = GetRandomColor()
+            Move()
+        Else
+            'Divide(particals, count)
+        End If
 
+        If Rnd.NextDouble < 0.03F AndAlso Size > 1.0F Then
+            Divide(particals, count)
+        End If
+        If Size < 1.0F Then
+            Velocity = Vector2.Zero
+            Me.Location = New Vector2(-1, -1)
+            Me.IsDead = True
+        End If
+    End Sub
     ''' <summary>
     ''' 分裂
     ''' </summary>
@@ -24,7 +44,7 @@ Public Class SpotParticle
 
         Me.Size = newSize
         Me.Age = RandomHelper.NextNorm(0, 60)
-        Me.AngleOffset = CSng(Rnd.NextDouble() * 0.2F - 0.1F)
+        Me.AngleOffset = CSng(Rnd.NextDouble() * 0.02F - 0.01F)
 
         If count > 1 Then
             For i = 2 To count
@@ -63,27 +83,4 @@ Public Class SpotParticle
 
         Return Color.FromArgb(CByte(a), CByte(r), CByte(g), CByte(b))
     End Function
-    Public Sub Update(particals As List(Of SpotParticle), Optional count As Integer = 2)
-        If Age > 0 Then
-            Age -= 1
-            Size = Size * 0.995F
-            Velocity = Velocity.RotateNew(AngleOffset * 0.3F)
-            Velocity = Velocity.RotateNew(CSng(RandomHelper.NextNorm(-100, 100) * 0.005))
-            Color = GetRandomColor()
-            Move()
-        Else
-            'Divide(particals, count)
-        End If
-
-        If Rnd.NextDouble < 0.03F AndAlso Size > 1.0F Then
-            Divide(particals, count)
-        End If
-        If Size < 1.0F Then
-            Velocity = Vector2.Zero
-            Me.Location = New Vector2(-1, -1)
-            Me.IsDead = True
-        End If
-    End Sub
-
-
 End Class
