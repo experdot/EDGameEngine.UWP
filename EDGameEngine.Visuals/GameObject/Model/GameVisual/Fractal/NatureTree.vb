@@ -11,7 +11,7 @@ Public Class NatureTree
     Public Property Vertexs As New Concurrent.ConcurrentQueue(Of Point） Implements IFractal.Vertexs
 
     Public Overrides Sub StartEx()
-        Me.GameComponents.Effects.Add(New GhostEffect() With {.SourceRect = New Rect(0, 0, Scene.Width, Scene.Height)})
+        Me.GameComponents.Effects.Add(New GhostEffect)
     End Sub
 
     Public Overrides Sub UpdateEx()

@@ -130,6 +130,7 @@
     <Compile Include="Controls\HamburgerBox.xaml.vb">
       <DependentUpon>HamburgerBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Game\Scene\Scene_Compnents.vb" />
     <Compile Include="Game\Scene\Scene_Visuals.vb" />
     <Compile Include="Game\World\CustomWorld.vb" />
     <Compile Include="Xaml\MainPage.xaml.vb">

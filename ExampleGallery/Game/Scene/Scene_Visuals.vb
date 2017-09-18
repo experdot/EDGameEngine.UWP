@@ -52,7 +52,7 @@ Public Class Scene_Visuals
                 'Me.AddGameVisual(tempModel, New ParticlesImageView(tempModel) With {.ImageResourceId = ImageResourceId.YellowFlower1, .ImageScale = 4.0F, .Colors = pixels, .Bounds = bounds})
                 Me.AddGameVisual(tempModel, New ParticlesView(tempModel))
                 Me.GameLayers(0).Background = Colors.Black
-                Me.GameLayers(0).GameComponents.Effects.Add(New GhostEffect With {.SourceRect = New Rect(0, 0, Width, Height)})
+                Me.GameLayers(0).GameComponents.Effects.Add(New GhostEffect)
             Case 30000 '朱利亚集
                 Dim tempModel As New GastonJulia
                 Me.AddGameVisual(tempModel, New FractalView(tempModel))
@@ -67,7 +67,7 @@ Public Class Scene_Visuals
                 Me.AddGameVisual(tempModel, New GeometryCAView(tempModel))
                 tempModel.GameComponents.Behaviors.Add(New TransformScript)
             Case 40001 '水墨侵染
-
+                Throw New NotImplementedException()
             Case 40002 '植物摇曳
                 Dim tempModel As New Plant(New Vector2(Width / 2, Height * 0.8F))
                 Me.AddGameVisual(tempModel, New PlantView(tempModel))
@@ -92,11 +92,8 @@ Public Class Scene_Visuals
         'tempModel7.GameComponents.Sounds.Add(New Audio With {.AudioFileName = "Audio\c6.wav"})
         'tempModel7.GameComponents.Sounds.Add(New Audio With {.AudioFileName = "Audio\c7.wav"})
 
-
         '键盘控制摄像机
         Me.Camera.GameComponents.Behaviors.Add(New KeyControlScript With {.MaxSpeed = 5.0F})
-        '场景全局残影
-        'Me.GameComponents.Effects.Add(New GhostEffect With {.SourceRect = New Rect(0, 0, Width, Height), .Opacity = 1})
     End Sub
 
     Public Overrides Sub CreateUI()

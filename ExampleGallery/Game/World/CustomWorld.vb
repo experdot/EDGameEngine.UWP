@@ -14,7 +14,7 @@ Public Class CustomWorld
         If Id >= 10000 Then
             Scenes.Add("Main", New Scene_Visuals(Me, New Size(Width, Height), Id))
         Else
-            Throw New NotImplementedException()
+            Scenes.Add("Main", New Scene_Compnents(Me, New Size(Width, Height), Id))
         End If
         SwitchScene("Main")
     End Sub
