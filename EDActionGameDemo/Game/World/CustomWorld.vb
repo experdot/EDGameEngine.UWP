@@ -6,6 +6,7 @@ Public Class CustomWorld
     Inherits World
     Public Sub New(aw#, ah#)
         MyBase.New(aw, ah)
+
     End Sub
     Public Overrides Sub Start()
         Scenes.Add("Main", New Scene1(Me, New Size(Width, Height)))

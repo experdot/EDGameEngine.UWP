@@ -26,7 +26,16 @@ Public NotInheritable Class HamburgerBox
     ''' </summary>
     Public Property IsReload As Boolean = False
 
-    Public Sub ClickMenuItem(item As HamburgerMenuGlyphItem, Optional isOption As Boolean = False)
+    Public Sub New()
+
+        ' 此调用是设计器所必需的。
+        InitializeComponent()
+
+        ' 在 InitializeComponent() 调用之后添加任何初始化。
+        Menu.OpenPaneLength = 180
+    End Sub
+
+    Public Sub ClickMenuItem(item As HamburgerMenuItem, Optional isOption As Boolean = False)
         ContentGrid.DataContext = item
         If item IsNot Nothing Then
             If IsReload OrElse (item IsNot Menu.SelectedItem AndAlso item IsNot Menu.SelectedOptionsItem) Then
@@ -52,12 +61,10 @@ Public NotInheritable Class HamburgerBox
             Menu.IsPaneOpen = True
         End If
     End Sub
-
     Private Sub HamburgerMenuControl_ItemClick(sender As Object, e As ItemClickEventArgs) Handles HamburgerMenuControl.ItemClick
-        ClickMenuItem(TryCast(e.ClickedItem, HamburgerMenuGlyphItem))
+        ClickMenuItem(TryCast(e.ClickedItem, HamburgerMenuItem))
     End Sub
     Private Sub HamburgerMenuControl_OptionsItemClick(sender As Object, e As ItemClickEventArgs) Handles HamburgerMenuControl.OptionsItemClick
-        ClickMenuItem(TryCast(e.ClickedItem, HamburgerMenuGlyphItem))
+        ClickMenuItem(TryCast(e.ClickedItem, HamburgerMenuItem))
     End Sub
-
 End Class

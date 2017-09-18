@@ -10,7 +10,6 @@ Public NotInheritable Class MainPage
         ' Populate the scenario list from the SampleConfiguration.vb file
         ScenarioControl.Menu.ItemsSource = Scenarios
         ScenarioControl.Menu.OptionsItemsSource = Options
-        'ScenarioControl.Menu.SelectedItem = Scenarios(0)
         ScenarioControl.ClickMenuItem(Scenarios(0))
     End Sub
 

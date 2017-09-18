@@ -11,42 +11,37 @@
     d:DesignWidth="800">
 
     <UserControl.Resources>
-        <DataTemplate x:Key="HamburgerMenuItem"
-                      x:DataType="controls:HamburgerMenuGlyphItem">
-            <Grid Width="240"
-                  Height="48">
+        <DataTemplate x:Key="HamburgerMenuItem" x:DataType="controls:HamburgerMenuGlyphItem">
+            <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="48" />
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                <FontIcon Grid.Column="0"
-                          Margin="12,12,11,12"
-                          FontFamily="Segoe MDL2 Assets"
-                          Foreground="Black"
-                          Glyph="{Binding Glyph}" />
-                <TextBlock Grid.Column="1"
-                           VerticalAlignment="Center"
-                           FontSize="16"
-                           Foreground="Black"
-                           Text="{x:Bind Label}" />
+                <FontIcon Grid.Column="0" 
+                      FontSize="16"
+                      FontFamily="Segoe MDL2 Assets" 
+                      Glyph="{Binding Glyph}" 
+                      Foreground="Black" />
+                <TextBlock Grid.Column="1" 
+                       Text="{x:Bind Label}" 
+                       Foreground="Black" 
+                       FontSize="16" 
+                       VerticalAlignment="Center" />
             </Grid>
         </DataTemplate>
-        <DataTemplate x:Key="HamburgerMenuImageItem"
-                      x:DataType="controls:HamburgerMenuGlyphItem">
-            <Grid Width="240"
-                  Height="48">
+
+        <DataTemplate x:Key="HamburgerMenuImageItem" x:DataType="controls:HamburgerMenuImageItem">
+            <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="48" />
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                <Image Margin="12,12,11,12"
-                       Source="{Binding Glyph}"
-                       Stretch="UniformToFill" />
-                <TextBlock Grid.Column="1"
-                           VerticalAlignment="Center"
-                           FontSize="16"
-                           Foreground="Black"
-                           Text="{x:Bind Label}" />
+                <Image Source="{Binding Thumbnail}" Stretch="UniformToFill" Margin="16,12" />
+                <TextBlock Grid.Column="1" 
+                       Text="{x:Bind Label}" 
+                       Foreground="Black" 
+                       FontSize="16" 
+                       VerticalAlignment="Center" />
             </Grid>
         </DataTemplate>
     </UserControl.Resources>
@@ -63,7 +58,7 @@
                                 OpenPaneLength="{Binding OpenPaneLength.Value}"
                                 OptionsItemTemplate="{StaticResource HamburgerMenuItem}"
                                 PaneBackground="{Binding PaneBackground.Value}">
-            
+
             <!--  Content  -->
             <Grid x:Name="ContentGrid">
                 <Grid.RowDefinitions>

@@ -7,5 +7,6 @@ Public NotInheritable Class Scenario2_Game
     Inherits Page
     Private Sub GameBox_Loaded(sender As Object, e As RoutedEventArgs) Handles GameBox.Loaded
         GameBox.World = New CustomWorld(GameBox.ActualWidth, GameBox.ActualHeight)
+        GameBox.World.Start()
     End Sub
 End Class

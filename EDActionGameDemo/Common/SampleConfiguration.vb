@@ -6,14 +6,14 @@ Partial Public Class MainPage
     ''' 情景集
     ''' </summary>
     Public Scenarios As New HamburgerMenuItemCollection From {
-        New HamburgerMenuGlyphItem() With {
+        New HamburgerMenuImageItem() With {
             .Label = "Start",
-            .Glyph = "/Assets/MenuImages/Coffee.png",
+            .Thumbnail = New BitmapImage(New Uri("ms-appx:///Assets/MenuImages/Coffee.png")),
             .TargetPageType = GetType(Scenario1_Start)
         },
-        New HamburgerMenuGlyphItem() With {
+        New HamburgerMenuImageItem() With {
             .Label = "Game",
-            .Glyph = "/Assets/MenuImages/Fish.png",
+               .Thumbnail = New BitmapImage(New Uri("ms-appx:///Assets/MenuImages/Fish.png")),
             .TargetPageType = GetType(Scenario2_Game)
         }
     }

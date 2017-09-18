@@ -6,17 +6,24 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    d:DesignHeight="300"
+    d:DesignHeight="128"
     d:DesignWidth="300">
 
-    <Grid BorderThickness="1" BorderBrush="#CC787878" CornerRadius="5" Width="300" Height="300" Margin="1">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="240"/>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="30"/>
-        </Grid.RowDefinitions>
-        <Image Source="{x:Bind ViewModel.Image}" Grid.Row="0" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center"/>
-        <TextBlock Text="{x:Bind ViewModel.Title}" Grid.Row="1" Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold"  />
-        <TextBlock Text="{x:Bind ViewModel.Description}" Grid.Row="2" Margin="10,0,0,0"  Foreground="#FF505050" VerticalAlignment="Center" />
+    <Grid BorderThickness="1" BorderBrush="#CC787878" CornerRadius="5"  Margin="1" Width="300">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="128" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0" Margin="10">
+            <Image Source="{x:Bind ViewModel.Image}" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center"/>
+        </Grid>
+        <Grid Grid.Column="1" Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="{x:Bind ViewModel.Title}" Grid.Row="0" Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold"  />
+            <TextBlock Text="{x:Bind ViewModel.Description}" Grid.Row="1" Margin="10,0,0,0"  Foreground="#FF505050" VerticalAlignment="Center" TextWrapping="Wrap"/>
+        </Grid>
     </Grid>
 </UserControl>
