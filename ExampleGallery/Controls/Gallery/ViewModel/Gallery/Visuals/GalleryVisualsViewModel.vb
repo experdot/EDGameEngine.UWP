@@ -37,10 +37,14 @@ Public Class GalleryVisualsViewModel
         samples5.Add(New Sample() With {.Id = 50000, .Title = "自动绘图", .Description = "描述", .Image = image})
         samples5.Add(New Sample() With {.Id = 50001, .Title = "自动拼图", .Description = "描述", .Image = image})
 
+        Dim samples6 As New List(Of Sample)
+        samples6.Add(New Sample() With {.Id = 60000, .Title = "L系统树木", .Description = "描述", .Image = image})
+
         SampleGroups.Add(New SampleGroupViewModel() With {.Title = "几何图元", .Sameples = samples1})
         SampleGroups.Add(New SampleGroupViewModel() With {.Title = "粒子系统", .Sameples = samples2})
         SampleGroups.Add(New SampleGroupViewModel() With {.Title = "分形几何", .Sameples = samples3})
         SampleGroups.Add(New SampleGroupViewModel() With {.Title = "模拟自然", .Sameples = samples4})
         SampleGroups.Add(New SampleGroupViewModel() With {.Title = "游戏智能", .Sameples = samples5})
+        SampleGroups.Add(New SampleGroupViewModel() With {.Title = "L系统", .Sameples = samples6})
     End Sub
 End Class

@@ -43,7 +43,6 @@ Public Class Scene_Visuals
             Case 20002 '光芒四射
                 Throw New NotImplementedException()
             Case 20003 '枝繁叶茂
-                '渲染模式
                 World.RenderMode = RenderMode.Sync
                 Dim image As CanvasBitmap = CType(ImageManager.GetResource(ImageResourceId.Scenery1), CanvasBitmap)
                 Dim pixels As Color() = image.GetPixelColors()
@@ -77,6 +76,11 @@ Public Class Scene_Visuals
                 Me.AddGameVisual(tempModel, New AutoDrawView(tempModel))
             Case 50001 '自动拼图
                 Throw New NotImplementedException()
+            Case 60000 'L系统:树
+                World.RenderMode = RenderMode.Sync
+                Dim tempModel As New LSystemTree
+                Me.AddGameVisual(tempModel, New LSystemTreeView(tempModel))
+                'Me.GameLayers(0).GameComponents.Effects.Add(New GhostEffect)
         End Select
 
         '指针
