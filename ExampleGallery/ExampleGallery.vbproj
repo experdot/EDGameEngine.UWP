@@ -181,7 +181,7 @@
     <Content Include="Game\Resources\Images\back.png" />
     <Content Include="Game\Resources\Images\explosion.dds" />
     <Content Include="Game\Resources\Images\Flower_Yellow.png" />
-    <Content Include="Game\Resources\Images\Grass_Green.png" />
+    <Content Include="Game\Resources\Images\Leaf_Green.png" />
     <Content Include="Game\Resources\Images\Scenery1.png" />
     <Content Include="Game\Resources\Images\Scenery11.png" />
     <Content Include="Game\Resources\Images\Scenery12.png" />

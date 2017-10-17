@@ -79,8 +79,11 @@ Public Class Scene_Visuals
             Case 60000 'L系统:树
                 World.RenderMode = RenderMode.Sync
                 Dim tempModel As New LSystemTree
-                Me.AddGameVisual(tempModel, New LSystemTreeView(tempModel))
-                'Me.GameLayers(0).GameComponents.Effects.Add(New GhostEffect)
+                Dim tempView As New LSystemTreeView(tempModel) With {.LeafResourceId = ImageResourceId.GreenLeaf1, .FlowerResourceId = ImageResourceId.YellowFlower1}
+                Me.AddGameVisual(tempModel, tempView)
+                Me.GameLayers(0).GameComponents.Effects.Add(New GhostEffect)
+                'Me.GameLayers(0).GameComponents.Effects.Add(New FrostedEffect With {.Amount = 4})
+                'Me.GameLayers(0).GameComponents.Effects.Add(New GaussianBlurEffect With {.BlurAmount = 4})
         End Select
 
         '指针
@@ -108,6 +111,7 @@ Public Class Scene_Visuals
         Await imgResManager.Add(ImageResourceId.TreeBranch1, "Game/Resources/Images/Tree_Black.png")
         Await imgResManager.Add(ImageResourceId.TreeBranch2, "Game/Resources/Images/Tree_White.png")
         Await imgResManager.Add(ImageResourceId.YellowFlower1, "Game/Resources/Images/Flower_Yellow.png")
+        Await imgResManager.Add(ImageResourceId.GreenLeaf1, "Game/Resources/Images/Leaf_Green.png")
         Await imgResManager.Add(ImageResourceId.SmokeParticle1, "Game/Resources/Images/smoke.dds")
         Await imgResManager.Add(ImageResourceId.ExplosionPartial1, "Game/Resources/Images/explosion.dds")
         Await imgResManager.Add(ImageResourceId.Back1, "Game/Resources/Images/back.png")
