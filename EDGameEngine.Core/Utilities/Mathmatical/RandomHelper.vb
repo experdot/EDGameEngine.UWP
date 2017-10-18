@@ -3,7 +3,6 @@
 ''' </summary>
 Public Class RandomHelper
     Private Shared Rnd As New Random
-
     ''' <summary>
     ''' 返回正态分布的随机数
     ''' </summary>
@@ -14,5 +13,4 @@ Public Class RandomHelper
         Next
         Return CInt(temp / count)
     End Function
-
 End Class

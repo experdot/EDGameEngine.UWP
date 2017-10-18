@@ -130,57 +130,62 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GameObject\Model\GameVisual\AutoDraw\AI\Drawing\Drawing.vb" />
-    <Compile Include="GameObject\Model\GameVisual\AutoDraw\AI\DrawingManager.vb" />
-    <Compile Include="GameObject\Model\GameVisual\AutoDraw\AI\Drawing\PixelData\PixelData.vb" />
-    <Compile Include="GameObject\Model\GameVisual\AutoDraw\AutoDrawModel.vb" />
-    <Compile Include="GameObject\Model\GameVisual\AutoDraw\AI\Drawing\Line\Line.vb" />
-    <Compile Include="GameObject\Model\GameVisual\AutoDraw\AI\Drawing\Sequence\Enums\ScanMode.vb" />
-    <Compile Include="GameObject\Model\GameVisual\AutoDraw\AI\Drawing\Sequence\SequenceAI.vb" />
-    <Compile Include="GameObject\Model\GameVisual\AutoStitch\Container\FragmentContainer.vb" />
-    <Compile Include="GameObject\Model\GameVisual\AutoStitch\Container\MapCellAround.vb" />
-    <Compile Include="GameObject\Model\GameVisual\AutoStitch\Fragment\FragmentSide.vb" />
-    <Compile Include="GameObject\Model\GameVisual\AutoStitch\Fragment\FragmentBorder.vb" />
-    <Compile Include="GameObject\Model\GameVisual\AutoStitch\Container\FragmentContainerMap.vb" />
-    <Compile Include="GameObject\Model\GameVisual\AutoStitch\Container\MapCell.vb" />
-    <Compile Include="GameObject\Model\GameVisual\AutoStitch\Fragment\Fragment.vb" />
-    <Compile Include="GameObject\Model\GameVisual\AutoStitch\FragmentSplicer.vb" />
-    <Compile Include="GameObject\Model\GameVisual\AutoStitch\AutoStitchModel.vb" />
-    <Compile Include="GameObject\Model\GameVisual\CA\Base\IGeometryCA.vb" />
-    <Compile Include="GameObject\Model\GameVisual\CA\Cell\Cell.vb" />
-    <Compile Include="GameObject\Model\GameVisual\CA\Base\ICellularAutomata.vb" />
-    <Compile Include="GameObject\Model\GameVisual\CA\Cell\ICell.vb" />
-    <Compile Include="GameObject\Model\GameVisual\CA\HexgonCA.vb" />
-    <Compile Include="GameObject\Model\GameVisual\CA\Base\GeometyCABase.vb" />
-    <Compile Include="GameObject\Model\GameVisual\CA\SquareCA.vb" />
-    <Compile Include="GameObject\Model\GameVisual\Fractal\Base\IFractal.vb" />
-    <Compile Include="GameObject\Model\GameVisual\Fractal\GastonJulia.vb" />
-    <Compile Include="GameObject\Model\GameVisual\Fractal\NatureTree.vb" />
-    <Compile Include="GameObject\Model\GameVisual\Fractal\Mandelbrot.vb" />
-    <Compile Include="GameObject\Model\GameVisual\StateMachine\Base\IStateMachine.vb" />
-    <Compile Include="GameObject\Model\GameVisual\StateMachine\LSystem\LSystem.vb" />
-    <Compile Include="GameObject\Model\GameVisual\StateMachine\LSystemTree\LSystemTree.vb" />
-    <Compile Include="GameObject\Model\GameVisual\StateMachine\LSystem\Rule\Base\IRule.vb" />
-    <Compile Include="GameObject\Model\GameVisual\StateMachine\LSystem\Rule\Base\RuleBase.vb" />
-    <Compile Include="GameObject\Model\GameVisual\StateMachine\LSystem\Rule\RuleSet\RuleSet.vb" />
-    <Compile Include="GameObject\Model\GameVisual\StateMachine\LSystemTree\Rules\RuleTree.vb" />
-    <Compile Include="GameObject\Model\GameVisual\StateMachine\LSystem\State\State.vb" />
-    <Compile Include="GameObject\Model\GameVisual\Particles\Hexgon\Basic\LineParticle.vb" />
-    <Compile Include="GameObject\Model\GameVisual\Particles\Hexgon\ParticlesHexgon.vb" />
-    <Compile Include="GameObject\Model\GameVisual\Particles\Tree\ParticlesTree.vb" />
-    <Compile Include="GameObject\Model\GameVisual\Particles\Tree\Basic\SpotParticle.vb" />
-    <Compile Include="GameObject\Model\GameVisual\Particles\Base\DynamicParticle.vb" />
-    <Compile Include="GameObject\Model\GameVisual\Particles\Follow\ParticlesFollow.vb" />
-    <Compile Include="GameObject\Model\GameVisual\Plant\IPlant.vb" />
-    <Compile Include="GameObject\Model\GameVisual\Plant\Plant.vb" />
-    <Compile Include="GameObject\Model\GameVisual\Plant\TreeNode.vb" />
-    <Compile Include="GameObject\Model\GameVisual\Pointer\Pointer.vb" />
-    <Compile Include="GameObject\View\GameView\AutoDrawView.vb" />
-    <Compile Include="GameObject\View\GameView\GeometryCAView.vb" />
-    <Compile Include="GameObject\View\GameView\FractalView.vb" />
-    <Compile Include="GameObject\View\GameView\LSystemTreeView.vb" />
-    <Compile Include="GameObject\View\GameView\PlantView.vb" />
-    <Compile Include="GameObject\View\GameView\PointerView.vb" />
+    <Compile Include="GameObject\GameVisual\AutoDraw\AI\Drawing\Drawing.vb" />
+    <Compile Include="GameObject\GameVisual\AutoDraw\AI\DrawingManager.vb" />
+    <Compile Include="GameObject\GameVisual\AutoDraw\AI\Drawing\PixelData\PixelData.vb" />
+    <Compile Include="GameObject\GameVisual\AutoDraw\AutoDrawModel.vb" />
+    <Compile Include="GameObject\GameVisual\AutoDraw\AI\Drawing\Line\Line.vb" />
+    <Compile Include="GameObject\GameVisual\AutoDraw\AI\Drawing\Sequence\Enums\ScanMode.vb" />
+    <Compile Include="GameObject\GameVisual\AutoDraw\AI\Drawing\Sequence\SequenceAI.vb" />
+    <Compile Include="GameObject\GameVisual\AutoStitch\Container\FragmentContainer.vb" />
+    <Compile Include="GameObject\GameVisual\AutoStitch\Container\MapCellAround.vb" />
+    <Compile Include="GameObject\GameVisual\AutoStitch\Fragment\FragmentSide.vb" />
+    <Compile Include="GameObject\GameVisual\AutoStitch\Fragment\FragmentBorder.vb" />
+    <Compile Include="GameObject\GameVisual\AutoStitch\Container\FragmentContainerMap.vb" />
+    <Compile Include="GameObject\GameVisual\AutoStitch\Container\MapCell.vb" />
+    <Compile Include="GameObject\GameVisual\AutoStitch\Fragment\Fragment.vb" />
+    <Compile Include="GameObject\GameVisual\AutoStitch\FragmentSplicer.vb" />
+    <Compile Include="GameObject\GameVisual\AutoStitch\AutoStitchModel.vb" />
+    <Compile Include="GameObject\GameVisual\CA\Base\IGeometryCA.vb" />
+    <Compile Include="GameObject\GameVisual\CA\Cell\Cell.vb" />
+    <Compile Include="GameObject\GameVisual\CA\Base\ICellularAutomata.vb" />
+    <Compile Include="GameObject\GameVisual\CA\Cell\ICell.vb" />
+    <Compile Include="GameObject\GameVisual\CA\HexgonCA.vb" />
+    <Compile Include="GameObject\GameVisual\CA\Base\GeometyCABase.vb" />
+    <Compile Include="GameObject\GameVisual\CA\SquareCA.vb" />
+    <Compile Include="GameObject\GameVisual\Fractal\Base\IFractal.vb" />
+    <Compile Include="GameObject\GameVisual\Fractal\GastonJulia.vb" />
+    <Compile Include="GameObject\GameVisual\Fractal\NatureTree.vb" />
+    <Compile Include="GameObject\GameVisual\Fractal\Mandelbrot.vb" />
+    <Compile Include="GameObject\GameVisual\Particles\Base\IParticles.vb" />
+    <Compile Include="GameObject\GameVisual\Particles\Base\ParticlesBase.vb" />
+    <Compile Include="GameObject\GameVisual\Particles\Particle\IParticle.vb" />
+    <Compile Include="GameObject\GameVisual\StateMachine\Base\IStateMachine.vb" />
+    <Compile Include="GameObject\GameVisual\StateMachine\LSystem\LSystem.vb" />
+    <Compile Include="GameObject\GameVisual\StateMachine\LSystemTree\LSystemTree.vb" />
+    <Compile Include="GameObject\GameVisual\StateMachine\LSystem\Rule\Base\IRule.vb" />
+    <Compile Include="GameObject\GameVisual\StateMachine\LSystem\Rule\Base\RuleBase.vb" />
+    <Compile Include="GameObject\GameVisual\StateMachine\LSystem\Rule\RuleSet\RuleSet.vb" />
+    <Compile Include="GameObject\GameVisual\StateMachine\LSystemTree\Rules\RuleTree.vb" />
+    <Compile Include="GameObject\GameVisual\StateMachine\LSystem\State\State.vb" />
+    <Compile Include="GameObject\GameVisual\Particles\Dynamic\Hexgon\Basic\LineParticle.vb" />
+    <Compile Include="GameObject\GameVisual\Particles\Dynamic\Hexgon\ParticlesHexgon.vb" />
+    <Compile Include="GameObject\GameVisual\Particles\Dynamic\Tree\ParticlesTree.vb" />
+    <Compile Include="GameObject\GameVisual\Particles\Dynamic\Tree\Basic\SpotParticle.vb" />
+    <Compile Include="GameObject\GameVisual\Particles\Dynamic\Base\DynamicParticle.vb" />
+    <Compile Include="GameObject\GameVisual\Particles\Dynamic\Follow\ParticlesFollow.vb" />
+    <Compile Include="GameObject\GameVisual\Plant\IPlant.vb" />
+    <Compile Include="GameObject\GameVisual\Plant\Plant.vb" />
+    <Compile Include="GameObject\GameVisual\Plant\TreeNode.vb" />
+    <Compile Include="GameObject\GameVisual\Pointer\Pointer.vb" />
+    <Compile Include="GameObject\GameView\AutoDrawView.vb" />
+    <Compile Include="GameObject\GameView\GeometryCAView.vb" />
+    <Compile Include="GameObject\GameView\FractalView.vb" />
+    <Compile Include="GameObject\GameView\LSystemTreeView.vb" />
+    <Compile Include="GameObject\GameView\Particles\ParticlesImageView.vb" />
+    <Compile Include="GameObject\GameView\Particles\ParticlesView.vb" />
+    <Compile Include="GameObject\GameView\PlantView.vb" />
+    <Compile Include="GameObject\GameView\PointerView.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="Utilities\Point\Point.vb" />
     <Compile Include="Utilities\Point\PointWithLayer\PointWithLayer.vb" />
@@ -217,9 +222,13 @@
     <Import Include="Windows.UI.Xaml.Navigation" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EDGameEngine.Components\EDGameEngine.Components.vbproj">
-      <Project>{4074FA95-FBBC-4708-8E29-5607ACBC272C}</Project>
-      <Name>EDGameEngine.Components</Name>
+    <ProjectReference Include="..\EDGameEngine.Components.Effect\EDGameEngine.Components.Effect.vbproj">
+      <Project>{72E57A54-C3A9-4918-A987-6F7769F56038}</Project>
+      <Name>EDGameEngine.Components.Effect</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EDGameEngine.Core.Graphics\EDGameEngine.Core.Graphics.vbproj">
+      <Project>{063C77A7-4A06-4818-9074-3E993AFB526C}</Project>
+      <Name>EDGameEngine.Core.Graphics</Name>
     </ProjectReference>
     <ProjectReference Include="..\EDGameEngine.Core\EDGameEngine.Core.vbproj">
       <Project>{f563111c-4331-4735-a6c9-447662049482}</Project>

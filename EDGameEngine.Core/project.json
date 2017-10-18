@@ -1,8 +1,6 @@
 ﻿{
   "dependencies": {
-    "Microsoft.NETCore.UniversalWindowsPlatform": "5.4.0",
-    "SharpDX.XAudio2": "4.0.1",
-    "Win2D.uwp": "1.21.0"
+    "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
   },
   "frameworks": {
     "uap10.0.15063": {}

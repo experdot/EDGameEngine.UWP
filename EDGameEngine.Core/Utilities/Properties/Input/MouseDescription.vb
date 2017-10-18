@@ -38,13 +38,13 @@ Public Class MouseDescription
 
     Private m_Location As Vector2
 
-    Friend Sub OnPointerPressed(ByVal loc As Vector2)
+    Public Sub OnPointerPressed(ByVal loc As Vector2)
         RaiseEvent PointerPressed(loc)
     End Sub
-    Friend Sub OnPointerReleased(ByVal loc As Vector2)
+    Public Sub OnPointerReleased(ByVal loc As Vector2)
         RaiseEvent PointerReleased(loc)
     End Sub
-    Friend Sub OnPointerMoved(ByVal loc As Vector2)
+    Public Sub OnPointerMoved(ByVal loc As Vector2)
         Location = loc
     End Sub
 End Class

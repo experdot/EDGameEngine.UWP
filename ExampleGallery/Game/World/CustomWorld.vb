@@ -1,9 +1,10 @@
 ﻿Imports EDGameEngine.Core
+Imports EDGameEngine.Core.UI
 ''' <summary>
 ''' 用户游戏世界
 ''' </summary>
 Public Class CustomWorld
-    Inherits World
+    Inherits WorldWithUI
     Public ReadOnly Property Id As Integer
     Public Sub New(aw#, ah#, id As Integer)
         MyBase.New(aw, ah)
@@ -17,5 +18,9 @@ Public Class CustomWorld
             Scenes.Add("Main", New Scene_Compnents(Me, New Size(Width, Height), Id))
         End If
         SwitchScene("Main")
+    End Sub
+
+    Public Overrides Sub Update()
+
     End Sub
 End Class

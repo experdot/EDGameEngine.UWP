@@ -1,6 +1,4 @@
-﻿Imports System.Numerics
-Imports EDGameEngine.Core
-''' <summary>
+﻿''' <summary>
 ''' 可视化的游戏物体基类
 ''' </summary>
 Public MustInherit Class GameBody
@@ -12,6 +10,9 @@ Public MustInherit Class GameBody
     Public Overridable Property Scene As IScene Implements IGameBody.Scene
     Public Overridable Property Presenter As IGameView Implements IGameBody.Presenter
     Public Overridable Property Rect As Rect Implements IGameVisual.Rect
+    ''' <summary>
+    ''' <see cref="Random"/>类的静态实例
+    ''' </summary>
     Public Shared Property Rnd As New Random
 
     Public Sub Start() Implements IGameBody.Start

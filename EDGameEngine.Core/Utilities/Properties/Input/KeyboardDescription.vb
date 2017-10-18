@@ -18,14 +18,14 @@ Public Class KeyboardDescription
     ''' <summary>
     ''' 触发按键按下
     ''' </summary>
-    Friend Sub RaiseKeyDown(ByVal keyCode As VirtualKey)
+    Public Sub RaiseKeyDown(ByVal keyCode As VirtualKey)
         KeyStatus(keyCode) = True
         RaiseEvent KeyDown(keyCode)
     End Sub
     ''' <summary>
     ''' 触发按键释放
     ''' </summary>
-    Friend Sub RaiseKeyUp(ByVal keyCode As VirtualKey)
+    Public Sub RaiseKeyUp(ByVal keyCode As VirtualKey)
         KeyStatus(keyCode) = False
         RaiseEvent KeyUp(keyCode)
     End Sub

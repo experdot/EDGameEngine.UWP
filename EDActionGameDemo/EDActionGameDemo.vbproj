@@ -211,9 +211,17 @@
       <Project>{b7afcfad-8d73-41f7-8ad5-fdf5fe203410}</Project>
       <Name>ActionGameLib.UWP</Name>
     </ProjectReference>
-    <ProjectReference Include="..\EDGameEngine.Components\EDGameEngine.Components.vbproj">
-      <Project>{4074fa95-fbbc-4708-8e29-5607acbc272c}</Project>
-      <Name>EDGameEngine.Components</Name>
+    <ProjectReference Include="..\EDGameEngine.Components.Behavior\EDGameEngine.Components.Behavior.vbproj">
+      <Project>{04FCBF91-1F22-4F69-9E75-F79C563F8054}</Project>
+      <Name>EDGameEngine.Components.Behavior</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EDGameEngine.Core.Graphics\EDGameEngine.Core.Graphics.vbproj">
+      <Project>{063C77A7-4A06-4818-9074-3E993AFB526C}</Project>
+      <Name>EDGameEngine.Core.Graphics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EDGameEngine.Core.UI\EDGameEngine.Core.UI.vbproj">
+      <Project>{1EE8B83F-B355-456B-8CD1-F0DC9ADA7AF2}</Project>
+      <Name>EDGameEngine.Core.UI</Name>
     </ProjectReference>
     <ProjectReference Include="..\EDGameEngine.Core\EDGameEngine.Core.vbproj">
       <Project>{f563111c-4331-4735-a6c9-447662049482}</Project>

@@ -1,33 +1,36 @@
 ﻿Imports System.Numerics
-Imports EDGameEngine.Components
+Imports EDGameEngine.Components.Behavior
+Imports EDGameEngine.Components.Effect
 Imports EDGameEngine.Core
+Imports EDGameEngine.Core.Graphics
+Imports EDGameEngine.Core.UI
 Imports EDGameEngine.Visuals
 Imports Microsoft.Graphics.Canvas
 Imports Windows.UI
 
 Public Class Scene_Visuals
-    Inherits Scene
+    Inherits SceneWithUI
     Public Property Id As Integer
-    Public Sub New(world As World, WindowSize As Size, id As Integer)
+    Public Sub New(world As WorldWithUI, WindowSize As Size, id As Integer)
         MyBase.New(world, WindowSize)
         Me.Id = id
     End Sub
 
-    Public Overrides Sub CreateObject()
+    Protected Overrides Sub CreateObject()
         Select Case Id
             Case 10000 '直线
                 Dim points As Vector2() = {New Vector2(0, 0), New Vector2(20, 0), New Vector2(20, 20)}
-                Dim geo = GeometryHelper.CreateRegularPolygon(World.ResourceCreator, 6, 20)
+                Dim geo = GeometryHelper.CreateRegularPolygon(6, 20)
                 Dim rect As New Rect(50, 50, 30, 30)
                 Dim fill As New FillStyle(True) With {.Color = Colors.Red}
                 Dim border As New BorderStyle(True) With {.Color = Colors.Black, .Width = 1}
                 Dim rectModel As New VisualRectangle() With {.Rect = rect, .Border = border, .Fill = fill}
                 Dim circleModel As New VisualCircle() With {.Radius = 50, .Border = border, .Fill = fill}
-                Dim polygonModel As New VisualPolygon() With {.Geometry = geo, .Border = border, .Fill = fill}
+                'Dim polygonModel As New VisualPolygon() With {.Geometry = geo, .border = border, .fill = fill}
 
                 Me.AddGameVisual(rectModel, New RectangleView(rectModel) With {.CacheAllowed = True}, 1)
                 Me.AddGameVisual(circleModel, New CircleView(circleModel) With {.CacheAllowed = True}, 0)
-                Me.AddGameVisual(polygonModel, New PolygonView(polygonModel))
+                'Me.AddGameVisual(polygonModel, New PolygonView(polygonModel))
                 circleModel.GameComponents.Behaviors.Add(New KeyControlScript With {.MaxSpeed = 2.0F})
                 rectModel.GameComponents.Behaviors.Add(New KeyControlScript With {.MaxSpeed = 5.0F})
             Case 10001 '矩形
@@ -44,7 +47,7 @@ Public Class Scene_Visuals
                 Throw New NotImplementedException()
             Case 20003 '枝繁叶茂
                 World.RenderMode = RenderMode.Sync
-                Dim image As CanvasBitmap = CType(ImageManager.GetResource(ImageResourceId.Scenery1), CanvasBitmap)
+                Dim image As CanvasBitmap = CType(ImageResource.GetResource(ImageResourceId.Scenery1), CanvasBitmap)
                 Dim pixels As Color() = image.GetPixelColors()
                 Dim bounds As Rect = image.Bounds
                 Dim tempModel As New ParticlesTree()
@@ -62,7 +65,7 @@ Public Class Scene_Visuals
                 Dim tempModel As New NatureTree
                 Me.AddGameVisual(tempModel, New FractalView(tempModel))
             Case 40000 '生命游戏
-                Dim tempModel As New SquareCA With {.Image = CType(ImageManager.GetResource(ImageResourceId.Scenery1), CanvasBitmap)}
+                Dim tempModel As New SquareCA With {.Image = CType(ImageResource.GetResource(ImageResourceId.Scenery1), CanvasBitmap)}
                 Me.AddGameVisual(tempModel, New GeometryCAView(tempModel))
                 tempModel.GameComponents.Behaviors.Add(New TransformScript)
             Case 40001 '水墨侵染
@@ -71,7 +74,7 @@ Public Class Scene_Visuals
                 Dim tempModel As New Plant(New Vector2(Width / 2, Height * 0.8F))
                 Me.AddGameVisual(tempModel, New PlantView(tempModel))
             Case 50000 '自动绘图
-                Dim tempModel As New AutoDrawModel() With {.Image = CType(ImageManager.GetResource(ImageResourceId.Scenery1), CanvasBitmap)}
+                Dim tempModel As New AutoDrawModel() With {.Image = CType(ImageResource.GetResource(ImageResourceId.Scenery1), CanvasBitmap)}
                 tempModel.GameComponents.Behaviors.Add(New TransformScript)
                 Me.AddGameVisual(tempModel, New AutoDrawView(tempModel))
             Case 50001 '自动拼图
@@ -82,7 +85,7 @@ Public Class Scene_Visuals
                 Dim tempView As New LSystemTreeView(tempModel) With {.LeafResourceId = ImageResourceId.GreenLeaf1, .FlowerResourceId = ImageResourceId.YellowFlower1}
                 Me.AddGameVisual(tempModel, tempView)
                 Me.GameLayers(0).GameComponents.Effects.Add(New GhostEffect)
-                'Me.GameLayers(0).GameComponents.Effects.Add(New FrostedEffect With {.Amount = 4})
+                'Me.GameLayers(0).GameComponents.Effects.Add(New FrostedEffect With {.Amount = 2})
                 'Me.GameLayers(0).GameComponents.Effects.Add(New GaussianBlurEffect With {.BlurAmount = 4})
         End Select
 
@@ -103,19 +106,19 @@ Public Class Scene_Visuals
         Me.Camera.GameComponents.Behaviors.Add(New KeyControlScript With {.MaxSpeed = 5.0F})
     End Sub
 
-    Public Overrides Sub CreateUI()
+    Protected Overrides Sub CreateUI()
         Return
     End Sub
 
-    Public Overrides Async Function CreateResoucesAsync(imgResManager As ImageResourceManager) As Task
-        Await imgResManager.Add(ImageResourceId.TreeBranch1, "Game/Resources/Images/Tree_Black.png")
-        Await imgResManager.Add(ImageResourceId.TreeBranch2, "Game/Resources/Images/Tree_White.png")
-        Await imgResManager.Add(ImageResourceId.YellowFlower1, "Game/Resources/Images/Flower_Yellow.png")
-        Await imgResManager.Add(ImageResourceId.GreenLeaf1, "Game/Resources/Images/Leaf_Green.png")
-        Await imgResManager.Add(ImageResourceId.SmokeParticle1, "Game/Resources/Images/smoke.dds")
-        Await imgResManager.Add(ImageResourceId.ExplosionPartial1, "Game/Resources/Images/explosion.dds")
-        Await imgResManager.Add(ImageResourceId.Back1, "Game/Resources/Images/back.png")
-        Await imgResManager.Add(ImageResourceId.Water1, "Game/Resources/Images/Water.png")
-        Await imgResManager.Add(ImageResourceId.Scenery1, "Game/Resources/Images/Scenery14.png")
+    Protected Overrides Async Function CreateResourcesAsync(imageResource As ImageResource) As Task
+        Await imageResource.Add(ImageResourceId.TreeBranch1, "Game/Resources/Images/Tree_Black.png")
+        Await imageResource.Add(ImageResourceId.TreeBranch2, "Game/Resources/Images/Tree_White.png")
+        Await imageResource.Add(ImageResourceId.YellowFlower1, "Game/Resources/Images/Flower_Yellow.png")
+        Await imageResource.Add(ImageResourceId.GreenLeaf1, "Game/Resources/Images/Leaf_Green.png")
+        Await imageResource.Add(ImageResourceId.SmokeParticle1, "Game/Resources/Images/smoke.dds")
+        Await imageResource.Add(ImageResourceId.ExplosionPartial1, "Game/Resources/Images/explosion.dds")
+        Await imageResource.Add(ImageResourceId.Back1, "Game/Resources/Images/back.png")
+        Await imageResource.Add(ImageResourceId.Water1, "Game/Resources/Images/Water.png")
+        Await imageResource.Add(ImageResourceId.Scenery1, "Game/Resources/Images/Scenery14.png")
     End Function
 End Class

@@ -1,11 +1,8 @@
-﻿Imports EDGameEngine.Core
-Imports Microsoft.Graphics.Canvas
-''' <summary>
+﻿''' <summary>
 ''' 表示游戏场景
 ''' </summary>
 Public Interface IScene
     Inherits IGameVisual
-    Inherits IDisposable
     ''' <summary>
     ''' 场景宽度
     ''' </summary>
@@ -17,15 +14,11 @@ Public Interface IScene
     ''' <summary>
     ''' 所属世界
     ''' </summary>
-    Property World As World
+    Property World As IWorld
     ''' <summary>
     ''' 摄像机
     ''' </summary>
     Property Camera As ICamera
-    ''' <summary>
-    ''' 图像资源
-    ''' </summary>
-    Property ImageManager As ImageResourceManager
     ''' <summary>
     ''' 用户输入
     ''' </summary>
@@ -39,18 +32,12 @@ Public Interface IScene
     ''' </summary>
     ''' <returns></returns>
     Property State As SceneState
-    Property Progress As Progress
     ''' <summary>
-    ''' 加载场景资源
+    ''' 加载进度
     ''' </summary>
-    Function LoadAsync(resourceCreator As ICanvasResourceCreator) As Task
+    Property Progress As Progress
     ''' <summary>
     ''' 添加场景物体
     ''' </summary>
-    Sub AddGameVisual(model As IGameBody, view As IGameView, Optional LayerIndex As Integer = Nothing)
-    ''' <summary>
-    ''' 场景绘制
-    ''' </summary>
-    ''' <param name="drawingSession"></param>
-    Sub OnDraw(drawingSession As CanvasDrawingSession)
+    Sub AddGameVisual(model As IGameBody, view As IGameView, Optional layerIndex As Integer = 0)
 End Interface
