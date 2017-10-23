@@ -293,7 +293,8 @@ namespace FarseerPhysics.Dynamics.Joints
 
                 if (_linearImpulse.LengthSquared() > maxImpulse * maxImpulse)
                 {
-                    _linearImpulse = Vector2.Normalize(_linearImpulse);
+                    if (_linearImpulse != Vector2.Zero) _linearImpulse = Vector2.Normalize(_linearImpulse);
+
                     _linearImpulse *= maxImpulse;
                 }
 

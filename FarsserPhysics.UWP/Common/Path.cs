@@ -245,7 +245,8 @@ output = new Vector2();
             output.X = -temp.Y;
             output.Y = temp.X;
 
-            output = Vector2.Normalize(output);
+            if (output != Vector2.Zero) output = Vector2.Normalize(output);
+
 
             return output;
         }

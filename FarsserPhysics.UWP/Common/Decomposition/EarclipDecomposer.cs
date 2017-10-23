@@ -129,9 +129,11 @@ namespace FarseerPhysics.Common.Decomposition
                         Vector2 d2 = new Vector2(xrem[i] - xrem[lower], yrem[i] - yrem[lower]);
                         Vector2 d3 = new Vector2(xrem[lower] - xrem[upper], yrem[lower] - yrem[upper]);
 
-                        d1=Vector2.Normalize(d1);
-                        d2=Vector2.Normalize(d2);
-                        d3=Vector2.Normalize(d3);
+
+                        if (d1 != Vector2.Zero) d1 =Vector2.Normalize(d1);
+                        if (d2 != Vector2.Zero) d2 = Vector2.Normalize(d2);
+                        if (d3 != Vector2.Zero) d3 = Vector2.Normalize(d3);
+
                         float cross12;
                         MathUtils.Cross(ref d1, ref d2, out cross12);
                         cross12 = Math.Abs(cross12);

@@ -111,7 +111,7 @@ namespace FarseerPhysics.Common.PolygonManipulation
                 {
                     offset = (newPolygon[n][newPolygon[n].Count - 1] - newPolygon[n][0]);
                 }
-                offset = Vector2.Normalize(offset);
+                if (offset != Vector2.Zero) offset = Vector2.Normalize(offset);
 
                 if (!offset.IsValid())
                     offset = Vector2.One;
@@ -126,7 +126,7 @@ namespace FarseerPhysics.Common.PolygonManipulation
                 {
                     offset = (newPolygon[n][0] - newPolygon[n][newPolygon[n].Count - 1]);
                 }
-                offset = Vector2.Normalize(offset);
+                if (offset != Vector2.Zero) offset = Vector2.Normalize(offset);
 
                 if (!offset.IsValid())
                     offset = Vector2.One;

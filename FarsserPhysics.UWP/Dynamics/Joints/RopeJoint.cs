@@ -268,7 +268,8 @@ namespace FarseerPhysics.Dynamics.Joints
             Vector2 u = cB + rB - cA - rA;
 
             float length = u.Length();
-            u = Vector2.Normalize(u);
+            if (u != Vector2.Zero) u = Vector2.Normalize(u);
+
             float C = length - MaxLength;
 
             C = MathUtils.Clamp(C, 0.0f, Settings.MaxLinearCorrection);

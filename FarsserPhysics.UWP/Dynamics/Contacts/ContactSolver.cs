@@ -877,7 +877,8 @@ namespace FarseerPhysics.Dynamics.Contacts
                             if (Vector2.DistanceSquared(pointA, pointB) > Settings.Epsilon * Settings.Epsilon)
                             {
                                 normal = pointB - pointA;
-                                normal=Vector2.Normalize(normal);
+                                if (normal != Vector2.Zero) normal = Vector2.Normalize(normal);
+
                             }
 
                             Vector2 cA = pointA + radiusA * normal;
@@ -935,7 +936,8 @@ namespace FarseerPhysics.Dynamics.Contacts
                             Vector2 pointA = MathUtils.Mul(ref xfA, pc.localPoint);
                             Vector2 pointB = MathUtils.Mul(ref xfB, pc.localPoints[0]);
                             normal = pointB - pointA;
-                            normal=Vector2.Normalize(normal);
+                            if (normal != Vector2.Zero) normal = Vector2.Normalize(normal);
+
                             point = 0.5f * (pointA + pointB);
                             separation = Vector2.Dot(pointB - pointA, normal) - pc.radiusA - pc.radiusB;
                         }

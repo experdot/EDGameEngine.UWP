@@ -342,7 +342,7 @@ namespace FarseerPhysics.Collision
             Vector2 p2 = input.Point2;
             Vector2 r = p2 - p1;
             Debug.Assert(r.LengthSquared() > 0.0f);
-            r = Vector2.Normalize(r);
+            if (r != Vector2.Zero) r = Vector2.Normalize(r);
 
             // v is perpendicular to the segment.
             Vector2 absV = MathUtils.Abs(new Vector2(-r.Y, r.X)); //FPE: Inlined the 'v' variable
