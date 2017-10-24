@@ -37,7 +37,9 @@ Public Class GameWorld
     Public Sub Start()
         PhysicWorld = New World(Gravity)
         For Each SubBlock In Mission.Blocks
-            If SubBlock IsNot Nothing Then CreateRectangle(PhysicWorld, SubBlock, SubBlock.Location, BodyType.Static)
+            If SubBlock IsNot Nothing Then
+                CreateRectangle(PhysicWorld, SubBlock, SubBlock.Location, BodyType.Static)
+            End If
         Next
         For Each SubCharacter In Mission.Characters
             If SubCharacter IsNot Nothing Then

@@ -2,7 +2,7 @@
 ''' 非玩家角色
 ''' </summary>
 Public Class NPC
-    Inherits Character
+    Inherits CharacterBase
     ''' <summary>
     ''' 阵营
     ''' </summary>

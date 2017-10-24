@@ -138,7 +138,7 @@
     <Compile Include="Mission\Character\Ability\General\Jump\JumpStateMachine.vb" />
     <Compile Include="Mission\Character\Ability\General\Move\MoveLeft.vb" />
     <Compile Include="Mission\Character\Ability\General\Move\MoveRight.vb" />
-    <Compile Include="Mission\Character\Base\Character.vb" />
+    <Compile Include="Mission\Character\Base\CharacterBase.vb" />
     <Compile Include="Mission\Character\Base\ICharacter.vb" />
     <Compile Include="Mission\Character\NonePlayer\Camp\Camp.vb" />
     <Compile Include="Mission\Character\NonePlayer\Monster\Monster.vb" />

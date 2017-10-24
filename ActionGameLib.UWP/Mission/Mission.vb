@@ -28,11 +28,17 @@ Public Class Mission
     End Sub
 
     Public Sub Start() Implements IUpdateable.Start
+        For Each SubBlock In Blocks
+            SubBlock.Start()
+        Next
         For Each SubCharacter In Characters
             SubCharacter.Start()
         Next
     End Sub
     Public Sub Update() Implements IUpdateable.Update
+        For Each SubBlock In Blocks
+            SubBlock.Update()
+        Next
         For Each SubCharacter In Characters
             SubCharacter.Update()
         Next

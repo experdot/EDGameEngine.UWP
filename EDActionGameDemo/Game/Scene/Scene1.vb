@@ -1,4 +1,5 @@
 ﻿Imports EDGameEngine.Components.Behavior
+Imports EDGameEngine.Components.Effect
 Imports EDGameEngine.Core.Graphics
 Imports EDGameEngine.Core.UI
 ''' <summary>
@@ -13,12 +14,13 @@ Public Class Scene1
 
         Dim temp As New ActionGameModel
         AddGameVisual(temp, New ActionGameView(temp))
-        temp.GameComponents.Behaviors.Add(New TransformScript)
 
+        '画面居中
+        temp.GameComponents.Behaviors.Add(New TransformScript)
+        '画面残影
+        'temp.GameComponents.Effects.Add(New GhostEffect With {.Opacity = 0.96})
         '键盘控制摄像机
         'Me.Camera.GameComponents.Behaviors.Add(New KeyControlScript With {.MaxSpeed = 5.0F})
-        '场景全局残影
-        'Me.GameComponents.Effects.Add(New GhostEffect With {.SourceRect = New Rect(0, 0, Width, Height), .Opacity = 0.96})
 
     End Sub
 

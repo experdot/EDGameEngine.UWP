@@ -2,7 +2,7 @@
 ''' 玩家角色
 ''' </summary>
 Public Class Player
-    Inherits Character
+    Inherits CharacterBase
     Public Sub New()
         '添加基础移动
         AbilityManager.Add(New Jump)

@@ -3,7 +3,7 @@ Imports ActionGameLib.UWP
 ''' <summary>
 ''' 表示游戏角色的基类
 ''' </summary>
-Public Class Character
+Public Class CharacterBase
     Implements ICharacter
     ''' <summary>
     ''' 角色死亡时发生的事件

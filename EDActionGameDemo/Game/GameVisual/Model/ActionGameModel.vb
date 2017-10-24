@@ -8,7 +8,6 @@ Public Class ActionGameModel
     ''' <summary>
     ''' 游戏世界
     ''' </summary>
-    ''' <returns></returns>
     Public Property ActionGame As GameWorld
     ''' <summary>
     ''' 活动的关卡
@@ -21,7 +20,7 @@ Public Class ActionGameModel
     ''' <summary>
     ''' 是否启用摄像机跟随
     ''' </summary>
-    Public Property IsCameraFollow As Boolean = True
+    Public Property IsCameraFollow As Boolean = False
     ''' <summary>
     ''' 键盘
     ''' </summary>

@@ -215,6 +215,10 @@
       <Project>{04FCBF91-1F22-4F69-9E75-F79C563F8054}</Project>
       <Name>EDGameEngine.Components.Behavior</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EDGameEngine.Components.Effect\EDGameEngine.Components.Effect.vbproj">
+      <Project>{72E57A54-C3A9-4918-A987-6F7769F56038}</Project>
+      <Name>EDGameEngine.Components.Effect</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EDGameEngine.Core.Graphics\EDGameEngine.Core.Graphics.vbproj">
       <Project>{063C77A7-4A06-4818-9074-3E993AFB526C}</Project>
       <Name>EDGameEngine.Core.Graphics</Name>
