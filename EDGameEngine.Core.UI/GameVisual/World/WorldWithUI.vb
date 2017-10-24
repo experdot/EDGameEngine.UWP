@@ -67,7 +67,7 @@ Public MustInherit Class WorldWithUI
         If RenderMode = RenderMode.Sync Then
             ActiveScene?.Update()
         End If
-        CType(ActiveScene.Presenter, ICanvasView)?.OnDraw(args.DrawingSession)
+        CType(ActiveScene.Presenter, ICanvasView)?.BeginDraw(args.DrawingSession)
     End Sub
     ''' <summary>
     ''' 切换至指定的场景
