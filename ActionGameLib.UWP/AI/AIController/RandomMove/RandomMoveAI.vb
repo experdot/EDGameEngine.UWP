@@ -1,13 +1,18 @@
-﻿''' <summary>
-''' AI控制器
+﻿Imports ActionGameLib.UWP
+''' <summary>
+''' 随机移动AI控制器
 ''' </summary>
-Public Class AIContorller
-
-    Public Shared Rnd As New Random
+Public Class RandomMoveAI
+    Implements IAIController
     ''' <summary>
-    ''' 控制角色
+    ''' 静态的<see cref="Random"/>实例
     ''' </summary>
-    Public Shared Sub Control(mission As Mission)
+    Protected Shared Rnd As New Random
+
+    Public Sub Start(mission As Mission) Implements IAIController.Start
+
+    End Sub
+    Public Sub Update(mission As Mission) Implements IAIController.Update
         For Each SubCharacter In mission.Characters
             If SubCharacter.GetType Is GetType(Monster) Then
                 MonsterMove(SubCharacter)
@@ -29,4 +34,5 @@ Public Class AIContorller
             End If
         End If
     End Sub
+
 End Class

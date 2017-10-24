@@ -23,11 +23,19 @@ Public Class GameWorld
     ''' </summary>
     Public Property Gravity As Vector2 = New Vector2(0, 10)
     ''' <summary>
+    ''' AI管理器
+    ''' </summary>
+    Public Property AIManager As AIManager
+
+    Public Sub New()
+        AIManager = New AIManager
+        AIManager.AIConrollers.Add(New RandomMoveAI)
+    End Sub
+    ''' <summary>
     ''' 开始
     ''' </summary>
     Public Sub Start()
         PhysicWorld = New World(Gravity)
-        Static rnd As Random = New Random
         For Each SubBlock In Mission.Blocks
             If SubBlock IsNot Nothing Then CreateRectangle(PhysicWorld, SubBlock, SubBlock.Location, BodyType.Static)
         Next
@@ -37,6 +45,7 @@ Public Class GameWorld
             End If
         Next
         Mission.Start()
+        AIManager.Start(Mission)
     End Sub
     ''' <summary>
     ''' 更新
@@ -48,12 +57,11 @@ Public Class GameWorld
         Last = Date.Now
 
         Mission.Update()
-        AIContorller.Control(Mission)
+        AIManager.Update(Mission)
     End Sub
     ''' <summary>
     ''' [Experimental]按键测试
     ''' </summary>
-    ''' <param name="key"></param>
     Public Sub KeyDown(key As Char)
         Dim player As ICharacter = Mission.Characters.First
         Dim body As Body = player.Collide.Body

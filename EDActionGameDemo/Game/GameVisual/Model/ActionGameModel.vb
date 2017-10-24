@@ -36,18 +36,18 @@ Public Class ActionGameModel
         '初始化关卡
         Mission = New Mission
         '初始化地图块
-        Dim blocks(w - 1, h - 1) As Block
+        Dim blocks As New List(Of IBlock)
         For i = 0 To w - 1
             For j = 0 To h - 1
                 If Rnd.NextDouble > 0.618 Then
-                    blocks(i, j) = New Block()
-                    blocks(i, j).Location = New Vector2(i, j)
+                    Dim block = New Block() With {.Location = New Vector2(i, j)}
                     If Rnd.NextDouble > 0.618 Then
-                        blocks(i, j).Image = ResourceId.Create(BlockImageID.Question)
+                        block.Image = ResourceId.Create(BlockImageID.Question)
                     Else
-                        blocks(i, j).Image = ResourceId.Create(BlockImageID.Blank)
+                        block.Image = ResourceId.Create(BlockImageID.Blank)
                     End If
-                    'blocks(i, j).Collide.Rect = New Rect(0, 0, 0.5 + Rnd.NextDouble * 0.5, 0.5 + Rnd.NextDouble * 0.5)
+                    'block.Collide.Rect = New Rect(0, 0, 0.5 + Rnd.NextDouble * 0.5, 0.5 + Rnd.NextDouble * 0.5)
+                    blocks.Add(block)
                 End If
             Next
         Next
@@ -78,12 +78,12 @@ Public Class ActionGameModel
             CameraFollowTarget(ActionGame.Mission.Characters.First.Location)
         End If
 
-        '按键测试
-        KeyDown()
+        '持续按键检测
+        KeyDownContinious()
     End Sub
 
-    Private Sub KeyDown()
-        Static KeyArr() As VirtualKey = {VirtualKey.A, VirtualKey.D, VirtualKey.W, VirtualKey.S}
+    Private Sub KeyDownContinious()
+        Static KeyArr() As VirtualKey = {VirtualKey.A, VirtualKey.D}
         For i = 0 To 1
             If Scene.Inputs.Keyboard.KeyStatus(KeyArr(i)) Then
                 ActionGame.KeyDown(ChrW(KeyArr(i)))
@@ -92,13 +92,17 @@ Public Class ActionGameModel
     End Sub
 
     Private Sub KeyBoard_KeyDown(keyCode As VirtualKey) Handles Keyboard.KeyDown
-        If keyCode = VirtualKey.W Then
+        Static KeyArr() As VirtualKey = {VirtualKey.W, VirtualKey.S}
+        If KeyArr.Contains(keyCode) Then
             ActionGame.KeyDown(ChrW(keyCode))
         End If
     End Sub
 
     Private Sub KeyBoard_KeyUp(keyCode As VirtualKey) Handles Keyboard.KeyUp
-
+        Static KeyArr() As VirtualKey = {VirtualKey.A, VirtualKey.D, VirtualKey.W, VirtualKey.S}
+        If KeyArr.Contains(keyCode) Then
+            'ActionGame.KeyUp(ChrW(keyCode))
+        End If
     End Sub
 
     Private Sub CameraFollowTarget(loc As Vector2)

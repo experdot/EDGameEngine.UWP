@@ -7,7 +7,7 @@ Public Class Mission
     ''' <summary>
     ''' 地图块集合
     ''' </summary>
-    Public Property Blocks As IBlock(,) Implements IMission.Blocks
+    Public Property Blocks As List(Of IBlock) Implements IMission.Blocks
     ''' <summary>
     ''' 角色集合
     ''' </summary>
@@ -20,7 +20,9 @@ Public Class Mission
     ''' 背景贴图
     ''' </summary>
     Public Property Background As ResourceId
-
+    ''' <summary>
+    ''' 创建并初始化一个实例
+    ''' </summary>
     Public Sub New()
         Characters = New List(Of ICharacter)
     End Sub
@@ -30,13 +32,11 @@ Public Class Mission
             SubCharacter.Start()
         Next
     End Sub
-
     Public Sub Update() Implements IUpdateable.Update
         For Each SubCharacter In Characters
             SubCharacter.Update()
         Next
     End Sub
-
     ''' <summary>
     ''' 返回指定名称的角色
     ''' </summary>

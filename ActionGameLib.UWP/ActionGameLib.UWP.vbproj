@@ -122,7 +122,9 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AI\AIContorller.vb" />
+    <Compile Include="AI\AIController\RandomMove\RandomMoveAI.vb" />
+    <Compile Include="AI\AIController\Base\IAIController.vb" />
+    <Compile Include="AI\AIManager.vb" />
     <Compile Include="Mission\Base\ITypedUpdateble.vb" />
     <Compile Include="Mission\Base\IUpdateable.vb" />
     <Compile Include="Mission\Character\Ability\Base\AbilityBase.vb" />

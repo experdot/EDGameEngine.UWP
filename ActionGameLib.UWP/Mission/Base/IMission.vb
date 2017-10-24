@@ -7,7 +7,7 @@ Public Interface IMission
     ''' <summary>
     ''' 地图块集合
     ''' </summary>
-    Property Blocks As IBlock(,)
+    Property Blocks As List(Of IBlock)
     ''' <summary>
     ''' 角色集合
     ''' </summary>
