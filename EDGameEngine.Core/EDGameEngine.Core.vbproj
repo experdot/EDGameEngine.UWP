@@ -143,6 +143,7 @@
     <Compile Include="Components\Media\IMedia.vb" />
     <Compile Include="Components\Trigger\ITrigger.vb" />
     <Compile Include="GameObject\GameVisual\Container\World\IWorld.vb" />
+    <Compile Include="Utilities\Color\ColorHelper.vb" />
     <Compile Include="Utilities\Progress\Progress.vb" />
     <Compile Include="GameObject\GameVisual\Camera\Camera.vb" />
     <Compile Include="GameObject\GameVisual\Camera\Base\ICamera.vb" />
@@ -163,13 +164,14 @@
     <Compile Include="GameObject\GameVisual\Container\Scene\SceneBase.vb" />
     <Compile Include="GameObject\Base\IGameObject.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
-    <Compile Include="Utilities\Color\ColorEx.vb" />
+    <Compile Include="Utilities\ColorEx\ColorEx.vb" />
     <Compile Include="Utilities\Mathmatical\Vector2Extensions.vb" />
     <Compile Include="Utilities\Properties\Appearance\Appearance.vb" />
     <Compile Include="Utilities\Properties\Transform\Transform.vb" />
     <Compile Include="Utilities\Properties\SceneState\SceneState.vb" />
     <Compile Include="Utilities\Properties\RenderMode\RenderMode.vb" />
     <Compile Include="Utilities\Quality\EffectQuality.vb" />
+    <Compile Include="Utilities\Vector\VectorHelper.vb" />
     <EmbeddedResource Include="My Project\EDGameEngine.Core.rd.xml" />
   </ItemGroup>
   <ItemGroup>

@@ -1,13 +1,15 @@
 ﻿Imports System.Numerics
+Imports EDGameEngine.Visuals
 Imports Windows.UI
 ''' <summary>
 ''' 线条
 ''' </summary>
 Public Class Line
+    Implements ILine
     ''' <summary>
     ''' 点集
     ''' </summary>
-    Public Property Points As New List(Of PointWithLayer)
+    Public Property Points As New List(Of PointWithLayer) Implements ILine.Points
     ''' <summary>
     ''' 位置
     ''' </summary>

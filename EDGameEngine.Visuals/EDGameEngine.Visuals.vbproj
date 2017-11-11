@@ -130,13 +130,26 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GameObject\GameVisual\AutoDraw\AI\Drawing\Drawing.vb" />
-    <Compile Include="GameObject\GameVisual\AutoDraw\AI\DrawingManager.vb" />
-    <Compile Include="GameObject\GameVisual\AutoDraw\AI\Drawing\PixelData\PixelData.vb" />
-    <Compile Include="GameObject\GameVisual\AutoDraw\AutoDrawModel.vb" />
-    <Compile Include="GameObject\GameVisual\AutoDraw\AI\Drawing\Line\Line.vb" />
-    <Compile Include="GameObject\GameVisual\AutoDraw\AI\Drawing\Sequence\Enums\ScanMode.vb" />
-    <Compile Include="GameObject\GameVisual\AutoDraw\AI\Drawing\Sequence\SequenceAI.vb" />
+    <Compile Include="GameObject\GameVisual\AutoDraw\AutoDrawByClusteringModel.vb" />
+    <Compile Include="GameObject\GameVisual\AutoDraw\Clustering\Cluster\Compare\ClusterLengthCompare.vb" />
+    <Compile Include="GameObject\GameVisual\AutoDraw\FastAI\Drawing\Drawing.vb" />
+    <Compile Include="GameObject\GameVisual\AutoDraw\FastAI\DrawingManager.vb" />
+    <Compile Include="GameObject\GameVisual\AutoDraw\Fundamental\Line\Base\ILine.vb" />
+    <Compile Include="GameObject\GameVisual\AutoDraw\Fundamental\Line\Compare\LineLengthCompare.vb" />
+    <Compile Include="GameObject\GameVisual\AutoDraw\Fundamental\PixelData\PixelData.vb" />
+    <Compile Include="GameObject\GameVisual\AutoDraw\AutoDrawByFastAIModel.vb" />
+    <Compile Include="GameObject\GameVisual\AutoDraw\Fundamental\Line\Line.vb" />
+    <Compile Include="GameObject\GameVisual\AutoDraw\FastAI\Drawing\Sequence\Enums\ScanMode.vb" />
+    <Compile Include="GameObject\GameVisual\AutoDraw\FastAI\Drawing\Sequence\SequenceAI.vb" />
+    <Compile Include="GameObject\GameVisual\AutoDraw\Clustering\ClusterAI.vb" />
+    <Compile Include="GameObject\GameVisual\AutoDraw\Clustering\Cluster\Cluster.vb" />
+    <Compile Include="GameObject\GameVisual\AutoDraw\Clustering\Cluster\Compare\ClusterColorCompare.vb" />
+    <Compile Include="GameObject\GameVisual\AutoDraw\Clustering\Cluster\Compare\ClusterPositionCompare.vb" />
+    <Compile Include="GameObject\GameVisual\AutoDraw\Clustering\Hierarchy\Base\HierarchyBase.vb" />
+    <Compile Include="GameObject\GameVisual\AutoDraw\Clustering\Hierarchy\Base\IHierarchy.vb" />
+    <Compile Include="GameObject\GameVisual\AutoDraw\Clustering\Hierarchy\GridHierarchy\GridHierarchy.vb" />
+    <Compile Include="GameObject\GameVisual\AutoDraw\Clustering\Hierarchy\GroupHierarchy\GroupHierarchy.vb" />
+    <Compile Include="GameObject\GameVisual\AutoDraw\Base\IAutoDrawModel.vb" />
     <Compile Include="GameObject\GameVisual\AutoStitch\Container\FragmentContainer.vb" />
     <Compile Include="GameObject\GameVisual\AutoStitch\Container\MapCellAround.vb" />
     <Compile Include="GameObject\GameVisual\AutoStitch\Fragment\FragmentSide.vb" />

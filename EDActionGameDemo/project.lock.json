@@ -28674,6 +28674,9 @@
             "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Components.Behavior\\EDGameEngine.Components.Behavior.vbproj": {
               "projectPath": "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Components.Behavior\\EDGameEngine.Components.Behavior.vbproj"
             },
+            "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Components.Effect\\EDGameEngine.Components.Effect.vbproj": {
+              "projectPath": "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Components.Effect\\EDGameEngine.Components.Effect.vbproj"
+            },
             "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Core.Graphics\\EDGameEngine.Core.Graphics.vbproj": {
               "projectPath": "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Core.Graphics\\EDGameEngine.Core.Graphics.vbproj"
             },
@@ -28688,9 +28691,6 @@
             },
             "E:\\GitHub\\ExperDot.EDGameEngine\\FarsserPhysics.UWP\\FarsserPhysics.UWP.csproj": {
               "projectPath": "E:\\GitHub\\ExperDot.EDGameEngine\\FarsserPhysics.UWP\\FarsserPhysics.UWP.csproj"
-            },
-            "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Components.Effect\\EDGameEngine.Components.Effect.vbproj": {
-              "projectPath": "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Components.Effect\\EDGameEngine.Components.Effect.vbproj"
             }
           }
         }

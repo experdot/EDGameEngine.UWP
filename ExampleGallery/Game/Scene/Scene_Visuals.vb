@@ -74,7 +74,8 @@ Public Class Scene_Visuals
                 Dim tempModel As New Plant(New Vector2(Width / 2, Height * 0.8F))
                 Me.AddGameVisual(tempModel, New PlantView(tempModel))
             Case 50000 '自动绘图
-                Dim tempModel As New AutoDrawModel() With {.Image = CType(ImageResource.GetResource(ImageResourceId.Scenery1), CanvasBitmap)}
+                World.RenderMode = RenderMode.Sync
+                Dim tempModel As New AutoDrawByClusteringModel() With {.Image = CType(ImageResource.GetResource(ImageResourceId.Scenery1), CanvasBitmap)}
                 tempModel.GameComponents.Behaviors.Add(New TransformScript)
                 Me.AddGameVisual(tempModel, New AutoDrawView(tempModel))
             Case 50001 '自动拼图
