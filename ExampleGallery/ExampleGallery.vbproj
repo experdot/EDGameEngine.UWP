@@ -301,9 +301,37 @@
       <Project>{f563111c-4331-4735-a6c9-447662049482}</Project>
       <Name>EDGameEngine.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\EDGameEngine.Visuals\EDGameEngine.Visuals.vbproj">
-      <Project>{009060f5-be36-4f13-8427-a9a6ff14a47c}</Project>
-      <Name>EDGameEngine.Visuals</Name>
+    <ProjectReference Include="..\EDGameEngine.Visuals.AutoDraw\EDGameEngine.Visuals.AutoDraw.vbproj">
+      <Project>{1ad50c09-c7fa-442d-885b-3bc5db94c9fe}</Project>
+      <Name>EDGameEngine.Visuals.AutoDraw</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EDGameEngine.Visuals.AutoStitch\EDGameEngine.Visuals.AutoStitch.vbproj">
+      <Project>{0b7bfbaf-8e3c-4979-9c5f-f3662b2c01fa}</Project>
+      <Name>EDGameEngine.Visuals.AutoStitch</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EDGameEngine.Visuals.CA\EDGameEngine.Visuals.CA.vbproj">
+      <Project>{9ece595d-a662-42de-9145-ec6b0ac3cdeb}</Project>
+      <Name>EDGameEngine.Visuals.CA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EDGameEngine.Visuals.Fractal\EDGameEngine.Visuals.Fractal.vbproj">
+      <Project>{72422487-236d-42a6-a788-e12246d3de44}</Project>
+      <Name>EDGameEngine.Visuals.Fractal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EDGameEngine.Visuals.Particles\EDGameEngine.Visuals.Particles.vbproj">
+      <Project>{4315ae33-48da-4841-abe1-63a0b572f792}</Project>
+      <Name>EDGameEngine.Visuals.Particles</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EDGameEngine.Visuals.Plant\EDGameEngine.Visuals.Plant.vbproj">
+      <Project>{ea28cf63-dcf0-43a6-a66f-ea7ae2b39ca3}</Project>
+      <Name>EDGameEngine.Visuals.Plant</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EDGameEngine.Visuals.Pointer\EDGameEngine.Visuals.Pointer.vbproj">
+      <Project>{bbb2fa54-7b04-4631-a1dc-2093c127fc08}</Project>
+      <Name>EDGameEngine.Visuals.Pointer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EDGameEngine.Visuals.StateMachine\EDGameEngine.Visuals.StateMachine.vbproj">
+      <Project>{c013e847-db9a-4e65-bc49-7e56960a4130}</Project>
+      <Name>EDGameEngine.Visuals.StateMachine</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

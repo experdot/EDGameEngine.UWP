@@ -5,6 +5,12 @@ Imports EDGameEngine.Core
 Imports EDGameEngine.Core.Graphics
 Imports EDGameEngine.Core.UI
 Imports EDGameEngine.Visuals
+Imports EDGameEngine.Visuals.AutoDraw
+Imports EDGameEngine.Visuals.CA
+Imports EDGameEngine.Visuals.Fractal
+Imports EDGameEngine.Visuals.Particles
+Imports EDGameEngine.Visuals.Plant
+Imports EDGameEngine.Visuals.StateMachine
 Imports Microsoft.Graphics.Canvas
 Imports Windows.UI
 

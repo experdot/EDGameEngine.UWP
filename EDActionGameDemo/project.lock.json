@@ -2604,16 +2604,6 @@
           "Win2D.uwp": "1.21.0"
         }
       },
-      "EDGameEngine.Visuals/1.0.0": {
-        "type": "project",
-        "framework": "UAP,Version=v10.0.15063",
-        "dependencies": {
-          "EDGameEngine.Components.Effect": "1.0.0",
-          "EDGameEngine.Core": "1.0.0",
-          "EDGameEngine.Core.Graphics": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
-        }
-      },
       "FarsserPhysics.UWP/1.0.0": {
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
@@ -5227,16 +5217,6 @@
           "EDGameEngine.Core.Graphics": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
           "Win2D.uwp": "1.21.0"
-        }
-      },
-      "EDGameEngine.Visuals/1.0.0": {
-        "type": "project",
-        "framework": "UAP,Version=v10.0.15063",
-        "dependencies": {
-          "EDGameEngine.Components.Effect": "1.0.0",
-          "EDGameEngine.Core": "1.0.0",
-          "EDGameEngine.Core.Graphics": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
       "FarsserPhysics.UWP/1.0.0": {
@@ -7890,16 +7870,6 @@
           "Win2D.uwp": "1.21.0"
         }
       },
-      "EDGameEngine.Visuals/1.0.0": {
-        "type": "project",
-        "framework": "UAP,Version=v10.0.15063",
-        "dependencies": {
-          "EDGameEngine.Components.Effect": "1.0.0",
-          "EDGameEngine.Core": "1.0.0",
-          "EDGameEngine.Core.Graphics": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
-        }
-      },
       "FarsserPhysics.UWP/1.0.0": {
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
@@ -10522,16 +10492,6 @@
           "EDGameEngine.Core.Graphics": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
           "Win2D.uwp": "1.21.0"
-        }
-      },
-      "EDGameEngine.Visuals/1.0.0": {
-        "type": "project",
-        "framework": "UAP,Version=v10.0.15063",
-        "dependencies": {
-          "EDGameEngine.Components.Effect": "1.0.0",
-          "EDGameEngine.Core": "1.0.0",
-          "EDGameEngine.Core.Graphics": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
       "FarsserPhysics.UWP/1.0.0": {
@@ -13194,16 +13154,6 @@
           "Win2D.uwp": "1.21.0"
         }
       },
-      "EDGameEngine.Visuals/1.0.0": {
-        "type": "project",
-        "framework": "UAP,Version=v10.0.15063",
-        "dependencies": {
-          "EDGameEngine.Components.Effect": "1.0.0",
-          "EDGameEngine.Core": "1.0.0",
-          "EDGameEngine.Core.Graphics": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
-        }
-      },
       "FarsserPhysics.UWP/1.0.0": {
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
@@ -15826,16 +15776,6 @@
           "EDGameEngine.Core.Graphics": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
           "Win2D.uwp": "1.21.0"
-        }
-      },
-      "EDGameEngine.Visuals/1.0.0": {
-        "type": "project",
-        "framework": "UAP,Version=v10.0.15063",
-        "dependencies": {
-          "EDGameEngine.Components.Effect": "1.0.0",
-          "EDGameEngine.Core": "1.0.0",
-          "EDGameEngine.Core.Graphics": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
       "FarsserPhysics.UWP/1.0.0": {
@@ -18496,16 +18436,6 @@
           "EDGameEngine.Core.Graphics": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
           "Win2D.uwp": "1.21.0"
-        }
-      },
-      "EDGameEngine.Visuals/1.0.0": {
-        "type": "project",
-        "framework": "UAP,Version=v10.0.15063",
-        "dependencies": {
-          "EDGameEngine.Components.Effect": "1.0.0",
-          "EDGameEngine.Core": "1.0.0",
-          "EDGameEngine.Core.Graphics": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
       "FarsserPhysics.UWP/1.0.0": {
@@ -28627,11 +28557,6 @@
       "path": "../EDGameEngine.Core.UI/EDGameEngine.Core.UI.vbproj",
       "msbuildProject": "../EDGameEngine.Core.UI/EDGameEngine.Core.UI.vbproj"
     },
-    "EDGameEngine.Visuals/1.0.0": {
-      "type": "project",
-      "path": "../EDGameEngine.Visuals/project.json",
-      "msbuildProject": "../EDGameEngine.Visuals/EDGameEngine.Visuals.vbproj"
-    },
     "FarsserPhysics.UWP/1.0.0": {
       "type": "project",
       "path": "../FarsserPhysics.UWP/project.json",
@@ -28685,9 +28610,6 @@
             },
             "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Core\\EDGameEngine.Core.vbproj": {
               "projectPath": "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Core\\EDGameEngine.Core.vbproj"
-            },
-            "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Visuals\\EDGameEngine.Visuals.vbproj": {
-              "projectPath": "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Visuals\\EDGameEngine.Visuals.vbproj"
             },
             "E:\\GitHub\\ExperDot.EDGameEngine\\FarsserPhysics.UWP\\FarsserPhysics.UWP.csproj": {
               "projectPath": "E:\\GitHub\\ExperDot.EDGameEngine\\FarsserPhysics.UWP\\FarsserPhysics.UWP.csproj"

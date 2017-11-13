@@ -1,5 +1,4 @@
 ﻿Imports System.Numerics
-Imports EDGameEngine.Components
 Imports EDGameEngine.Core
 Imports Microsoft.Graphics.Canvas
 Imports Windows.UI

@@ -1,22 +1,49 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{520555B8-0866-4AF7-86E5-572E496B1EEF}</ProjectGuid>
-    <OutputType>AppContainerExe</OutputType>
-    <RootNamespace>EDActionGameDemo</RootNamespace>
-    <AssemblyName>EDActionGameDemo</AssemblyName>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9ECE595D-A662-42DE-9145-EC6B0AC3CDEB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>EDGameEngine.Visuals.CA</RootNamespace>
+    <AssemblyName>EDGameEngine.Visuals.CA</AssemblyName>
     <DefaultLanguage>zh-CN</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion>10.0.15063.0</TargetPlatformVersion>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.15063.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.15063.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
-    <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <NoConfig>true</NoConfig>
+    <OutputPath>bin\Debug</OutputPath>
+    <DocumentationFile>EDGameEngine.Visuals.CA.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DefineConstants>NETFX_CORE,WINDOWS_UWP</DefineConstants>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <DocumentationFile>EDGameEngine.Visuals.CA.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DefineConstants>NETFX_CORE,WINDOWS_UWP</DefineConstants>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
@@ -25,11 +52,11 @@
     <DebugType>full</DebugType>
     <PlatformTarget>x86</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
-    <Prefer32Bit>true</Prefer32Bit>
-    <DocumentationFile>EDActionGameDemo.xml</DocumentationFile>
+    <DocumentationFile>EDGameEngine.Visuals.CA.xml</DocumentationFile>
     <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <PlatformTarget>x86</PlatformTarget>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\x86\Release\</OutputPath>
     <DefineConstants>NETFX_CORE,WINDOWS_UWP</DefineConstants>
@@ -37,12 +64,11 @@
     <DebugType>pdbonly</DebugType>
     <PlatformTarget>x86</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
-    <Prefer32Bit>true</Prefer32Bit>
-    <DocumentationFile>EDActionGameDemo.xml</DocumentationFile>
+    <DocumentationFile>EDGameEngine.Visuals.CA.xml</DocumentationFile>
     <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
-    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <PlatformTarget>ARM</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
@@ -51,11 +77,11 @@
     <DebugType>full</DebugType>
     <PlatformTarget>ARM</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
-    <Prefer32Bit>true</Prefer32Bit>
-    <DocumentationFile>EDActionGameDemo.xml</DocumentationFile>
+    <DocumentationFile>EDGameEngine.Visuals.CA.xml</DocumentationFile>
     <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <PlatformTarget>ARM</PlatformTarget>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\ARM\Release\</OutputPath>
     <DefineConstants>NETFX_CORE,WINDOWS_UWP</DefineConstants>
@@ -63,12 +89,11 @@
     <DebugType>pdbonly</DebugType>
     <PlatformTarget>ARM</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
-    <Prefer32Bit>true</Prefer32Bit>
-    <DocumentationFile>EDActionGameDemo.xml</DocumentationFile>
+    <DocumentationFile>EDGameEngine.Visuals.CA.xml</DocumentationFile>
     <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
-    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <PlatformTarget>x64</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
@@ -77,11 +102,11 @@
     <DebugType>full</DebugType>
     <PlatformTarget>x64</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
-    <Prefer32Bit>true</Prefer32Bit>
-    <DocumentationFile>EDActionGameDemo.xml</DocumentationFile>
+    <DocumentationFile>EDGameEngine.Visuals.CA.xml</DocumentationFile>
     <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <PlatformTarget>x64</PlatformTarget>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\x64\Release\</OutputPath>
     <DefineConstants>NETFX_CORE,WINDOWS_UWP</DefineConstants>
@@ -89,92 +114,23 @@
     <DebugType>pdbonly</DebugType>
     <PlatformTarget>x64</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
-    <Prefer32Bit>true</Prefer32Bit>
-    <DocumentationFile>EDActionGameDemo.xml</DocumentationFile>
+    <DocumentationFile>EDGameEngine.Visuals.CA.xml</DocumentationFile>
     <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
-    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
-    <None Include="project.json" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="App.xaml.vb">
-      <DependentUpon>App.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Common\SampleConfiguration.vb" />
-    <Compile Include="Controls\HamburgerBox.xaml.vb">
-      <DependentUpon>HamburgerBox.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Game\GameVisual\Model\ActionGameModel.vb" />
-    <Compile Include="Game\GameVisual\View\ActionGameView.vb" />
-    <Compile Include="Game\Resources\BlockImageID.vb" />
-    <Compile Include="Game\Resources\CharacterImageID.vb" />
-    <Compile Include="Game\Scene\Scene1.vb" />
-    <Compile Include="Game\World\CustomWorld.vb" />
-    <Compile Include="Xaml\MainPage.xaml.vb">
-      <DependentUpon>MainPage.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="GameView\GeometryCAView.vb" />
+    <Compile Include="GameVisual\CA\Base\GeometyCABase.vb" />
+    <Compile Include="GameVisual\CA\Base\ICellularAutomata.vb" />
+    <Compile Include="GameVisual\CA\Base\IGeometryCA.vb" />
+    <Compile Include="GameVisual\CA\Cell\Cell.vb" />
+    <Compile Include="GameVisual\CA\Cell\ICell.vb" />
+    <Compile Include="GameVisual\CA\HexgonCA.vb" />
+    <Compile Include="GameVisual\CA\SquareCA.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
-    <Compile Include="Xaml\Scenario1_Start.xaml.vb">
-      <DependentUpon>Scenario1_Start.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Xaml\Scenario3_Help.xaml.vb">
-      <DependentUpon>Scenario3_Help.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Xaml\Scenario2_Game.xaml.vb">
-      <DependentUpon>Scenario2_Game.xaml</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <AppxManifest Include="Package.appxmanifest">
-      <SubType>Designer</SubType>
-    </AppxManifest>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Assets\MenuImages\Coffee.png" />
-    <Content Include="Assets\MenuImages\Fish.png" />
-    <Content Include="Images\Brick_Question.png" />
-    <Content Include="Images\Hero.png" />
-    <Content Include="Images\Brick_Blank.png" />
-    <Content Include="My Project\Default.rd.xml" />
-    <Content Include="Assets\LockScreenLogo.scale-200.png" />
-    <Content Include="Assets\SplashScreen.scale-200.png" />
-    <Content Include="Assets\Square150x150Logo.scale-200.png" />
-    <Content Include="Assets\Square44x44Logo.scale-200.png" />
-    <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
-    <Content Include="Assets\StoreLogo.png" />
-    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </ApplicationDefinition>
-    <Page Include="Controls\HamburgerBox.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\Styles.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Xaml\MainPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Xaml\Scenario1_Start.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Xaml\Scenario3_Help.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Xaml\Scenario2_Game.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
+    <EmbeddedResource Include="My Project\EDGameEngine.Visuals.CA.rd.xml" />
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
@@ -187,8 +143,8 @@
     <Import Include="System.IO" />
     <Import Include="System.Linq" />
     <Import Include="System.Runtime.CompilerServices" />
-    <Import Include="System.Runtime.InteropServices.WindowsRuntime" />
     <Import Include="System.Threading.Tasks" />
+    <Import Include="System.Runtime.InteropServices.WindowsRuntime" />
     <Import Include="System.Windows.Input" />
     <Import Include="System.Xml.Linq" />
     <Import Include="Windows.ApplicationModel" />
@@ -207,33 +163,18 @@
     <Import Include="Windows.UI.Xaml.Navigation" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ActionGameLib.UWP\ActionGameLib.UWP.vbproj">
-      <Project>{b7afcfad-8d73-41f7-8ad5-fdf5fe203410}</Project>
-      <Name>ActionGameLib.UWP</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\EDGameEngine.Components.Behavior\EDGameEngine.Components.Behavior.vbproj">
-      <Project>{04FCBF91-1F22-4F69-9E75-F79C563F8054}</Project>
-      <Name>EDGameEngine.Components.Behavior</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\EDGameEngine.Components.Effect\EDGameEngine.Components.Effect.vbproj">
-      <Project>{72E57A54-C3A9-4918-A987-6F7769F56038}</Project>
-      <Name>EDGameEngine.Components.Effect</Name>
-    </ProjectReference>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
+      <Version>6.0.1</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\EDGameEngine.Core.Graphics\EDGameEngine.Core.Graphics.vbproj">
-      <Project>{063C77A7-4A06-4818-9074-3E993AFB526C}</Project>
+      <Project>{063c77a7-4a06-4818-9074-3e993afb526c}</Project>
       <Name>EDGameEngine.Core.Graphics</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\EDGameEngine.Core.UI\EDGameEngine.Core.UI.vbproj">
-      <Project>{1EE8B83F-B355-456B-8CD1-F0DC9ADA7AF2}</Project>
-      <Name>EDGameEngine.Core.UI</Name>
     </ProjectReference>
     <ProjectReference Include="..\EDGameEngine.Core\EDGameEngine.Core.vbproj">
       <Project>{f563111c-4331-4735-a6c9-447662049482}</Project>
       <Name>EDGameEngine.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FarsserPhysics.UWP\FarsserPhysics.UWP.csproj">
-      <Project>{c3d370ac-2fbc-43d6-a3a6-cea3b4b48aca}</Project>
-      <Name>FarsserPhysics.UWP</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

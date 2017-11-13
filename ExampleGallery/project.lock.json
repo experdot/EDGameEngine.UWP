@@ -2596,11 +2596,74 @@
           "Win2D.uwp": "1.21.0"
         }
       },
-      "EDGameEngine.Visuals/1.0.0": {
+      "EDGameEngine.Visuals.AutoDraw/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "EDGameEngine.Core": "1.0.0",
+          "EDGameEngine.Core.Graphics": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Visuals.AutoStitch/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "EDGameEngine.Core": "1.0.0",
+          "EDGameEngine.Core.Graphics": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Visuals.CA/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "EDGameEngine.Core": "1.0.0",
+          "EDGameEngine.Core.Graphics": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Visuals.Fractal/1.0.0": {
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
           "EDGameEngine.Components.Effect": "1.0.0",
+          "EDGameEngine.Core": "1.0.0",
+          "EDGameEngine.Core.Graphics": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Visuals.Particles/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "EDGameEngine.Core": "1.0.0",
+          "EDGameEngine.Core.Graphics": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Visuals.Plant/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "EDGameEngine.Core": "1.0.0",
+          "EDGameEngine.Core.Graphics": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Visuals.Pointer/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "EDGameEngine.Core": "1.0.0",
+          "EDGameEngine.Core.Graphics": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Visuals.StateMachine/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
@@ -5213,11 +5276,74 @@
           "Win2D.uwp": "1.21.0"
         }
       },
-      "EDGameEngine.Visuals/1.0.0": {
+      "EDGameEngine.Visuals.AutoDraw/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "EDGameEngine.Core": "1.0.0",
+          "EDGameEngine.Core.Graphics": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Visuals.AutoStitch/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "EDGameEngine.Core": "1.0.0",
+          "EDGameEngine.Core.Graphics": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Visuals.CA/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "EDGameEngine.Core": "1.0.0",
+          "EDGameEngine.Core.Graphics": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Visuals.Fractal/1.0.0": {
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
           "EDGameEngine.Components.Effect": "1.0.0",
+          "EDGameEngine.Core": "1.0.0",
+          "EDGameEngine.Core.Graphics": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Visuals.Particles/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "EDGameEngine.Core": "1.0.0",
+          "EDGameEngine.Core.Graphics": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Visuals.Plant/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "EDGameEngine.Core": "1.0.0",
+          "EDGameEngine.Core.Graphics": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Visuals.Pointer/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "EDGameEngine.Core": "1.0.0",
+          "EDGameEngine.Core.Graphics": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Visuals.StateMachine/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
@@ -7866,11 +7992,74 @@
           "Win2D.uwp": "1.21.0"
         }
       },
-      "EDGameEngine.Visuals/1.0.0": {
+      "EDGameEngine.Visuals.AutoDraw/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "EDGameEngine.Core": "1.0.0",
+          "EDGameEngine.Core.Graphics": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Visuals.AutoStitch/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "EDGameEngine.Core": "1.0.0",
+          "EDGameEngine.Core.Graphics": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Visuals.CA/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "EDGameEngine.Core": "1.0.0",
+          "EDGameEngine.Core.Graphics": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Visuals.Fractal/1.0.0": {
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
           "EDGameEngine.Components.Effect": "1.0.0",
+          "EDGameEngine.Core": "1.0.0",
+          "EDGameEngine.Core.Graphics": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Visuals.Particles/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "EDGameEngine.Core": "1.0.0",
+          "EDGameEngine.Core.Graphics": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Visuals.Plant/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "EDGameEngine.Core": "1.0.0",
+          "EDGameEngine.Core.Graphics": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Visuals.Pointer/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "EDGameEngine.Core": "1.0.0",
+          "EDGameEngine.Core.Graphics": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Visuals.StateMachine/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
@@ -10492,11 +10681,74 @@
           "Win2D.uwp": "1.21.0"
         }
       },
-      "EDGameEngine.Visuals/1.0.0": {
+      "EDGameEngine.Visuals.AutoDraw/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "EDGameEngine.Core": "1.0.0",
+          "EDGameEngine.Core.Graphics": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Visuals.AutoStitch/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "EDGameEngine.Core": "1.0.0",
+          "EDGameEngine.Core.Graphics": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Visuals.CA/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "EDGameEngine.Core": "1.0.0",
+          "EDGameEngine.Core.Graphics": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Visuals.Fractal/1.0.0": {
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
           "EDGameEngine.Components.Effect": "1.0.0",
+          "EDGameEngine.Core": "1.0.0",
+          "EDGameEngine.Core.Graphics": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Visuals.Particles/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "EDGameEngine.Core": "1.0.0",
+          "EDGameEngine.Core.Graphics": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Visuals.Plant/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "EDGameEngine.Core": "1.0.0",
+          "EDGameEngine.Core.Graphics": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Visuals.Pointer/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "EDGameEngine.Core": "1.0.0",
+          "EDGameEngine.Core.Graphics": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Visuals.StateMachine/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
@@ -13154,11 +13406,74 @@
           "Win2D.uwp": "1.21.0"
         }
       },
-      "EDGameEngine.Visuals/1.0.0": {
+      "EDGameEngine.Visuals.AutoDraw/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "EDGameEngine.Core": "1.0.0",
+          "EDGameEngine.Core.Graphics": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Visuals.AutoStitch/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "EDGameEngine.Core": "1.0.0",
+          "EDGameEngine.Core.Graphics": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Visuals.CA/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "EDGameEngine.Core": "1.0.0",
+          "EDGameEngine.Core.Graphics": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Visuals.Fractal/1.0.0": {
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
           "EDGameEngine.Components.Effect": "1.0.0",
+          "EDGameEngine.Core": "1.0.0",
+          "EDGameEngine.Core.Graphics": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Visuals.Particles/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "EDGameEngine.Core": "1.0.0",
+          "EDGameEngine.Core.Graphics": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Visuals.Plant/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "EDGameEngine.Core": "1.0.0",
+          "EDGameEngine.Core.Graphics": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Visuals.Pointer/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "EDGameEngine.Core": "1.0.0",
+          "EDGameEngine.Core.Graphics": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Visuals.StateMachine/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
@@ -15780,11 +16095,74 @@
           "Win2D.uwp": "1.21.0"
         }
       },
-      "EDGameEngine.Visuals/1.0.0": {
+      "EDGameEngine.Visuals.AutoDraw/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "EDGameEngine.Core": "1.0.0",
+          "EDGameEngine.Core.Graphics": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Visuals.AutoStitch/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "EDGameEngine.Core": "1.0.0",
+          "EDGameEngine.Core.Graphics": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Visuals.CA/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "EDGameEngine.Core": "1.0.0",
+          "EDGameEngine.Core.Graphics": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Visuals.Fractal/1.0.0": {
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
           "EDGameEngine.Components.Effect": "1.0.0",
+          "EDGameEngine.Core": "1.0.0",
+          "EDGameEngine.Core.Graphics": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Visuals.Particles/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "EDGameEngine.Core": "1.0.0",
+          "EDGameEngine.Core.Graphics": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Visuals.Plant/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "EDGameEngine.Core": "1.0.0",
+          "EDGameEngine.Core.Graphics": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Visuals.Pointer/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "EDGameEngine.Core": "1.0.0",
+          "EDGameEngine.Core.Graphics": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Visuals.StateMachine/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
@@ -18442,11 +18820,74 @@
           "Win2D.uwp": "1.21.0"
         }
       },
-      "EDGameEngine.Visuals/1.0.0": {
+      "EDGameEngine.Visuals.AutoDraw/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "EDGameEngine.Core": "1.0.0",
+          "EDGameEngine.Core.Graphics": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Visuals.AutoStitch/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "EDGameEngine.Core": "1.0.0",
+          "EDGameEngine.Core.Graphics": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Visuals.CA/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "EDGameEngine.Core": "1.0.0",
+          "EDGameEngine.Core.Graphics": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Visuals.Fractal/1.0.0": {
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
           "EDGameEngine.Components.Effect": "1.0.0",
+          "EDGameEngine.Core": "1.0.0",
+          "EDGameEngine.Core.Graphics": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Visuals.Particles/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "EDGameEngine.Core": "1.0.0",
+          "EDGameEngine.Core.Graphics": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Visuals.Plant/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "EDGameEngine.Core": "1.0.0",
+          "EDGameEngine.Core.Graphics": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Visuals.Pointer/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "EDGameEngine.Core": "1.0.0",
+          "EDGameEngine.Core.Graphics": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Visuals.StateMachine/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
@@ -28566,10 +29007,45 @@
       "path": "../EDGameEngine.Core.UI/EDGameEngine.Core.UI.vbproj",
       "msbuildProject": "../EDGameEngine.Core.UI/EDGameEngine.Core.UI.vbproj"
     },
-    "EDGameEngine.Visuals/1.0.0": {
+    "EDGameEngine.Visuals.AutoDraw/1.0.0": {
       "type": "project",
-      "path": "../EDGameEngine.Visuals/project.json",
-      "msbuildProject": "../EDGameEngine.Visuals/EDGameEngine.Visuals.vbproj"
+      "path": "../EDGameEngine.Visuals.AutoDraw/EDGameEngine.Visuals.AutoDraw.vbproj",
+      "msbuildProject": "../EDGameEngine.Visuals.AutoDraw/EDGameEngine.Visuals.AutoDraw.vbproj"
+    },
+    "EDGameEngine.Visuals.AutoStitch/1.0.0": {
+      "type": "project",
+      "path": "../EDGameEngine.Visuals.AutoStitch/EDGameEngine.Visuals.AutoStitch.vbproj",
+      "msbuildProject": "../EDGameEngine.Visuals.AutoStitch/EDGameEngine.Visuals.AutoStitch.vbproj"
+    },
+    "EDGameEngine.Visuals.CA/1.0.0": {
+      "type": "project",
+      "path": "../EDGameEngine.Visuals.CA/EDGameEngine.Visuals.CA.vbproj",
+      "msbuildProject": "../EDGameEngine.Visuals.CA/EDGameEngine.Visuals.CA.vbproj"
+    },
+    "EDGameEngine.Visuals.Fractal/1.0.0": {
+      "type": "project",
+      "path": "../EDGameEngine.Visuals.Fractal/EDGameEngine.Visuals.Fractal.vbproj",
+      "msbuildProject": "../EDGameEngine.Visuals.Fractal/EDGameEngine.Visuals.Fractal.vbproj"
+    },
+    "EDGameEngine.Visuals.Particles/1.0.0": {
+      "type": "project",
+      "path": "../EDGameEngine.Visuals.Particles/EDGameEngine.Visuals.Particles.vbproj",
+      "msbuildProject": "../EDGameEngine.Visuals.Particles/EDGameEngine.Visuals.Particles.vbproj"
+    },
+    "EDGameEngine.Visuals.Plant/1.0.0": {
+      "type": "project",
+      "path": "../EDGameEngine.Visuals.Plant/EDGameEngine.Visuals.Plant.vbproj",
+      "msbuildProject": "../EDGameEngine.Visuals.Plant/EDGameEngine.Visuals.Plant.vbproj"
+    },
+    "EDGameEngine.Visuals.Pointer/1.0.0": {
+      "type": "project",
+      "path": "../EDGameEngine.Visuals.Pointer/EDGameEngine.Visuals.Pointer.vbproj",
+      "msbuildProject": "../EDGameEngine.Visuals.Pointer/EDGameEngine.Visuals.Pointer.vbproj"
+    },
+    "EDGameEngine.Visuals.StateMachine/1.0.0": {
+      "type": "project",
+      "path": "../EDGameEngine.Visuals.StateMachine/EDGameEngine.Visuals.StateMachine.vbproj",
+      "msbuildProject": "../EDGameEngine.Visuals.StateMachine/EDGameEngine.Visuals.StateMachine.vbproj"
     },
     "FarsserPhysics.UWP/1.0.0": {
       "type": "project",
@@ -28622,8 +29098,29 @@
             "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Core\\EDGameEngine.Core.vbproj": {
               "projectPath": "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Core\\EDGameEngine.Core.vbproj"
             },
-            "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Visuals\\EDGameEngine.Visuals.vbproj": {
-              "projectPath": "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Visuals\\EDGameEngine.Visuals.vbproj"
+            "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Visuals.AutoDraw\\EDGameEngine.Visuals.AutoDraw.vbproj": {
+              "projectPath": "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Visuals.AutoDraw\\EDGameEngine.Visuals.AutoDraw.vbproj"
+            },
+            "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Visuals.AutoStitch\\EDGameEngine.Visuals.AutoStitch.vbproj": {
+              "projectPath": "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Visuals.AutoStitch\\EDGameEngine.Visuals.AutoStitch.vbproj"
+            },
+            "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Visuals.Fractal\\EDGameEngine.Visuals.Fractal.vbproj": {
+              "projectPath": "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Visuals.Fractal\\EDGameEngine.Visuals.Fractal.vbproj"
+            },
+            "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Visuals.CA\\EDGameEngine.Visuals.CA.vbproj": {
+              "projectPath": "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Visuals.CA\\EDGameEngine.Visuals.CA.vbproj"
+            },
+            "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Visuals.Particles\\EDGameEngine.Visuals.Particles.vbproj": {
+              "projectPath": "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Visuals.Particles\\EDGameEngine.Visuals.Particles.vbproj"
+            },
+            "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Visuals.Plant\\EDGameEngine.Visuals.Plant.vbproj": {
+              "projectPath": "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Visuals.Plant\\EDGameEngine.Visuals.Plant.vbproj"
+            },
+            "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Visuals.StateMachine\\EDGameEngine.Visuals.StateMachine.vbproj": {
+              "projectPath": "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Visuals.StateMachine\\EDGameEngine.Visuals.StateMachine.vbproj"
+            },
+            "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Visuals.Pointer\\EDGameEngine.Visuals.Pointer.vbproj": {
+              "projectPath": "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Visuals.Pointer\\EDGameEngine.Visuals.Pointer.vbproj"
             }
           }
         }
