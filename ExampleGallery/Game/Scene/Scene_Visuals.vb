@@ -89,10 +89,15 @@ Public Class Scene_Visuals
             Case 60000 'L系统:树
                 World.RenderMode = RenderMode.Sync
                 Dim tempModel As New LSystemTree
-                Dim tempView As New LSystemTreeView(tempModel) With {.LeafResourceId = ImageResourceId.GreenLeaf1, .FlowerResourceId = ImageResourceId.YellowFlower1}
+                Dim tempView As New LSystemTreeView(tempModel) With
+                {
+                    .BranchResourceId = ImageResourceId.TreeBranch1,
+                    .LeafResourceId = ImageResourceId.GreenLeaf1,
+                    .FlowerResourceId = ImageResourceId.YellowFlower1
+                }
                 Me.AddGameVisual(tempModel, tempView)
                 Me.GameLayers(0).GameComponents.Effects.Add(New GhostEffect)
-                'Me.GameLayers(0).GameComponents.Effects.Add(New FrostedEffect With {.Amount = 2})
+                Me.GameLayers(0).GameComponents.Effects.Add(New FrostedEffect With {.Amount = 2})
                 'Me.GameLayers(0).GameComponents.Effects.Add(New GaussianBlurEffect With {.BlurAmount = 4})
         End Select
 

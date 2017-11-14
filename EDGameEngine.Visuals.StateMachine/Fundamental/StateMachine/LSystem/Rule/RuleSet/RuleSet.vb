@@ -26,19 +26,7 @@ Public Class RuleSet
     ''' </summary>
     Public Sub Add(rule As IRule)
         Rules.Add(rule)
-        Rules.Sort(New RuleCompare)
+        Rules.Sort(New RulePriorityCompare)
     End Sub
-    ''' <summary>
-    ''' 比较两个<see cref="IRule"/>对象顺序的对象
-    ''' </summary>
-    Private Class RuleCompare
-        Implements IComparer(Of IRule)
-        Public Function Compare(x As IRule, y As IRule) As Integer Implements IComparer(Of IRule).Compare
-            If x.Priority >= y.Priority Then
-                Return 1
-            Else
-                Return -1
-            End If
-        End Function
-    End Class
+
 End Class

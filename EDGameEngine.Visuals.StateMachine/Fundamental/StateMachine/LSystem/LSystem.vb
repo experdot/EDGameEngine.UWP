@@ -22,6 +22,7 @@ Public Class LSystem
         RuleSets = New Dictionary(Of Integer, RuleSet)
         States = New List(Of State)
     End Sub
+
     ''' <summary>
     ''' 初始化初代
     ''' </summary>

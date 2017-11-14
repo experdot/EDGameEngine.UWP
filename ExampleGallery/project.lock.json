@@ -29104,11 +29104,11 @@
             "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Visuals.AutoStitch\\EDGameEngine.Visuals.AutoStitch.vbproj": {
               "projectPath": "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Visuals.AutoStitch\\EDGameEngine.Visuals.AutoStitch.vbproj"
             },
-            "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Visuals.Fractal\\EDGameEngine.Visuals.Fractal.vbproj": {
-              "projectPath": "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Visuals.Fractal\\EDGameEngine.Visuals.Fractal.vbproj"
-            },
             "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Visuals.CA\\EDGameEngine.Visuals.CA.vbproj": {
               "projectPath": "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Visuals.CA\\EDGameEngine.Visuals.CA.vbproj"
+            },
+            "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Visuals.Fractal\\EDGameEngine.Visuals.Fractal.vbproj": {
+              "projectPath": "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Visuals.Fractal\\EDGameEngine.Visuals.Fractal.vbproj"
             },
             "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Visuals.Particles\\EDGameEngine.Visuals.Particles.vbproj": {
               "projectPath": "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Visuals.Particles\\EDGameEngine.Visuals.Particles.vbproj"
@@ -29116,11 +29116,11 @@
             "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Visuals.Plant\\EDGameEngine.Visuals.Plant.vbproj": {
               "projectPath": "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Visuals.Plant\\EDGameEngine.Visuals.Plant.vbproj"
             },
-            "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Visuals.StateMachine\\EDGameEngine.Visuals.StateMachine.vbproj": {
-              "projectPath": "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Visuals.StateMachine\\EDGameEngine.Visuals.StateMachine.vbproj"
-            },
             "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Visuals.Pointer\\EDGameEngine.Visuals.Pointer.vbproj": {
               "projectPath": "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Visuals.Pointer\\EDGameEngine.Visuals.Pointer.vbproj"
+            },
+            "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Visuals.StateMachine\\EDGameEngine.Visuals.StateMachine.vbproj": {
+              "projectPath": "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Visuals.StateMachine\\EDGameEngine.Visuals.StateMachine.vbproj"
             }
           }
         }

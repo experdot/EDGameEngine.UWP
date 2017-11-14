@@ -6,7 +6,6 @@ Imports EDGameEngine.Visuals
 Partial Public Class LSystemTree
     Inherits GameBody
     Implements IStateMachine
-
     ''' <summary>
     ''' 状态集
     ''' </summary>
@@ -19,7 +18,7 @@ Partial Public Class LSystemTree
         End Set
     End Property
 
-    Private Property LSystem As LSystem
+    Private LSystem As LSystem
 
     Public Overrides Sub StartEx()
         LSystem = New LSystem

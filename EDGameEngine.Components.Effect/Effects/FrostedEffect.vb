@@ -17,7 +17,8 @@ Public Class FrostedEffect
     ''' </summary>
     Public Property Quality As EffectQuality
     Public Overrides Function Effect(source As IGraphicsEffectSource, resourceCreator As ICanvasResourceCreator) As IGraphicsEffectSource
-        Dim bmp As CanvasBitmap = BitmapCacheHelper.CacheEntireImage(resourceCreator, CType(source, ICanvasImage))
+        'Dim bmp As CanvasBitmap = BitmapCacheHelper.CacheEntireImage(resourceCreator, CType(source, ICanvasImage))
+        Dim bmp As CanvasBitmap = BitmapCacheHelper.CacheImageClip(resourceCreator, CType(source, ICanvasImage), Target.Scene.Rect)
         Dim RawColors() As Color = bmp.GetPixelColors()
         Dim NowColors(RawColors.Count - 1) As Color
         '打散像素
