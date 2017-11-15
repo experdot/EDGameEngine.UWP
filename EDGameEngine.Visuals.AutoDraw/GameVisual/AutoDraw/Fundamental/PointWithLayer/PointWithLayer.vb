@@ -4,7 +4,7 @@ Imports Windows.UI
 ''' 包含层索引的点
 ''' </summary>
 Public Class PointWithLayer
-    Inherits Point
+    Inherits EDGameEngine.Core.Point
     ''' <summary>
     ''' 层索引
     ''' </summary>

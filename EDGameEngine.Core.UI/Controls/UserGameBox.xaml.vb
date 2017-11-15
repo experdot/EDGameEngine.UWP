@@ -67,11 +67,11 @@ Public NotInheritable Class UserGameBox
         World?.OnKeyUp(args.VirtualKey)
     End Sub
     Private Sub UserGameBox_PointerPressed(sender As Object, e As PointerRoutedEventArgs) Handles AnimBox.PointerPressed
-        Dim point As Point = e.GetCurrentPoint(AnimBox).Position
+        Dim point As Windows.Foundation.Point = e.GetCurrentPoint(AnimBox).Position
         World?.OnPointerPressed(New Numerics.Vector2(CSng(point.X), CSng(point.Y)))
     End Sub
     Private Sub UserGameBox_PointerReleased(sender As Object, e As PointerRoutedEventArgs) Handles AnimBox.PointerReleased
-        Dim point As Point = e.GetCurrentPoint(AnimBox).Position
+        Dim point As Windows.Foundation.Point = e.GetCurrentPoint(AnimBox).Position
         World?.OnPointerReleased(New Numerics.Vector2(CSng(point.X), CSng(point.Y)))
     End Sub
 End Class

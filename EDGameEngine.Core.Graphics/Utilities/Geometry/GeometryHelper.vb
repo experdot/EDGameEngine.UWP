@@ -1,4 +1,5 @@
 ﻿Imports System.Numerics
+Imports EDGameEngine.Core.Utilities
 Imports Microsoft.Graphics.Canvas
 Imports Microsoft.Graphics.Canvas.Geometry
 ''' <summary>

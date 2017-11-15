@@ -1,4 +1,5 @@
-﻿''' <summary>
+﻿Imports EDGameEngine.Core.Utilities
+''' <summary>
 ''' 颜色比较器
 ''' </summary>
 Public Class ClusterColorCompare
@@ -8,7 +9,7 @@ Public Class ClusterColorCompare
         Me.Target = target
     End Sub
     Public Function Compare(x As Cluster, y As Cluster) As Integer Implements IComparer(Of Cluster).Compare
-        If EDGameEngine.Core.ColorHelper.GetColorSimilarity(Target.Color, x.Color) < EDGameEngine.Core.ColorHelper.GetColorSimilarity(Target.Color, y.Color) Then
+        If ColorHelper.GetColorSimilarity(Target.Color, x.Color) < ColorHelper.GetColorSimilarity(Target.Color, y.Color) Then
             Return 1
         Else
             Return -1

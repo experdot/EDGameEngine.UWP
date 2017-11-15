@@ -143,8 +143,7 @@
     <Compile Include="GameVisual\AutoDraw\Fundamental\Line\Line.vb" />
     <Compile Include="GameVisual\AutoDraw\Fundamental\PixelData\PixelData.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
-    <Compile Include="Fundamental\Point\Point.vb" />
-    <Compile Include="Fundamental\Point\PointWithLayer\PointWithLayer.vb" />
+    <Compile Include="GameVisual\AutoDraw\Fundamental\PointWithLayer\PointWithLayer.vb" />
     <EmbeddedResource Include="My Project\EDGameEngine.Visuals.AutoDraw.rd.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -186,6 +185,10 @@
     <ProjectReference Include="..\EDGameEngine.Core.Graphics\EDGameEngine.Core.Graphics.vbproj">
       <Project>{063c77a7-4a06-4818-9074-3e993afb526c}</Project>
       <Name>EDGameEngine.Core.Graphics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EDGameEngine.Core.Utilities\EDGameEngine.Core.Utilities.vbproj">
+      <Project>{71b691a6-52f1-43c2-8d42-8de3344eb510}</Project>
+      <Name>EDGameEngine.Core.Utilities</Name>
     </ProjectReference>
     <ProjectReference Include="..\EDGameEngine.Core\EDGameEngine.Core.vbproj">
       <Project>{f563111c-4331-4735-a6c9-447662049482}</Project>

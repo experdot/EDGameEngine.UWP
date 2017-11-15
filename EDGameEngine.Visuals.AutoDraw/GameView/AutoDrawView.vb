@@ -3,6 +3,7 @@ Imports EDGameEngine.Core
 Imports EDGameEngine.Core.Graphics
 Imports Windows.UI
 Imports System.Numerics
+Imports EDGameEngine.Core.Utilities
 ''' <summary>
 ''' 自动绘图的视图
 ''' </summary>

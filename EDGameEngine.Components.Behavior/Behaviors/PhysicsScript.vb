@@ -6,6 +6,7 @@ Imports FarseerPhysics.Collision.Shapes
 Imports Windows.UI
 Imports System.Numerics
 Imports EDGameEngine.Core.Graphics
+Imports EDGameEngine.Core.Utilities
 ''' <summary>
 ''' 物理仿真脚本
 ''' </summary>

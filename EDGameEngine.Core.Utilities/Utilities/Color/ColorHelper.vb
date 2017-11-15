@@ -5,6 +5,12 @@ Imports Windows.UI
 ''' </summary>
 Public Class ColorHelper
     ''' <summary>
+    ''' 由RGB单精度浮点数分量创建<see cref="Color"/>实例
+    ''' </summary>
+    Public Shared Function CreateFromScRGB(r As Single, g As Single, b As Single) As Color
+        Return Color.FromArgb(255, CByte(255 * r), CByte(255 * g), CByte(255 * b))
+    End Function
+    ''' <summary>
     ''' 返回颜色集合的平均颜色
     ''' </summary>
     Public Shared Function GetAverageColor(colors As IEnumerable(Of Color)) As Color

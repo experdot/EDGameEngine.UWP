@@ -121,7 +121,6 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Fundamental\Point.vb" />
     <Compile Include="GameView\FractalView.vb" />
     <Compile Include="GameVisual\Fractal\Base\IFractal.vb" />
     <Compile Include="GameVisual\Fractal\GastonJulia.vb" />

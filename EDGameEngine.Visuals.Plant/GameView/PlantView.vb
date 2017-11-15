@@ -1,6 +1,7 @@
 ﻿Imports System.Numerics
 Imports EDGameEngine.Core
 Imports EDGameEngine.Core.Graphics
+Imports EDGameEngine.Core.Utilities
 Imports Microsoft.Graphics.Canvas
 Imports Windows.UI
 ''' <summary>

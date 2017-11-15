@@ -1,5 +1,6 @@
 ﻿Imports System.Numerics
 Imports EDGameEngine.Core
+Imports EDGameEngine.Core.Utilities
 Imports Windows.UI
 ''' <summary>
 ''' 表示一个拥有加速度、速度和位置矢量的动态粒子

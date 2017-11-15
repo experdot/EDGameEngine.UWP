@@ -2557,6 +2557,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
+          "EDGameEngine.Core.Utilities": "1.0.0",
           "FarsserPhysics.UWP": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
@@ -2567,6 +2568,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
+          "EDGameEngine.Core.Utilities": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
@@ -2582,6 +2584,7 @@
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
+          "EDGameEngine.Core.Utilities": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
           "Win2D.uwp": "1.21.0"
         }
@@ -2596,12 +2599,20 @@
           "Win2D.uwp": "1.21.0"
         }
       },
+      "EDGameEngine.Core.Utilities/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
       "EDGameEngine.Visuals.AutoDraw/1.0.0": {
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
+          "EDGameEngine.Core.Utilities": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
@@ -2639,6 +2650,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
+          "EDGameEngine.Core.Utilities": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
@@ -2648,6 +2660,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
+          "EDGameEngine.Core.Utilities": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
@@ -2666,6 +2679,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
+          "EDGameEngine.Core.Utilities": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
@@ -5237,6 +5251,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
+          "EDGameEngine.Core.Utilities": "1.0.0",
           "FarsserPhysics.UWP": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
@@ -5247,6 +5262,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
+          "EDGameEngine.Core.Utilities": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
@@ -5262,6 +5278,7 @@
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
+          "EDGameEngine.Core.Utilities": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
           "Win2D.uwp": "1.21.0"
         }
@@ -5276,12 +5293,20 @@
           "Win2D.uwp": "1.21.0"
         }
       },
+      "EDGameEngine.Core.Utilities/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
       "EDGameEngine.Visuals.AutoDraw/1.0.0": {
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
+          "EDGameEngine.Core.Utilities": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
@@ -5319,6 +5344,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
+          "EDGameEngine.Core.Utilities": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
@@ -5328,6 +5354,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
+          "EDGameEngine.Core.Utilities": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
@@ -5346,6 +5373,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
+          "EDGameEngine.Core.Utilities": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
@@ -7953,6 +7981,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
+          "EDGameEngine.Core.Utilities": "1.0.0",
           "FarsserPhysics.UWP": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
@@ -7963,6 +7992,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
+          "EDGameEngine.Core.Utilities": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
@@ -7978,6 +8008,7 @@
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
+          "EDGameEngine.Core.Utilities": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
           "Win2D.uwp": "1.21.0"
         }
@@ -7992,12 +8023,20 @@
           "Win2D.uwp": "1.21.0"
         }
       },
+      "EDGameEngine.Core.Utilities/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
       "EDGameEngine.Visuals.AutoDraw/1.0.0": {
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
+          "EDGameEngine.Core.Utilities": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
@@ -8035,6 +8074,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
+          "EDGameEngine.Core.Utilities": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
@@ -8044,6 +8084,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
+          "EDGameEngine.Core.Utilities": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
@@ -8062,6 +8103,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
+          "EDGameEngine.Core.Utilities": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
@@ -10642,6 +10684,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
+          "EDGameEngine.Core.Utilities": "1.0.0",
           "FarsserPhysics.UWP": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
@@ -10652,6 +10695,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
+          "EDGameEngine.Core.Utilities": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
@@ -10667,6 +10711,7 @@
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
+          "EDGameEngine.Core.Utilities": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
           "Win2D.uwp": "1.21.0"
         }
@@ -10681,12 +10726,20 @@
           "Win2D.uwp": "1.21.0"
         }
       },
+      "EDGameEngine.Core.Utilities/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
       "EDGameEngine.Visuals.AutoDraw/1.0.0": {
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
+          "EDGameEngine.Core.Utilities": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
@@ -10724,6 +10777,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
+          "EDGameEngine.Core.Utilities": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
@@ -10733,6 +10787,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
+          "EDGameEngine.Core.Utilities": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
@@ -10751,6 +10806,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
+          "EDGameEngine.Core.Utilities": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
@@ -13367,6 +13423,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
+          "EDGameEngine.Core.Utilities": "1.0.0",
           "FarsserPhysics.UWP": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
@@ -13377,6 +13434,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
+          "EDGameEngine.Core.Utilities": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
@@ -13392,6 +13450,7 @@
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
+          "EDGameEngine.Core.Utilities": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
           "Win2D.uwp": "1.21.0"
         }
@@ -13406,12 +13465,20 @@
           "Win2D.uwp": "1.21.0"
         }
       },
+      "EDGameEngine.Core.Utilities/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
       "EDGameEngine.Visuals.AutoDraw/1.0.0": {
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
+          "EDGameEngine.Core.Utilities": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
@@ -13449,6 +13516,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
+          "EDGameEngine.Core.Utilities": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
@@ -13458,6 +13526,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
+          "EDGameEngine.Core.Utilities": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
@@ -13476,6 +13545,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
+          "EDGameEngine.Core.Utilities": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
@@ -16056,6 +16126,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
+          "EDGameEngine.Core.Utilities": "1.0.0",
           "FarsserPhysics.UWP": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
@@ -16066,6 +16137,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
+          "EDGameEngine.Core.Utilities": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
@@ -16081,6 +16153,7 @@
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
+          "EDGameEngine.Core.Utilities": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
           "Win2D.uwp": "1.21.0"
         }
@@ -16095,12 +16168,20 @@
           "Win2D.uwp": "1.21.0"
         }
       },
+      "EDGameEngine.Core.Utilities/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
       "EDGameEngine.Visuals.AutoDraw/1.0.0": {
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
+          "EDGameEngine.Core.Utilities": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
@@ -16138,6 +16219,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
+          "EDGameEngine.Core.Utilities": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
@@ -16147,6 +16229,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
+          "EDGameEngine.Core.Utilities": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
@@ -16165,6 +16248,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
+          "EDGameEngine.Core.Utilities": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
@@ -18781,6 +18865,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
+          "EDGameEngine.Core.Utilities": "1.0.0",
           "FarsserPhysics.UWP": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
@@ -18791,6 +18876,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
+          "EDGameEngine.Core.Utilities": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
@@ -18806,6 +18892,7 @@
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
+          "EDGameEngine.Core.Utilities": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
           "Win2D.uwp": "1.21.0"
         }
@@ -18820,12 +18907,20 @@
           "Win2D.uwp": "1.21.0"
         }
       },
+      "EDGameEngine.Core.Utilities/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
       "EDGameEngine.Visuals.AutoDraw/1.0.0": {
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
+          "EDGameEngine.Core.Utilities": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
@@ -18863,6 +18958,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
+          "EDGameEngine.Core.Utilities": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
@@ -18872,6 +18968,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
+          "EDGameEngine.Core.Utilities": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
@@ -18890,6 +18987,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
+          "EDGameEngine.Core.Utilities": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
@@ -29006,6 +29104,11 @@
       "type": "project",
       "path": "../EDGameEngine.Core.UI/EDGameEngine.Core.UI.vbproj",
       "msbuildProject": "../EDGameEngine.Core.UI/EDGameEngine.Core.UI.vbproj"
+    },
+    "EDGameEngine.Core.Utilities/1.0.0": {
+      "type": "project",
+      "path": "../EDGameEngine.Core.Utilities/EDGameEngine.Core.Utilities.vbproj",
+      "msbuildProject": "../EDGameEngine.Core.Utilities/EDGameEngine.Core.Utilities.vbproj"
     },
     "EDGameEngine.Visuals.AutoDraw/1.0.0": {
       "type": "project",

@@ -1,5 +1,6 @@
 ﻿Imports System.Numerics
 Imports EDGameEngine.Core
+Imports EDGameEngine.Core.Utilities
 Imports Windows.UI
 ''' <summary>
 ''' 自然树粒子系统

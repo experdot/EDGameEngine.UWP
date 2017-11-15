@@ -1,6 +1,7 @@
 ﻿Imports System.Numerics
 Imports Windows.UI
 Imports EDGameEngine.Core
+Imports EDGameEngine.Core.Utilities
 ''' <summary>
 ''' 簇
 ''' </summary>
@@ -101,7 +102,7 @@ Public Class Cluster
         If Children.Count = 0 Then
             Return Color
         Else
-            Return EDGameEngine.Core.ColorHelper.GetAverageColor(GetAColorsOfChildren())
+            Return Utilities.ColorHelper.GetAverageColor(GetAColorsOfChildren())
         End If
     End Function
 

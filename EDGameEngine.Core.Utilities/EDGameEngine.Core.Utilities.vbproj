@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{04FCBF91-1F22-4F69-9E75-F79C563F8054}</ProjectGuid>
+    <ProjectGuid>{71B691A6-52F1-43C2-8D42-8DE3344EB510}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>EDGameEngine.Components.Behavior</RootNamespace>
-    <AssemblyName>EDGameEngine.Components.Behavior</AssemblyName>
+    <RootNamespace>EDGameEngine.Core.Utilities</RootNamespace>
+    <AssemblyName>EDGameEngine.Core.Utilities</AssemblyName>
     <DefaultLanguage>zh-CN</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.15063.0</TargetPlatformVersion>
@@ -23,7 +23,7 @@
     <DefineTrace>true</DefineTrace>
     <NoConfig>true</NoConfig>
     <OutputPath>bin\Debug</OutputPath>
-    <DocumentationFile>EDGameEngine.Components.Behavior.xml</DocumentationFile>
+    <DocumentationFile>EDGameEngine.Core.Utilities.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <DefineConstants>NETFX_CORE,WINDOWS_UWP</DefineConstants>
     <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
@@ -37,7 +37,7 @@
     <NoConfig>true</NoConfig>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release</OutputPath>
-    <DocumentationFile>EDGameEngine.Components.Behavior.xml</DocumentationFile>
+    <DocumentationFile>EDGameEngine.Core.Utilities.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <DefineConstants>NETFX_CORE,WINDOWS_UWP</DefineConstants>
     <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
@@ -52,7 +52,7 @@
     <DebugType>full</DebugType>
     <PlatformTarget>x86</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
-    <DocumentationFile>EDGameEngine.Components.Behavior.xml</DocumentationFile>
+    <DocumentationFile>EDGameEngine.Core.Utilities.xml</DocumentationFile>
     <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
@@ -64,7 +64,7 @@
     <DebugType>pdbonly</DebugType>
     <PlatformTarget>x86</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
-    <DocumentationFile>EDGameEngine.Components.Behavior.xml</DocumentationFile>
+    <DocumentationFile>EDGameEngine.Core.Utilities.xml</DocumentationFile>
     <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
@@ -77,7 +77,7 @@
     <DebugType>full</DebugType>
     <PlatformTarget>ARM</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
-    <DocumentationFile>EDGameEngine.Components.Behavior.xml</DocumentationFile>
+    <DocumentationFile>EDGameEngine.Core.Utilities.xml</DocumentationFile>
     <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
@@ -89,7 +89,7 @@
     <DebugType>pdbonly</DebugType>
     <PlatformTarget>ARM</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
-    <DocumentationFile>EDGameEngine.Components.Behavior.xml</DocumentationFile>
+    <DocumentationFile>EDGameEngine.Core.Utilities.xml</DocumentationFile>
     <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
@@ -102,7 +102,7 @@
     <DebugType>full</DebugType>
     <PlatformTarget>x64</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
-    <DocumentationFile>EDGameEngine.Components.Behavior.xml</DocumentationFile>
+    <DocumentationFile>EDGameEngine.Core.Utilities.xml</DocumentationFile>
     <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
@@ -114,20 +114,19 @@
     <DebugType>pdbonly</DebugType>
     <PlatformTarget>x64</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
-    <DocumentationFile>EDGameEngine.Components.Behavior.xml</DocumentationFile>
+    <DocumentationFile>EDGameEngine.Core.Utilities.xml</DocumentationFile>
     <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Behaviors\AudioControlScript.vb" />
-    <Compile Include="Behaviors\CreateBodyScript.vb" />
-    <Compile Include="Behaviors\KeyControlScript.vb" />
-    <Compile Include="Behaviors\PhysicsScript.vb" />
-    <Compile Include="Behaviors\TransformScript.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
-    <EmbeddedResource Include="My Project\EDGameEngine.Components.Behavior.rd.xml" />
+    <Compile Include="Utilities\Color\ColorHelper.vb" />
+    <Compile Include="Utilities\Mathmatical\RandomHelper.vb" />
+    <Compile Include="Utilities\Extensions\Vector2Extensions.vb" />
+    <Compile Include="Utilities\Vector\VectorHelper.vb" />
+    <EmbeddedResource Include="My Project\EDGameEngine.Core.Utilities.rd.xml" />
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
@@ -163,25 +162,6 @@
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.0.1</Version>
     </PackageReference>
-  </ItemGroup>
-  <ItemGroup />
-  <ItemGroup>
-    <ProjectReference Include="..\EDGameEngine.Core.Graphics\EDGameEngine.Core.Graphics.vbproj">
-      <Project>{063C77A7-4A06-4818-9074-3E993AFB526C}</Project>
-      <Name>EDGameEngine.Core.Graphics</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\EDGameEngine.Core.Utilities\EDGameEngine.Core.Utilities.vbproj">
-      <Project>{71B691A6-52F1-43C2-8D42-8DE3344EB510}</Project>
-      <Name>EDGameEngine.Core.Utilities</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\EDGameEngine.Core\EDGameEngine.Core.vbproj">
-      <Project>{f563111c-4331-4735-a6c9-447662049482}</Project>
-      <Name>EDGameEngine.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FarsserPhysics.UWP\FarsserPhysics.UWP.csproj">
-      <Project>{c3d370ac-2fbc-43d6-a3a6-cea3b4b48aca}</Project>
-      <Name>FarsserPhysics.UWP</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

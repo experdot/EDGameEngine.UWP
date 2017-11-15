@@ -4,6 +4,7 @@ Imports EDGameEngine.Core.Graphics
 Imports System.Text
 Imports System.Numerics
 Imports Windows.UI
+Imports EDGameEngine.Core.Utilities
 ''' <summary>
 ''' L系统树模型的视图
 ''' </summary>

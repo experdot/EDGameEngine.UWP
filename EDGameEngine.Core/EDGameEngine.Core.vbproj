@@ -130,29 +130,27 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Components\Media\Animation\IAnimation.vb" />
-    <Compile Include="Components\Media\Audio\IAudio.vb" />
-    <Compile Include="Components\Behavior\BehaviorBase.vb" />
-    <Compile Include="Components\Behavior\IBehavior.vb" />
-    <Compile Include="Components\Effect\IEffect.vb" />
-    <Compile Include="Components\Base\ComponentType.vb" />
-    <Compile Include="Components\Base\GameComponentBase.vb" />
-    <Compile Include="Components\Base\IGameComponent.vb" />
-    <Compile Include="Components\Base\Manager\GameComponents.vb" />
-    <Compile Include="Components\Base\Manager\TypedComponent.vb" />
-    <Compile Include="Components\Media\IMedia.vb" />
-    <Compile Include="Components\Trigger\ITrigger.vb" />
+    <Compile Include="Fundamental\Point\Point.vb" />
+    <Compile Include="GameObject\Components\Media\Animation\IAnimation.vb" />
+    <Compile Include="GameObject\Components\Media\Audio\IAudio.vb" />
+    <Compile Include="GameObject\Components\Behavior\BehaviorBase.vb" />
+    <Compile Include="GameObject\Components\Behavior\IBehavior.vb" />
+    <Compile Include="GameObject\Components\Effect\IEffect.vb" />
+    <Compile Include="GameObject\Components\Base\ComponentType.vb" />
+    <Compile Include="GameObject\Components\Base\GameComponentBase.vb" />
+    <Compile Include="GameObject\Components\Base\IGameComponent.vb" />
+    <Compile Include="GameObject\Components\Base\Manager\GameComponents.vb" />
+    <Compile Include="GameObject\Components\Base\Manager\TypedComponent.vb" />
+    <Compile Include="GameObject\Components\Media\IMedia.vb" />
+    <Compile Include="GameObject\Components\Trigger\ITrigger.vb" />
     <Compile Include="GameObject\GameVisual\Container\World\IWorld.vb" />
-    <Compile Include="Utilities\Color\ColorHelper.vb" />
-    <Compile Include="Utilities\Progress\Progress.vb" />
+    <Compile Include="Fundamental\Properties\Progress\Progress.vb" />
     <Compile Include="GameObject\GameVisual\Camera\Camera.vb" />
     <Compile Include="GameObject\GameVisual\Camera\Base\ICamera.vb" />
     <Compile Include="GameObject\GameView\IGameView.vb" />
-    <Compile Include="Utilities\ColorVertex\ColorVertex.vb" />
-    <Compile Include="Utilities\Mathmatical\RandomHelper.vb" />
-    <Compile Include="Utilities\Properties\Input\Inputs.vb" />
-    <Compile Include="Utilities\Properties\Input\KeyboardDescription.vb" />
-    <Compile Include="Utilities\Properties\Input\MouseDescription.vb" />
+    <Compile Include="Fundamental\Properties\Input\Inputs.vb" />
+    <Compile Include="Fundamental\Properties\Input\KeyboardDescription.vb" />
+    <Compile Include="Fundamental\Properties\Input\MouseDescription.vb" />
     <Compile Include="GameObject\GameVisual\Base\IGameVisual.vb" />
     <Compile Include="GameObject\GameVisual\Body\GameBody.vb" />
     <Compile Include="GameObject\GameVisual\Body\Base\IGameBody.vb" />
@@ -164,14 +162,11 @@
     <Compile Include="GameObject\GameVisual\Container\Scene\SceneBase.vb" />
     <Compile Include="GameObject\Base\IGameObject.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
-    <Compile Include="Utilities\ColorEx\ColorEx.vb" />
-    <Compile Include="Utilities\Mathmatical\Vector2Extensions.vb" />
-    <Compile Include="Utilities\Properties\Appearance\Appearance.vb" />
-    <Compile Include="Utilities\Properties\Transform\Transform.vb" />
-    <Compile Include="Utilities\Properties\SceneState\SceneState.vb" />
-    <Compile Include="Utilities\Properties\RenderMode\RenderMode.vb" />
-    <Compile Include="Utilities\Quality\EffectQuality.vb" />
-    <Compile Include="Utilities\Vector\VectorHelper.vb" />
+    <Compile Include="Fundamental\Properties\Appearance\Appearance.vb" />
+    <Compile Include="Fundamental\Properties\Transform\Transform.vb" />
+    <Compile Include="Fundamental\Properties\SceneState\SceneState.vb" />
+    <Compile Include="Fundamental\Properties\RenderMode\RenderMode.vb" />
+    <Compile Include="Fundamental\EffectQuality\EffectQuality.vb" />
     <EmbeddedResource Include="My Project\EDGameEngine.Core.rd.xml" />
   </ItemGroup>
   <ItemGroup>
