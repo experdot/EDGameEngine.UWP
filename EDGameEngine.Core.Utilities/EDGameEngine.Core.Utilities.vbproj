@@ -123,8 +123,8 @@
   <ItemGroup>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="Utilities\Color\ColorHelper.vb" />
-    <Compile Include="Utilities\Mathmatical\RandomHelper.vb" />
-    <Compile Include="Utilities\Extensions\Vector2Extensions.vb" />
+    <Compile Include="Utilities\Random\RandomHelper.vb" />
+    <Compile Include="Utilities\Vector\Vector2Extensions.vb" />
     <Compile Include="Utilities\Vector\VectorHelper.vb" />
     <EmbeddedResource Include="My Project\EDGameEngine.Core.Utilities.rd.xml" />
   </ItemGroup>

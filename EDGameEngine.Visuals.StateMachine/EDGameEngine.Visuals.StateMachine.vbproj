@@ -122,15 +122,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="GameObject\GameView\LSystemTreeView.vb" />
-    <Compile Include="Fundamental\StateMachine\Base\IStateMachine.vb" />
-    <Compile Include="GameObject\GameVisual\LSystemTree\LSystemTree.vb" />
-    <Compile Include="GameObject\GameVisual\LSystemTree\Rules\RuleTree.vb" />
-    <Compile Include="Fundamental\StateMachine\LSystem\LSystem.vb" />
-    <Compile Include="Fundamental\StateMachine\LSystem\Rule\Base\IRule.vb" />
-    <Compile Include="Fundamental\StateMachine\LSystem\Rule\Base\RuleBase.vb" />
-    <Compile Include="Fundamental\StateMachine\LSystem\Rule\RuleSet\Compare\RulePriorityCompare.vb" />
-    <Compile Include="Fundamental\StateMachine\LSystem\Rule\RuleSet\RuleSet.vb" />
-    <Compile Include="Fundamental\StateMachine\LSystem\State\State.vb" />
+    <Compile Include="GameObject\GameVisual\StateMachine\Base\IStateMachine.vb" />
+    <Compile Include="GameObject\GameVisual\StateMachine\LSystemTree\LSystemTree.vb" />
+    <Compile Include="GameObject\GameVisual\StateMachine\LSystemTree\Rules\RuleTree.vb" />
+    <Compile Include="GameObject\GameVisual\StateMachine\LSystem\LSystem.vb" />
+    <Compile Include="GameObject\GameVisual\StateMachine\LSystem\Rule\Base\IRule.vb" />
+    <Compile Include="GameObject\GameVisual\StateMachine\LSystem\Rule\Base\RuleBase.vb" />
+    <Compile Include="GameObject\GameVisual\StateMachine\LSystem\Rule\RuleSet\Compare\RulePriorityCompare.vb" />
+    <Compile Include="GameObject\GameVisual\StateMachine\LSystem\Rule\RuleSet\RuleSet.vb" />
+    <Compile Include="GameObject\GameVisual\StateMachine\LSystem\State\State.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <EmbeddedResource Include="My Project\EDGameEngine.Visuals.StateMachine.rd.xml" />
   </ItemGroup>

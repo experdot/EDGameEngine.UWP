@@ -121,9 +121,9 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Components\Effect\CanvasEffect\CanvasEffectBase.vb" />
-    <Compile Include="Components\Effect\CanvasEffect\ICanvasEffect.vb" />
-    <Compile Include="Components\Effect\TransformEffect.vb" />
+    <Compile Include="GameObject\Components\Effect\CanvasEffect\CanvasEffectBase.vb" />
+    <Compile Include="GameObject\Components\Effect\CanvasEffect\ICanvasEffect.vb" />
+    <Compile Include="GameObject\Components\Effect\TransformEffect.vb" />
     <Compile Include="GameResource\Image\ObjectWithImageResources\IObjectWithImageResource.vb" />
     <Compile Include="GameObject\GameView\CanvasView\Base\ICanvasView.vb" />
     <Compile Include="GameObject\GameView\CanvasView\Geometry\CircleView.vb" />
