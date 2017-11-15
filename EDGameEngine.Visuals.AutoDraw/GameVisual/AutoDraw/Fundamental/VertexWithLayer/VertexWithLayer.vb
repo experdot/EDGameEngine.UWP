@@ -1,10 +1,11 @@
 ﻿Imports System.Numerics
+Imports EDGameEngine.Core
 Imports Windows.UI
 ''' <summary>
-''' 包含层索引的点
+''' 包含层索引的顶点
 ''' </summary>
-Public Class PointWithLayer
-    Inherits EDGameEngine.Core.Point
+Public Class VertexWithLayer
+    Inherits Vertex
     ''' <summary>
     ''' 层索引
     ''' </summary>
@@ -24,5 +25,5 @@ Public Class PointWithLayer
     ''' <summary>
     ''' 下一个点
     ''' </summary>
-    Public Property NextPoint As PointWithLayer
+    Public Property NextPoint As VertexWithLayer
 End Class

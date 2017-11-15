@@ -10,7 +10,7 @@ Public Class FractalView
         MyBase.New(Target)
     End Sub
     Public Overrides Sub OnDraw(DrawingSession As CanvasDrawingSession)
-        Dim tempPoint As New Point
+        Dim tempPoint As New Vertex
         While Target.Vertexs.TryDequeue(tempPoint)
             'DrawingSession.DrawCircle(tempPoint.Position, tempPoint.Size, tempPoint.Color)
             Dim size = tempPoint.Size / 2

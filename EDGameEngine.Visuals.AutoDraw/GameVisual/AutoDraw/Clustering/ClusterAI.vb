@@ -45,7 +45,7 @@ Public Class ClusterAI
         Next
     End Sub
 
-    Public Function NextPoint() As PointWithLayer
+    Public Function NextPoint() As VertexWithLayer
         Static LineIndex As Integer = 0
         Static PointIndex As Integer = -1
         If LineIndex < Lines.Count Then
@@ -81,7 +81,7 @@ Public Class ClusterAI
                 For Each SubLeaf In SubCluster.Leaves
                     Dim c As Color = SubCluster.Color
                     Dim p As Color = c 'Color.FromArgb(CByte(c.A / (depth * depth + 1.0F)), c.R, c.G, c.B)
-                    line.Points.Add(New PointWithLayer With {.Color = SubCluster.Color, .Position = SubLeaf.Position, .Size = depth * 0F + 1.0F, .LayerIndex = MaxRank - depth})
+                    line.Points.Add(New VertexWithLayer With {.Color = SubCluster.Color, .Position = SubLeaf.Position, .Size = depth * 0F + 1.0F, .LayerIndex = MaxRank - depth})
                     line.Points.Last.UserColor = line.Points.Last.Color
                     line.Points.Last.UserSize = line.Points.Last.Size
                 Next
@@ -95,7 +95,7 @@ Public Class ClusterAI
             For Each SubLeaf In parent.Leaves
                 Dim c As Color = parent.Color
                 Dim p As Color = c
-                line.Points.Add(New PointWithLayer With {.Color = parent.Color, .Position = SubLeaf.Position, .Size = depth + 1.0F, .LayerIndex = MaxRank - depth})
+                line.Points.Add(New VertexWithLayer With {.Color = parent.Color, .Position = SubLeaf.Position, .Size = depth + 1.0F, .LayerIndex = MaxRank - depth})
                 line.Points.Last.UserColor = line.Points.Last.Color
                 line.Points.Last.UserSize = line.Points.Last.Size
             Next

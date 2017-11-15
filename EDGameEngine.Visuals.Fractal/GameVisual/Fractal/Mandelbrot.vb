@@ -8,7 +8,7 @@ Imports Windows.UI
 Public Class Mandelbrot
     Inherits GameBody
     Implements IFractal
-    Public Property Vertexs As New Concurrent.ConcurrentQueue(Of Point） Implements IFractal.Vertexs
+    Public Property Vertexs As New Concurrent.ConcurrentQueue(Of Vertex） Implements IFractal.Vertexs
 
     Public Overrides Sub StartEx()
         Me.GameComponents.Effects.Add(New GhostEffect)
@@ -34,7 +34,7 @@ Public Class Mandelbrot
                 Next
                 If x * x + y * y < 4 Then
                     Dim tempcolor As Color = Color.FromArgb(255, CByte(x * x * 63), CByte(x * x * 63), CByte((x * x + y * y) * 63))
-                    Vertexs.Enqueue(New Point() With {.Position = New Vector2(CSng(Scene.Width / 2 + a * (Scene.Height / 3)),
+                    Vertexs.Enqueue(New Vertex() With {.Position = New Vector2(CSng(Scene.Width / 2 + a * (Scene.Height / 3)),
                                                                               CSng(Scene.Height / 2 - b * (Scene.Height / 3))),
                                                        .Color = tempcolor})
                 End If

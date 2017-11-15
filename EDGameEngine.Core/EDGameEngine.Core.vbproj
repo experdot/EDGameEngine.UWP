@@ -130,7 +130,7 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Fundamental\Point\Point.vb" />
+    <Compile Include="Fundamental\Point\Vertex.vb" />
     <Compile Include="GameObject\Components\Media\Animation\IAnimation.vb" />
     <Compile Include="GameObject\Components\Media\Audio\IAudio.vb" />
     <Compile Include="GameObject\Components\Behavior\BehaviorBase.vb" />

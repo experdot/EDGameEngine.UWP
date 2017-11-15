@@ -11,7 +11,7 @@ Public Class AutoDrawByClusteringModel
 
     Public Property Image As CanvasBitmap Implements IAutoDrawModel.Image
     Public Property ImageSize As Size Implements IAutoDrawModel.ImageSize
-    Public Property CurrentPoints As New Concurrent.ConcurrentQueue(Of PointWithLayer) Implements IAutoDrawModel.CurrentPoints
+    Public Property CurrentPoints As New Concurrent.ConcurrentQueue(Of VertexWithLayer) Implements IAutoDrawModel.CurrentPoints
     Public Property PointsCount As Integer = 300 Implements IAutoDrawModel.PointsCount
     Public Property PointsCountMax As Integer = 5000 Implements IAutoDrawModel.PointsCountMax
     Public Property LayerCount As Integer = 13 Implements IAutoDrawModel.LayerCount

@@ -8,7 +8,7 @@ Imports Windows.UI
 Public Class GastonJulia
     Inherits GameBody
     Implements IFractal
-    Public Property Vertexs As New Concurrent.ConcurrentQueue(Of Point） Implements IFractal.Vertexs
+    Public Property Vertexs As New Concurrent.ConcurrentQueue(Of Vertex） Implements IFractal.Vertexs
 
     Public Overrides Sub StartEx()
         Me.GameComponents.Effects.Add(New GhostEffect)
@@ -44,7 +44,7 @@ Public Class GastonJulia
                                                            CByte((x * x * 255 * n * 10) Mod 255),
                                                            CByte((y * y * 255 * n * 30) Mod 255),
                                                            CByte((Math.Abs(x * y) * 255 + n * 50) Mod 255))
-                            Vertexs.Enqueue(New Point() With {.Position = New Vector2(CSng(w / 2 + x0 * (h / 2)),
+                            Vertexs.Enqueue(New Vertex() With {.Position = New Vector2(CSng(w / 2 + x0 * (h / 2)),
                                                                                       CSng(h / 2 - y0 * (h / 2))),
                                                               .Color = tempColor,
                                                               .Size = CSng((16 - n) / 2)})

@@ -19,7 +19,7 @@ Public Class AutoDrawByFastAIModel
     ''' <summary>
     ''' 当前绘制序列
     ''' </summary>
-    Public Property CurrentPoints As New Concurrent.ConcurrentQueue(Of PointWithLayer) Implements IAutoDrawModel.CurrentPoints
+    Public Property CurrentPoints As New Concurrent.ConcurrentQueue(Of VertexWithLayer) Implements IAutoDrawModel.CurrentPoints
     ''' <summary>
     ''' 当前绘制长度
     ''' </summary>

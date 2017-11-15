@@ -8,7 +8,7 @@ Imports Windows.UI
 Public Class NatureTree
     Inherits GameBody
     Implements IFractal
-    Public Property Vertexs As New Concurrent.ConcurrentQueue(Of Point） Implements IFractal.Vertexs
+    Public Property Vertexs As New Concurrent.ConcurrentQueue(Of Vertex） Implements IFractal.Vertexs
 
     Public Overrides Sub StartEx()
         Me.GameComponents.Effects.Add(New GhostEffect)
@@ -46,7 +46,7 @@ Public Class NatureTree
             End If
             x0 = x1 : y0 = y1
             Dim myColor = Color.FromArgb(255, CByte(x0 * x0 * 200 * r), CByte(y0 * y0 * 200 * r), CByte(x0 * y0 * 255))
-            Vertexs.Enqueue(New Point() With {.Position = New Vector2(CSng(Scene.Width * 0.75 - x1 * Scene.Height),
+            Vertexs.Enqueue(New Vertex() With {.Position = New Vector2(CSng(Scene.Width * 0.75 - x1 * Scene.Height),
                                                                       CSng(Scene.Height - y1 * Scene.Height)),
                                               .Color = myColor})
             count += 1

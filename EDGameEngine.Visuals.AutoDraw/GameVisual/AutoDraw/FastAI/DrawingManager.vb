@@ -71,7 +71,7 @@ Public Class DrawingManager
     ''' <summary>
     ''' 返回速度优先的下一个点
     ''' </summary>
-    Public Function NextPointFast() As PointWithLayer
+    Public Function NextPointFast() As VertexWithLayer
         Static Index0, Index1, Index2 As Integer
         If IsReset Then
             Index0 = 0
@@ -95,7 +95,7 @@ Public Class DrawingManager
                 End If
             End While
         End While
-        Dim point As PointWithLayer = Drawings(Index0).Lines(Index1).Points(Index2)
+        Dim point As VertexWithLayer = Drawings(Index0).Lines(Index1).Points(Index2)
         point.UserSize = point.Size * Drawings(point.LayerIndex).PenSize
         Dim color As Color = point.Color
         color.A = CByte(Drawings(point.LayerIndex).PenAlpha)
@@ -106,7 +106,7 @@ Public Class DrawingManager
     ''' <summary>
     ''' 返回质量优先的下一个点
     ''' </summary>
-    Public Function NextPointQuality() As PointWithLayer
+    Public Function NextPointQuality() As VertexWithLayer
         Static Max As Single = If(Width > Height, Width, Height)
         Static radius As Single = CSng(Max / 20)
         Static count As Integer = CInt((Max / radius) * (Max / radius) * 3)
@@ -165,7 +165,7 @@ Public Class DrawingManager
             End While
         End While
 
-        Dim point As PointWithLayer = Collections(Index0).Item(Index1).Points(Index2)
+        Dim point As VertexWithLayer = Collections(Index0).Item(Index1).Points(Index2)
         point.UserSize = point.Size * Drawings(point.LayerIndex).PenSize
         Dim color As Color = point.Color
         color.A = CByte(Drawings(point.LayerIndex).PenAlpha)

@@ -9,7 +9,7 @@ Public Class Line
     ''' <summary>
     ''' 点集
     ''' </summary>
-    Public Property Points As New List(Of PointWithLayer) Implements ILine.Points
+    Public Property Points As New List(Of VertexWithLayer) Implements ILine.Points
     ''' <summary>
     ''' 位置
     ''' </summary>
@@ -19,7 +19,7 @@ Public Class Line
     ''' 计算长度
     ''' </summary>
     Public Sub CalcLength(split As Integer)
-        Dim temp As New List(Of PointWithLayer)
+        Dim temp As New List(Of VertexWithLayer)
         For i = 0 To Points.Count - 1 Step split
             temp.Add(Points(i))
         Next
@@ -82,7 +82,7 @@ Public Class Line
                 y += Points(i).Position.Y
             Next
             Me.Location = New Vector2(x / Points.Count, y / Points.Count)
-            Points.ForEach(Sub(point As PointWithLayer)
+            Points.ForEach(Sub(point As VertexWithLayer)
                                point.Center = Me.Location
                            End Sub)
         End If
@@ -91,7 +91,7 @@ Public Class Line
     ''' 更新点的层索引
     ''' </summary>
     Public Sub UpdateLayerIndex(index As Integer)
-        Points.ForEach(Sub(point As PointWithLayer)
+        Points.ForEach(Sub(point As VertexWithLayer)
                            point.LayerIndex = index
                        End Sub)
     End Sub

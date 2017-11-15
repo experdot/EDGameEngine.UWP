@@ -15,7 +15,7 @@ Public Class AutoDrawView
     Public Overrides Sub OnDraw(drawingSession As CanvasDrawingSession)
         Static Paint As New Paint(drawingSession, Target.ImageSize, Target.LayerCount)
         Using drawing = Paint.CreateLayerDrawing()
-            Dim point As New PointWithLayer
+            Dim point As New VertexWithLayer
             While Target.CurrentPoints.TryDequeue(point)
                 If point IsNot Nothing Then
                     If Target.CircleLayers.Contains(point.LayerIndex) Then
@@ -97,14 +97,14 @@ Public Class AutoDrawView
         ''' <summary>
         ''' 画圆
         ''' </summary>
-        Public Sub FillCircle(point As PointWithLayer)
+        Public Sub FillCircle(point As VertexWithLayer)
             Sessions(point.LayerIndex).FillCircle(point.Position, point.UserSize, point.UserColor)
             Sessions.Last.FillCircle(point.Position, point.UserSize, Colors.Black)
         End Sub
         ''' <summary>
         ''' 画线
         ''' </summary>
-        Public Sub DrawLine(point As PointWithLayer)
+        Public Sub DrawLine(point As VertexWithLayer)
             Static Rnd As New Random
             Dim offset As Vector2 = If(Rnd.NextDouble > 0.5F, New Vector2(-1, 1), New Vector2(1, 1))
             offset *= (RandomHelper.NextNorm(100, 400) / 100.0F) * CSng(12 - point.LayerIndex) / 2
@@ -118,7 +118,7 @@ Public Class AutoDrawView
         ''' <summary>
         ''' 画曲线
         ''' </summary>
-        Public Sub DrawCurve(point As PointWithLayer)
+        Public Sub DrawCurve(point As VertexWithLayer)
             Sessions(point.LayerIndex).DrawLine(point.Position, point.NextPoint.Position, point.UserColor, 1.0F)
             Sessions.Last.DrawLine(point.Position, point.NextPoint.Position, point.UserColor, 1.0F)
             'Sessions(point.LayerIndex).DrawLine(point.Position, point.NextPoint.Position, point.UserColor, point.UserSize * 2)

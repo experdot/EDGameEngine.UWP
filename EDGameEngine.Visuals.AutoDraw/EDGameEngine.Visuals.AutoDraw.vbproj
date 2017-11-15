@@ -143,7 +143,7 @@
     <Compile Include="GameVisual\AutoDraw\Fundamental\Line\Line.vb" />
     <Compile Include="GameVisual\AutoDraw\Fundamental\PixelData\PixelData.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
-    <Compile Include="GameVisual\AutoDraw\Fundamental\PointWithLayer\PointWithLayer.vb" />
+    <Compile Include="GameVisual\AutoDraw\Fundamental\VertexWithLayer\VertexWithLayer.vb" />
     <EmbeddedResource Include="My Project\EDGameEngine.Visuals.AutoDraw.rd.xml" />
   </ItemGroup>
   <ItemGroup>

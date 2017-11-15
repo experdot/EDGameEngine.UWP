@@ -53,7 +53,7 @@ Public Class SequenceAI
     ''' 在序列List末尾项新增一个点
     ''' </summary>
     Private Sub AddPoint(position As Vector2)
-        Lines.Last.Points.Add(New PointWithLayer() With {.Position = position, .Size = 1})
+        Lines.Last.Points.Add(New VertexWithLayer() With {.Position = position, .Size = 1})
     End Sub
     ''' <summary>
     ''' 计算序列

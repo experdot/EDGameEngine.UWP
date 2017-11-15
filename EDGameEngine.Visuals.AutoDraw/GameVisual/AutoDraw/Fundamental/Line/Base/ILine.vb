@@ -5,5 +5,5 @@ Public Interface ILine
     ''' <summary>
     ''' 顶点集
     ''' </summary>
-    Property Points As List(Of PointWithLayer)
+    Property Points As List(Of VertexWithLayer)
 End Interface
