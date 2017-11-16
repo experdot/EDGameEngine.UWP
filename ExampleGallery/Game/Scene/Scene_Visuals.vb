@@ -78,7 +78,14 @@ Public Class Scene_Visuals
                 Throw New NotImplementedException()
             Case 40002 '植物摇曳
                 Dim tempModel As New Plant(New Vector2(Width / 2, Height * 0.8F))
-                Me.AddGameVisual(tempModel, New PlantView(tempModel))
+                Dim tempView As New PlantView(tempModel) With
+                {
+                    .BranchResourceId = ImageResourceId.TreeBranch1,
+                    .LeafResourceId = ImageResourceId.GreenLeaf1,
+                    .FlowerResourceId = ImageResourceId.YellowFlower1
+                }
+                Me.AddGameVisual(tempModel, tempView)
+                Me.GameLayers(0).GameComponents.Effects.Add(New FrostedEffect With {.Amount = 2})
             Case 50000 '自动绘图
                 World.RenderMode = RenderMode.Sync
                 Dim tempModel As New AutoDrawByClusteringModel() With {.Image = CType(ImageResource.GetResource(ImageResourceId.Scenery1), CanvasBitmap)}

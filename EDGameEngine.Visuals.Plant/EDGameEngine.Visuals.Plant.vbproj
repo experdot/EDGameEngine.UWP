@@ -122,9 +122,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="GameView\PlantView.vb" />
-    <Compile Include="GameVisual\Plant\IPlant.vb" />
+    <Compile Include="GameVisual\Plant\Base\IPlant.vb" />
     <Compile Include="GameVisual\Plant\Plant.vb" />
-    <Compile Include="GameVisual\Plant\TreeNode.vb" />
+    <Compile Include="GameVisual\Plant\TreeNode\Flower\Flower.vb" />
+    <Compile Include="GameVisual\Plant\TreeNode\TreeNode.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <EmbeddedResource Include="My Project\EDGameEngine.Visuals.Plant.rd.xml" />
   </ItemGroup>

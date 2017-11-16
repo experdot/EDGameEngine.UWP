@@ -9,45 +9,67 @@ Imports Windows.UI
 ''' </summary>
 Public Class PlantView
     Inherits TypedCanvasView(Of IPlant)
+    ''' <summary>
+    ''' 树干资源Id
+    ''' </summary>
+    Public Property BranchResourceId As Integer
+    ''' <summary>
+    ''' 树叶资源Id
+    ''' </summary>
+    Public Property LeafResourceId As Integer
+    ''' <summary>
+    ''' 花朵资源Id
+    ''' </summary>
+    Public Property FlowerResourceId As Integer
+
     Public Sub New(Target As IPlant)
         MyBase.New(Target)
     End Sub
+
     Public Overrides Sub OnDraw(drawingSession As CanvasDrawingSession)
-        DrawTree(drawingSession, Target.Root, New Vector2, 0)
+        DrawTree(drawingSession, Target.Root)
     End Sub
-    Dim Tw() As Single = {0.618, 0.628, 0.638, 0.648, 0.658, 0.668, 0.678, 0.688, 0.698, 0.708, 0.718}
-    Dim LineCss As New Geometry.CanvasStrokeStyle With {.StartCap = Geometry.CanvasCapStyle.Triangle,
-                                                        .EndCap = Geometry.CanvasCapStyle.Triangle}
-    Private Sub DrawTree(ds As CanvasDrawingSession, ParentNode As TreeNode, OffSet As Vector2, angle As Single, Optional Ratio As Single = 16)
-        For Each SubNode In ParentNode.Children
-            Dim StrokeWidth As Single = CSng(Target.Root.Rank * 5 * Math.Pow(Tw(SubNode.Rank), 8 - SubNode.Rank) * SubNode.Percent)
-            Dim midLoc = ParentNode.RealLoc + SubNode.Location.RotateNew(SubNode.MidRotateAngle / 5) * SubNode.Percent * 0.618
 
-            SubNode.RealLoc = ParentNode.RealLoc + SubNode.Location * SubNode.Percent
-
-            ds.DrawLine(ParentNode.RealLoc, midLoc, Colors.Black, StrokeWidth, LineCss)
-            ds.DrawLine(SubNode.RealLoc, midLoc, Colors.Black, StrokeWidth, LineCss)
-            Dim TempV = ParentNode.RealLoc + SubNode.RealLoc.RotateNew(CSng(SubNode.DiePercent * Math.PI * 2)) * CSng((Math.Sin(SubNode.DiePercent) / 2 * 0))
-            'DrawImageBranch(ds, ParentNode, SubNode, SubNode.Location, TempV)
-            DrawFlower(ds, Ratio, SubNode, TempV)
-            DrawTree(ds, SubNode, OffSet, angle)
+    Private Sub DrawTree(drawingSession As CanvasDrawingSession, parent As TreeNode)
+        For Each SubNode In parent.Children
+            SubNode.RealLocation = parent.RealLocation + SubNode.Location * SubNode.Percent
+            'DrawLineBranch(drawingSession, SubNode)
+            DrawImageBranch(drawingSession, SubNode)
+            DrawImageFlower(drawingSession, SubNode)
+            DrawTree(drawingSession, SubNode)
         Next
     End Sub
-    Private Sub DrawImageBranch(ds As CanvasDrawingSession, ParentNode As TreeNode, SubNode As TreeNode, loc As Vector2, tempV As Vector2)
-        Dim branchWidth = Target.Root.Rank * 15 * Math.Pow(Tw(SubNode.Rank), 9 - SubNode.Rank) * SubNode.Percent
-        Dim BranchHeight As Single = loc.Length * SubNode.Percent
-        ds.Transform = Matrix3x2.CreateRotation(CSng(Math.Atan2(loc.Y, loc.X) - Math.PI / 2 + Math.PI * 2 * SubNode.DiePercent * 0）, tempV)
-        'ds.DrawImage(Target.Scene.ImageManager.GetResource(ImageResourceId.TreeBranch1),
-        '             New Rect(tempV.X, tempV.Y, branchWidth, BranchHeight),
-        '             New Rect(0, 0, 100, 300),
-        '            CSng(0.9 + (0.1 / Target.Root.Rank) * SubNode.Rank))
-        ds.Transform = Matrix3x2.CreateRotation(0)
+    Private Sub DrawLineBranch(drawingSession As CanvasDrawingSession, node As TreeNode)
+        Dim strokeStyle As New Geometry.CanvasStrokeStyle With {.StartCap = Geometry.CanvasCapStyle.Triangle, .EndCap = Geometry.CanvasCapStyle.Triangle}
+        Dim strokeWidth As Single = CSng(Target.Root.Rank * 5 * Math.Pow(0.618, 8 - node.Rank)) * node.Percent
+        Dim middleLocation = node.Parent.RealLocation + node.Location.RotateNew(node.MidRotateAngle / 3) * 0.618 * node.Percent
+        drawingSession.DrawLine(node.Parent.RealLocation, middleLocation, Colors.Black, strokeWidth, strokeStyle)
+        drawingSession.DrawLine(node.RealLocation, middleLocation, Colors.Black, strokeWidth, strokeStyle)
     End Sub
-    Private Sub DrawFlower(ds As CanvasDrawingSession, Ratio As Single, SubNode As TreeNode, tempV As Vector2)
-        If SubNode.HasFlower And SubNode.Percent > 0.5 Then
-            Dim Border As Single = Ratio * SubNode.FlowerSize * SubNode.Percent
-            'ds.DrawImage(DirectCast(Target.Scene.ImageManager.GetResource(ImageResourceId.YellowFlower1), CanvasBitmap),
-            '             New Rect(tempV.X - Border, tempV.Y - Border, Border * 2, Border * 2))
+    Private Sub DrawImageBranch(drawingSession As CanvasDrawingSession, node As TreeNode)
+        Static ImageResource As ImageResource = CType(Target.Scene, IObjectWithImageResource).ImageResource
+        Static Image As CanvasBitmap = DirectCast(ImageResource.GetResource(BranchResourceId), CanvasBitmap)
+        Static SrcRect As Rect = Image.Bounds
+        Dim branchWidth = (Target.Root.Rank + 2) * 15 * Math.Pow(0.618, Target.Root.Rank - node.Rank) * node.Percent
+        Dim branchHeight As Single = node.Location.Length * node.Percent
+        Dim alpha As Single = CSng(1.0F)
+        drawingSession.Transform = Matrix3x2.CreateRotation(CSng(Math.Atan2(node.Location.Y, node.Location.X) - Math.PI / 2）, node.Parent.RealLocation)
+        drawingSession.DrawImage(Image, New Rect(node.Parent.RealLocation.X, node.Parent.RealLocation.Y, branchWidth, branchHeight), SrcRect, alpha)
+        drawingSession.Transform = Matrix3x2.Identity
+    End Sub
+    Private Sub DrawImageFlower(drawingSession As CanvasDrawingSession, node As TreeNode)
+        Static ImageResource As ImageResource = CType(Target.Scene, IObjectWithImageResource).ImageResource
+        Static Image As CanvasBitmap = DirectCast(ImageResource.GetResource(LeafResourceId), CanvasBitmap)
+        Static SrcRect As Rect = Image.Bounds
+        If node.Flowers.Count > 0 AndAlso node.Percent > 0.5 Then
+            For i = 0 To node.Flowers.Count - 1
+                Dim flower As Flower = node.Flowers(i)
+                Dim border As Single = 14 * flower.Size * node.Percent
+                Dim location As Vector2 = flower.RealLocation
+                drawingSession.Transform *= Matrix3x2.CreateRotation(flower.Rotation, location)
+                drawingSession.DrawImage(Image, New Rect(location.X - border, location.Y - border, border * 2, border * 2), SrcRect, flower.Opacity)
+                drawingSession.Transform = Matrix3x2.Identity
+            Next
         End If
     End Sub
 End Class
