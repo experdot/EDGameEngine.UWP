@@ -40,7 +40,7 @@ Public Structure JumpStateMachine(Of TCharacter)
     ''' <summary>
     ''' 表示当前 <typeparamref name="TCharacter"/> 最多能够连跳多少次。
     ''' </summary>
-    Shared MaxJumpCombo As Integer = 2
+    Shared MaxJumpCombo As Integer = 3
     ''' <summary>
     ''' 表示当前 <typeparamref name="TCharacter"/> 跳跃时匀速向上移动的速度。由于游戏的 y 轴向下，这个值小于 0 才有意义。
     ''' </summary>

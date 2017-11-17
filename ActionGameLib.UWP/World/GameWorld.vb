@@ -98,6 +98,7 @@ Public Class GameWorld
         target.Collide.Body = BodyFactory.CreateRectangle(world, w, h, 1.0F, loc, r, t)
         target.Collide.Body.Friction = 0.5F
         target.Collide.Body.SleepingAllowed = False
+        target.Collide.Body.FixedRotation = True
     End Sub
 
 End Class
