@@ -85,7 +85,8 @@ Public Class Scene_Visuals
                     .FlowerResourceId = ImageResourceId.YellowFlower1
                 }
                 Me.AddGameVisual(tempModel, tempView)
-                Me.GameLayers(0).GameComponents.Effects.Add(New FrostedEffect With {.Amount = 2})
+                'Me.GameLayers(0).GameComponents.Effects.Add(New ShadowEffect With {.IsDrawRaw = True})
+                'Me.GameLayers(0).GameComponents.Effects.Add(New FrostedEffect With {.Amount = 2})
             Case 50000 '自动绘图
                 World.RenderMode = RenderMode.Sync
                 Dim tempModel As New AutoDrawByClusteringModel() With {.Image = CType(ImageResource.GetResource(ImageResourceId.Scenery1), CanvasBitmap)}

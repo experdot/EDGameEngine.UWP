@@ -1,4 +1,5 @@
-﻿Imports EDGameEngine.Core
+﻿Imports System.Numerics
+Imports EDGameEngine.Core
 Imports EDGameEngine.Core.Graphics
 Imports Microsoft.Graphics.Canvas
 Imports Windows.Graphics.Effects
@@ -7,17 +8,25 @@ Imports Windows.Graphics.Effects
 ''' </summary>
 Public Class ShadowEffect
     Inherits CanvasEffectBase
+    ''' <summary>
+    ''' 是否绘制原始图像
+    ''' </summary>
+    Public Property IsDrawRaw As Boolean = False
+    ''' <summary>
+    ''' 偏移
+    ''' </summary>
+    Public Property Offset As Vector2 = Vector2.Zero
     Public Overrides Function Effect(source As IGraphicsEffectSource, resourceCreator As ICanvasResourceCreator) As IGraphicsEffectSource
-        Dim rect = CType(source, ICanvasImage).GetBounds(resourceCreator)
-        Dim cac = New CanvasRenderTarget(CType(resourceCreator, ICanvasResourceCreatorWithDpi), New Size(rect.Width, rect.Height))
-        Using ds = cac.CreateDrawingSession
-            Using shadow = New Effects.ShadowEffect With {.Source = CType(Target.Presenter, SceneView).CommandList}
+        Dim cmdList = New CanvasCommandList(resourceCreator)
+        Using ds = cmdList.CreateDrawingSession
+            Using shadow = New Effects.ShadowEffect With {.Source = CType(Target.Presenter, CanvasView).CommandList}
                 ds.Clear(Windows.UI.Colors.Transparent)
-                ds.DrawImage(CType(source, ICanvasImage))
-                ds.DrawImage(shadow)
-                ds.DrawRectangle(shadow.GetBounds(resourceCreator), Windows.UI.Colors.Black)
+                ds.DrawImage(shadow, Offset)
+                If IsDrawRaw Then
+                    ds.DrawImage(CType(source, ICanvasImage))
+                End If
             End Using
         End Using
-        Return cac
+        Return cmdList
     End Function
 End Class
