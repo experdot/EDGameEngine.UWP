@@ -170,6 +170,7 @@
     <Content Include="Assets\SampleImages\Rectangle.png" />
     <Content Include="Assets\SampleImages\Circle.png" />
     <Content Include="Assets\SampleImages\Polygon.png" />
+    <Content Include="Game\Resources\Images\Leaf_Red.png" />
     <Content Include="Game\Resources\Sounds\failed.wav" />
     <Content Include="Game\Resources\Sounds\c1.wav" />
     <Content Include="Game\Resources\Sounds\c2.wav" />

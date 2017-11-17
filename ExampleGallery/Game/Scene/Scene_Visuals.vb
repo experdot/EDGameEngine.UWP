@@ -81,7 +81,7 @@ Public Class Scene_Visuals
                 Dim tempView As New PlantView(tempModel) With
                 {
                     .BranchResourceId = ImageResourceId.TreeBranch1,
-                    .LeafResourceId = ImageResourceId.GreenLeaf1,
+                    .LeafResourceId = ImageResourceId.RedLeaf1,
                     .FlowerResourceId = ImageResourceId.YellowFlower1
                 }
                 Me.AddGameVisual(tempModel, tempView)
@@ -100,7 +100,7 @@ Public Class Scene_Visuals
                 Dim tempView As New LSystemTreeView(tempModel) With
                 {
                     .BranchResourceId = ImageResourceId.TreeBranch1,
-                    .LeafResourceId = ImageResourceId.GreenLeaf1,
+                    .LeafResourceId = ImageResourceId.RedLeaf1,
                     .FlowerResourceId = ImageResourceId.YellowFlower1
                 }
                 Me.AddGameVisual(tempModel, tempView)
@@ -135,6 +135,7 @@ Public Class Scene_Visuals
         Await imageResource.Add(ImageResourceId.TreeBranch2, "Game/Resources/Images/Tree_White.png")
         Await imageResource.Add(ImageResourceId.YellowFlower1, "Game/Resources/Images/Flower_Yellow.png")
         Await imageResource.Add(ImageResourceId.GreenLeaf1, "Game/Resources/Images/Leaf_Green.png")
+        Await imageResource.Add(ImageResourceId.RedLeaf1, "Game/Resources/Images/Leaf_Green.png")
         Await imageResource.Add(ImageResourceId.SmokeParticle1, "Game/Resources/Images/smoke.dds")
         Await imageResource.Add(ImageResourceId.ExplosionPartial1, "Game/Resources/Images/explosion.dds")
         Await imageResource.Add(ImageResourceId.Back1, "Game/Resources/Images/back.png")

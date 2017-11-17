@@ -6,6 +6,7 @@ Public Enum ImageResourceId
     YellowFlower1
     TreeBranch1
     GreenLeaf1
+    RedLeaf1
     SmokeParticle1
     ExplosionPartial1
     Back1
