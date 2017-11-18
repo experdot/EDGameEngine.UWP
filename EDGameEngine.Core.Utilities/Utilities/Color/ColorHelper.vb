@@ -4,6 +4,7 @@ Imports Windows.UI
 ''' 颜色辅助类
 ''' </summary>
 Public Class ColorHelper
+    Public Shared Rnd As New Random
     ''' <summary>
     ''' 由RGB单精度浮点数分量创建<see cref="Color"/>实例
     ''' </summary>
@@ -54,6 +55,12 @@ Public Class ColorHelper
         b = color.B
         mid = CInt((r + g + b) / 3)
         Return mid
+    End Function
+    ''' <summary>
+    ''' 返回一个随机的颜色
+    ''' </summary>
+    Public Shared Function GetRandomColor() As Color
+        Return Color.FromArgb(Rnd.Next(1, 256), Rnd.Next(0, 256)， Rnd.Next(0, 256)， Rnd.Next(0, 256))
     End Function
 End Class
 

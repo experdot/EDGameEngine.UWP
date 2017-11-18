@@ -14,7 +14,7 @@ Public Class CircleView
             drawingSession.FillCircle(Vector2.Zero, Target.Radius, Target.Fill.Color)
         End If
         If Target.Border.State Then
-            drawingSession.DrawCircle(Vector2.Zero, Target.Radius, Target.Border.Color, Target.Border.Width)
+            drawingSession.DrawCircle(Vector2.Zero, Target.Radius + Target.Border.Width / 2, Target.Border.Color, Target.Border.Width)
         End If
     End Sub
 End Class

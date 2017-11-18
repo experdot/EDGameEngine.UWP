@@ -19,7 +19,7 @@ Public Class SquareCA
 
         colorArr = Image.GetPixelColors
 
-        Geometry = CanvasGeometry.CreateRectangle(CanvasDevice.GetSharedDevice, New Rect(-Size / 2, -Size / 2, Size, Size))
+        Geometry = CanvasGeometry.CreateRectangle(CanvasDevice.GetSharedDevice(True), New Rect(-Size / 2, -Size / 2, Size, Size))
 
         ReDim Cells(Width - 1, Height - 1)
         For i = 0 To Width - 1

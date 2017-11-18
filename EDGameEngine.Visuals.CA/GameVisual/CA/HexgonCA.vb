@@ -13,7 +13,7 @@ Public Class HexgonCA
         Width = 50
         Height = 50
 
-        Geometry = GeometryHelper.CreateRegularPolygon(6, Size)
+        Geometry = GeometryHelper.CreateRegularPolygon(CanvasDevice.GetSharedDevice, 6, Size)
 
         Dim dx As Single = CSng(Math.Sqrt(3) * Size)
         Dim dy As Single = CSng(Size / 2 * 3)

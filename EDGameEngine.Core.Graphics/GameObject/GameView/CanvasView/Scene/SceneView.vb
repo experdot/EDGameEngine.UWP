@@ -21,8 +21,8 @@ Public Class SceneView
         Static Dots As String() = {" ", ".", "..", "..."}
         Static Index As Integer
         Index = (Index + 1) Mod 80
-        drawingSession.DrawText("场景加载中，请稍后" & Dots(CInt(Math.Truncate(Index / 20))), New Vector2(Target.Width, Target.Height) / 2, Colors.Black, TextFormat.Center)
-        drawingSession.DrawText(Target.Progress.Description, New Vector2(Target.Width, Target.Height + 50) / 2, Colors.Black, TextFormat.CenterL)
+        drawingSession.DrawText("场景加载中，请稍后" & Dots(CInt(Math.Truncate(Index / 20))), New Vector2(Target.Width, Target.Height) / 2, Colors.Black, TextFormatHelper.Center)
+        drawingSession.DrawText(Target.Progress.Description, New Vector2(Target.Width, Target.Height + 50) / 2, Colors.Black, TextFormatHelper.CenterAndSize12)
     End Sub
     Public Overridable Sub LoadedDraw(drawingSession As CanvasDrawingSession)
         For Each SubLayer In Target.GameLayers

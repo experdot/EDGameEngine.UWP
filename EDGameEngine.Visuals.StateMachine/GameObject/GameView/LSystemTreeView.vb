@@ -91,9 +91,10 @@ Public Class LSystemTreeView
         Static ImageResource As ImageResource = CType(Target.Scene, IObjectWithImageResource).ImageResource
         Static Image As CanvasBitmap = DirectCast(ImageResource.GetResource(BranchResourceId), CanvasBitmap)
         Static SrcRect As Rect = Image.Bounds
+        Static Ratio As Single = 1
 
-        Dim branchWidth As Single = offset.Length * 0.8
-        Dim branchHeight As Single = offset.Length
+        Dim branchWidth As Single = offset.Length * 0.8 * Ratio
+        Dim branchHeight As Single = offset.Length * Ratio
         Dim alpha As Single = CSng(RandomHelper.NextNorm(60, 90) / 100)
 
         drawingSession.Transform = Matrix3x2.CreateRotation(CSng(Math.Atan2(offset.Y, offset.X) - Math.PI / 2）, center)

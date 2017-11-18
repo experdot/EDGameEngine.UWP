@@ -4,6 +4,9 @@
 ''' </summary>
 Public Class VisualRectangle
     Inherits GeometryBase
+    ''' <summary>
+    ''' 矩形
+    ''' </summary>
     Public Property Rectangle As Rect
 
     Public Overrides Sub StartEx()

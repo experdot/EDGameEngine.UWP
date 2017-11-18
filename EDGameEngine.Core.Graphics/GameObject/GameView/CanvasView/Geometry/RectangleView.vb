@@ -12,7 +12,12 @@ Public Class RectangleView
             drawingSession.FillRectangle(Target.Rectangle, Target.Fill.Color)
         End If
         If Target.Border.State Then
-            drawingSession.DrawRectangle(Target.Rectangle, Target.Border.Color, Target.Border.Width)
+            Dim border As Single = Target.Border.Width / 2.0F
+            Dim x As Single = Target.Rectangle.X - border
+            Dim y As Single = Target.Rectangle.Y - border
+            Dim width As Single = Target.Rectangle.Width + border
+            Dim height As Single = Target.Rectangle.Height + border
+            drawingSession.DrawRectangle(New Rect(x, y, width, height), Target.Border.Color, Target.Border.Width)
         End If
     End Sub
 End Class

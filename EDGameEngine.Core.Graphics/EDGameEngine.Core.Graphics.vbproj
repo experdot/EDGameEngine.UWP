@@ -124,6 +124,8 @@
     <Compile Include="GameObject\Components\Effect\CanvasEffect\CanvasEffectBase.vb" />
     <Compile Include="GameObject\Components\Effect\CanvasEffect\ICanvasEffect.vb" />
     <Compile Include="GameObject\Components\Effect\TransformEffect.vb" />
+    <Compile Include="GameObject\GameView\CanvasView\Geometry\PolygonView.vb" />
+    <Compile Include="GameObject\GameVisual\Geometry\VisualPolygon.vb" />
     <Compile Include="GameResource\Image\ObjectWithImageResources\IObjectWithImageResource.vb" />
     <Compile Include="GameObject\GameView\CanvasView\Base\ICanvasView.vb" />
     <Compile Include="GameObject\GameView\CanvasView\Geometry\CircleView.vb" />
@@ -152,7 +154,7 @@
     <Compile Include="Utilities\Geometry\GeometryHelper.vb" />
     <Compile Include="Utilities\Geometry\Style\BorderStyle.vb" />
     <Compile Include="Utilities\Geometry\Style\FillStyle.vb" />
-    <Compile Include="Utilities\TextFormat\TextFormat.vb" />
+    <Compile Include="Utilities\TextFormat\TextFormatHelper.vb" />
     <EmbeddedResource Include="My Project\EDGameEngine.Core.Graphics.rd.xml" />
   </ItemGroup>
   <ItemGroup>

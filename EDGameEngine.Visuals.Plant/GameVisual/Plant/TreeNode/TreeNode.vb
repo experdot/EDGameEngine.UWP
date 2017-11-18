@@ -76,22 +76,43 @@ Public Class TreeNode
     ''' 创建子树
     ''' </summary>
     Public Sub Generate()
+        'Dim newRank As Integer = Rank - 1
+        'If newRank > 0 Then
+        '    Dim newLocation As Vector2
+        '    Dim newLength As Single
+        '    newLocation = Me.Location.RotateNew(CSng(Rnd.NextDouble * Math.PI / 2 - Math.PI / 4) / Math.Log((Rank + 10), 10))
+        '    newLength = CSng(Rank * 25 * Rnd.NextDouble)
+        '    Dim immediate As New TreeNode(newLocation, newLength, newRank)
+        '    immediate.Generate()
+        '    AddChild(immediate)
+        '    For i = 0 To Rnd.Next(1, Math.Max(CInt((12 - Rank) / 2), 1)） - 1
+        '        newLocation = Me.Location.RotateNew(CSng(Rnd.NextDouble * Math.PI / 2 - Math.PI / 4) / Math.Log((Rank + 10), 10)）
+        '        newLength = CSng(Rank * 25 * Rnd.NextDouble)
+        '        Dim child As New TreeNode(newLocation, newLength, newRank)
+        '        child.Generate()
+        '        AddChild(child)
+        '    Next
+        'End If
         Dim newRank As Integer = Rank - 1
         If newRank > 0 Then
             Dim newLocation As Vector2
             Dim newLength As Single
-            newLocation = Me.Location.RotateNew(CSng(Rnd.NextDouble * Math.PI / 2 - Math.PI / 4) / Math.Log((Rank + 10), 10))
-            newLength = CSng(Rank * 25 * Rnd.NextDouble)
+            newLocation = Me.Location.RotateNew(CSng(Rnd.NextDouble * Math.PI / 2 - Math.PI / 4))
+            newLength = CSng(Me.Length * (0.618F + Rnd.NextDouble * 0.24F))
             Dim immediate As New TreeNode(newLocation, newLength, newRank)
             immediate.Generate()
             AddChild(immediate)
-            For i = 0 To Rnd.Next(1, Math.Max(CInt((12 - Rank) / 2), 1)） - 1
-                newLocation = Me.Location.RotateNew(CSng(Rnd.NextDouble * Math.PI / 2 - Math.PI / 4) / Math.Log((Rank + 10), 10)）
-                newLength = CSng(Rank * 25 * Rnd.NextDouble)
-                Dim child As New TreeNode(newLocation, newLength, newRank)
-                child.Generate()
-                AddChild(child)
-            Next
+
+            Dim extra As Integer = Math.Min(3, RandomHelper.NextNorm(0, Math.Max(CInt((12 - Rank) / 4), 1)))
+            If extra > 0 Then
+                For i = 0 To extra - 1
+                    newLocation = Me.Location.RotateNew(CSng(Rnd.NextDouble * Math.PI / 1.5 - Math.PI / 3)）
+                    newLength = CSng(Me.Length * (0.618F + Rnd.NextDouble * 0.24F))
+                    Dim child As New TreeNode(newLocation, newLength, newRank)
+                    child.Generate()
+                    AddChild(child)
+                Next
+            End If
         End If
     End Sub
     ''' <summary>
@@ -126,7 +147,7 @@ Public Class TreeNode
                     Flowers(i).Grow()
                 Next
             Else
-                If Rank < 6 AndAlso Rnd.NextDouble > 0.9 Then
+                If Rank < 6 AndAlso Rnd.NextDouble > 0.95 Then
                     AddFlower(New Flower)
                 End If
             End If

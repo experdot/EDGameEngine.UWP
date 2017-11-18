@@ -627,6 +627,31 @@
           }
         }
       },
+      "SharpDX/4.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2"
+        },
+        "compile": {
+          "lib/uap10.0/SharpDX.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/SharpDX.dll": {}
+        }
+      },
+      "SharpDX.XAudio2/4.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
+          "SharpDX": "4.0.1"
+        },
+        "compile": {
+          "lib/uap10.0/SharpDX.XAudio2.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/SharpDX.XAudio2.dll": {}
+        }
+      },
       "System.AppContext/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -2551,6 +2576,22 @@
           }
         }
       },
+      "EDGameEngine.Components.Animation/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Components.Audio/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "EDGameEngine.Core": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
+          "SharpDX.XAudio2": "4.0.1"
+        }
+      },
       "EDGameEngine.Components.Behavior/1.0.0": {
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
@@ -2569,6 +2610,13 @@
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Components.Trigger/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
@@ -3514,6 +3562,31 @@
         "type": "package",
         "native": {
           "runtimes/win8-arm/native/clrcompression.dll": {}
+        }
+      },
+      "SharpDX/4.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2"
+        },
+        "compile": {
+          "lib/uap10.0/SharpDX.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/SharpDX.dll": {}
+        }
+      },
+      "SharpDX.XAudio2/4.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
+          "SharpDX": "4.0.1"
+        },
+        "compile": {
+          "lib/uap10.0/SharpDX.XAudio2.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/SharpDX.XAudio2.dll": {}
         }
       },
       "System.AppContext/4.3.0": {
@@ -5245,6 +5318,22 @@
           "runtimes/win10-arm/native/Microsoft.Graphics.Canvas.dll": {}
         }
       },
+      "EDGameEngine.Components.Animation/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Components.Audio/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "EDGameEngine.Core": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
+          "SharpDX.XAudio2": "4.0.1"
+        }
+      },
       "EDGameEngine.Components.Behavior/1.0.0": {
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
@@ -5263,6 +5352,13 @@
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Components.Trigger/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
@@ -6244,6 +6340,31 @@
         },
         "native": {
           "runtimes/win8-arm-aot/native/_._": {}
+        }
+      },
+      "SharpDX/4.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2"
+        },
+        "compile": {
+          "lib/uap10.0/SharpDX.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/SharpDX.dll": {}
+        }
+      },
+      "SharpDX.XAudio2/4.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
+          "SharpDX": "4.0.1"
+        },
+        "compile": {
+          "lib/uap10.0/SharpDX.XAudio2.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/SharpDX.XAudio2.dll": {}
         }
       },
       "System.AppContext/4.3.0": {
@@ -7975,6 +8096,22 @@
           "runtimes/win10-arm/native/Microsoft.Graphics.Canvas.dll": {}
         }
       },
+      "EDGameEngine.Components.Animation/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Components.Audio/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "EDGameEngine.Core": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
+          "SharpDX.XAudio2": "4.0.1"
+        }
+      },
       "EDGameEngine.Components.Behavior/1.0.0": {
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
@@ -7993,6 +8130,13 @@
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Components.Trigger/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
@@ -8947,6 +9091,31 @@
         },
         "runtime": {
           "runtimes/win/lib/netcore50/System.Private.Uri.dll": {}
+        }
+      },
+      "SharpDX/4.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2"
+        },
+        "compile": {
+          "lib/uap10.0/SharpDX.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/SharpDX.dll": {}
+        }
+      },
+      "SharpDX.XAudio2/4.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
+          "SharpDX": "4.0.1"
+        },
+        "compile": {
+          "lib/uap10.0/SharpDX.XAudio2.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/SharpDX.XAudio2.dll": {}
         }
       },
       "System.AppContext/4.3.0": {
@@ -10678,6 +10847,22 @@
           "runtimes/win10-x64/native/Microsoft.Graphics.Canvas.dll": {}
         }
       },
+      "EDGameEngine.Components.Animation/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Components.Audio/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "EDGameEngine.Core": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
+          "SharpDX.XAudio2": "4.0.1"
+        }
+      },
       "EDGameEngine.Components.Behavior/1.0.0": {
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
@@ -10696,6 +10881,13 @@
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Components.Trigger/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
@@ -11688,6 +11880,31 @@
           "runtimes/aot/lib/netcore50/System.Private.Uri.dll": {}
         }
       },
+      "SharpDX/4.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2"
+        },
+        "compile": {
+          "lib/uap10.0/SharpDX.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/SharpDX.dll": {}
+        }
+      },
+      "SharpDX.XAudio2/4.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
+          "SharpDX": "4.0.1"
+        },
+        "compile": {
+          "lib/uap10.0/SharpDX.XAudio2.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/SharpDX.XAudio2.dll": {}
+        }
+      },
       "System.AppContext/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -13417,6 +13634,22 @@
           "runtimes/win10-x64/native/Microsoft.Graphics.Canvas.dll": {}
         }
       },
+      "EDGameEngine.Components.Animation/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Components.Audio/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "EDGameEngine.Core": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
+          "SharpDX.XAudio2": "4.0.1"
+        }
+      },
       "EDGameEngine.Components.Behavior/1.0.0": {
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
@@ -13435,6 +13668,13 @@
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Components.Trigger/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
@@ -14389,6 +14629,31 @@
         },
         "runtime": {
           "runtimes/win/lib/netcore50/System.Private.Uri.dll": {}
+        }
+      },
+      "SharpDX/4.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2"
+        },
+        "compile": {
+          "lib/uap10.0/SharpDX.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/SharpDX.dll": {}
+        }
+      },
+      "SharpDX.XAudio2/4.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
+          "SharpDX": "4.0.1"
+        },
+        "compile": {
+          "lib/uap10.0/SharpDX.XAudio2.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/SharpDX.XAudio2.dll": {}
         }
       },
       "System.AppContext/4.3.0": {
@@ -16120,6 +16385,22 @@
           "runtimes/win10-x86/native/Microsoft.Graphics.Canvas.dll": {}
         }
       },
+      "EDGameEngine.Components.Animation/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Components.Audio/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "EDGameEngine.Core": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
+          "SharpDX.XAudio2": "4.0.1"
+        }
+      },
       "EDGameEngine.Components.Behavior/1.0.0": {
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
@@ -16138,6 +16419,13 @@
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Components.Trigger/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
@@ -17128,6 +17416,31 @@
         },
         "runtime": {
           "runtimes/aot/lib/netcore50/System.Private.Uri.dll": {}
+        }
+      },
+      "SharpDX/4.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2"
+        },
+        "compile": {
+          "lib/uap10.0/SharpDX.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/SharpDX.dll": {}
+        }
+      },
+      "SharpDX.XAudio2/4.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
+          "SharpDX": "4.0.1"
+        },
+        "compile": {
+          "lib/uap10.0/SharpDX.XAudio2.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/SharpDX.XAudio2.dll": {}
         }
       },
       "System.AppContext/4.3.0": {
@@ -18859,6 +19172,22 @@
           "runtimes/win10-x86/native/Microsoft.Graphics.Canvas.dll": {}
         }
       },
+      "EDGameEngine.Components.Animation/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Components.Audio/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "EDGameEngine.Core": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
+          "SharpDX.XAudio2": "4.0.1"
+        }
+      },
       "EDGameEngine.Components.Behavior/1.0.0": {
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
@@ -18877,6 +19206,13 @@
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Components.Trigger/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
@@ -23992,6 +24328,46 @@
         "runtimes/win8-arm/native/clrcompression.dll"
       ]
     },
+    "SharpDX/4.0.1": {
+      "sha512": "8YA1VFg1/K8Emb8FEZDobojcv1BLuppVo7CRJQEgA1V748VIMPBru0i0OnsCjLSThzTn7juOvH85qjFL9Grl1w==",
+      "type": "package",
+      "path": "sharpdx/4.0.1",
+      "files": [
+        "lib/net40/SharpDX.dll",
+        "lib/net40/SharpDX.xml",
+        "lib/net45/SharpDX.dll",
+        "lib/net45/SharpDX.xml",
+        "lib/netcoreapp1.0/SharpDX.dll",
+        "lib/netcoreapp1.0/SharpDX.xml",
+        "lib/netstandard1.1/SharpDX.dll",
+        "lib/netstandard1.1/SharpDX.xml",
+        "lib/uap10.0/SharpDX.dll",
+        "lib/uap10.0/SharpDX.pri",
+        "lib/uap10.0/SharpDX.xml",
+        "sharpdx.4.0.1.nupkg.sha512",
+        "sharpdx.nuspec"
+      ]
+    },
+    "SharpDX.XAudio2/4.0.1": {
+      "sha512": "Kok1XdV2vEKSdr+EcGf0xFNBAd1tcjp/TZeRNBNVgB5YYoUGASoNO2decCBi7vh9qdocN+pmuuOiZCtDOd9DgQ==",
+      "type": "package",
+      "path": "sharpdx.xaudio2/4.0.1",
+      "files": [
+        "lib/net40/SharpDX.XAudio2.dll",
+        "lib/net40/SharpDX.XAudio2.xml",
+        "lib/net45/SharpDX.XAudio2.dll",
+        "lib/net45/SharpDX.XAudio2.xml",
+        "lib/netcoreapp1.0/SharpDX.XAudio2.dll",
+        "lib/netcoreapp1.0/SharpDX.XAudio2.xml",
+        "lib/netstandard1.1/SharpDX.XAudio2.dll",
+        "lib/netstandard1.1/SharpDX.XAudio2.xml",
+        "lib/uap10.0/SharpDX.XAudio2.dll",
+        "lib/uap10.0/SharpDX.XAudio2.pri",
+        "lib/uap10.0/SharpDX.XAudio2.xml",
+        "sharpdx.xaudio2.4.0.1.nupkg.sha512",
+        "sharpdx.xaudio2.nuspec"
+      ]
+    },
     "System.AppContext/4.3.0": {
       "sha512": "fKC+rmaLfeIzUhagxY17Q9siv/sPrjjKcfNg1Ic8IlQkZLipo8ljcaZQu4VtI4Jqbzjc2VTjzGLF6WmsRXAEgA==",
       "type": "package",
@@ -29080,6 +29456,16 @@
         "win2d.uwp.nuspec"
       ]
     },
+    "EDGameEngine.Components.Animation/1.0.0": {
+      "type": "project",
+      "path": "../EDGameEngine.Components.Animation/EDGameEngine.Components.Animation.vbproj",
+      "msbuildProject": "../EDGameEngine.Components.Animation/EDGameEngine.Components.Animation.vbproj"
+    },
+    "EDGameEngine.Components.Audio/1.0.0": {
+      "type": "project",
+      "path": "../EDGameEngine.Components.Audio/EDGameEngine.Components.Audio.vbproj",
+      "msbuildProject": "../EDGameEngine.Components.Audio/EDGameEngine.Components.Audio.vbproj"
+    },
     "EDGameEngine.Components.Behavior/1.0.0": {
       "type": "project",
       "path": "../EDGameEngine.Components.Behavior/EDGameEngine.Components.Behavior.vbproj",
@@ -29089,6 +29475,11 @@
       "type": "project",
       "path": "../EDGameEngine.Components.Effect/EDGameEngine.Components.Effect.vbproj",
       "msbuildProject": "../EDGameEngine.Components.Effect/EDGameEngine.Components.Effect.vbproj"
+    },
+    "EDGameEngine.Components.Trigger/1.0.0": {
+      "type": "project",
+      "path": "../EDGameEngine.Components.Trigger/EDGameEngine.Components.Trigger.vbproj",
+      "msbuildProject": "../EDGameEngine.Components.Trigger/EDGameEngine.Components.Trigger.vbproj"
     },
     "EDGameEngine.Core/1.0.0": {
       "type": "project",
@@ -29224,6 +29615,18 @@
             },
             "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Visuals.StateMachine\\EDGameEngine.Visuals.StateMachine.vbproj": {
               "projectPath": "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Visuals.StateMachine\\EDGameEngine.Visuals.StateMachine.vbproj"
+            },
+            "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Core.Utilities\\EDGameEngine.Core.Utilities.vbproj": {
+              "projectPath": "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Core.Utilities\\EDGameEngine.Core.Utilities.vbproj"
+            },
+            "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Components.Trigger\\EDGameEngine.Components.Trigger.vbproj": {
+              "projectPath": "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Components.Trigger\\EDGameEngine.Components.Trigger.vbproj"
+            },
+            "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Components.Audio\\EDGameEngine.Components.Audio.vbproj": {
+              "projectPath": "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Components.Audio\\EDGameEngine.Components.Audio.vbproj"
+            },
+            "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Components.Animation\\EDGameEngine.Components.Animation.vbproj": {
+              "projectPath": "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Components.Animation\\EDGameEngine.Components.Animation.vbproj"
             }
           }
         }

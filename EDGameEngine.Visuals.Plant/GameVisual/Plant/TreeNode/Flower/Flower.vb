@@ -51,6 +51,16 @@ Public Class Flower
     ''' 脱落时位置
     ''' </summary>
     Public Property DropLocation As Vector2
+    ''' <summary>
+    ''' 种类
+    ''' </summary>
+    Public Property Kind As Integer
+    ''' <summary>
+    ''' 缩放
+    ''' </summary>
+    Public Property Scale As Vector2 = Vector2.One
+
+    Public Property Trajectory As New List(Of Vector2)
 
     Public Shared Property Rnd As New Random
 
@@ -62,6 +72,8 @@ Public Class Flower
         Me.Opacity = 0.6F + Rnd.NextDouble * 0.4F
         Me.Rotation = Math.PI * 2 * Rnd.NextDouble
         Me.Acceleration = New Vector2(-0.5F * Rnd.NextDouble, Rnd.NextDouble * 0.5F - 0.1F)
+        Me.Kind = If(Rnd.NextDouble < 0.8, 0, 1)
+        Me.Scale = New Vector2(0.8F + CSng(Math.Sin(Rotation) * 0.2F), CSng(0.8F + Math.Cos(Rotation) * 0.2F))
     End Sub
     ''' <summary>
     ''' 生长
@@ -87,10 +99,25 @@ Public Class Flower
     ''' </summary>
     Private Sub Fly()
         If Me.IsDrop Then
-            Velocity += Acceleration * Rnd.NextDouble
-            Location += Velocity
-            Rotation += Rnd.NextDouble * 0.001F
             Opacity = Math.Max(Opacity - 0.01F * Rnd.NextDouble, 0.0F)
+            If RealLocation.Y >= 700 Then
+                Location = New Vector2(RealLocation.X, 700) - DropLocation
+            Else
+                Acceleration += New Vector2(-0.01F, 0.008F) * Rnd.NextDouble
+                Velocity += Acceleration * Rnd.NextDouble
+                Location += Velocity
+                Rotation += Rnd.NextDouble * 0.05F
+                If Trajectory.Count = 0 Then
+                    If Rnd.NextDouble > 0.995 Then
+                        Trajectory.Add(RealLocation)
+                    End If
+                Else
+                    If Trajectory.Count < 20 Then
+                        Trajectory.Add(RealLocation)
+                    End If
+                End If
+            End If
+            Scale = New Vector2(0.8F + CSng(Math.Sin(Rotation) * 0.2F), CSng(0.8F + Math.Cos(Rotation) * 0.2F))
             If RealLocation.X < 0 OrElse Opacity <= 0.0F Then
                 Dead()
             End If

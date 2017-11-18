@@ -282,6 +282,14 @@
     <Import Include="Windows.UI.Xaml.Navigation" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\EDGameEngine.Components.Animation\EDGameEngine.Components.Animation.vbproj">
+      <Project>{88fe4058-ee25-46e8-9efd-20ff3249165c}</Project>
+      <Name>EDGameEngine.Components.Animation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EDGameEngine.Components.Audio\EDGameEngine.Components.Audio.vbproj">
+      <Project>{07491c73-58a4-405f-8bab-c065f84b15da}</Project>
+      <Name>EDGameEngine.Components.Audio</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EDGameEngine.Components.Behavior\EDGameEngine.Components.Behavior.vbproj">
       <Project>{04FCBF91-1F22-4F69-9E75-F79C563F8054}</Project>
       <Name>EDGameEngine.Components.Behavior</Name>
@@ -290,6 +298,10 @@
       <Project>{72E57A54-C3A9-4918-A987-6F7769F56038}</Project>
       <Name>EDGameEngine.Components.Effect</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EDGameEngine.Components.Trigger\EDGameEngine.Components.Trigger.vbproj">
+      <Project>{83e8eeae-0012-41f8-9c3f-f3ebc6b4a32c}</Project>
+      <Name>EDGameEngine.Components.Trigger</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EDGameEngine.Core.Graphics\EDGameEngine.Core.Graphics.vbproj">
       <Project>{063C77A7-4A06-4818-9074-3E993AFB526C}</Project>
       <Name>EDGameEngine.Core.Graphics</Name>
@@ -297,6 +309,10 @@
     <ProjectReference Include="..\EDGameEngine.Core.UI\EDGameEngine.Core.UI.vbproj">
       <Project>{1EE8B83F-B355-456B-8CD1-F0DC9ADA7AF2}</Project>
       <Name>EDGameEngine.Core.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EDGameEngine.Core.Utilities\EDGameEngine.Core.Utilities.vbproj">
+      <Project>{71b691a6-52f1-43c2-8d42-8de3344eb510}</Project>
+      <Name>EDGameEngine.Core.Utilities</Name>
     </ProjectReference>
     <ProjectReference Include="..\EDGameEngine.Core\EDGameEngine.Core.vbproj">
       <Project>{f563111c-4331-4735-a6c9-447662049482}</Project>
@@ -335,7 +351,9 @@
       <Name>EDGameEngine.Visuals.StateMachine</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Game\Scene\Scene\" />
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

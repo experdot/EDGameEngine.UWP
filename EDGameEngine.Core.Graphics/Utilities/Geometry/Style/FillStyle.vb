@@ -1,21 +1,21 @@
 ﻿Imports Windows.UI
 ''' <summary>
-''' 描述填充样式的数据类型
+''' 描述填充样式的对象
 ''' </summary>
-Public Structure FillStyle
+Public Class FillStyle
     ''' <summary>
     ''' 样式是否有效
     ''' </summary>
-    Property State As Boolean
+    Public Property State As Boolean = True
     ''' <summary>
     ''' 填充颜色
     ''' </summary>
-    Property Color As Color
+    Public Property Color As Color = Colors.Black
     ''' <summary>
     ''' 由指定的参数创建并初始化一个实例
     ''' </summary>
-    Sub New(state As Boolean, Optional color As Color = Nothing)
+    Public Sub New(state As Boolean, Optional color As Color = Nothing)
         Me.State = state
         Me.Color = If(color = Nothing, Colors.Black, color)
     End Sub
-End Structure
+End Class

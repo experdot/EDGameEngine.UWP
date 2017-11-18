@@ -13,7 +13,7 @@ Public Class Plant
     ''' 创建并初始化一个实例
     ''' </summary>
     Public Sub New(location As Vector2, Optional rank As Integer = 8)
-        Root = New TreeNode(New Vector2(0, -100), 100, rank) With
+        Root = New TreeNode(New Vector2(0, -1), 200, rank) With
         {
             .RealLocation = location
         }

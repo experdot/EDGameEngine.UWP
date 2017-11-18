@@ -15,8 +15,8 @@ Public MustInherit Class TypedCanvasView(Of T As IGameVisual)
             drawingSession.DrawImage(CType(TransformEffect.EffectStatic(Cache, drawingSession, Target.Transform), ICanvasImage))
         Else
             Using cmdList = New CanvasCommandList(drawingSession)
-                Using Dl = cmdList.CreateDrawingSession
-                    OnDraw(Dl)
+                Using ds = cmdList.CreateDrawingSession
+                    OnDraw(ds)
                 End Using
                 Me.CommandList = cmdList
                 Dim effect As IGraphicsEffectSource = cmdList

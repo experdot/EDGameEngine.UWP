@@ -18,9 +18,9 @@ Public Class KeyControlScript
             If Scene.Inputs.Keyboard.KeyStatus(KeyArr(i)) Then
                 SpeedArr(i) = 1
             Else
-                SpeedArr(i) *= CSng(0.96)
+                SpeedArr(i) *= CSng(0.96F)
             End If
-            tempVec += VecArr(i) * SpeedArr(i) * MaxSpeed
+            tempVec += -VecArr(i) * SpeedArr(i) * MaxSpeed
         Next
         Target.Transform.Translation += tempVec
     End Sub
