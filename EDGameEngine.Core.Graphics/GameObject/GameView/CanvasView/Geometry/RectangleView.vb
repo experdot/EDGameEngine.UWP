@@ -13,10 +13,10 @@ Public Class RectangleView
         End If
         If Target.Border.State Then
             Dim border As Single = Target.Border.Width / 2.0F
-            Dim x As Single = Target.Rectangle.X - border
-            Dim y As Single = Target.Rectangle.Y - border
-            Dim width As Single = Target.Rectangle.Width + border
-            Dim height As Single = Target.Rectangle.Height + border
+            Dim x As Single = CSng(Target.Rectangle.X - border)
+            Dim y As Single = CSng(Target.Rectangle.Y - border)
+            Dim width As Single = CSng(Target.Rectangle.Width + border)
+            Dim height As Single = CSng(Target.Rectangle.Height + border)
             drawingSession.DrawRectangle(New Rect(x, y, width, height), Target.Border.Color, Target.Border.Width)
         End If
     End Sub

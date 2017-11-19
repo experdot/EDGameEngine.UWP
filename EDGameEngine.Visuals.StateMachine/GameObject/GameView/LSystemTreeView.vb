@@ -93,7 +93,7 @@ Public Class LSystemTreeView
         Static SrcRect As Rect = Image.Bounds
         Static Ratio As Single = 1
 
-        Dim branchWidth As Single = offset.Length * 0.8 * Ratio
+        Dim branchWidth As Single = CSng(offset.Length * 0.8 * Ratio)
         Dim branchHeight As Single = offset.Length * Ratio
         Dim alpha As Single = CSng(RandomHelper.NextNorm(60, 90) / 100)
 

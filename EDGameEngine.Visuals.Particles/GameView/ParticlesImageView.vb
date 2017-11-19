@@ -32,13 +32,13 @@ Public Class ParticlesImageView
         MyBase.New(Target)
     End Sub
     Public Overrides Sub OnDraw(drawingSession As CanvasDrawingSession)
-        Static ImageResource = CType(Target.Scene, IObjectWithImageResource).ImageResource
+        Static ImageResource As ImageResource = CType(Target.Scene, IObjectWithImageResource).ImageResource
         Static Image As CanvasBitmap = DirectCast(ImageResource.GetResource(ImageResourceId), CanvasBitmap)
         Static SourceRect As Rect = Image.Bounds
         For Each SubParticle In Target.Particles
             If SubParticle.Age = 0 Then Continue For
-            Dim x As Integer = CInt（SubParticle.Location.X） + Offset.X
-            Dim y As Integer = CInt(SubParticle.Location.Y) + Offset.Y
+            Dim x As Integer = CInt(SubParticle.Location.X + Offset.X)
+            Dim y As Integer = CInt(SubParticle.Location.Y + Offset.Y)
             If x < 0 Then x = 0
             If y < 0 Then y = 0
             If x > Bounds.Width - 1 Then x = CInt(Bounds.Width - 1)

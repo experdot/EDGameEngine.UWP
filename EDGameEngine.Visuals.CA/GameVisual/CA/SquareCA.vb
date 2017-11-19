@@ -108,7 +108,7 @@ Public Class SquareCA
         Next
 
         If count > 0 Then
-            a = a / count
+            a = CInt(a / count)
             r = CalcRGB(r, count)
             g = CalcRGB(g, count)
             b = CalcRGB(b, count)

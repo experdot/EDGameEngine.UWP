@@ -26,7 +26,7 @@ Public Class GhostEffect
             If LastSource IsNot Nothing Then
                 ds.DrawImage(LastSource, Offset, rect, Opacity)
             End If
-            ds.DrawImage(source)
+            ds.DrawImage(CType(source, ICanvasImage))
         End Using
         LastSource = BitmapCacheHelper.CacheImageClip(resourceCreator, cmdlist, rect)
         Return cmdlist

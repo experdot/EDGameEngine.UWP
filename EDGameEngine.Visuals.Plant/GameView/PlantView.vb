@@ -81,8 +81,8 @@ Public Class PlantView
     Private Sub DrawTrajectory(drawingSession As CanvasDrawingSession, flower As Flower)
         If flower.Trajectory.Count > 1 Then
             For j = 0 To flower.Trajectory.Count - 2
-                Dim alpha As Integer = (Math.Sin(Math.PI * j / flower.Trajectory.Count) * 40 + 5) * flower.Opacity
-                drawingSession.DrawLine(flower.Trajectory(j), flower.Trajectory(j + 1), Color.FromArgb(alpha, 0, 0, 0))
+                Dim alpha As Integer = CInt((Math.Sin(Math.PI * j / flower.Trajectory.Count) * 40 + 5) * flower.Opacity)
+                drawingSession.DrawLine(flower.Trajectory(j), flower.Trajectory(j + 1), Color.FromArgb(CByte(alpha), 0, 0, 0))
             Next
         End If
     End Sub

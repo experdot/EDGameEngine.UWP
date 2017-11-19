@@ -60,7 +60,7 @@ Public Class ColorHelper
     ''' 返回一个随机的颜色
     ''' </summary>
     Public Shared Function GetRandomColor() As Color
-        Return Color.FromArgb(Rnd.Next(1, 256), Rnd.Next(0, 256)， Rnd.Next(0, 256)， Rnd.Next(0, 256))
+        Return Color.FromArgb(CByte(Rnd.Next(1, 256)), CByte(Rnd.Next(0, 256))， CByte(Rnd.Next(0, 256))， CByte(Rnd.Next(0, 256)))
     End Function
 End Class
 

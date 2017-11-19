@@ -68,10 +68,10 @@ Public Class Flower
     ''' 创建并初始化一个实例
     ''' </summary>
     Public Sub New()
-        Me.Size = 0.3F + Rnd.NextDouble * 0.3F
-        Me.Opacity = 0.6F + Rnd.NextDouble * 0.4F
-        Me.Rotation = Math.PI * 2 * Rnd.NextDouble
-        Me.Acceleration = New Vector2(-0.5F * Rnd.NextDouble, Rnd.NextDouble * 0.5F - 0.1F)
+        Me.Size = CSng(0.3F + Rnd.NextDouble * 0.3F)
+        Me.Opacity = CSng(0.6F + Rnd.NextDouble * 0.4F)
+        Me.Rotation = CSng(Math.PI * 2 * Rnd.NextDouble)
+        Me.Acceleration = New Vector2(CSng(-0.5F * Rnd.NextDouble), CSng(Rnd.NextDouble * 0.5F - 0.1F))
         Me.Kind = If(Rnd.NextDouble < 0.8, 0, 1)
         Me.Scale = New Vector2(0.8F + CSng(Math.Sin(Rotation) * 0.2F), CSng(0.8F + Math.Cos(Rotation) * 0.2F))
     End Sub
@@ -79,7 +79,7 @@ Public Class Flower
     ''' 生长
     ''' </summary>
     Public Sub Grow()
-        Size += 0.001F * Rnd.NextDouble
+        Size += 0.001F * CSng(Rnd.NextDouble)
         If Size > 1.0F OrElse Rnd.NextDouble > 0.999F Then
             Drop()
         End If
@@ -99,14 +99,14 @@ Public Class Flower
     ''' </summary>
     Private Sub Fly()
         If Me.IsDrop Then
-            Opacity = Math.Max(Opacity - 0.01F * Rnd.NextDouble, 0.0F)
+            Opacity = CSng(Math.Max(Opacity - 0.01F * Rnd.NextDouble, 0.0F))
             If RealLocation.Y >= 700 Then
                 Location = New Vector2(RealLocation.X, 700) - DropLocation
             Else
-                Acceleration += New Vector2(-0.01F, 0.008F) * Rnd.NextDouble
-                Velocity += Acceleration * Rnd.NextDouble
+                Acceleration += (New Vector2(-0.01F, 0.008F) * CSng(Rnd.NextDouble))
+                Velocity += Acceleration * CSng(Rnd.NextDouble)
                 Location += Velocity
-                Rotation += Rnd.NextDouble * 0.05F
+                Rotation += CSng(Rnd.NextDouble) * 0.05F
                 If Trajectory.Count = 0 Then
                     If Rnd.NextDouble > 0.995 Then
                         Trajectory.Add(RealLocation)
