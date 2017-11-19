@@ -17,43 +17,66 @@ Public Class GastonJulia
     Public Overrides Sub UpdateEx()
         If Vertexs.Count > 0 Then Exit Sub
 
-        Static XStart As Double = -1
-        Static YStart As Double = -1
-        Static A As Double = -Rnd.NextDouble
-        Static B As Double = Rnd.NextDouble
+        Static Radius As Double = 0.05
+        Static Distance As Double = Radius * 2
+        Static Squared As Double = Radius * Radius
+        Static XStart As Double = -Radius
+        Static YStart As Double = -Radius
+        Static XUpper As Double = Radius
+        Static YUpper As Double = Radius
 
-        Dim w As Integer = CInt(Scene.Width)
-        Dim h As Integer = CInt(Scene.Height)
-        Dim pStep As Double = 2 / h
-        Dim tc As Integer = 0
+        Static A As Double = 0.356888 '+ Rnd.NextDouble * 0.2F
+        Static B As Double = -0.645411 '- Rnd.NextDouble * 0.2F
+        Static C As Double = 0
+        Static D As Double = 0
+
+        Static Iteration As Integer = 880
+
+        Dim actualWidth As Integer = CInt(Scene.Width)
+        Dim actualHeight As Integer = CInt(Scene.Height)
+
+        Dim w As Integer = CInt(Math.Min(actualWidth, actualHeight))
+        Dim h As Integer = CInt(Math.Min(actualWidth, actualHeight))
+
+        Dim wStep As Double = Distance / w
+        Dim hStep As Double = Distance / h
+        Dim count As Integer = 0
 
         Dim x, y, x0, y0, x1, y1 As Double
-        For x0 = XStart To 1 Step pStep
-            For y0 = YStart To 1 Step pStep
-                x = x0 : y = y0
-                If x0 * x0 + y0 * y0 < 1 Then
-                    tc += 1
-                    For n = 1 To 15
-                        x1 = x * x - y * y + A
-                        y1 = 2 * x * y + B
+        For x0 = XStart To XUpper Step wStep
+            For y0 = YStart To YUpper Step hStep
+                x = x0
+                y = y0
+                C = x0 / wStep * CDbl(0.000000008)
+                D = y0 / hStep * CDbl(0.000000008)
+                If x0 * x0 + y0 * y0 < Squared Then
+                    count += 1
+                    For n = 1 To Iteration
+                        x1 = x * x - y * y + A + C
+                        y1 = 2 * x * y + B + D
                         x = x1
                         y = y1
 
-                        If (x * x + y * y) < 1 Then
-                            Dim tempColor = Color.FromArgb(CByte((1 - x * x - y * y) * 255 Mod 255),
-                                                           CByte((x * x * 255 * n * 10) Mod 255),
-                                                           CByte((y * y * 255 * n * 30) Mod 255),
-                                                           CByte((Math.Abs(x * y) * 255 + n * 50) Mod 255))
-                            Vertexs.Enqueue(New Vertex() With {.Position = New Vector2(CSng(w / 2 + x0 * (h / 2)),
-                                                                                      CSng(h / 2 - y0 * (h / 2))),
+                        If (x * x + y * y) > 4 OrElse n = Iteration Then
+                            'Dim tempColor = Color.FromArgb(255,
+                            '                               CByte((x * x * 255) * Math.Pow((n) / (Iteration * 1.2), 0.002)),
+                            '                               CByte((y * y * 255) * Math.Pow((n) / (Iteration * 1.4), 0.003)),
+                            '                               CByte((Math.Abs(x * y) * 255) * Math.Pow((n) / (Iteration * 1.6), 0.004)))
+                            Dim tempColor = Color.FromArgb(255,
+                                                           CByte(255 * Math.Pow(Math.Abs((n - 80) / (800)), 3)),
+                                                           CByte(255 * Math.Sin(Math.Abs((n - 80) / (800)))),
+                                                           CByte(255 * Math.Pow(Math.Abs((n - 80) / (800)), 0.5)))
+                            Vertexs.Enqueue(New Vertex() With {.Position = New Vector2(CSng(actualWidth / 2 + x0 / wStep),
+                                                                                       CSng(actualHeight / 2 - y0 / hStep)),
                                                               .Color = tempColor,
-                                                              .Size = CSng((16 - n) / 2)})
-                            tc += 1
+                                                              .Size = 1})
+                            count += 1
+                            Exit For
                         End If
                     Next
                 End If
             Next
-            If tc > 2000 Then
+            If count > 5000 Then
                 XStart = x0
                 YStart = y0
                 Exit Sub
