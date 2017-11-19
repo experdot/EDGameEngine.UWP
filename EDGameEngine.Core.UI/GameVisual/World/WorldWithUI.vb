@@ -7,7 +7,7 @@ Imports Windows.System
 ''' 游戏世界
 ''' </summary>
 Public MustInherit Class WorldWithUI
-    Implements IWorld
+    Implements IWorld, IObjectWithResourceCreator
     ''' <summary>
     ''' 宽度
     ''' </summary>
@@ -28,11 +28,10 @@ Public MustInherit Class WorldWithUI
     ''' 渲染模式
     ''' </summary>
     Public Property RenderMode As RenderMode Implements IWorld.RenderMode
-
     ''' <summary>
     ''' 图形资源创建器
     ''' </summary>
-    Public Property ResourceCreator As ICanvasResourceCreator
+    Public Property ResourceCreator As ICanvasResourceCreator Implements IObjectWithResourceCreator.ResourceCreator
     ''' <summary>
     ''' UI容器
     ''' </summary>

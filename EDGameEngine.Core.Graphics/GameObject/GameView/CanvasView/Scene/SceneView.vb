@@ -27,9 +27,9 @@ Public Class SceneView
     Public Overridable Sub LoadedDraw(drawingSession As CanvasDrawingSession)
         For Each SubLayer In Target.GameLayers
             Using cmdList = New CanvasCommandList(drawingSession)
-                Using dl = cmdList.CreateDrawingSession
-                    dl.Clear(SubLayer.Background)
-                    CType(SubLayer.Presenter, ICanvasView).BeginDraw(dl)
+                Using ds = cmdList.CreateDrawingSession
+                    ds.Clear(SubLayer.Background)
+                    CType(SubLayer.Presenter, ICanvasView).BeginDraw(ds)
                 End Using
                 drawingSession.DrawImage(cmdList)
             End Using

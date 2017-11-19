@@ -11,7 +11,7 @@ Public MustInherit Class CanvasEffectBase
     Public Overrides Property ComponentType As ComponentType = ComponentType.Effect
     Public MustOverride Function Effect(source As IGraphicsEffectSource, resourceCreator As ICanvasResourceCreator) As IGraphicsEffectSource
     Public Function Effect(source As IGraphicsEffectSource) As IGraphicsEffectSource Implements IEffect.Effect
-        Return EffectWithCanvasResourceCreator(source, CanvasDevice.GetSharedDevice)
+        Return EffectWithCanvasResourceCreator(source, CType(Target.Scene.World, IObjectWithResourceCreator))
     End Function
     Public Function EffectWithCanvasResourceCreator(source As IGraphicsEffectSource, resourceCreator As ICanvasResourceCreator) As IGraphicsEffectSource Implements ICanvasEffect.EffectWithCanvasResourceCreator
         Return Effect(source, resourceCreator)

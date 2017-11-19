@@ -125,6 +125,7 @@
     <Compile Include="GameObject\Components\Effect\CanvasEffect\ICanvasEffect.vb" />
     <Compile Include="GameObject\Components\Effect\TransformEffect.vb" />
     <Compile Include="GameObject\GameView\CanvasView\Geometry\PolygonView.vb" />
+    <Compile Include="GameObject\GameVisual\Base\ObjectWithResourceCreator\IObjectWithResourceCreator.vb" />
     <Compile Include="GameObject\GameVisual\Geometry\VisualPolygon.vb" />
     <Compile Include="GameResource\Image\ObjectWithImageResources\IObjectWithImageResource.vb" />
     <Compile Include="GameObject\GameView\CanvasView\Base\ICanvasView.vb" />
@@ -192,7 +193,7 @@
       <Version>6.0.1</Version>
     </PackageReference>
     <PackageReference Include="Win2D.uwp">
-      <Version>1.21.0</Version>
+      <Version>1.20.0</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

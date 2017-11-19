@@ -67,12 +67,19 @@ Public Class Scene_Visuals
                 Me.AddGameVisual(text, New TextView(text), 1)
                 Me.GameLayers(0).GameComponents.Effects.Add(New GhostEffect() With {.Offset = Vector2.One, .Opacity = 0.96F})
             Case 10003 '多边形
-                Dim fill As New FillStyle(True) With {.Color = Colors.Red}
-                Dim border As New BorderStyle(True) With {.Color = Colors.Black, .Width = 1}
-                Dim geo = GeometryHelper.CreateRegularPolygon(CanvasDevice.GetSharedDevice, 6, 20)
-                Dim polygonModel As New VisualPolygon() With {.Geometry = geo, .Border = border, .Fill = fill}
-                Me.AddGameVisual(polygonModel, New PolygonView(polygonModel))
-                polygonModel.GameComponents.Behaviors.Add(New KeyControlScript With {.MaxSpeed = 2.0F})
+                For i = 0 To 10
+                    Dim fill As New FillStyle(True, Utilities.ColorHelper.GetRandomColor)
+                    Dim border As New BorderStyle(True, CSng(Rnd.NextDouble * 5), Utilities.ColorHelper.GetRandomColor)
+                    Dim geo = GeometryHelper.CreateRegularPolygon(CType(Scene.World, IObjectWithResourceCreator).ResourceCreator, Rnd.Next(3, 8), Rnd.Next(20, 200), CSng(Rnd.NextDouble * Math.PI))
+                    Dim polygonModel As New VisualPolygon() With {.Geometry = geo, .Border = border, .Fill = fill}
+                    polygonModel.Transform.Translation = New Vector2(CSng(Width * Rnd.NextDouble), CSng(Height * Rnd.NextDouble))
+                    Me.AddGameVisual(polygonModel, New PolygonView(polygonModel))
+                    polygonModel.GameComponents.Behaviors.Add(New KeyControlScript With {.MaxSpeed = CSng(1 + Rnd.NextDouble * 5)})
+                Next
+                Dim text As New VisualText With {.Text = "Press the arrow keys to move the polygons."}
+                text.GameComponents.Behaviors.Add(New TransformScript)
+                Me.AddGameVisual(text, New TextView(text), 1)
+                Me.GameLayers(0).GameComponents.Effects.Add(New GhostEffect() With {.Offset = Vector2.One, .Opacity = 0.96F})
             Case 20000 '粒子集群
                 Throw New NotImplementedException()
             Case 20001 '水花飞溅
@@ -110,11 +117,16 @@ Public Class Scene_Visuals
                 Dim tempModel As New NatureTree
                 Me.AddGameVisual(tempModel, New FractalView(tempModel))
             Case 40000 '生命游戏
-                Dim tempModel As New SquareCA With {.Image = CType(ImageResource.GetResource(ImageResourceId.Scenery1), CanvasBitmap)}
+                World.RenderMode = RenderMode.Sync
+                Dim tempModel As New SquareCA With {.Image = CType(ImageResource.GetResource(ImageResourceId.YellowFlower1), CanvasBitmap)}
                 Me.AddGameVisual(tempModel, New GeometryCAView(tempModel))
                 tempModel.GameComponents.Behaviors.Add(New TransformScript)
             Case 40001 '水墨侵染
-                Throw New NotImplementedException()
+                World.RenderMode = RenderMode.Sync
+                Dim tempModel As New InkCA With {.Image = CType(ImageResource.GetResource(ImageResourceId.InkText1), CanvasBitmap)}
+                Me.AddGameVisual(tempModel, New GeometryCAView(tempModel))
+                tempModel.GameComponents.Behaviors.Add(New TransformScript)
+                tempModel.GameComponents.Effects.Add(New GhostEffect With {.Opacity = 1.0F})
             Case 40002 '植物摇曳
                 Dim tempModel As New Plant(New Vector2(Width / 2, Height * 0.8F))
                 Dim tempView As New PlantView(tempModel) With
@@ -175,10 +187,11 @@ Public Class Scene_Visuals
         Await imageResource.Add(ImageResourceId.YellowFlower1, "Game/Resources/Images/Flower_Yellow.png")
         Await imageResource.Add(ImageResourceId.GreenLeaf1, "Game/Resources/Images/Leaf_Green.png")
         Await imageResource.Add(ImageResourceId.RedLeaf1, "Game/Resources/Images/Leaf_Red.png")
-        Await imageResource.Add(ImageResourceId.SmokeParticle1, "Game/Resources/Images/smoke.dds")
-        Await imageResource.Add(ImageResourceId.ExplosionPartial1, "Game/Resources/Images/explosion.dds")
-        Await imageResource.Add(ImageResourceId.Back1, "Game/Resources/Images/back.png")
+        Await imageResource.Add(ImageResourceId.SmokeParticle1, "Game/Resources/Images/Smoke.dds")
+        Await imageResource.Add(ImageResourceId.ExplosionPartial1, "Game/Resources/Images/Explosion.dds")
+        Await imageResource.Add(ImageResourceId.Back1, "Game/Resources/Images/Back.png")
         Await imageResource.Add(ImageResourceId.Water1, "Game/Resources/Images/Water.png")
-        Await imageResource.Add(ImageResourceId.Scenery1, "Game/Resources/Images/Scenery13.png")
+        Await imageResource.Add(ImageResourceId.Scenery1, "Game/Resources/Images/Scenery14.png")
+        Await imageResource.Add(ImageResourceId.InkText1, "Game/Resources/Images/InkText.png")
     End Function
 End Class

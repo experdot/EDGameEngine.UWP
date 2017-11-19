@@ -128,6 +128,7 @@
     <Compile Include="GameVisual\CA\Cell\Cell.vb" />
     <Compile Include="GameVisual\CA\Cell\ICell.vb" />
     <Compile Include="GameVisual\CA\HexgonCA.vb" />
+    <Compile Include="GameVisual\CA\InkCA.vb" />
     <Compile Include="GameVisual\CA\SquareCA.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <EmbeddedResource Include="My Project\EDGameEngine.Visuals.CA.rd.xml" />

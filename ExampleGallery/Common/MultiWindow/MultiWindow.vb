@@ -6,7 +6,7 @@ Public Class MultiWindow
     ''' <summary>
     ''' 创建一个新窗体
     ''' </summary>
-    Public Shared Async Function CreateNewWindowAsync(sourcePageType As Type, id As Integer, Optional title As String = "") As Task
+    Public Shared Async Function CreateNewWindowAsync(sourcePageType As Type, id As Integer, Optional title As String = "", Optional fullScreen As Boolean = False) As Task
         Dim viewId As Integer
         Dim createwindow = Sub()
                                Dim frame As New Frame()
@@ -16,10 +16,13 @@ Public Class MultiWindow
 
                                Dim scenario As Scenario5_Game = CType(frame.Content, Scenario5_Game)
                                scenario.Start(id)
+
                                Dim view = ApplicationView.GetForCurrentView()
                                view.Title = title
                                viewId = view.Id
-                               view.TryEnterFullScreenMode()
+                               If fullScreen Then
+                                   view.TryEnterFullScreenMode()
+                               End If
                            End Sub
         Await Core.CoreApplication.CreateNewView().Dispatcher.RunAsync(CoreDispatcherPriority.Normal, createwindow)
         Try

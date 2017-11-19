@@ -2553,7 +2553,7 @@
           }
         }
       },
-      "Win2D.uwp/1.21.0": {
+      "Win2D.uwp/1.20.0": {
         "type": "package",
         "compile": {
           "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
@@ -2634,7 +2634,7 @@
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
-          "Win2D.uwp": "1.21.0"
+          "Win2D.uwp": "1.20.0"
         }
       },
       "EDGameEngine.Core.UI/1.0.0": {
@@ -2643,8 +2643,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
-          "Win2D.uwp": "1.21.0"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
       "EDGameEngine.Core.Utilities/1.0.0": {
@@ -5306,7 +5305,7 @@
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Win2D.uwp/1.21.0": {
+      "Win2D.uwp/1.20.0": {
         "type": "package",
         "compile": {
           "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
@@ -5376,7 +5375,7 @@
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
-          "Win2D.uwp": "1.21.0"
+          "Win2D.uwp": "1.20.0"
         }
       },
       "EDGameEngine.Core.UI/1.0.0": {
@@ -5385,8 +5384,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
-          "Win2D.uwp": "1.21.0"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
       "EDGameEngine.Core.Utilities/1.0.0": {
@@ -8084,7 +8082,7 @@
           "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Win2D.uwp/1.21.0": {
+      "Win2D.uwp/1.20.0": {
         "type": "package",
         "compile": {
           "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
@@ -8154,7 +8152,7 @@
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
-          "Win2D.uwp": "1.21.0"
+          "Win2D.uwp": "1.20.0"
         }
       },
       "EDGameEngine.Core.UI/1.0.0": {
@@ -8163,8 +8161,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
-          "Win2D.uwp": "1.21.0"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
       "EDGameEngine.Core.Utilities/1.0.0": {
@@ -10835,7 +10832,7 @@
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Win2D.uwp/1.21.0": {
+      "Win2D.uwp/1.20.0": {
         "type": "package",
         "compile": {
           "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
@@ -10905,7 +10902,7 @@
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
-          "Win2D.uwp": "1.21.0"
+          "Win2D.uwp": "1.20.0"
         }
       },
       "EDGameEngine.Core.UI/1.0.0": {
@@ -10914,8 +10911,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
-          "Win2D.uwp": "1.21.0"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
       "EDGameEngine.Core.Utilities/1.0.0": {
@@ -13622,7 +13618,7 @@
           "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Win2D.uwp/1.21.0": {
+      "Win2D.uwp/1.20.0": {
         "type": "package",
         "compile": {
           "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
@@ -13692,7 +13688,7 @@
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
-          "Win2D.uwp": "1.21.0"
+          "Win2D.uwp": "1.20.0"
         }
       },
       "EDGameEngine.Core.UI/1.0.0": {
@@ -13701,8 +13697,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
-          "Win2D.uwp": "1.21.0"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
       "EDGameEngine.Core.Utilities/1.0.0": {
@@ -16373,7 +16368,7 @@
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Win2D.uwp/1.21.0": {
+      "Win2D.uwp/1.20.0": {
         "type": "package",
         "compile": {
           "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
@@ -16443,7 +16438,7 @@
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
-          "Win2D.uwp": "1.21.0"
+          "Win2D.uwp": "1.20.0"
         }
       },
       "EDGameEngine.Core.UI/1.0.0": {
@@ -16452,8 +16447,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
-          "Win2D.uwp": "1.21.0"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
       "EDGameEngine.Core.Utilities/1.0.0": {
@@ -19160,7 +19154,7 @@
           "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Win2D.uwp/1.21.0": {
+      "Win2D.uwp/1.20.0": {
         "type": "package",
         "compile": {
           "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
@@ -19230,7 +19224,7 @@
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
-          "Win2D.uwp": "1.21.0"
+          "Win2D.uwp": "1.20.0"
         }
       },
       "EDGameEngine.Core.UI/1.0.0": {
@@ -19239,8 +19233,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
-          "Win2D.uwp": "1.21.0"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
       "EDGameEngine.Core.Utilities/1.0.0": {
@@ -29438,11 +29431,13 @@
         "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll"
       ]
     },
-    "Win2D.uwp/1.21.0": {
-      "sha512": "4Ds/p7HgysgV67pBo/+w7Lidj08Hfa4GD9Zg9HdN3/zLfzRPttHrIn2TUiOUZCgH4eLVJwzOk114ntv4bveS1Q==",
+    "Win2D.uwp/1.20.0": {
+      "sha512": "sFyNT2EiV6vmEFMrkiJdSolaKNyOyk+kfjgvXN8XqUhdEPqBd2zPrFdl7SojNHQGm2Br6JLIBOdrj9fB1Qy4GA==",
       "type": "package",
-      "path": "win2d.uwp/1.21.0",
+      "path": "win2d.uwp/1.20.0",
       "files": [
+        "Win2D.uwp.1.20.0.nupkg.sha512",
+        "Win2D.uwp.nuspec",
         "Win2d.githash.txt",
         "build/native/Win2D.uwp.targets",
         "include/Microsoft.Graphics.Canvas.h",
@@ -29451,9 +29446,7 @@
         "lib/uap10.0/Microsoft.Graphics.Canvas.xml",
         "runtimes/win10-arm/native/Microsoft.Graphics.Canvas.dll",
         "runtimes/win10-x64/native/Microsoft.Graphics.Canvas.dll",
-        "runtimes/win10-x86/native/Microsoft.Graphics.Canvas.dll",
-        "win2d.uwp.1.21.0.nupkg.sha512",
-        "win2d.uwp.nuspec"
+        "runtimes/win10-x86/native/Microsoft.Graphics.Canvas.dll"
       ]
     },
     "EDGameEngine.Components.Animation/1.0.0": {
@@ -29577,17 +29570,29 @@
       "frameworks": {
         "uap10.0.15063": {
           "projectReferences": {
+            "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Components.Animation\\EDGameEngine.Components.Animation.vbproj": {
+              "projectPath": "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Components.Animation\\EDGameEngine.Components.Animation.vbproj"
+            },
+            "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Components.Audio\\EDGameEngine.Components.Audio.vbproj": {
+              "projectPath": "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Components.Audio\\EDGameEngine.Components.Audio.vbproj"
+            },
             "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Components.Behavior\\EDGameEngine.Components.Behavior.vbproj": {
               "projectPath": "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Components.Behavior\\EDGameEngine.Components.Behavior.vbproj"
             },
             "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Components.Effect\\EDGameEngine.Components.Effect.vbproj": {
               "projectPath": "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Components.Effect\\EDGameEngine.Components.Effect.vbproj"
             },
+            "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Components.Trigger\\EDGameEngine.Components.Trigger.vbproj": {
+              "projectPath": "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Components.Trigger\\EDGameEngine.Components.Trigger.vbproj"
+            },
             "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Core.Graphics\\EDGameEngine.Core.Graphics.vbproj": {
               "projectPath": "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Core.Graphics\\EDGameEngine.Core.Graphics.vbproj"
             },
             "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Core.UI\\EDGameEngine.Core.UI.vbproj": {
               "projectPath": "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Core.UI\\EDGameEngine.Core.UI.vbproj"
+            },
+            "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Core.Utilities\\EDGameEngine.Core.Utilities.vbproj": {
+              "projectPath": "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Core.Utilities\\EDGameEngine.Core.Utilities.vbproj"
             },
             "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Core\\EDGameEngine.Core.vbproj": {
               "projectPath": "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Core\\EDGameEngine.Core.vbproj"
@@ -29615,18 +29620,6 @@
             },
             "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Visuals.StateMachine\\EDGameEngine.Visuals.StateMachine.vbproj": {
               "projectPath": "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Visuals.StateMachine\\EDGameEngine.Visuals.StateMachine.vbproj"
-            },
-            "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Core.Utilities\\EDGameEngine.Core.Utilities.vbproj": {
-              "projectPath": "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Core.Utilities\\EDGameEngine.Core.Utilities.vbproj"
-            },
-            "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Components.Trigger\\EDGameEngine.Components.Trigger.vbproj": {
-              "projectPath": "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Components.Trigger\\EDGameEngine.Components.Trigger.vbproj"
-            },
-            "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Components.Audio\\EDGameEngine.Components.Audio.vbproj": {
-              "projectPath": "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Components.Audio\\EDGameEngine.Components.Audio.vbproj"
-            },
-            "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Components.Animation\\EDGameEngine.Components.Animation.vbproj": {
-              "projectPath": "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Components.Animation\\EDGameEngine.Components.Animation.vbproj"
             }
           }
         }

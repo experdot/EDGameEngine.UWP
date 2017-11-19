@@ -13,4 +13,5 @@ Public Enum ImageResourceId
     TreeBranch2
     Water1
     Scenery1
+    InkText1
 End Enum

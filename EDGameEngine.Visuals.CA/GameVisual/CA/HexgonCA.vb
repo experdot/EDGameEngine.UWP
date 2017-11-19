@@ -13,7 +13,7 @@ Public Class HexgonCA
         Width = 50
         Height = 50
 
-        Geometry = GeometryHelper.CreateRegularPolygon(CanvasDevice.GetSharedDevice, 6, Size)
+        Geometry = GeometryHelper.CreateRegularPolygon(CType(Scene.World, IObjectWithResourceCreator).ResourceCreator, 6, Size)
 
         Dim dx As Single = CSng(Math.Sqrt(3) * Size)
         Dim dy As Single = CSng(Size / 2 * 3)
@@ -31,7 +31,6 @@ Public Class HexgonCA
             Next
         Next
         Rect = New Rect(0, 0, Width * dx, Height * dy)
-        'GameComponents.Effects.Add(New GhostEffect With {.SourceRect = New Rect(0, 0, Width * dx, Height * dy), .Opacity = 1})
     End Sub
 
     Public Overrides Sub UpdateEx()
@@ -45,7 +44,7 @@ Public Class HexgonCA
                     If temp = 3 Then
                         Dim loc As New Vector2(If(j Mod 2 = 0, i * dx, i * dx + dx / 2), j * dy)
                         generation(i, j) = New Cell With {.Location = loc, .Size = Size}
-                        'generation(i, j).Color = GetAroundColor(Cells, i, j, Width, Height)
+                        generation(i, j).Color = GetAroundColor(Cells, i, j, Width, Height)
                     End If
                 Else
                     If temp = 2 OrElse temp = 3 Then
@@ -56,7 +55,6 @@ Public Class HexgonCA
         Next
         Cells = generation
     End Sub
-
 
     ''' <summary>
     ''' 返回六边形网格细胞邻居数量
@@ -84,8 +82,6 @@ Public Class HexgonCA
         Next
         Return ResultValue
     End Function
-
-
     ''' <summary>
     ''' 返回六边形网格细胞邻居均色
     ''' </summary>
