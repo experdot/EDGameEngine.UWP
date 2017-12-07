@@ -8,11 +8,11 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("EDActionGameDemo")>
+<Assembly: AssemblyTitle("Samples.ActionGame")>
 <Assembly: AssemblyDescription("")>
 <Assembly: AssemblyCompany("")>
-<Assembly: AssemblyProduct("EDActionGameDemo")>
-<Assembly: AssemblyCopyright("Copyright ©  2016")>
+<Assembly: AssemblyProduct("Samples.ActionGame")>
+<Assembly: AssemblyCopyright("Copyright ©  2017")>
 <Assembly: AssemblyTrademark("")>
 
 ' Version information for an assembly consists of the following four values:

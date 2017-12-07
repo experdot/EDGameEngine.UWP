@@ -1,20 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{520555B8-0866-4AF7-86E5-572E496B1EEF}</ProjectGuid>
+    <ProjectGuid>{31D707AD-AAC4-42EB-A9D2-564069C0B989}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
-    <RootNamespace>EDActionGameDemo</RootNamespace>
-    <AssemblyName>EDActionGameDemo</AssemblyName>
+    <RootNamespace>Samples.ActionGame</RootNamespace>
+    <AssemblyName>Samples.ActionGame</AssemblyName>
     <DefaultLanguage>zh-CN</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion>10.0.15063.0</TargetPlatformVersion>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.15063.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.15063.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <WindowsXamlEnableOverview>true</WindowsXamlEnableOverview>
+    <PackageCertificateKeyFile>Samples.ActionGame_TemporaryKey.pfx</PackageCertificateKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -26,9 +28,8 @@
     <PlatformTarget>x86</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <Prefer32Bit>true</Prefer32Bit>
-    <DocumentationFile>EDActionGameDemo.xml</DocumentationFile>
-    <NoWarn>42314</NoWarn>
-    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+    <DocumentationFile>Samples.ActionGame.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <DefineTrace>true</DefineTrace>
@@ -39,10 +40,9 @@
     <PlatformTarget>x86</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <Prefer32Bit>true</Prefer32Bit>
-    <DocumentationFile>EDActionGameDemo.xml</DocumentationFile>
-    <NoWarn>42314</NoWarn>
+    <DocumentationFile>Samples.ActionGame.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
     <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
-    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
     <DebugSymbols>true</DebugSymbols>
@@ -54,9 +54,8 @@
     <PlatformTarget>ARM</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <Prefer32Bit>true</Prefer32Bit>
-    <DocumentationFile>EDActionGameDemo.xml</DocumentationFile>
-    <NoWarn>42314</NoWarn>
-    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+    <DocumentationFile>Samples.ActionGame.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
     <DefineTrace>true</DefineTrace>
@@ -67,10 +66,9 @@
     <PlatformTarget>ARM</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <Prefer32Bit>true</Prefer32Bit>
-    <DocumentationFile>EDActionGameDemo.xml</DocumentationFile>
-    <NoWarn>42314</NoWarn>
+    <DocumentationFile>Samples.ActionGame.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
     <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
-    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -82,9 +80,8 @@
     <PlatformTarget>x64</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <Prefer32Bit>true</Prefer32Bit>
-    <DocumentationFile>EDActionGameDemo.xml</DocumentationFile>
-    <NoWarn>42314</NoWarn>
-    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+    <DocumentationFile>Samples.ActionGame.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <DefineTrace>true</DefineTrace>
@@ -95,15 +92,13 @@
     <PlatformTarget>x64</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <Prefer32Bit>true</Prefer32Bit>
-    <DocumentationFile>EDActionGameDemo.xml</DocumentationFile>
-    <NoWarn>42314</NoWarn>
+    <DocumentationFile>Samples.ActionGame.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
     <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
-    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
   </PropertyGroup>
-  <ItemGroup>
-    <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
-    <None Include="project.json" />
-  </ItemGroup>
+  <PropertyGroup>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+  </PropertyGroup>
   <ItemGroup>
     <Compile Include="App.xaml.vb">
       <DependentUpon>App.xaml</DependentUpon>
@@ -118,31 +113,32 @@
     <Compile Include="Game\Resources\CharacterImageID.vb" />
     <Compile Include="Game\Scene\Scene1.vb" />
     <Compile Include="Game\World\CustomWorld.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="Xaml\MainPage.xaml.vb">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="Xaml\Scenario1_Start.xaml.vb">
       <DependentUpon>Scenario1_Start.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Xaml\Scenario3_Help.xaml.vb">
-      <DependentUpon>Scenario3_Help.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Xaml\Scenario2_Game.xaml.vb">
       <DependentUpon>Scenario2_Game.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Xaml\Scenario3_Help.xaml.vb">
+      <DependentUpon>Scenario3_Help.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <None Include="Samples.ActionGame_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\MenuImages\Coffee.png" />
     <Content Include="Assets\MenuImages\Fish.png" />
+    <Content Include="Images\Brick_Blank.png" />
     <Content Include="Images\Brick_Question.png" />
     <Content Include="Images\Hero.png" />
-    <Content Include="Images\Brick_Blank.png" />
     <Content Include="My Project\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -170,16 +166,16 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Xaml\Scenario1_Start.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Xaml\Scenario3_Help.xaml">
       <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Xaml\Scenario2_Game.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Xaml\Scenario3_Help.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -213,20 +209,24 @@
     <Import Include="Windows.UI.Xaml.Navigation" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
+      <Version>6.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Controls">
+      <Version>2.0.0</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\EDGameEngine.Components.Behavior\EDGameEngine.Components.Behavior.vbproj">
       <Project>{04FCBF91-1F22-4F69-9E75-F79C563F8054}</Project>
       <Name>EDGameEngine.Components.Behavior</Name>
     </ProjectReference>
-    <ProjectReference Include="..\EDGameEngine.Components.Effect\EDGameEngine.Components.Effect.vbproj">
-      <Project>{72E57A54-C3A9-4918-A987-6F7769F56038}</Project>
-      <Name>EDGameEngine.Components.Effect</Name>
-    </ProjectReference>
     <ProjectReference Include="..\EDGameEngine.Core.Graphics\EDGameEngine.Core.Graphics.vbproj">
-      <Project>{063C77A7-4A06-4818-9074-3E993AFB526C}</Project>
+      <Project>{063c77a7-4a06-4818-9074-3e993afb526c}</Project>
       <Name>EDGameEngine.Core.Graphics</Name>
     </ProjectReference>
     <ProjectReference Include="..\EDGameEngine.Core.UI\EDGameEngine.Core.UI.vbproj">
-      <Project>{1EE8B83F-B355-456B-8CD1-F0DC9ADA7AF2}</Project>
+      <Project>{1ee8b83f-b355-456b-8cd1-f0dc9ada7af2}</Project>
       <Name>EDGameEngine.Core.UI</Name>
     </ProjectReference>
     <ProjectReference Include="..\EDGameEngine.Core\EDGameEngine.Core.vbproj">
@@ -237,12 +237,7 @@
       <Project>{1ddbe9bc-cbd1-4fb9-b1cc-e11bec0e0798}</Project>
       <Name>EDGameEngine.Extras.ActionGame</Name>
     </ProjectReference>
-    <ProjectReference Include="..\FarsserPhysics.UWP\FarsserPhysics.UWP.csproj">
-      <Project>{21af2b5b-ee02-496a-9d1b-6c692facd68c}</Project>
-      <Name>FarsserPhysics.UWP</Name>
-    </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
@@ -253,7 +248,7 @@
     <OptionCompare>Binary</OptionCompare>
   </PropertyGroup>
   <PropertyGroup>
-    <OptionStrict>On</OptionStrict>
+    <OptionStrict>Off</OptionStrict>
   </PropertyGroup>
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>

@@ -11,14 +11,6 @@ NotInheritable Class App
     ''' </summary>
     ''' <param name="e">有关启动请求和过程的详细信息。</param>
     Protected Overrides Sub OnLaunched(e As Windows.ApplicationModel.Activation.LaunchActivatedEventArgs)
-#If DEBUG Then
-        ' 调试时显示图形分析信息。
-        If System.Diagnostics.Debugger.IsAttached Then
-            ' 显示当前帧速率计数器
-            Me.DebugSettings.EnableFrameRateCounter = False
-        End If
-#End If
-
         Dim rootFrame As Frame = TryCast(Window.Current.Content, Frame)
 
         ' 不要在窗口已包含内容时重复应用程序初始化，

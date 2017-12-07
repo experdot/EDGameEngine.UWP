@@ -1,5 +1,4 @@
 ﻿Imports EDGameEngine.Components.Behavior
-Imports EDGameEngine.Components.Effect
 Imports EDGameEngine.Core.Graphics
 Imports EDGameEngine.Core.UI
 ''' <summary>
