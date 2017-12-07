@@ -54,7 +54,7 @@ Public Class GameWorld
     ''' </summary>
     Public Sub Update()
         Static Last As Date = Date.Now
-        Dim steping As Single = Date.Now.Subtract(Last).TotalMilliseconds / 1000
+        Dim steping As Single = CSng(Date.Now.Subtract(Last).TotalMilliseconds / 1000)
         PhysicWorld.Step(steping)
         Last = Date.Now
 
@@ -68,13 +68,13 @@ Public Class GameWorld
         Dim player As ICharacter = Mission.Characters.First
         Dim body As Body = player.Collide.Body
         Select Case key
-            Case "W"
+            Case CChar("W")
                 player.AbilityManager.FindAbilityByName("Jump").Release(player)
-            Case "S"
+            Case CChar("S")
                 'player.AbilityManager.FindAbilityByName("Jump").Release(player)
-            Case "A"
+            Case CChar("A")
                 player.AbilityManager.FindAbilityByName("MoveLeft").Release(player)
-            Case "D"
+            Case CChar("D")
                 player.AbilityManager.FindAbilityByName("MoveRight").Release(player)
         End Select
         If body.LinearVelocity.X > 2 Then
@@ -93,8 +93,8 @@ Public Class GameWorld
     ''' 创建矩形物理实体
     ''' </summary>
     Private Sub CreateRectangle(world As World, target As ICollision, loc As Vector2, t As BodyType, Optional r As Single = 0)
-        Dim w As Single = target.Collide.Rect.Width
-        Dim h As Single = target.Collide.Rect.Height
+        Dim w As Single = CSng(target.Collide.Rect.Width)
+        Dim h As Single = CSng(target.Collide.Rect.Height)
         target.Collide.Body = BodyFactory.CreateRectangle(world, w, h, 1.0F, loc, r, t)
         target.Collide.Body.Friction = 0.5F
         target.Collide.Body.SleepingAllowed = False

@@ -17,7 +17,7 @@ Public Class AIManager
     ''' </summary>
     Public Sub Start(mission As IMission)
         For Each SubAIConroller In AIConrollers
-            SubAIConroller.Start(mission)
+            SubAIConroller.Start(CType(mission, Mission))
         Next
     End Sub
     ''' <summary>
@@ -25,7 +25,7 @@ Public Class AIManager
     ''' </summary>
     Public Sub Update(mission As IMission)
         For Each SubAIConroller In AIConrollers
-            SubAIConroller.Update(mission)
+            SubAIConroller.Update(CType(mission, Mission))
         Next
     End Sub
 End Class

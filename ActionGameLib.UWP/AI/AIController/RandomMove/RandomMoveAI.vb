@@ -9,13 +9,13 @@ Public Class RandomMoveAI
     ''' </summary>
     Protected Shared Rnd As New Random
 
-    Public Sub Start(mission As Mission) Implements IAIController.Start
+    Public Sub Start(mission As IMission) Implements IAIController.Start
 
     End Sub
-    Public Sub Update(mission As Mission) Implements IAIController.Update
+    Public Sub Update(mission As IMission) Implements IAIController.Update
         For Each SubCharacter In mission.Characters
             If SubCharacter.GetType Is GetType(Monster) Then
-                MonsterMove(SubCharacter)
+                MonsterMove(CType(SubCharacter, Monster))
             End If
         Next
     End Sub

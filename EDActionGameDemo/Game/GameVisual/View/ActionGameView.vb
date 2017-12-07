@@ -17,7 +17,7 @@ Public Class ActionGameView
         For Each SubBlock In Target.Mission.Blocks
             If SubBlock Is Nothing Then Continue For
             Dim temp = SubBlock.Location * Target.Scale
-            Dim size = New Vector2(SubBlock.Collide.Rect.Width, SubBlock.Collide.Rect.Height) * Target.Scale
+            Dim size = New Vector2(CSng(SubBlock.Collide.Rect.Width), CSng(SubBlock.Collide.Rect.Height)) * Target.Scale
             Dim destRect As Rect = New Rect(temp.X - size.X / 2, temp.Y - size.Y / 2, size.X, size.Y)
             Dim mat = Matrix3x2.CreateRotation(SubBlock.Rotation, New Vector2(temp.X, temp.Y))
             drawingSession.Transform = mat
@@ -26,7 +26,7 @@ Public Class ActionGameView
         For Each SubCharacter In Target.Mission.Characters
             If SubCharacter Is Nothing Then Continue For
             Dim temp = SubCharacter.Location * Target.Scale
-            Dim size = New Vector2(SubCharacter.Collide.Rect.Width, SubCharacter.Collide.Rect.Height) * Target.Scale
+            Dim size = New Vector2(CSng(SubCharacter.Collide.Rect.Width), CSng(SubCharacter.Collide.Rect.Height)) * Target.Scale
             Dim destRect As Rect = New Rect(temp.X - size.X / 2, temp.Y - size.Y / 2, size.X, size.Y)
             Dim mat = Matrix3x2.CreateRotation(SubCharacter.Rotation, New Vector2(temp.X, temp.Y))
             drawingSession.Transform = mat
