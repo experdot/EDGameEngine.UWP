@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{83E8EEAE-0012-41F8-9C3F-F3EBC6B4A32C}</ProjectGuid>
+    <ProjectGuid>{1DDBE9BC-CBD1-4FB9-B1CC-E11BEC0E0798}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>EDGameEngine.Components.Trigger</RootNamespace>
-    <AssemblyName>EDGameEngine.Components.Trigger</AssemblyName>
+    <RootNamespace>EDGameEngine.Extras.ActionGame</RootNamespace>
+    <AssemblyName>EDGameEngine.Extras.ActionGame</AssemblyName>
     <DefaultLanguage>zh-CN</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.15063.0</TargetPlatformVersion>
@@ -23,11 +23,10 @@
     <DefineTrace>true</DefineTrace>
     <NoConfig>true</NoConfig>
     <OutputPath>bin\Debug</OutputPath>
-    <DocumentationFile>EDGameEngine.Components.Trigger.xml</DocumentationFile>
+    <DocumentationFile>EDGameEngine.Extras.ActionGame.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <DefineConstants>NETFX_CORE,WINDOWS_UWP</DefineConstants>
-    <NoWarn>42314</NoWarn>
-    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -38,11 +37,10 @@
     <NoConfig>true</NoConfig>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release</OutputPath>
-    <DocumentationFile>EDGameEngine.Components.Trigger.xml</DocumentationFile>
+    <DocumentationFile>EDGameEngine.Extras.ActionGame.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <DefineConstants>NETFX_CORE,WINDOWS_UWP</DefineConstants>
-    <NoWarn>42314</NoWarn>
-    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <PlatformTarget>x86</PlatformTarget>
@@ -54,9 +52,8 @@
     <DebugType>full</DebugType>
     <PlatformTarget>x86</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
-    <DocumentationFile>EDGameEngine.Components.Trigger.xml</DocumentationFile>
-    <NoWarn>42314</NoWarn>
-    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+    <DocumentationFile>EDGameEngine.Extras.ActionGame.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <PlatformTarget>x86</PlatformTarget>
@@ -67,9 +64,8 @@
     <DebugType>pdbonly</DebugType>
     <PlatformTarget>x86</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
-    <DocumentationFile>EDGameEngine.Components.Trigger.xml</DocumentationFile>
-    <NoWarn>42314</NoWarn>
-    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+    <DocumentationFile>EDGameEngine.Extras.ActionGame.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
     <PlatformTarget>ARM</PlatformTarget>
@@ -81,9 +77,8 @@
     <DebugType>full</DebugType>
     <PlatformTarget>ARM</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
-    <DocumentationFile>EDGameEngine.Components.Trigger.xml</DocumentationFile>
-    <NoWarn>42314</NoWarn>
-    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+    <DocumentationFile>EDGameEngine.Extras.ActionGame.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
     <PlatformTarget>ARM</PlatformTarget>
@@ -94,9 +89,8 @@
     <DebugType>pdbonly</DebugType>
     <PlatformTarget>ARM</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
-    <DocumentationFile>EDGameEngine.Components.Trigger.xml</DocumentationFile>
-    <NoWarn>42314</NoWarn>
-    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+    <DocumentationFile>EDGameEngine.Extras.ActionGame.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <PlatformTarget>x64</PlatformTarget>
@@ -108,9 +102,8 @@
     <DebugType>full</DebugType>
     <PlatformTarget>x64</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
-    <DocumentationFile>EDGameEngine.Components.Trigger.xml</DocumentationFile>
-    <NoWarn>42314</NoWarn>
-    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+    <DocumentationFile>EDGameEngine.Extras.ActionGame.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <PlatformTarget>x64</PlatformTarget>
@@ -121,16 +114,50 @@
     <DebugType>pdbonly</DebugType>
     <PlatformTarget>x64</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
-    <DocumentationFile>EDGameEngine.Components.Trigger.xml</DocumentationFile>
-    <NoWarn>42314</NoWarn>
-    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+    <DocumentationFile>EDGameEngine.Extras.ActionGame.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AI\AIController\Base\IAIController.vb" />
+    <Compile Include="AI\AIController\RandomMove\RandomMoveAI.vb" />
+    <Compile Include="AI\AIManager.vb" />
+    <Compile Include="Collide\Collide.vb" />
+    <Compile Include="Collide\ICollision.vb" />
+    <Compile Include="Foundation\AvaliableValue.vb" />
+    <Compile Include="Foundation\ResourceId.vb" />
+    <Compile Include="Foundation\Transform\ILocateble.vb" />
+    <Compile Include="Foundation\Transform\IRotateble.vb" />
+    <Compile Include="Foundation\Transform\ITransform.vb" />
+    <Compile Include="Mission\Base\IMission.vb" />
+    <Compile Include="Mission\Base\ITypedUpdateble.vb" />
+    <Compile Include="Mission\Base\IUpdateable.vb" />
+    <Compile Include="Mission\Block\Base\IBlock.vb" />
+    <Compile Include="Mission\Block\Block.vb" />
+    <Compile Include="Mission\Character\Ability\AbilityManager.vb" />
+    <Compile Include="Mission\Character\Ability\Base\AbilityBase.vb" />
+    <Compile Include="Mission\Character\Ability\Base\IAbility.vb" />
+    <Compile Include="Mission\Character\Ability\Counter\EventArgs\ExpiredEventArgs.vb" />
+    <Compile Include="Mission\Character\Ability\Counter\Flags\ExpiredFlags.vb" />
+    <Compile Include="Mission\Character\Ability\Counter\RemainingCounter.vb" />
+    <Compile Include="Mission\Character\Ability\General\Attack\Attack.vb" />
+    <Compile Include="Mission\Character\Ability\General\Jump\Jump.vb" />
+    <Compile Include="Mission\Character\Ability\General\Jump\JumpStateMachine.vb" />
+    <Compile Include="Mission\Character\Ability\General\Move\MoveLeft.vb" />
+    <Compile Include="Mission\Character\Ability\General\Move\MoveRight.vb" />
+    <Compile Include="Mission\Character\Base\CharacterBase.vb" />
+    <Compile Include="Mission\Character\Base\ICharacter.vb" />
+    <Compile Include="Mission\Character\NonePlayer\Camp\Camp.vb" />
+    <Compile Include="Mission\Character\NonePlayer\Monster\Monster.vb" />
+    <Compile Include="Mission\Character\NonePlayer\NPC.vb" />
+    <Compile Include="Mission\Character\Player\Player.vb" />
+    <Compile Include="Mission\Enum\Directions.vb" />
+    <Compile Include="Mission\Mission.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
-    <EmbeddedResource Include="My Project\EDGameEngine.Components.Trigger.rd.xml" />
+    <Compile Include="World\GameWorld.vb" />
+    <EmbeddedResource Include="My Project\EDGameEngine.Extras.ActionGame.rd.xml" />
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
@@ -168,9 +195,9 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EDGameEngine.Core\EDGameEngine.Core.vbproj">
-      <Project>{e7bd23b5-415a-489f-bfcd-cf16f25f1107}</Project>
-      <Name>EDGameEngine.Core</Name>
+    <ProjectReference Include="..\FarsserPhysics.UWP\FarsserPhysics.UWP.csproj">
+      <Project>{21af2b5b-ee02-496a-9d1b-6c692facd68c}</Project>
+      <Name>FarsserPhysics.UWP</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
@@ -183,7 +210,7 @@
     <OptionCompare>Binary</OptionCompare>
   </PropertyGroup>
   <PropertyGroup>
-    <OptionStrict>On</OptionStrict>
+    <OptionStrict>Off</OptionStrict>
   </PropertyGroup>
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>

@@ -25,7 +25,7 @@
     https://go.microsoft.com/fwlink/?LinkID=391919
 -->
 <Directives xmlns="http://schemas.microsoft.com/netfx/2013/01/metadata">
-  <Library Name="FarsserPhysics.UWP">
+  <Library Name="EDGameEngine.Extras.ActionGame">
 
   	<!--在此处为库添加指令-->
 

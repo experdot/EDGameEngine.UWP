@@ -213,10 +213,6 @@
     <Import Include="Windows.UI.Xaml.Navigation" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ActionGameLib.UWP\ActionGameLib.UWP.vbproj">
-      <Project>{b7afcfad-8d73-41f7-8ad5-fdf5fe203410}</Project>
-      <Name>ActionGameLib.UWP</Name>
-    </ProjectReference>
     <ProjectReference Include="..\EDGameEngine.Components.Behavior\EDGameEngine.Components.Behavior.vbproj">
       <Project>{04FCBF91-1F22-4F69-9E75-F79C563F8054}</Project>
       <Name>EDGameEngine.Components.Behavior</Name>
@@ -234,11 +230,15 @@
       <Name>EDGameEngine.Core.UI</Name>
     </ProjectReference>
     <ProjectReference Include="..\EDGameEngine.Core\EDGameEngine.Core.vbproj">
-      <Project>{f563111c-4331-4735-a6c9-447662049482}</Project>
+      <Project>{e7bd23b5-415a-489f-bfcd-cf16f25f1107}</Project>
       <Name>EDGameEngine.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EDGameEngine.Extras.ActionGame\EDGameEngine.Extras.ActionGame.vbproj">
+      <Project>{1ddbe9bc-cbd1-4fb9-b1cc-e11bec0e0798}</Project>
+      <Name>EDGameEngine.Extras.ActionGame</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FarsserPhysics.UWP\FarsserPhysics.UWP.csproj">
-      <Project>{c3d370ac-2fbc-43d6-a3a6-cea3b4b48aca}</Project>
+      <Project>{21af2b5b-ee02-496a-9d1b-6c692facd68c}</Project>
       <Name>FarsserPhysics.UWP</Name>
     </ProjectReference>
   </ItemGroup>

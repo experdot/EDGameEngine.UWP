@@ -2551,14 +2551,6 @@
           }
         }
       },
-      "ActionGameLib.UWP/1.0.0": {
-        "type": "project",
-        "framework": "UAP,Version=v10.0.15063",
-        "dependencies": {
-          "FarsserPhysics.UWP": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
-        }
-      },
       "EDGameEngine.Components.Behavior/1.0.0": {
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
@@ -2584,7 +2576,7 @@
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.4.0"
         }
       },
       "EDGameEngine.Core.Graphics/1.0.0": {
@@ -2610,6 +2602,15 @@
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
+          "EDGameEngine.Core": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Extras.ActionGame/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "FarsserPhysics.UWP": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
@@ -2617,7 +2618,7 @@
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.4.0"
         }
       }
     },
@@ -5175,14 +5176,6 @@
           "runtimes/win10-arm/native/Microsoft.Graphics.Canvas.dll": {}
         }
       },
-      "ActionGameLib.UWP/1.0.0": {
-        "type": "project",
-        "framework": "UAP,Version=v10.0.15063",
-        "dependencies": {
-          "FarsserPhysics.UWP": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
-        }
-      },
       "EDGameEngine.Components.Behavior/1.0.0": {
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
@@ -5208,7 +5201,7 @@
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.4.0"
         }
       },
       "EDGameEngine.Core.Graphics/1.0.0": {
@@ -5234,6 +5227,15 @@
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
+          "EDGameEngine.Core": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Extras.ActionGame/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "FarsserPhysics.UWP": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
@@ -5241,7 +5243,7 @@
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.4.0"
         }
       }
     },
@@ -7835,14 +7837,6 @@
           "runtimes/win10-arm/native/Microsoft.Graphics.Canvas.dll": {}
         }
       },
-      "ActionGameLib.UWP/1.0.0": {
-        "type": "project",
-        "framework": "UAP,Version=v10.0.15063",
-        "dependencies": {
-          "FarsserPhysics.UWP": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
-        }
-      },
       "EDGameEngine.Components.Behavior/1.0.0": {
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
@@ -7868,7 +7862,7 @@
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.4.0"
         }
       },
       "EDGameEngine.Core.Graphics/1.0.0": {
@@ -7894,6 +7888,15 @@
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
+          "EDGameEngine.Core": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Extras.ActionGame/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "FarsserPhysics.UWP": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
@@ -7901,7 +7904,7 @@
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.4.0"
         }
       }
     },
@@ -10468,14 +10471,6 @@
           "runtimes/win10-x64/native/Microsoft.Graphics.Canvas.dll": {}
         }
       },
-      "ActionGameLib.UWP/1.0.0": {
-        "type": "project",
-        "framework": "UAP,Version=v10.0.15063",
-        "dependencies": {
-          "FarsserPhysics.UWP": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
-        }
-      },
       "EDGameEngine.Components.Behavior/1.0.0": {
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
@@ -10501,7 +10496,7 @@
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.4.0"
         }
       },
       "EDGameEngine.Core.Graphics/1.0.0": {
@@ -10527,6 +10522,15 @@
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
+          "EDGameEngine.Core": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Extras.ActionGame/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "FarsserPhysics.UWP": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
@@ -10534,7 +10538,7 @@
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.4.0"
         }
       }
     },
@@ -13137,14 +13141,6 @@
           "runtimes/win10-x64/native/Microsoft.Graphics.Canvas.dll": {}
         }
       },
-      "ActionGameLib.UWP/1.0.0": {
-        "type": "project",
-        "framework": "UAP,Version=v10.0.15063",
-        "dependencies": {
-          "FarsserPhysics.UWP": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
-        }
-      },
       "EDGameEngine.Components.Behavior/1.0.0": {
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
@@ -13170,7 +13166,7 @@
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.4.0"
         }
       },
       "EDGameEngine.Core.Graphics/1.0.0": {
@@ -13196,6 +13192,15 @@
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
+          "EDGameEngine.Core": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Extras.ActionGame/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "FarsserPhysics.UWP": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
@@ -13203,7 +13208,7 @@
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.4.0"
         }
       }
     },
@@ -15770,14 +15775,6 @@
           "runtimes/win10-x86/native/Microsoft.Graphics.Canvas.dll": {}
         }
       },
-      "ActionGameLib.UWP/1.0.0": {
-        "type": "project",
-        "framework": "UAP,Version=v10.0.15063",
-        "dependencies": {
-          "FarsserPhysics.UWP": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
-        }
-      },
       "EDGameEngine.Components.Behavior/1.0.0": {
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
@@ -15803,7 +15800,7 @@
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.4.0"
         }
       },
       "EDGameEngine.Core.Graphics/1.0.0": {
@@ -15829,6 +15826,15 @@
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
+          "EDGameEngine.Core": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Extras.ActionGame/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "FarsserPhysics.UWP": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
@@ -15836,7 +15842,7 @@
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.4.0"
         }
       }
     },
@@ -18439,14 +18445,6 @@
           "runtimes/win10-x86/native/Microsoft.Graphics.Canvas.dll": {}
         }
       },
-      "ActionGameLib.UWP/1.0.0": {
-        "type": "project",
-        "framework": "UAP,Version=v10.0.15063",
-        "dependencies": {
-          "FarsserPhysics.UWP": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
-        }
-      },
       "EDGameEngine.Components.Behavior/1.0.0": {
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
@@ -18472,7 +18470,7 @@
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.4.0"
         }
       },
       "EDGameEngine.Core.Graphics/1.0.0": {
@@ -18498,6 +18496,15 @@
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
+          "EDGameEngine.Core": "1.0.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+        }
+      },
+      "EDGameEngine.Extras.ActionGame/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "FarsserPhysics.UWP": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
         }
       },
@@ -18505,7 +18512,7 @@
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.4.0"
         }
       }
     }
@@ -28590,11 +28597,6 @@
         "runtimes/win10-x86/native/Microsoft.Graphics.Canvas.dll"
       ]
     },
-    "ActionGameLib.UWP/1.0.0": {
-      "type": "project",
-      "path": "../ActionGameLib.UWP/project.json",
-      "msbuildProject": "../ActionGameLib.UWP/ActionGameLib.UWP.vbproj"
-    },
     "EDGameEngine.Components.Behavior/1.0.0": {
       "type": "project",
       "path": "../EDGameEngine.Components.Behavior/EDGameEngine.Components.Behavior.vbproj",
@@ -28607,7 +28609,7 @@
     },
     "EDGameEngine.Core/1.0.0": {
       "type": "project",
-      "path": "../EDGameEngine.Core/project.json",
+      "path": "../EDGameEngine.Core/EDGameEngine.Core.vbproj",
       "msbuildProject": "../EDGameEngine.Core/EDGameEngine.Core.vbproj"
     },
     "EDGameEngine.Core.Graphics/1.0.0": {
@@ -28625,9 +28627,14 @@
       "path": "../EDGameEngine.Core.Utilities/EDGameEngine.Core.Utilities.vbproj",
       "msbuildProject": "../EDGameEngine.Core.Utilities/EDGameEngine.Core.Utilities.vbproj"
     },
+    "EDGameEngine.Extras.ActionGame/1.0.0": {
+      "type": "project",
+      "path": "../EDGameEngine.Extras.ActionGame/EDGameEngine.Extras.ActionGame.vbproj",
+      "msbuildProject": "../EDGameEngine.Extras.ActionGame/EDGameEngine.Extras.ActionGame.vbproj"
+    },
     "FarsserPhysics.UWP/1.0.0": {
       "type": "project",
-      "path": "../FarsserPhysics.UWP/project.json",
+      "path": "../FarsserPhysics.UWP/FarsserPhysics.UWP.csproj",
       "msbuildProject": "../FarsserPhysics.UWP/FarsserPhysics.UWP.csproj"
     }
   },
@@ -28661,9 +28668,6 @@
       "frameworks": {
         "uap10.0.15063": {
           "projectReferences": {
-            "E:\\GitHub\\ExperDot.EDGameEngine\\ActionGameLib.UWP\\ActionGameLib.UWP.vbproj": {
-              "projectPath": "E:\\GitHub\\ExperDot.EDGameEngine\\ActionGameLib.UWP\\ActionGameLib.UWP.vbproj"
-            },
             "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Components.Behavior\\EDGameEngine.Components.Behavior.vbproj": {
               "projectPath": "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Components.Behavior\\EDGameEngine.Components.Behavior.vbproj"
             },
@@ -28678,6 +28682,9 @@
             },
             "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Core\\EDGameEngine.Core.vbproj": {
               "projectPath": "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Core\\EDGameEngine.Core.vbproj"
+            },
+            "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Extras.ActionGame\\EDGameEngine.Extras.ActionGame.vbproj": {
+              "projectPath": "E:\\GitHub\\ExperDot.EDGameEngine\\EDGameEngine.Extras.ActionGame\\EDGameEngine.Extras.ActionGame.vbproj"
             },
             "E:\\GitHub\\ExperDot.EDGameEngine\\FarsserPhysics.UWP\\FarsserPhysics.UWP.csproj": {
               "projectPath": "E:\\GitHub\\ExperDot.EDGameEngine\\FarsserPhysics.UWP\\FarsserPhysics.UWP.csproj"

@@ -171,6 +171,12 @@
       <Version>6.0.1</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EDGameEngine.Core\EDGameEngine.Core.vbproj">
+      <Project>{e7bd23b5-415a-489f-bfcd-cf16f25f1107}</Project>
+      <Name>EDGameEngine.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

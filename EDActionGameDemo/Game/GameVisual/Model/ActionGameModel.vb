@@ -1,6 +1,6 @@
 ﻿Imports System.Numerics
-Imports ActionGameLib.UWP
 Imports EDGameEngine.Core
+Imports EDGameEngine.Extras.ActionGame
 Imports Windows.System
 
 Public Class ActionGameModel

@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    This file contains Runtime Directives, specifications about types your application accesses
-    through reflection and other dynamic code patterns. Runtime Directives are used to control the
-    .NET Native optimizer and ensure that it does not remove code accessed by your library. If your
-    library does not do any reflection, then you generally do not need to edit this file. However,
-    if your library reflects over types, especially types passed to it or derived from its types,
-    then you should write Runtime Directives.
+    此文件包含运行时指令，应用程序通过反射和其他动态代码模式
+    所访问的类型的规范。运行时指令用于控制
+    .NET Native 优化器，并确保它不会删除你的库所访问的代码。如果你的
+    库不进行任何反射，那么一般而言你无需编辑此文件。但是，
+    如果你的库反射类型，尤其是传递到它或从它的类型所派生的类型，
+       那么就应该编写运行时指令。
 
-    The most common use of reflection in libraries is to discover information about types passed
-    to the library. Runtime Directives have three ways to express requirements on types passed to
-    your library.
+    库中反射最常见的使用方式是发现传递到库的
+    类型的信息。运行时指令有三种方式来表达传递给库的
+    类型的要求
 
-    1.  Parameter, GenericParameter, TypeParameter, TypeEnumerableParameter
-        Use these directives to reflect over types passed as a parameter.
+    1.  Parameter、GenericParameter、TypeParameter、TypeEnumerableParameter
+        使用这些指令可反射作为参数传递的类型。
 
     2.  SubTypes
-        Use a SubTypes directive to reflect over types derived from another type.
+        使用 SubTypes 指令反射从其他类型派生的类型。
 
     3.  AttributeImplies
-        Use an AttributeImplies directive to indicate that your library needs to reflect over
-        types or methods decorated with an attribute.
+        使用 AttributeImplies 指令指示你的库需要反射使用
+        属性修饰的类型或方法。
 
-    For more information on writing Runtime Directives for libraries, please visit
-    http://go.microsoft.com/fwlink/?LinkID=391919
+    有关为库编写运行时指令的详细信息，请参阅
+    https://go.microsoft.com/fwlink/?LinkID=391919
 -->
 <Directives xmlns="http://schemas.microsoft.com/netfx/2013/01/metadata">
   <Library Name="EDGameEngine.Core">
 
-  	<!-- add directives for your library here -->
+  	<!--在此处为库添加指令-->
 
   </Library>
 </Directives>

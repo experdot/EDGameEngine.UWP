@@ -8,10 +8,10 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("EDGameEngine.Core")> 
+<Assembly: AssemblyTitle("EDGameEngine.Extras.ActionGame")> 
 <Assembly: AssemblyDescription("")> 
 <Assembly: AssemblyCompany("")> 
-<Assembly: AssemblyProduct("EDGameEngine.Core")> 
+<Assembly: AssemblyProduct("EDGameEngine.Extras.ActionGame")> 
 <Assembly: AssemblyCopyright("Copyright ©  2017")> 
 <Assembly: AssemblyTrademark("")> 
 

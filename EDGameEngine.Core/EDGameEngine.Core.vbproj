@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F563111C-4331-4735-A6C9-447662049482}</ProjectGuid>
+    <ProjectGuid>{E7BD23B5-415A-489F-BFCD-CF16F25F1107}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>EDGameEngine.Core</RootNamespace>
     <AssemblyName>EDGameEngine.Core</AssemblyName>
     <DefaultLanguage>zh-CN</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion>10.0.15063.0</TargetPlatformVersion>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.15063.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.15063.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
@@ -26,8 +26,7 @@
     <DocumentationFile>EDGameEngine.Core.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <DefineConstants>NETFX_CORE,WINDOWS_UWP</DefineConstants>
-    <NoWarn>42314</NoWarn>
-    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -41,8 +40,7 @@
     <DocumentationFile>EDGameEngine.Core.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <DefineConstants>NETFX_CORE,WINDOWS_UWP</DefineConstants>
-    <NoWarn>42314</NoWarn>
-    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <PlatformTarget>x86</PlatformTarget>
@@ -55,8 +53,7 @@
     <PlatformTarget>x86</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <DocumentationFile>EDGameEngine.Core.xml</DocumentationFile>
-    <NoWarn>42314</NoWarn>
-    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <PlatformTarget>x86</PlatformTarget>
@@ -68,8 +65,7 @@
     <PlatformTarget>x86</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <DocumentationFile>EDGameEngine.Core.xml</DocumentationFile>
-    <NoWarn>42314</NoWarn>
-    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
     <PlatformTarget>ARM</PlatformTarget>
@@ -82,8 +78,7 @@
     <PlatformTarget>ARM</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <DocumentationFile>EDGameEngine.Core.xml</DocumentationFile>
-    <NoWarn>42314</NoWarn>
-    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
     <PlatformTarget>ARM</PlatformTarget>
@@ -95,8 +90,7 @@
     <PlatformTarget>ARM</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <DocumentationFile>EDGameEngine.Core.xml</DocumentationFile>
-    <NoWarn>42314</NoWarn>
-    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <PlatformTarget>x64</PlatformTarget>
@@ -109,8 +103,7 @@
     <PlatformTarget>x64</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <DocumentationFile>EDGameEngine.Core.xml</DocumentationFile>
-    <NoWarn>42314</NoWarn>
-    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <PlatformTarget>x64</PlatformTarget>
@@ -122,51 +115,49 @@
     <PlatformTarget>x64</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <DocumentationFile>EDGameEngine.Core.xml</DocumentationFile>
-    <NoWarn>42314</NoWarn>
-    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
-    <None Include="project.json" />
-  </ItemGroup>
-  <ItemGroup>
+    <Compile Include="Fundamental\EffectQuality\EffectQuality.vb" />
+    <Compile Include="Fundamental\Properties\Appearance\Appearance.vb" />
+    <Compile Include="Fundamental\Properties\Input\Inputs.vb" />
+    <Compile Include="Fundamental\Properties\Input\KeyboardDescription.vb" />
+    <Compile Include="Fundamental\Properties\Input\MouseDescription.vb" />
+    <Compile Include="Fundamental\Properties\Progress\Progress.vb" />
+    <Compile Include="Fundamental\Properties\RenderMode\RenderMode.vb" />
+    <Compile Include="Fundamental\Properties\SceneState\SceneState.vb" />
+    <Compile Include="Fundamental\Properties\Transform\Transform.vb" />
     <Compile Include="Fundamental\Vertex\Vertex.vb" />
-    <Compile Include="GameObject\Components\Media\Animation\IAnimation.vb" />
-    <Compile Include="GameObject\Components\Media\Audio\IAudio.vb" />
-    <Compile Include="GameObject\Components\Behavior\BehaviorBase.vb" />
-    <Compile Include="GameObject\Components\Behavior\IBehavior.vb" />
-    <Compile Include="GameObject\Components\Effect\IEffect.vb" />
+    <Compile Include="GameObject\Base\IGameObject.vb" />
     <Compile Include="GameObject\Components\Base\ComponentType.vb" />
     <Compile Include="GameObject\Components\Base\GameComponentBase.vb" />
     <Compile Include="GameObject\Components\Base\IGameComponent.vb" />
     <Compile Include="GameObject\Components\Base\Manager\GameComponents.vb" />
     <Compile Include="GameObject\Components\Base\Manager\TypedComponent.vb" />
+    <Compile Include="GameObject\Components\Behavior\BehaviorBase.vb" />
+    <Compile Include="GameObject\Components\Behavior\IBehavior.vb" />
+    <Compile Include="GameObject\Components\Effect\IEffect.vb" />
+    <Compile Include="GameObject\Components\Media\Animation\IAnimation.vb" />
+    <Compile Include="GameObject\Components\Media\Audio\IAudio.vb" />
     <Compile Include="GameObject\Components\Media\IMedia.vb" />
     <Compile Include="GameObject\Components\Trigger\ITrigger.vb" />
-    <Compile Include="GameObject\GameVisual\Container\World\IWorld.vb" />
-    <Compile Include="Fundamental\Properties\Progress\Progress.vb" />
-    <Compile Include="GameObject\GameVisual\Camera\Camera.vb" />
-    <Compile Include="GameObject\GameVisual\Camera\Base\ICamera.vb" />
     <Compile Include="GameObject\GameView\IGameView.vb" />
-    <Compile Include="Fundamental\Properties\Input\Inputs.vb" />
-    <Compile Include="Fundamental\Properties\Input\KeyboardDescription.vb" />
-    <Compile Include="Fundamental\Properties\Input\MouseDescription.vb" />
     <Compile Include="GameObject\GameVisual\Base\IGameVisual.vb" />
-    <Compile Include="GameObject\GameVisual\Body\GameBody.vb" />
     <Compile Include="GameObject\GameVisual\Body\Base\IGameBody.vb" />
+    <Compile Include="GameObject\GameVisual\Body\GameBody.vb" />
+    <Compile Include="GameObject\GameVisual\Camera\Base\ICamera.vb" />
+    <Compile Include="GameObject\GameVisual\Camera\Camera.vb" />
+    <Compile Include="GameObject\GameVisual\Container\Layer\Base\ILayer.vb" />
+    <Compile Include="GameObject\GameVisual\Container\Layer\Layer.vb" />
+    <Compile Include="GameObject\GameVisual\Container\Scene\IScene.vb" />
+    <Compile Include="GameObject\GameVisual\Container\Scene\SceneBase.vb" />
+    <Compile Include="GameObject\GameVisual\Container\World\IWorld.vb" />
     <Compile Include="GameResource\GameResourceBase.vb" />
     <Compile Include="GameResource\IGameResource.vb" />
-    <Compile Include="GameObject\GameVisual\Container\Layer\Base\ILayer.vb" />
-    <Compile Include="GameObject\GameVisual\Container\Scene\IScene.vb" />
-    <Compile Include="GameObject\GameVisual\Container\Layer\Layer.vb" />
-    <Compile Include="GameObject\GameVisual\Container\Scene\SceneBase.vb" />
-    <Compile Include="GameObject\Base\IGameObject.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
-    <Compile Include="Fundamental\Properties\Appearance\Appearance.vb" />
-    <Compile Include="Fundamental\Properties\Transform\Transform.vb" />
-    <Compile Include="Fundamental\Properties\SceneState\SceneState.vb" />
-    <Compile Include="Fundamental\Properties\RenderMode\RenderMode.vb" />
-    <Compile Include="Fundamental\EffectQuality\EffectQuality.vb" />
     <EmbeddedResource Include="My Project\EDGameEngine.Core.rd.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -199,6 +190,11 @@
     <Import Include="Windows.UI.Xaml.Media.Imaging" />
     <Import Include="Windows.UI.Xaml.Navigation" />
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
+      <Version>5.4.0</Version>
+    </PackageReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
@@ -209,7 +205,7 @@
     <OptionCompare>Binary</OptionCompare>
   </PropertyGroup>
   <PropertyGroup>
-    <OptionStrict>On</OptionStrict>
+    <OptionStrict>Off</OptionStrict>
   </PropertyGroup>
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>

@@ -199,7 +199,7 @@
       <Name>EDGameEngine.Core.Utilities</Name>
     </ProjectReference>
     <ProjectReference Include="..\EDGameEngine.Core\EDGameEngine.Core.vbproj">
-      <Project>{f563111c-4331-4735-a6c9-447662049482}</Project>
+      <Project>{e7bd23b5-415a-489f-bfcd-cf16f25f1107}</Project>
       <Name>EDGameEngine.Core</Name>
     </ProjectReference>
   </ItemGroup>

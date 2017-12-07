@@ -183,11 +183,11 @@
       <Name>EDGameEngine.Core.Utilities</Name>
     </ProjectReference>
     <ProjectReference Include="..\EDGameEngine.Core\EDGameEngine.Core.vbproj">
-      <Project>{f563111c-4331-4735-a6c9-447662049482}</Project>
+      <Project>{e7bd23b5-415a-489f-bfcd-cf16f25f1107}</Project>
       <Name>EDGameEngine.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\FarsserPhysics.UWP\FarsserPhysics.UWP.csproj">
-      <Project>{c3d370ac-2fbc-43d6-a3a6-cea3b4b48aca}</Project>
+      <Project>{21af2b5b-ee02-496a-9d1b-6c692facd68c}</Project>
       <Name>FarsserPhysics.UWP</Name>
     </ProjectReference>
   </ItemGroup>
