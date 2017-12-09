@@ -29,7 +29,7 @@
           "lib/netcore50/Microsoft.CSharp.dll": {}
         }
       },
-      "Microsoft.Net.Native.Compiler/1.7.1": {
+      "Microsoft.Net.Native.Compiler/1.7.2": {
         "type": "package",
         "dependencies": {
           "Microsoft.Net.Native.SharedLibrary-arm": "1.7.0",
@@ -239,14 +239,14 @@
           "lib/netstandard1.0/_._": {}
         }
       },
-      "Microsoft.NETCore.UniversalWindowsPlatform/6.0.1": {
+      "Microsoft.NETCore.UniversalWindowsPlatform/6.0.4": {
         "type": "package",
         "dependencies": {
           "Microsoft.NETCore": "5.0.2",
           "Microsoft.NETCore.Portable.Compatibility": "1.0.2",
           "Microsoft.NETCore.Runtime.CoreCLR": "1.0.3",
           "Microsoft.NETCore.Targets": "1.0.2",
-          "Microsoft.Net.Native.Compiler": "1.7.1",
+          "Microsoft.Net.Native.Compiler": "1.7.2",
           "Microsoft.Win32.Primitives": "4.0.1",
           "System.Collections.NonGeneric": "4.0.1",
           "System.Collections.Specialized": "4.0.1",
@@ -261,7 +261,7 @@
           "System.Net.Sockets": "4.1.0",
           "System.Net.WebHeaderCollection": "4.0.1",
           "System.Net.WebSockets": "4.0.0",
-          "System.Net.WebSockets.Client": "4.0.0",
+          "System.Net.WebSockets.Client": "4.0.2",
           "System.Numerics.Vectors.WindowsRuntime": "4.0.1",
           "System.Reflection.Context": "4.0.1",
           "System.Runtime.InteropServices.WindowsRuntime": "4.0.1",
@@ -1429,10 +1429,10 @@
           "lib/netstandard1.3/System.Net.WebSockets.dll": {}
         }
       },
-      "System.Net.WebSockets.Client/4.0.0": {
+      "System.Net.WebSockets.Client/4.0.2": {
         "type": "package",
         "dependencies": {
-          "Microsoft.NETCore.Platforms": "1.0.1",
+          "Microsoft.NETCore.Platforms": "1.0.2",
           "System.Collections": "4.0.11",
           "System.Diagnostics.Debug": "4.0.11",
           "System.Diagnostics.Tracing": "4.1.0",
@@ -2553,7 +2553,7 @@
           }
         }
       },
-      "Win2D.uwp/1.20.0": {
+      "Win2D.uwp/1.21.0": {
         "type": "package",
         "compile": {
           "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
@@ -2581,7 +2581,7 @@
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Components.Audio/1.0.0": {
@@ -2589,7 +2589,7 @@
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4",
           "SharpDX.XAudio2": "4.0.1"
         }
       },
@@ -2601,7 +2601,7 @@
           "EDGameEngine.Core.Graphics": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
           "FarsserPhysics.UWP": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Components.Effect/1.0.0": {
@@ -2611,7 +2611,7 @@
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Components.Trigger/1.0.0": {
@@ -2619,14 +2619,14 @@
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Core/1.0.0": {
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.4.0"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Core.Graphics/1.0.0": {
@@ -2635,8 +2635,8 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
-          "Win2D.uwp": "1.20.0"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4",
+          "Win2D.uwp": "1.21.0"
         }
       },
       "EDGameEngine.Core.UI/1.0.0": {
@@ -2645,7 +2645,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Core.Utilities/1.0.0": {
@@ -2653,7 +2653,7 @@
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Visuals.AutoDraw/1.0.0": {
@@ -2663,7 +2663,7 @@
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Visuals.AutoStitch/1.0.0": {
@@ -2672,7 +2672,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Visuals.CA/1.0.0": {
@@ -2681,7 +2681,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Visuals.Fractal/1.0.0": {
@@ -2691,7 +2691,7 @@
           "EDGameEngine.Components.Effect": "1.0.0",
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Visuals.Particles/1.0.0": {
@@ -2701,7 +2701,7 @@
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Visuals.Plant/1.0.0": {
@@ -2711,7 +2711,7 @@
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Visuals.Pointer/1.0.0": {
@@ -2720,7 +2720,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Visuals.StateMachine/1.0.0": {
@@ -2730,14 +2730,14 @@
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "FarsserPhysics.UWP/1.0.0": {
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.4.0"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       }
     },
@@ -2769,7 +2769,7 @@
           "lib/netcore50/Microsoft.CSharp.dll": {}
         }
       },
-      "Microsoft.Net.Native.Compiler/1.7.1": {
+      "Microsoft.Net.Native.Compiler/1.7.2": {
         "type": "package",
         "dependencies": {
           "Microsoft.Net.Native.SharedLibrary-arm": "1.7.0",
@@ -2926,14 +2926,14 @@
           "lib/netstandard1.0/_._": {}
         }
       },
-      "Microsoft.NETCore.UniversalWindowsPlatform/6.0.1": {
+      "Microsoft.NETCore.UniversalWindowsPlatform/6.0.4": {
         "type": "package",
         "dependencies": {
           "Microsoft.NETCore": "5.0.2",
           "Microsoft.NETCore.Portable.Compatibility": "1.0.2",
           "Microsoft.NETCore.Runtime.CoreCLR": "1.0.3",
           "Microsoft.NETCore.Targets": "1.0.2",
-          "Microsoft.Net.Native.Compiler": "1.7.1",
+          "Microsoft.Net.Native.Compiler": "1.7.2",
           "Microsoft.Win32.Primitives": "4.0.1",
           "System.Collections.NonGeneric": "4.0.1",
           "System.Collections.Specialized": "4.0.1",
@@ -2948,7 +2948,7 @@
           "System.Net.Sockets": "4.1.0",
           "System.Net.WebHeaderCollection": "4.0.1",
           "System.Net.WebSockets": "4.0.0",
-          "System.Net.WebSockets.Client": "4.0.0",
+          "System.Net.WebSockets.Client": "4.0.2",
           "System.Numerics.Vectors.WindowsRuntime": "4.0.1",
           "System.Reflection.Context": "4.0.1",
           "System.Runtime.InteropServices.WindowsRuntime": "4.0.1",
@@ -2966,7 +2966,7 @@
           "System.Threading.Overlapped": "4.0.1",
           "System.Xml.XmlDocument": "4.0.1",
           "System.Xml.XmlSerializer": "4.0.11",
-          "runtime.win10-arm.Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "runtime.win10-arm.Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         },
         "compile": {
           "ref/netcore50/_._": {}
@@ -3523,7 +3523,7 @@
           "runtimes/win/lib/netcore50/System.Runtime.Extensions.dll": {}
         }
       },
-      "runtime.win10-arm.Microsoft.NETCore.UniversalWindowsPlatform/6.0.1": {
+      "runtime.win10-arm.Microsoft.NETCore.UniversalWindowsPlatform/6.0.4": {
         "type": "package",
         "compile": {
           "ref/netstandard/_._": {}
@@ -4289,10 +4289,10 @@
           "lib/netstandard1.3/System.Net.WebSockets.dll": {}
         }
       },
-      "System.Net.WebSockets.Client/4.0.0": {
+      "System.Net.WebSockets.Client/4.0.2": {
         "type": "package",
         "dependencies": {
-          "Microsoft.NETCore.Platforms": "1.0.1",
+          "Microsoft.NETCore.Platforms": "1.0.2",
           "System.Collections": "4.0.11",
           "System.Diagnostics.Debug": "4.0.11",
           "System.Diagnostics.Tracing": "4.1.0",
@@ -5308,7 +5308,7 @@
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Win2D.uwp/1.20.0": {
+      "Win2D.uwp/1.21.0": {
         "type": "package",
         "compile": {
           "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
@@ -5325,7 +5325,7 @@
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Components.Audio/1.0.0": {
@@ -5333,7 +5333,7 @@
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4",
           "SharpDX.XAudio2": "4.0.1"
         }
       },
@@ -5345,7 +5345,7 @@
           "EDGameEngine.Core.Graphics": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
           "FarsserPhysics.UWP": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Components.Effect/1.0.0": {
@@ -5355,7 +5355,7 @@
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Components.Trigger/1.0.0": {
@@ -5363,14 +5363,14 @@
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Core/1.0.0": {
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.4.0"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Core.Graphics/1.0.0": {
@@ -5379,8 +5379,8 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
-          "Win2D.uwp": "1.20.0"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4",
+          "Win2D.uwp": "1.21.0"
         }
       },
       "EDGameEngine.Core.UI/1.0.0": {
@@ -5389,7 +5389,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Core.Utilities/1.0.0": {
@@ -5397,7 +5397,7 @@
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Visuals.AutoDraw/1.0.0": {
@@ -5407,7 +5407,7 @@
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Visuals.AutoStitch/1.0.0": {
@@ -5416,7 +5416,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Visuals.CA/1.0.0": {
@@ -5425,7 +5425,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Visuals.Fractal/1.0.0": {
@@ -5435,7 +5435,7 @@
           "EDGameEngine.Components.Effect": "1.0.0",
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Visuals.Particles/1.0.0": {
@@ -5445,7 +5445,7 @@
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Visuals.Plant/1.0.0": {
@@ -5455,7 +5455,7 @@
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Visuals.Pointer/1.0.0": {
@@ -5464,7 +5464,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Visuals.StateMachine/1.0.0": {
@@ -5474,14 +5474,14 @@
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "FarsserPhysics.UWP/1.0.0": {
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.4.0"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       }
     },
@@ -5513,7 +5513,7 @@
           "lib/netcore50/Microsoft.CSharp.dll": {}
         }
       },
-      "Microsoft.Net.Native.Compiler/1.7.1": {
+      "Microsoft.Net.Native.Compiler/1.7.2": {
         "type": "package",
         "dependencies": {
           "Microsoft.Net.Native.SharedLibrary-arm": "1.7.0",
@@ -5671,14 +5671,14 @@
           "lib/netstandard1.0/_._": {}
         }
       },
-      "Microsoft.NETCore.UniversalWindowsPlatform/6.0.1": {
+      "Microsoft.NETCore.UniversalWindowsPlatform/6.0.4": {
         "type": "package",
         "dependencies": {
           "Microsoft.NETCore": "5.0.2",
           "Microsoft.NETCore.Portable.Compatibility": "1.0.2",
           "Microsoft.NETCore.Runtime.CoreCLR": "1.0.3",
           "Microsoft.NETCore.Targets": "1.0.2",
-          "Microsoft.Net.Native.Compiler": "1.7.1",
+          "Microsoft.Net.Native.Compiler": "1.7.2",
           "Microsoft.Win32.Primitives": "4.0.1",
           "System.Collections.NonGeneric": "4.0.1",
           "System.Collections.Specialized": "4.0.1",
@@ -5693,7 +5693,7 @@
           "System.Net.Sockets": "4.1.0",
           "System.Net.WebHeaderCollection": "4.0.1",
           "System.Net.WebSockets": "4.0.0",
-          "System.Net.WebSockets.Client": "4.0.0",
+          "System.Net.WebSockets.Client": "4.0.2",
           "System.Numerics.Vectors.WindowsRuntime": "4.0.1",
           "System.Reflection.Context": "4.0.1",
           "System.Runtime.InteropServices.WindowsRuntime": "4.0.1",
@@ -5711,7 +5711,7 @@
           "System.Threading.Overlapped": "4.0.1",
           "System.Xml.XmlDocument": "4.0.1",
           "System.Xml.XmlSerializer": "4.0.11",
-          "runtime.win10-arm-aot.Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "runtime.win10-arm-aot.Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         },
         "compile": {
           "ref/netcore50/_._": {}
@@ -6313,7 +6313,7 @@
           "runtimes/aot/lib/netcore50/System.Runtime.Extensions.dll": {}
         }
       },
-      "runtime.win10-arm-aot.Microsoft.NETCore.UniversalWindowsPlatform/6.0.1": {
+      "runtime.win10-arm-aot.Microsoft.NETCore.UniversalWindowsPlatform/6.0.4": {
         "type": "package",
         "compile": {
           "ref/netstandard/_._": {}
@@ -7069,10 +7069,10 @@
           "lib/netstandard1.3/System.Net.WebSockets.dll": {}
         }
       },
-      "System.Net.WebSockets.Client/4.0.0": {
+      "System.Net.WebSockets.Client/4.0.2": {
         "type": "package",
         "dependencies": {
-          "Microsoft.NETCore.Platforms": "1.0.1",
+          "Microsoft.NETCore.Platforms": "1.0.2",
           "System.Collections": "4.0.11",
           "System.Diagnostics.Debug": "4.0.11",
           "System.Diagnostics.Tracing": "4.1.0",
@@ -8088,7 +8088,7 @@
           "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Win2D.uwp/1.20.0": {
+      "Win2D.uwp/1.21.0": {
         "type": "package",
         "compile": {
           "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
@@ -8105,7 +8105,7 @@
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Components.Audio/1.0.0": {
@@ -8113,7 +8113,7 @@
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4",
           "SharpDX.XAudio2": "4.0.1"
         }
       },
@@ -8125,7 +8125,7 @@
           "EDGameEngine.Core.Graphics": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
           "FarsserPhysics.UWP": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Components.Effect/1.0.0": {
@@ -8135,7 +8135,7 @@
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Components.Trigger/1.0.0": {
@@ -8143,14 +8143,14 @@
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Core/1.0.0": {
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.4.0"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Core.Graphics/1.0.0": {
@@ -8159,8 +8159,8 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
-          "Win2D.uwp": "1.20.0"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4",
+          "Win2D.uwp": "1.21.0"
         }
       },
       "EDGameEngine.Core.UI/1.0.0": {
@@ -8169,7 +8169,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Core.Utilities/1.0.0": {
@@ -8177,7 +8177,7 @@
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Visuals.AutoDraw/1.0.0": {
@@ -8187,7 +8187,7 @@
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Visuals.AutoStitch/1.0.0": {
@@ -8196,7 +8196,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Visuals.CA/1.0.0": {
@@ -8205,7 +8205,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Visuals.Fractal/1.0.0": {
@@ -8215,7 +8215,7 @@
           "EDGameEngine.Components.Effect": "1.0.0",
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Visuals.Particles/1.0.0": {
@@ -8225,7 +8225,7 @@
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Visuals.Plant/1.0.0": {
@@ -8235,7 +8235,7 @@
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Visuals.Pointer/1.0.0": {
@@ -8244,7 +8244,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Visuals.StateMachine/1.0.0": {
@@ -8254,14 +8254,14 @@
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "FarsserPhysics.UWP/1.0.0": {
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.4.0"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       }
     },
@@ -8293,7 +8293,7 @@
           "lib/netcore50/Microsoft.CSharp.dll": {}
         }
       },
-      "Microsoft.Net.Native.Compiler/1.7.1": {
+      "Microsoft.Net.Native.Compiler/1.7.2": {
         "type": "package",
         "dependencies": {
           "Microsoft.Net.Native.SharedLibrary-arm": "1.7.0",
@@ -8453,14 +8453,14 @@
           "lib/netstandard1.0/_._": {}
         }
       },
-      "Microsoft.NETCore.UniversalWindowsPlatform/6.0.1": {
+      "Microsoft.NETCore.UniversalWindowsPlatform/6.0.4": {
         "type": "package",
         "dependencies": {
           "Microsoft.NETCore": "5.0.2",
           "Microsoft.NETCore.Portable.Compatibility": "1.0.2",
           "Microsoft.NETCore.Runtime.CoreCLR": "1.0.3",
           "Microsoft.NETCore.Targets": "1.0.2",
-          "Microsoft.Net.Native.Compiler": "1.7.1",
+          "Microsoft.Net.Native.Compiler": "1.7.2",
           "Microsoft.Win32.Primitives": "4.0.1",
           "System.Collections.NonGeneric": "4.0.1",
           "System.Collections.Specialized": "4.0.1",
@@ -8475,7 +8475,7 @@
           "System.Net.Sockets": "4.1.0",
           "System.Net.WebHeaderCollection": "4.0.1",
           "System.Net.WebSockets": "4.0.0",
-          "System.Net.WebSockets.Client": "4.0.0",
+          "System.Net.WebSockets.Client": "4.0.2",
           "System.Numerics.Vectors.WindowsRuntime": "4.0.1",
           "System.Reflection.Context": "4.0.1",
           "System.Runtime.InteropServices.WindowsRuntime": "4.0.1",
@@ -8493,7 +8493,7 @@
           "System.Threading.Overlapped": "4.0.1",
           "System.Xml.XmlDocument": "4.0.1",
           "System.Xml.XmlSerializer": "4.0.11",
-          "runtime.win10-x64.Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "runtime.win10-x64.Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         },
         "compile": {
           "ref/netcore50/_._": {}
@@ -9050,7 +9050,7 @@
           "runtimes/win/lib/netcore50/System.Runtime.Extensions.dll": {}
         }
       },
-      "runtime.win10-x64.Microsoft.NETCore.UniversalWindowsPlatform/6.0.1": {
+      "runtime.win10-x64.Microsoft.NETCore.UniversalWindowsPlatform/6.0.4": {
         "type": "package",
         "compile": {
           "ref/netstandard/_._": {}
@@ -9822,10 +9822,10 @@
           "lib/netstandard1.3/System.Net.WebSockets.dll": {}
         }
       },
-      "System.Net.WebSockets.Client/4.0.0": {
+      "System.Net.WebSockets.Client/4.0.2": {
         "type": "package",
         "dependencies": {
-          "Microsoft.NETCore.Platforms": "1.0.1",
+          "Microsoft.NETCore.Platforms": "1.0.2",
           "System.Collections": "4.0.11",
           "System.Diagnostics.Debug": "4.0.11",
           "System.Diagnostics.Tracing": "4.1.0",
@@ -10841,7 +10841,7 @@
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Win2D.uwp/1.20.0": {
+      "Win2D.uwp/1.21.0": {
         "type": "package",
         "compile": {
           "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
@@ -10858,7 +10858,7 @@
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Components.Audio/1.0.0": {
@@ -10866,7 +10866,7 @@
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4",
           "SharpDX.XAudio2": "4.0.1"
         }
       },
@@ -10878,7 +10878,7 @@
           "EDGameEngine.Core.Graphics": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
           "FarsserPhysics.UWP": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Components.Effect/1.0.0": {
@@ -10888,7 +10888,7 @@
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Components.Trigger/1.0.0": {
@@ -10896,14 +10896,14 @@
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Core/1.0.0": {
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.4.0"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Core.Graphics/1.0.0": {
@@ -10912,8 +10912,8 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
-          "Win2D.uwp": "1.20.0"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4",
+          "Win2D.uwp": "1.21.0"
         }
       },
       "EDGameEngine.Core.UI/1.0.0": {
@@ -10922,7 +10922,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Core.Utilities/1.0.0": {
@@ -10930,7 +10930,7 @@
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Visuals.AutoDraw/1.0.0": {
@@ -10940,7 +10940,7 @@
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Visuals.AutoStitch/1.0.0": {
@@ -10949,7 +10949,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Visuals.CA/1.0.0": {
@@ -10958,7 +10958,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Visuals.Fractal/1.0.0": {
@@ -10968,7 +10968,7 @@
           "EDGameEngine.Components.Effect": "1.0.0",
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Visuals.Particles/1.0.0": {
@@ -10978,7 +10978,7 @@
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Visuals.Plant/1.0.0": {
@@ -10988,7 +10988,7 @@
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Visuals.Pointer/1.0.0": {
@@ -10997,7 +10997,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Visuals.StateMachine/1.0.0": {
@@ -11007,14 +11007,14 @@
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "FarsserPhysics.UWP/1.0.0": {
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.4.0"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       }
     },
@@ -11046,7 +11046,7 @@
           "lib/netcore50/Microsoft.CSharp.dll": {}
         }
       },
-      "Microsoft.Net.Native.Compiler/1.7.1": {
+      "Microsoft.Net.Native.Compiler/1.7.2": {
         "type": "package",
         "dependencies": {
           "Microsoft.Net.Native.SharedLibrary-arm": "1.7.0",
@@ -11207,14 +11207,14 @@
           "lib/netstandard1.0/_._": {}
         }
       },
-      "Microsoft.NETCore.UniversalWindowsPlatform/6.0.1": {
+      "Microsoft.NETCore.UniversalWindowsPlatform/6.0.4": {
         "type": "package",
         "dependencies": {
           "Microsoft.NETCore": "5.0.2",
           "Microsoft.NETCore.Portable.Compatibility": "1.0.2",
           "Microsoft.NETCore.Runtime.CoreCLR": "1.0.3",
           "Microsoft.NETCore.Targets": "1.0.2",
-          "Microsoft.Net.Native.Compiler": "1.7.1",
+          "Microsoft.Net.Native.Compiler": "1.7.2",
           "Microsoft.Win32.Primitives": "4.0.1",
           "System.Collections.NonGeneric": "4.0.1",
           "System.Collections.Specialized": "4.0.1",
@@ -11229,7 +11229,7 @@
           "System.Net.Sockets": "4.1.0",
           "System.Net.WebHeaderCollection": "4.0.1",
           "System.Net.WebSockets": "4.0.0",
-          "System.Net.WebSockets.Client": "4.0.0",
+          "System.Net.WebSockets.Client": "4.0.2",
           "System.Numerics.Vectors.WindowsRuntime": "4.0.1",
           "System.Reflection.Context": "4.0.1",
           "System.Runtime.InteropServices.WindowsRuntime": "4.0.1",
@@ -11247,7 +11247,7 @@
           "System.Threading.Overlapped": "4.0.1",
           "System.Xml.XmlDocument": "4.0.1",
           "System.Xml.XmlSerializer": "4.0.11",
-          "runtime.win10-x64-aot.Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "runtime.win10-x64-aot.Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         },
         "compile": {
           "ref/netcore50/_._": {}
@@ -11849,7 +11849,7 @@
           "runtimes/aot/lib/netcore50/System.Runtime.Extensions.dll": {}
         }
       },
-      "runtime.win10-x64-aot.Microsoft.NETCore.UniversalWindowsPlatform/6.0.1": {
+      "runtime.win10-x64-aot.Microsoft.NETCore.UniversalWindowsPlatform/6.0.4": {
         "type": "package",
         "compile": {
           "ref/netstandard/_._": {}
@@ -12611,10 +12611,10 @@
           "lib/netstandard1.3/System.Net.WebSockets.dll": {}
         }
       },
-      "System.Net.WebSockets.Client/4.0.0": {
+      "System.Net.WebSockets.Client/4.0.2": {
         "type": "package",
         "dependencies": {
-          "Microsoft.NETCore.Platforms": "1.0.1",
+          "Microsoft.NETCore.Platforms": "1.0.2",
           "System.Collections": "4.0.11",
           "System.Diagnostics.Debug": "4.0.11",
           "System.Diagnostics.Tracing": "4.1.0",
@@ -13630,7 +13630,7 @@
           "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Win2D.uwp/1.20.0": {
+      "Win2D.uwp/1.21.0": {
         "type": "package",
         "compile": {
           "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
@@ -13647,7 +13647,7 @@
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Components.Audio/1.0.0": {
@@ -13655,7 +13655,7 @@
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4",
           "SharpDX.XAudio2": "4.0.1"
         }
       },
@@ -13667,7 +13667,7 @@
           "EDGameEngine.Core.Graphics": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
           "FarsserPhysics.UWP": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Components.Effect/1.0.0": {
@@ -13677,7 +13677,7 @@
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Components.Trigger/1.0.0": {
@@ -13685,14 +13685,14 @@
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Core/1.0.0": {
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.4.0"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Core.Graphics/1.0.0": {
@@ -13701,8 +13701,8 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
-          "Win2D.uwp": "1.20.0"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4",
+          "Win2D.uwp": "1.21.0"
         }
       },
       "EDGameEngine.Core.UI/1.0.0": {
@@ -13711,7 +13711,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Core.Utilities/1.0.0": {
@@ -13719,7 +13719,7 @@
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Visuals.AutoDraw/1.0.0": {
@@ -13729,7 +13729,7 @@
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Visuals.AutoStitch/1.0.0": {
@@ -13738,7 +13738,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Visuals.CA/1.0.0": {
@@ -13747,7 +13747,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Visuals.Fractal/1.0.0": {
@@ -13757,7 +13757,7 @@
           "EDGameEngine.Components.Effect": "1.0.0",
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Visuals.Particles/1.0.0": {
@@ -13767,7 +13767,7 @@
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Visuals.Plant/1.0.0": {
@@ -13777,7 +13777,7 @@
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Visuals.Pointer/1.0.0": {
@@ -13786,7 +13786,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Visuals.StateMachine/1.0.0": {
@@ -13796,14 +13796,14 @@
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "FarsserPhysics.UWP/1.0.0": {
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.4.0"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       }
     },
@@ -13835,7 +13835,7 @@
           "lib/netcore50/Microsoft.CSharp.dll": {}
         }
       },
-      "Microsoft.Net.Native.Compiler/1.7.1": {
+      "Microsoft.Net.Native.Compiler/1.7.2": {
         "type": "package",
         "dependencies": {
           "Microsoft.Net.Native.SharedLibrary-arm": "1.7.0",
@@ -13995,14 +13995,14 @@
           "lib/netstandard1.0/_._": {}
         }
       },
-      "Microsoft.NETCore.UniversalWindowsPlatform/6.0.1": {
+      "Microsoft.NETCore.UniversalWindowsPlatform/6.0.4": {
         "type": "package",
         "dependencies": {
           "Microsoft.NETCore": "5.0.2",
           "Microsoft.NETCore.Portable.Compatibility": "1.0.2",
           "Microsoft.NETCore.Runtime.CoreCLR": "1.0.3",
           "Microsoft.NETCore.Targets": "1.0.2",
-          "Microsoft.Net.Native.Compiler": "1.7.1",
+          "Microsoft.Net.Native.Compiler": "1.7.2",
           "Microsoft.Win32.Primitives": "4.0.1",
           "System.Collections.NonGeneric": "4.0.1",
           "System.Collections.Specialized": "4.0.1",
@@ -14017,7 +14017,7 @@
           "System.Net.Sockets": "4.1.0",
           "System.Net.WebHeaderCollection": "4.0.1",
           "System.Net.WebSockets": "4.0.0",
-          "System.Net.WebSockets.Client": "4.0.0",
+          "System.Net.WebSockets.Client": "4.0.2",
           "System.Numerics.Vectors.WindowsRuntime": "4.0.1",
           "System.Reflection.Context": "4.0.1",
           "System.Runtime.InteropServices.WindowsRuntime": "4.0.1",
@@ -14035,7 +14035,7 @@
           "System.Threading.Overlapped": "4.0.1",
           "System.Xml.XmlDocument": "4.0.1",
           "System.Xml.XmlSerializer": "4.0.11",
-          "runtime.win10-x86.Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "runtime.win10-x86.Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         },
         "compile": {
           "ref/netcore50/_._": {}
@@ -14592,7 +14592,7 @@
           "runtimes/win/lib/netcore50/System.Runtime.Extensions.dll": {}
         }
       },
-      "runtime.win10-x86.Microsoft.NETCore.UniversalWindowsPlatform/6.0.1": {
+      "runtime.win10-x86.Microsoft.NETCore.UniversalWindowsPlatform/6.0.4": {
         "type": "package",
         "compile": {
           "ref/netstandard/_._": {}
@@ -15364,10 +15364,10 @@
           "lib/netstandard1.3/System.Net.WebSockets.dll": {}
         }
       },
-      "System.Net.WebSockets.Client/4.0.0": {
+      "System.Net.WebSockets.Client/4.0.2": {
         "type": "package",
         "dependencies": {
-          "Microsoft.NETCore.Platforms": "1.0.1",
+          "Microsoft.NETCore.Platforms": "1.0.2",
           "System.Collections": "4.0.11",
           "System.Diagnostics.Debug": "4.0.11",
           "System.Diagnostics.Tracing": "4.1.0",
@@ -16383,7 +16383,7 @@
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Win2D.uwp/1.20.0": {
+      "Win2D.uwp/1.21.0": {
         "type": "package",
         "compile": {
           "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
@@ -16400,7 +16400,7 @@
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Components.Audio/1.0.0": {
@@ -16408,7 +16408,7 @@
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4",
           "SharpDX.XAudio2": "4.0.1"
         }
       },
@@ -16420,7 +16420,7 @@
           "EDGameEngine.Core.Graphics": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
           "FarsserPhysics.UWP": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Components.Effect/1.0.0": {
@@ -16430,7 +16430,7 @@
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Components.Trigger/1.0.0": {
@@ -16438,14 +16438,14 @@
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Core/1.0.0": {
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.4.0"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Core.Graphics/1.0.0": {
@@ -16454,8 +16454,8 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
-          "Win2D.uwp": "1.20.0"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4",
+          "Win2D.uwp": "1.21.0"
         }
       },
       "EDGameEngine.Core.UI/1.0.0": {
@@ -16464,7 +16464,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Core.Utilities/1.0.0": {
@@ -16472,7 +16472,7 @@
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Visuals.AutoDraw/1.0.0": {
@@ -16482,7 +16482,7 @@
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Visuals.AutoStitch/1.0.0": {
@@ -16491,7 +16491,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Visuals.CA/1.0.0": {
@@ -16500,7 +16500,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Visuals.Fractal/1.0.0": {
@@ -16510,7 +16510,7 @@
           "EDGameEngine.Components.Effect": "1.0.0",
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Visuals.Particles/1.0.0": {
@@ -16520,7 +16520,7 @@
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Visuals.Plant/1.0.0": {
@@ -16530,7 +16530,7 @@
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Visuals.Pointer/1.0.0": {
@@ -16539,7 +16539,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Visuals.StateMachine/1.0.0": {
@@ -16549,14 +16549,14 @@
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "FarsserPhysics.UWP/1.0.0": {
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.4.0"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       }
     },
@@ -16588,7 +16588,7 @@
           "lib/netcore50/Microsoft.CSharp.dll": {}
         }
       },
-      "Microsoft.Net.Native.Compiler/1.7.1": {
+      "Microsoft.Net.Native.Compiler/1.7.2": {
         "type": "package",
         "dependencies": {
           "Microsoft.Net.Native.SharedLibrary-arm": "1.7.0",
@@ -16749,14 +16749,14 @@
           "lib/netstandard1.0/_._": {}
         }
       },
-      "Microsoft.NETCore.UniversalWindowsPlatform/6.0.1": {
+      "Microsoft.NETCore.UniversalWindowsPlatform/6.0.4": {
         "type": "package",
         "dependencies": {
           "Microsoft.NETCore": "5.0.2",
           "Microsoft.NETCore.Portable.Compatibility": "1.0.2",
           "Microsoft.NETCore.Runtime.CoreCLR": "1.0.3",
           "Microsoft.NETCore.Targets": "1.0.2",
-          "Microsoft.Net.Native.Compiler": "1.7.1",
+          "Microsoft.Net.Native.Compiler": "1.7.2",
           "Microsoft.Win32.Primitives": "4.0.1",
           "System.Collections.NonGeneric": "4.0.1",
           "System.Collections.Specialized": "4.0.1",
@@ -16771,7 +16771,7 @@
           "System.Net.Sockets": "4.1.0",
           "System.Net.WebHeaderCollection": "4.0.1",
           "System.Net.WebSockets": "4.0.0",
-          "System.Net.WebSockets.Client": "4.0.0",
+          "System.Net.WebSockets.Client": "4.0.2",
           "System.Numerics.Vectors.WindowsRuntime": "4.0.1",
           "System.Reflection.Context": "4.0.1",
           "System.Runtime.InteropServices.WindowsRuntime": "4.0.1",
@@ -16789,7 +16789,7 @@
           "System.Threading.Overlapped": "4.0.1",
           "System.Xml.XmlDocument": "4.0.1",
           "System.Xml.XmlSerializer": "4.0.11",
-          "runtime.win10-x86-aot.Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "runtime.win10-x86-aot.Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         },
         "compile": {
           "ref/netcore50/_._": {}
@@ -17391,7 +17391,7 @@
           "runtimes/aot/lib/netcore50/System.Runtime.Extensions.dll": {}
         }
       },
-      "runtime.win10-x86-aot.Microsoft.NETCore.UniversalWindowsPlatform/6.0.1": {
+      "runtime.win10-x86-aot.Microsoft.NETCore.UniversalWindowsPlatform/6.0.4": {
         "type": "package",
         "compile": {
           "ref/netstandard/_._": {}
@@ -18153,10 +18153,10 @@
           "lib/netstandard1.3/System.Net.WebSockets.dll": {}
         }
       },
-      "System.Net.WebSockets.Client/4.0.0": {
+      "System.Net.WebSockets.Client/4.0.2": {
         "type": "package",
         "dependencies": {
-          "Microsoft.NETCore.Platforms": "1.0.1",
+          "Microsoft.NETCore.Platforms": "1.0.2",
           "System.Collections": "4.0.11",
           "System.Diagnostics.Debug": "4.0.11",
           "System.Diagnostics.Tracing": "4.1.0",
@@ -19172,7 +19172,7 @@
           "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Win2D.uwp/1.20.0": {
+      "Win2D.uwp/1.21.0": {
         "type": "package",
         "compile": {
           "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
@@ -19189,7 +19189,7 @@
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Components.Audio/1.0.0": {
@@ -19197,7 +19197,7 @@
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4",
           "SharpDX.XAudio2": "4.0.1"
         }
       },
@@ -19209,7 +19209,7 @@
           "EDGameEngine.Core.Graphics": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
           "FarsserPhysics.UWP": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Components.Effect/1.0.0": {
@@ -19219,7 +19219,7 @@
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Components.Trigger/1.0.0": {
@@ -19227,14 +19227,14 @@
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Core/1.0.0": {
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.4.0"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Core.Graphics/1.0.0": {
@@ -19243,8 +19243,8 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
-          "Win2D.uwp": "1.20.0"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4",
+          "Win2D.uwp": "1.21.0"
         }
       },
       "EDGameEngine.Core.UI/1.0.0": {
@@ -19253,7 +19253,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Core.Utilities/1.0.0": {
@@ -19261,7 +19261,7 @@
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Visuals.AutoDraw/1.0.0": {
@@ -19271,7 +19271,7 @@
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Visuals.AutoStitch/1.0.0": {
@@ -19280,7 +19280,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Visuals.CA/1.0.0": {
@@ -19289,7 +19289,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Visuals.Fractal/1.0.0": {
@@ -19299,7 +19299,7 @@
           "EDGameEngine.Components.Effect": "1.0.0",
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Visuals.Particles/1.0.0": {
@@ -19309,7 +19309,7 @@
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Visuals.Plant/1.0.0": {
@@ -19319,7 +19319,7 @@
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Visuals.Pointer/1.0.0": {
@@ -19328,7 +19328,7 @@
         "dependencies": {
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "EDGameEngine.Visuals.StateMachine/1.0.0": {
@@ -19338,14 +19338,14 @@
           "EDGameEngine.Core": "1.0.0",
           "EDGameEngine.Core.Graphics": "1.0.0",
           "EDGameEngine.Core.Utilities": "1.0.0",
-          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       },
       "FarsserPhysics.UWP/1.0.0": {
         "type": "project",
         "framework": "UAP,Version=v10.0.15063",
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.4.0"
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.4"
         }
       }
     }
@@ -19408,15 +19408,15 @@
         "ref/xamarinwatchos10/_._"
       ]
     },
-    "Microsoft.Net.Native.Compiler/1.7.1": {
-      "sha512": "P55mWSgc8zLrk2eoRxd3T3QPVXXKrqD/DypC+It8wSgZfaUl2/o31bCOR+aWq1NtxDwDnCPGNVsmo/bmgIeJtA==",
+    "Microsoft.Net.Native.Compiler/1.7.2": {
+      "sha512": "3b6ztTeQxeiBMgXAK1/oMzwhQsQ02W6EQ6lU7Ts7ZmoJcwG7qpjI/BfWiHk5CIpaqKP2BEcpTCDdSDcjkO+YHw==",
       "type": "package",
-      "path": "microsoft.net.native.compiler/1.7.1",
+      "path": "microsoft.net.native.compiler/1.7.2",
       "files": [
+        "Microsoft.Net.Native.Compiler.1.7.2.nupkg.sha512",
+        "Microsoft.Net.Native.Compiler.nuspec",
         "build/Microsoft.Net.Native.Compiler.props",
         "build/Microsoft.Net.Native.Compiler.targets",
-        "microsoft.net.native.compiler.1.7.1.nupkg.sha512",
-        "microsoft.net.native.compiler.nuspec",
         "tools/LibraryXML/Callisto.rd.xml",
         "tools/LibraryXML/GalaSoft.MvvmLight.Extras.Win8.rd.xml",
         "tools/LibraryXML/GalaSoft.MvvmLight.Win8.rd.xml",
@@ -21643,15 +21643,15 @@
         "runtime.json"
       ]
     },
-    "Microsoft.NETCore.UniversalWindowsPlatform/6.0.1": {
-      "sha512": "2RI4q8FfR0S50V4YdZIZtzfyA2Bo4+jJHQXG+TDN7D4mPrFiIswIq8HVeDWS9xZsDwz23z7d/T2qi4rZa60Sig==",
+    "Microsoft.NETCore.UniversalWindowsPlatform/6.0.4": {
+      "sha512": "D0sTB0Ng5r69XKBQxdogba180v7+9ckEtrovPHnPhkL+bj+qZ9wONyWTOTn+kvPhSkeEUFRECEFtOyhYNDIUTA==",
       "type": "package",
-      "path": "microsoft.netcore.universalwindowsplatform/6.0.1",
+      "path": "microsoft.netcore.universalwindowsplatform/6.0.4",
       "files": [
         "LICENSE.TXT",
+        "Microsoft.NETCore.UniversalWindowsPlatform.6.0.4.nupkg.sha512",
+        "Microsoft.NETCore.UniversalWindowsPlatform.nuspec",
         "THIRD-PARTY-NOTICES.TXT",
-        "microsoft.netcore.universalwindowsplatform.6.0.1.nupkg.sha512",
-        "microsoft.netcore.universalwindowsplatform.nuspec",
         "ref/netcore50/_._",
         "ref/uap10.0.15138/Microsoft.CSharp.dll",
         "ref/uap10.0.15138/Microsoft.CSharp.xml",
@@ -23088,16 +23088,16 @@
         "runtimes/win/lib/netstandard1.5/System.Runtime.Extensions.dll"
       ]
     },
-    "runtime.win10-arm-aot.Microsoft.NETCore.UniversalWindowsPlatform/6.0.1": {
-      "sha512": "ZGShwJB9yNwHyM+w7g8int9gmurykzvy+SWv74+lCul0ddTmtI9WhXrAg3Dyub9urV7/lUtUjCjH+cSC5/5t7A==",
+    "runtime.win10-arm-aot.Microsoft.NETCore.UniversalWindowsPlatform/6.0.4": {
+      "sha512": "9xRow1giMV7bAp/06SMhs0Gf+bx2Ctp248bcBm/h0ZGcR1SJiAPuVvhDaSzxyMrTe08t/vf5pYMHj9kyMFtw1w==",
       "type": "package",
-      "path": "runtime.win10-arm-aot.microsoft.netcore.universalwindowsplatform/6.0.1",
+      "path": "runtime.win10-arm-aot.microsoft.netcore.universalwindowsplatform/6.0.4",
       "files": [
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
         "ref/netstandard/_._",
-        "runtime.win10-arm-aot.microsoft.netcore.universalwindowsplatform.6.0.1.nupkg.sha512",
-        "runtime.win10-arm-aot.microsoft.netcore.universalwindowsplatform.nuspec",
+        "runtime.win10-arm-aot.Microsoft.NETCore.UniversalWindowsPlatform.6.0.4.nupkg.sha512",
+        "runtime.win10-arm-aot.Microsoft.NETCore.UniversalWindowsPlatform.nuspec",
         "runtimes/win10-arm-aot/lib/uap10.0.15138/Microsoft.CSharp.dll",
         "runtimes/win10-arm-aot/lib/uap10.0.15138/Microsoft.VisualBasic.dll",
         "runtimes/win10-arm-aot/lib/uap10.0.15138/Microsoft.Win32.Primitives.dll",
@@ -23277,16 +23277,16 @@
         "runtimes/win10-arm-aot/lib/netcore50/clrcompression.dll"
       ]
     },
-    "runtime.win10-arm.Microsoft.NETCore.UniversalWindowsPlatform/6.0.1": {
-      "sha512": "GaE6GmyEmK2NX2PMfBJGGzLQSUWYO18LDbbCVaNJecnaa0XdBLFOouBoI8X19CcJVww62ugzwM75JjfHw60Wnw==",
+    "runtime.win10-arm.Microsoft.NETCore.UniversalWindowsPlatform/6.0.4": {
+      "sha512": "W1DmqqLsa5ApstteB2tcOWk9Ca1NvT7vTk67fu/JOE1BGkVn6BfD6BxFJG0+70kHIUyHcJPwGDnZ6JDk5d0ikg==",
       "type": "package",
-      "path": "runtime.win10-arm.microsoft.netcore.universalwindowsplatform/6.0.1",
+      "path": "runtime.win10-arm.microsoft.netcore.universalwindowsplatform/6.0.4",
       "files": [
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
         "ref/netstandard/_._",
-        "runtime.win10-arm.microsoft.netcore.universalwindowsplatform.6.0.1.nupkg.sha512",
-        "runtime.win10-arm.microsoft.netcore.universalwindowsplatform.nuspec",
+        "runtime.win10-arm.Microsoft.NETCore.UniversalWindowsPlatform.6.0.4.nupkg.sha512",
+        "runtime.win10-arm.Microsoft.NETCore.UniversalWindowsPlatform.nuspec",
         "runtimes/win10-arm/lib/uap10.0.15138/Microsoft.CSharp.dll",
         "runtimes/win10-arm/lib/uap10.0.15138/Microsoft.VisualBasic.dll",
         "runtimes/win10-arm/lib/uap10.0.15138/Microsoft.Win32.Primitives.dll",
@@ -23453,16 +23453,16 @@
         "runtimes/win10-arm/nativeassets/uap10.0.15138/clrcompression.dll"
       ]
     },
-    "runtime.win10-x64-aot.Microsoft.NETCore.UniversalWindowsPlatform/6.0.1": {
-      "sha512": "ouTXA9SGNNtKOorZBMYOCNVN8TxC4RlvaxzAU+ZRAxI00GMfoEBKjfd5FHJMtyi6+lng4yjpdUuz9h1ePgYV9Q==",
+    "runtime.win10-x64-aot.Microsoft.NETCore.UniversalWindowsPlatform/6.0.4": {
+      "sha512": "xX/N8leWGv6hJvA4ABOKaG4ixRwU9RN01AmnggiBDgTtPaPJAGbZpuiSQy7yZNpsqpMgDk4z2ag29l/vs3luDQ==",
       "type": "package",
-      "path": "runtime.win10-x64-aot.microsoft.netcore.universalwindowsplatform/6.0.1",
+      "path": "runtime.win10-x64-aot.microsoft.netcore.universalwindowsplatform/6.0.4",
       "files": [
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
         "ref/netstandard/_._",
-        "runtime.win10-x64-aot.microsoft.netcore.universalwindowsplatform.6.0.1.nupkg.sha512",
-        "runtime.win10-x64-aot.microsoft.netcore.universalwindowsplatform.nuspec",
+        "runtime.win10-x64-aot.Microsoft.NETCore.UniversalWindowsPlatform.6.0.4.nupkg.sha512",
+        "runtime.win10-x64-aot.Microsoft.NETCore.UniversalWindowsPlatform.nuspec",
         "runtimes/win10-x64-aot/lib/uap10.0.15138/Microsoft.CSharp.dll",
         "runtimes/win10-x64-aot/lib/uap10.0.15138/Microsoft.VisualBasic.dll",
         "runtimes/win10-x64-aot/lib/uap10.0.15138/Microsoft.Win32.Primitives.dll",
@@ -23642,16 +23642,16 @@
         "runtimes/win10-x64-aot/lib/netcore50/clrcompression.dll"
       ]
     },
-    "runtime.win10-x64.Microsoft.NETCore.UniversalWindowsPlatform/6.0.1": {
-      "sha512": "iq7w9LmLzJla647TOEXrghCK14zw4ImIlnyZAO+h/XoRoq3l1OSng+hRBHzusgKwhvubdKHNlZWA9j4aj2fIng==",
+    "runtime.win10-x64.Microsoft.NETCore.UniversalWindowsPlatform/6.0.4": {
+      "sha512": "kzhOIrg9yZa0JORjZTDj272wCJ5VgowkxEiX5oPPRefd3sE1/mmiLUKrMOC3RESv5QZkPiABzkjIRVRNqsgWyw==",
       "type": "package",
-      "path": "runtime.win10-x64.microsoft.netcore.universalwindowsplatform/6.0.1",
+      "path": "runtime.win10-x64.microsoft.netcore.universalwindowsplatform/6.0.4",
       "files": [
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
         "ref/netstandard/_._",
-        "runtime.win10-x64.microsoft.netcore.universalwindowsplatform.6.0.1.nupkg.sha512",
-        "runtime.win10-x64.microsoft.netcore.universalwindowsplatform.nuspec",
+        "runtime.win10-x64.Microsoft.NETCore.UniversalWindowsPlatform.6.0.4.nupkg.sha512",
+        "runtime.win10-x64.Microsoft.NETCore.UniversalWindowsPlatform.nuspec",
         "runtimes/win10-x64/lib/uap10.0.15138/Microsoft.CSharp.dll",
         "runtimes/win10-x64/lib/uap10.0.15138/Microsoft.VisualBasic.dll",
         "runtimes/win10-x64/lib/uap10.0.15138/Microsoft.Win32.Primitives.dll",
@@ -23818,16 +23818,16 @@
         "runtimes/win10-x64/nativeassets/uap10.0.15138/clrcompression.dll"
       ]
     },
-    "runtime.win10-x86-aot.Microsoft.NETCore.UniversalWindowsPlatform/6.0.1": {
-      "sha512": "p4GOowv8/INpx65r/TU0OUNoBC3Qk3kbRKPAkqQ05Tf/rTg8NOLR+qxvNRlH49rsUvGb14RarUqscgwcekBOXA==",
+    "runtime.win10-x86-aot.Microsoft.NETCore.UniversalWindowsPlatform/6.0.4": {
+      "sha512": "N+bSRgUV0o0LUve8jTNCRHRTPJ/r+q02cKGe6hqlstMGS00Ade4G6ISQdEkmGZt29jXgs1d/EW9goWMWrsDrYg==",
       "type": "package",
-      "path": "runtime.win10-x86-aot.microsoft.netcore.universalwindowsplatform/6.0.1",
+      "path": "runtime.win10-x86-aot.microsoft.netcore.universalwindowsplatform/6.0.4",
       "files": [
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
         "ref/netstandard/_._",
-        "runtime.win10-x86-aot.microsoft.netcore.universalwindowsplatform.6.0.1.nupkg.sha512",
-        "runtime.win10-x86-aot.microsoft.netcore.universalwindowsplatform.nuspec",
+        "runtime.win10-x86-aot.Microsoft.NETCore.UniversalWindowsPlatform.6.0.4.nupkg.sha512",
+        "runtime.win10-x86-aot.Microsoft.NETCore.UniversalWindowsPlatform.nuspec",
         "runtimes/win10-x86-aot/lib/uap10.0.15138/Microsoft.CSharp.dll",
         "runtimes/win10-x86-aot/lib/uap10.0.15138/Microsoft.VisualBasic.dll",
         "runtimes/win10-x86-aot/lib/uap10.0.15138/Microsoft.Win32.Primitives.dll",
@@ -24007,16 +24007,16 @@
         "runtimes/win10-x86-aot/lib/netcore50/clrcompression.dll"
       ]
     },
-    "runtime.win10-x86.Microsoft.NETCore.UniversalWindowsPlatform/6.0.1": {
-      "sha512": "nT3j6rR+hZwec3IGcFE8Vsq0bURezJzpCVg9UwQ9dzDXOrZrOfJm0RzWSuC5imRphSCFzz57I73TplpXyC1PUA==",
+    "runtime.win10-x86.Microsoft.NETCore.UniversalWindowsPlatform/6.0.4": {
+      "sha512": "7S9jdgHXE2MH9llcDz0QQA9Ei2vZKs3cIYgiFKS48kBdB8ZIhY+EbJ0OvByhMBTZQiRs+NokieSuhge5z0nnDw==",
       "type": "package",
-      "path": "runtime.win10-x86.microsoft.netcore.universalwindowsplatform/6.0.1",
+      "path": "runtime.win10-x86.microsoft.netcore.universalwindowsplatform/6.0.4",
       "files": [
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
         "ref/netstandard/_._",
-        "runtime.win10-x86.microsoft.netcore.universalwindowsplatform.6.0.1.nupkg.sha512",
-        "runtime.win10-x86.microsoft.netcore.universalwindowsplatform.nuspec",
+        "runtime.win10-x86.Microsoft.NETCore.UniversalWindowsPlatform.6.0.4.nupkg.sha512",
+        "runtime.win10-x86.Microsoft.NETCore.UniversalWindowsPlatform.nuspec",
         "runtimes/win10-x86/lib/uap10.0.15138/Microsoft.CSharp.dll",
         "runtimes/win10-x86/lib/uap10.0.15138/Microsoft.VisualBasic.dll",
         "runtimes/win10-x86/lib/uap10.0.15138/Microsoft.Win32.Primitives.dll",
@@ -26621,13 +26621,11 @@
         "ref/xamarinwatchos10/_._"
       ]
     },
-    "System.Net.WebSockets.Client/4.0.0": {
-      "sha512": "GY5h9cn0ZVsG4ORQqMytTldrqxet2RC2CSEsgWGf4XNW5jhL5SxzcUZph03xbZsgn7K3qMr+Rq+gkbJNI+FEXg==",
+    "System.Net.WebSockets.Client/4.0.2": {
+      "sha512": "NUCcDroX4lCQXgOrzlwIZ1u9YJ0krfyF0wk0ONnyLUmcQoEiYV2/OfUPRqUwQBbpH1BlGApkLgoQUwMqb5+c1g==",
       "type": "package",
-      "path": "system.net.websockets.client/4.0.0",
+      "path": "system.net.websockets.client/4.0.2",
       "files": [
-        "System.Net.WebSockets.Client.4.0.0.nupkg.sha512",
-        "System.Net.WebSockets.Client.nuspec",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -26658,7 +26656,9 @@
         "runtimes/unix/lib/netstandard1.3/System.Net.WebSockets.Client.dll",
         "runtimes/win/lib/net46/System.Net.WebSockets.Client.dll",
         "runtimes/win/lib/netcore50/System.Net.WebSockets.Client.dll",
-        "runtimes/win/lib/netstandard1.3/System.Net.WebSockets.Client.dll"
+        "runtimes/win/lib/netstandard1.3/System.Net.WebSockets.Client.dll",
+        "system.net.websockets.client.4.0.2.nupkg.sha512",
+        "system.net.websockets.client.nuspec"
       ]
     },
     "System.Numerics.Vectors/4.1.1": {
@@ -29452,13 +29452,11 @@
         "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll"
       ]
     },
-    "Win2D.uwp/1.20.0": {
-      "sha512": "sFyNT2EiV6vmEFMrkiJdSolaKNyOyk+kfjgvXN8XqUhdEPqBd2zPrFdl7SojNHQGm2Br6JLIBOdrj9fB1Qy4GA==",
+    "Win2D.uwp/1.21.0": {
+      "sha512": "4Ds/p7HgysgV67pBo/+w7Lidj08Hfa4GD9Zg9HdN3/zLfzRPttHrIn2TUiOUZCgH4eLVJwzOk114ntv4bveS1Q==",
       "type": "package",
-      "path": "win2d.uwp/1.20.0",
+      "path": "win2d.uwp/1.21.0",
       "files": [
-        "Win2D.uwp.1.20.0.nupkg.sha512",
-        "Win2D.uwp.nuspec",
         "Win2d.githash.txt",
         "build/native/Win2D.uwp.targets",
         "include/Microsoft.Graphics.Canvas.h",
@@ -29467,7 +29465,9 @@
         "lib/uap10.0/Microsoft.Graphics.Canvas.xml",
         "runtimes/win10-arm/native/Microsoft.Graphics.Canvas.dll",
         "runtimes/win10-x64/native/Microsoft.Graphics.Canvas.dll",
-        "runtimes/win10-x86/native/Microsoft.Graphics.Canvas.dll"
+        "runtimes/win10-x86/native/Microsoft.Graphics.Canvas.dll",
+        "win2d.uwp.1.21.0.nupkg.sha512",
+        "win2d.uwp.nuspec"
       ]
     },
     "EDGameEngine.Components.Animation/1.0.0": {
@@ -29563,13 +29563,14 @@
   },
   "projectFileDependencyGroups": {
     "": [
-      "Microsoft.NETCore.UniversalWindowsPlatform >= 6.0.1",
+      "Microsoft.NETCore.UniversalWindowsPlatform >= 6.0.4",
       "Microsoft.Toolkit.Uwp.UI.Controls >= 2.0.0"
     ],
     "UAP,Version=v10.0.15063": []
   },
   "packageFolders": {
-    "C:\\Users\\ExperDot\\.nuget\\packages\\": {}
+    "C:\\Users\\ExperDot\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {}
   },
   "project": {
     "restore": {
@@ -29580,9 +29581,13 @@
       "packagesPath": "C:\\Users\\ExperDot\\.nuget\\packages\\",
       "outputPath": "E:\\GitHub\\ExperDot.EDGameEngine\\ExampleGallery\\obj\\",
       "projectStyle": "ProjectJson",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\"
+      ],
       "configFilePaths": [
         "C:\\Users\\ExperDot\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -29647,8 +29652,8 @@
       }
     },
     "dependencies": {
-      "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
-      "Microsoft.Toolkit.Uwp.UI.Controls": "2.0.0"
+      "Microsoft.NETCore.UniversalWindowsPlatform": "[6.0.4, )",
+      "Microsoft.Toolkit.Uwp.UI.Controls": "[2.0.0, )"
     },
     "frameworks": {
       "uap10.0.15063": {}
