@@ -229,4 +229,6 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
-.vs/EDGameEngineApplication/v15/sqlite3/storage.ide
+
+# VisualStudio .vs
+.vs/
