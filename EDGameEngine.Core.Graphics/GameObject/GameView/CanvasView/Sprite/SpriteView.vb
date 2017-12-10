@@ -4,9 +4,6 @@
 ''' </summary>
 Public Class SpriteView
     Inherits TypedCanvasView(Of ISprite)
-    Public Sub New(Target As ISprite)
-        MyBase.New(Target)
-    End Sub
     Public Overrides Sub OnDraw(drawingSession As CanvasDrawingSession)
         If Target.Image IsNot Nothing Then
             drawingSession.DrawImage(Target.Image)

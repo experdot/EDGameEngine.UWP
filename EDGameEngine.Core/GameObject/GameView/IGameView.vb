@@ -6,4 +6,12 @@ Public Interface IGameView
     ''' 是否允许位图缓存
     ''' </summary>
     Property CacheAllowed As Boolean
+    ''' <summary>
+    ''' 附加至的可视化对象
+    ''' </summary>
+    Property GameVisual As IGameVisual
+    ''' <summary>
+    ''' 附加至指定的<see cref=" IGameVisual"/>对象
+    ''' </summary>
+    Sub AttachToGameVisual(target As IGameVisual)
 End Interface

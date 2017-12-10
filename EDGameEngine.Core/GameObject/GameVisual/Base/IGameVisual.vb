@@ -28,4 +28,6 @@ Public Interface IGameVisual
     ''' 矩形框
     ''' </summary>
     Property Rect As Rect
+
+    Sub AttachGameView(view As IGameView)
 End Interface

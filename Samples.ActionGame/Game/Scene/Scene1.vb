@@ -12,7 +12,7 @@ Public Class Scene1
     Protected Overrides Sub CreateObject()
 
         Dim temp As New ActionGameModel
-        AddGameVisual(temp, New ActionGameView(temp))
+        AddGameVisual(temp, New ActionGameView())
 
         '画面居中
         temp.GameComponents.Behaviors.Add(New TransformScript)

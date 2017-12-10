@@ -1,4 +1,5 @@
-﻿Imports Microsoft.Graphics.Canvas
+﻿Imports EDGameEngine.Core
+Imports Microsoft.Graphics.Canvas
 Imports Microsoft.Graphics.Canvas.Effects
 Imports Windows.Graphics.Effects
 ''' <summary>
@@ -6,9 +7,22 @@ Imports Windows.Graphics.Effects
 ''' </summary>
 Public MustInherit Class TypedCanvasView(Of T As IGameVisual)
     Inherits CanvasView
+    Public Overrides Property GameVisual As IGameVisual
+        Get
+            Return Target
+        End Get
+        Set(value As IGameVisual)
+            Target = CType(value, T)
+        End Set
+    End Property
+    ''' <summary>
+    ''' 渲染目标
+    ''' </summary>
     Protected Property Target As T
-    Sub New(Target As T)
-        Me.Target = Target
+
+    Public Overrides Sub AttachToGameVisual(target As IGameVisual)
+        Me.Target = CType(target, T)
+        target.Presenter = Me
     End Sub
     Public Overrides Sub BeginDraw(drawingSession As CanvasDrawingSession)
         If CacheAllowed AndAlso Cache IsNot Nothing Then

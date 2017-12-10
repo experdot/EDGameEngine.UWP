@@ -1,5 +1,4 @@
 ﻿Imports System.Numerics
-Imports ActionGameLib.UWP
 Imports EDGameEngine.Core
 Imports EDGameEngine.Core.Graphics
 Imports Microsoft.Graphics.Canvas
@@ -7,9 +6,6 @@ Imports Windows.UI
 
 Public Class ActionGameView
     Inherits TypedCanvasView(Of ActionGameModel)
-    Public Sub New(Target As ActionGameModel)
-        MyBase.New(Target)
-    End Sub
     Public Overrides Sub OnDraw(drawingSession As CanvasDrawingSession)
         Static SrcRect As Rect = New Rect(0, 0, 128, 128)
         Dim imageResource As ImageResource = CType(Target.Scene, IObjectWithImageResource).ImageResource

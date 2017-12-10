@@ -7,9 +7,6 @@ Imports Windows.UI
 ''' </summary>
 Public Class PointerView
     Inherits TypedCanvasView(Of Pointer)
-    Public Sub New(Target As Pointer)
-        MyBase.New(Target)
-    End Sub
     Public Overrides Sub OnDraw(DrawingSession As CanvasDrawingSession)
         Static col As Color = Colors.Black
         Dim index As Integer = 1

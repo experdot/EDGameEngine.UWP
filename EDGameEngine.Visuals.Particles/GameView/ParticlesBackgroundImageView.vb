@@ -26,10 +26,6 @@ Public Class ParticlesBackgroundImageView
     ''' </summary>
     Public Property Opacity As Single = 1.0F
 
-    Public Sub New(Target As IParticles)
-        MyBase.New(Target)
-    End Sub
-
     Public Overrides Sub OnDraw(drawingSession As CanvasDrawingSession)
         Static ImageResource As ImageResource = CType(Target.Scene, IObjectWithImageResource).ImageResource
         Static Image As CanvasBitmap = DirectCast(ImageResource.GetResource(ImageResourceId), CanvasBitmap)

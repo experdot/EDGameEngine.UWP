@@ -23,6 +23,10 @@ Public MustInherit Class GameBody
         UpdateEx()
         GameComponents.Update()
     End Sub
+    Public Sub AttachGameView(view As IGameView) Implements IGameVisual.AttachGameView
+        Me.Presenter = view
+        view.GameVisual = Me
+    End Sub
 
     Public MustOverride Sub StartEx()
     Public MustOverride Sub UpdateEx()

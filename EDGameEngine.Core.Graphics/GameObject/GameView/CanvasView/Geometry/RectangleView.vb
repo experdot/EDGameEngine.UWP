@@ -4,9 +4,6 @@
 ''' </summary>
 Public Class RectangleView
     Inherits TypedCanvasView(Of VisualRectangle)
-    Public Sub New(Target As VisualRectangle)
-        MyBase.New(Target)
-    End Sub
     Public Overrides Sub OnDraw(drawingSession As CanvasDrawingSession)
         If Target.Fill.State Then
             drawingSession.FillRectangle(Target.Rectangle, Target.Fill.Color)

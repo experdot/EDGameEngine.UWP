@@ -22,10 +22,6 @@ Public Class PlantView
     ''' </summary>
     Public Property FlowerResourceId As Integer
 
-    Public Sub New(Target As IPlant)
-        MyBase.New(Target)
-    End Sub
-
     Public Overrides Sub OnDraw(drawingSession As CanvasDrawingSession)
         DrawTree(drawingSession, Target.Root)
     End Sub

@@ -7,9 +7,6 @@ Imports Windows.UI
 ''' </summary>
 Public Class SceneView
     Inherits TypedCanvasView(Of IScene)
-    Public Sub New(Target As IScene)
-        MyBase.New(Target)
-    End Sub
     Public Overrides Sub OnDraw(drawingSession As CanvasDrawingSession)
         If Target.State = SceneState.Loop Then
             LoadedDraw(drawingSession)

@@ -29,10 +29,6 @@ Public Class LSystemTreeView
 
     Private Rnd As New Random
 
-    Public Sub New(Target As IStateMachine)
-        MyBase.New(Target)
-    End Sub
-
     Public Overrides Sub OnDraw(drawingSession As CanvasDrawingSession)
         Static CurrentI As Integer = 0
 

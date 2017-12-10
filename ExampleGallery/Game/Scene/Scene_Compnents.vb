@@ -24,62 +24,62 @@ Public Class Scene_Compnents
                 Dim tempModel As New Sprite() With {.Image = CType(image, CanvasBitmap)}
                 tempModel.GameComponents.Effects.Add(New GaussianBlurEffect)
                 tempModel.GameComponents.Behaviors.Add(New TransformScript)
-                Me.AddGameVisual(tempModel, New SpriteView(tempModel))
+                Me.AddGameVisual(tempModel, New SpriteView())
             Case 1001 '磨砂玻璃
                 Dim image As ICanvasImage = ImageResource.GetResource(ImageResourceId.Scenery1)
                 Dim tempModel As New Sprite() With {.Image = CType(image, CanvasBitmap)}
                 tempModel.GameComponents.Effects.Add(New FrostedEffect)
                 tempModel.GameComponents.Behaviors.Add(New TransformScript)
-                Me.AddGameVisual(tempModel, New SpriteView(tempModel))
+                Me.AddGameVisual(tempModel, New SpriteView())
             Case 1002 '残影效果
                 Dim image As ICanvasImage = ImageResource.GetResource(ImageResourceId.Scenery1)
                 Dim tempModel As New Sprite() With {.Image = CType(image, CanvasBitmap)}
                 tempModel.GameComponents.Effects.Add(New GhostEffect)
                 tempModel.GameComponents.Behaviors.Add(New TransformScript)
-                Me.AddGameVisual(tempModel, New SpriteView(tempModel))
+                Me.AddGameVisual(tempModel, New SpriteView())
             Case 1003 '光照效果
                 Dim image As ICanvasImage = ImageResource.GetResource(ImageResourceId.Scenery1)
                 Dim tempModel As New Sprite() With {.Image = CType(image, CanvasBitmap)}
                 tempModel.GameComponents.Effects.Add(New LightEffect)
                 tempModel.GameComponents.Behaviors.Add(New TransformScript)
-                Me.AddGameVisual(tempModel, New SpriteView(tempModel))
+                Me.AddGameVisual(tempModel, New SpriteView())
             Case 1004 '像素变换
                 Dim image As ICanvasImage = ImageResource.GetResource(ImageResourceId.Scenery1)
                 Dim tempModel As New Sprite() With {.Image = CType(image, CanvasBitmap)}
                 tempModel.GameComponents.Effects.Add(New PixelEffect)
                 tempModel.GameComponents.Behaviors.Add(New TransformScript)
-                Me.AddGameVisual(tempModel, New SpriteView(tempModel))
+                Me.AddGameVisual(tempModel, New SpriteView())
             Case 1005 '水波效果
                 Dim image As ICanvasImage = ImageResource.GetResource(ImageResourceId.Scenery1)
                 Dim bmp As CanvasBitmap = CType(image, CanvasBitmap)
                 Dim tempModel As New Sprite() With {.Image = bmp}
                 tempModel.GameComponents.Effects.Add(New RippleEffect(CInt(bmp.Bounds.Width), CInt(bmp.Bounds.Height)))
                 tempModel.GameComponents.Behaviors.Add(New TransformScript)
-                Me.AddGameVisual(tempModel, New SpriteView(tempModel))
+                Me.AddGameVisual(tempModel, New SpriteView())
             Case 1006 '阴影效果
                 Dim image As ICanvasImage = ImageResource.GetResource(ImageResourceId.Scenery1)
                 Dim tempModel As New Sprite() With {.Image = CType(image, CanvasBitmap)}
                 tempModel.GameComponents.Effects.Add(New ShadowEffect)
                 tempModel.GameComponents.Behaviors.Add(New TransformScript)
-                Me.AddGameVisual(tempModel, New SpriteView(tempModel))
+                Me.AddGameVisual(tempModel, New SpriteView())
             Case 1007 '水流效果
                 Dim image As ICanvasImage = ImageResource.GetResource(ImageResourceId.Scenery1)
                 Dim tempModel As New Sprite() With {.Image = CType(image, CanvasBitmap)}
                 tempModel.GameComponents.Effects.Add(New StreamEffect)
                 tempModel.GameComponents.Behaviors.Add(New TransformScript)
-                Me.AddGameVisual(tempModel, New SpriteView(tempModel))
+                Me.AddGameVisual(tempModel, New SpriteView())
             Case 1008 '二值变换
                 Dim image As ICanvasImage = ImageResource.GetResource(ImageResourceId.Scenery1)
                 Dim tempModel As New Sprite() With {.Image = CType(image, CanvasBitmap)}
                 tempModel.GameComponents.Effects.Add(New ThresholdEffect)
                 tempModel.GameComponents.Behaviors.Add(New TransformScript)
-                Me.AddGameVisual(tempModel, New SpriteView(tempModel))
+                Me.AddGameVisual(tempModel, New SpriteView())
             Case 1009 '波纹效果
                 Dim image As ICanvasImage = ImageResource.GetResource(ImageResourceId.Scenery1)
                 Dim tempModel As New Sprite() With {.Image = CType(image, CanvasBitmap)}
                 tempModel.GameComponents.Effects.Add(New WaveEffect)
                 tempModel.GameComponents.Behaviors.Add(New TransformScript)
-                Me.AddGameVisual(tempModel, New SpriteView(tempModel))
+                Me.AddGameVisual(tempModel, New SpriteView())
 
             Case 4000 '音效控制
             Case 4001 '创建物体

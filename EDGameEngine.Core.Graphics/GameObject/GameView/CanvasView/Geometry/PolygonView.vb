@@ -4,10 +4,6 @@
 ''' </summary>
 Public Class PolygonView
     Inherits TypedCanvasView(Of VisualPolygon)
-    Public Sub New(Target As VisualPolygon)
-        MyBase.New(Target)
-    End Sub
-
     Public Overrides Sub OnDraw(drawingSession As CanvasDrawingSession)
         If Target.Fill.State Then
             drawingSession.FillGeometry(Target.Geometry, Target.Fill.Color)

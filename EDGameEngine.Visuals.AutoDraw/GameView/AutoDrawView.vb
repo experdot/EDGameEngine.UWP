@@ -9,9 +9,6 @@ Imports EDGameEngine.Core.Utilities
 ''' </summary>
 Public Class AutoDrawView
     Inherits TypedCanvasView(Of IAutoDrawModel)
-    Public Sub New(Target As IAutoDrawModel)
-        MyBase.New(Target)
-    End Sub
     Public Overrides Sub OnDraw(drawingSession As CanvasDrawingSession)
         Static Paint As New Paint(drawingSession, Target.ImageSize, Target.LayerCount)
         Using drawing = Paint.CreateLayerDrawing()

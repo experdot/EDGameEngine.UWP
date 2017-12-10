@@ -33,12 +33,12 @@ Public Class Scene_Visuals
                     For j = 0 To Rnd.Next(1, 5)
                         line.Points.Add(New Vector2(CSng(Width * Rnd.NextDouble), CSng(Height * Rnd.NextDouble)))
                     Next
-                    Me.AddGameVisual(line, New LineView(line) With {.CacheAllowed = True})
+                    Me.AddGameVisual(line, New LineView() With {.CacheAllowed = True})
                     line.GameComponents.Behaviors.Add(New KeyControlScript With {.MaxSpeed = CSng(1 + Rnd.NextDouble * 5)})
                 Next
                 Dim text As New VisualText With {.Text = "Press the arrow keys to move the lines."}
                 text.GameComponents.Behaviors.Add(New TransformScript)
-                Me.AddGameVisual(text, New TextView(text), 1)
+                Me.AddGameVisual(text, New TextView(), 1)
             Case 10001 '矩形
                 For i = 0 To 10
                     Dim fill As New FillStyle(True, Utilities.ColorHelper.GetRandomColor)
@@ -46,12 +46,12 @@ Public Class Scene_Visuals
                     Dim rect As New Rect(0, 0, Rnd.Next(20, 400), Rnd.Next(20, 400))
                     Dim rectModel As New VisualRectangle() With {.Rectangle = rect, .Border = border, .Fill = fill}
                     rectModel.Transform.Translation = New Vector2(CSng(Width * Rnd.NextDouble), CSng(Height * Rnd.NextDouble))
-                    Me.AddGameVisual(rectModel, New RectangleView(rectModel) With {.CacheAllowed = True})
+                    Me.AddGameVisual(rectModel, New RectangleView() With {.CacheAllowed = True})
                     rectModel.GameComponents.Behaviors.Add(New KeyControlScript With {.MaxSpeed = CSng(1 + Rnd.NextDouble * 5)})
                 Next
                 Dim text As New VisualText With {.Text = "Press the arrow keys to move the rectangels."}
                 text.GameComponents.Behaviors.Add(New TransformScript)
-                Me.AddGameVisual(text, New TextView(text), 1)
+                Me.AddGameVisual(text, New TextView(), 1)
                 Me.GameLayers(0).GameComponents.Effects.Add(New GhostEffect() With {.Offset = Vector2.One, .Opacity = 0.96F})
             Case 10002 '圆形
                 For i = 0 To 10
@@ -59,12 +59,12 @@ Public Class Scene_Visuals
                     Dim border As New BorderStyle(True, CSng(Rnd.NextDouble * 5), Utilities.ColorHelper.GetRandomColor)
                     Dim circleModel As New VisualCircle() With {.Radius = CSng(Rnd.NextDouble * 200), .Border = border, .Fill = fill}
                     circleModel.Transform.Translation = New Vector2(CSng(Width * Rnd.NextDouble), CSng(Height * Rnd.NextDouble))
-                    Me.AddGameVisual(circleModel, New CircleView(circleModel) With {.CacheAllowed = True})
+                    Me.AddGameVisual(circleModel, New CircleView() With {.CacheAllowed = True})
                     circleModel.GameComponents.Behaviors.Add(New KeyControlScript With {.MaxSpeed = CSng(1 + Rnd.NextDouble * 5)})
                 Next
                 Dim text As New VisualText With {.Text = "Press the arrow keys to move the circles."}
                 text.GameComponents.Behaviors.Add(New TransformScript)
-                Me.AddGameVisual(text, New TextView(text), 1)
+                Me.AddGameVisual(text, New TextView(), 1)
                 Me.GameLayers(0).GameComponents.Effects.Add(New GhostEffect() With {.Offset = Vector2.One, .Opacity = 0.96F})
             Case 10003 '多边形
                 For i = 0 To 10
@@ -73,17 +73,17 @@ Public Class Scene_Visuals
                     Dim geo = GeometryHelper.CreateRegularPolygon(CType(Scene.World, IObjectWithResourceCreator).ResourceCreator, Rnd.Next(3, 8), Rnd.Next(20, 200), CSng(Rnd.NextDouble * Math.PI))
                     Dim polygonModel As New VisualPolygon() With {.Geometry = geo, .Border = border, .Fill = fill}
                     polygonModel.Transform.Translation = New Vector2(CSng(Width * Rnd.NextDouble), CSng(Height * Rnd.NextDouble))
-                    Me.AddGameVisual(polygonModel, New PolygonView(polygonModel))
+                    Me.AddGameVisual(polygonModel, New PolygonView())
                     polygonModel.GameComponents.Behaviors.Add(New KeyControlScript With {.MaxSpeed = CSng(1 + Rnd.NextDouble * 5)})
                 Next
                 Dim text As New VisualText With {.Text = "Press the arrow keys to move the polygons."}
                 text.GameComponents.Behaviors.Add(New TransformScript)
-                Me.AddGameVisual(text, New TextView(text), 1)
+                Me.AddGameVisual(text, New TextView(), 1)
                 Me.GameLayers(0).GameComponents.Effects.Add(New GhostEffect() With {.Offset = Vector2.One, .Opacity = 0.96F})
             Case 20000 '粒子集群
                 'World.RenderMode = RenderMode.Sync
                 Dim tempModel As New ParticlesWander() With {.Count = 100, .IsMoveToCenter = True}
-                Dim tempView As New ParticlesCircleView(tempModel)
+                Dim tempView As New ParticlesCircleView()
                 Me.AddGameVisual(tempModel, tempView)
 
                 tempModel.GameComponents.Effects.Add(New GaussianBlurEffect() With {.IsDrawRaw = True})
@@ -92,7 +92,7 @@ Public Class Scene_Visuals
             Case 20001 '水花飞溅
                 'World.RenderMode = RenderMode.Sync
                 Dim tempModel As New ParticlesFollow() With {.Count = 500}
-                Dim tempView As New ParticlesCircleView(tempModel)
+                Dim tempView As New ParticlesCircleView()
                 Me.AddGameVisual(tempModel, tempView)
 
                 tempModel.GameComponents.Effects.Add(New StreamEffect)
@@ -101,7 +101,7 @@ Public Class Scene_Visuals
             Case 20002 '烟雾缭绕
                 'World.RenderMode = RenderMode.Sync
                 Dim tempModel As New ParticlesSmoke() With {.Count = 500}
-                Dim tempView As New ParticlesImageView(tempModel) With {.ImageResourceId = ImageResourceId.SmokeParticle1}
+                Dim tempView As New ParticlesImageView() With {.ImageResourceId = ImageResourceId.SmokeParticle1}
                 Me.AddGameVisual(tempModel, tempView)
 
                 tempModel.GameComponents.Effects.Add(New GaussianBlurEffect() With {.IsDrawRaw = False})
@@ -114,8 +114,8 @@ Public Class Scene_Visuals
 
                 Dim tempModel As New ParticlesTree()
                 Dim tempView As IGameView
-                tempView = New ParticlesCircleView(tempModel)
-                tempView = New ParticlesBackgroundImageView(tempModel) With
+                tempView = New ParticlesCircleView()
+                tempView = New ParticlesBackgroundImageView() With
                 {
                     .ImageResourceId = ImageResourceId.Scenery1,
                     .ImageScale = 4.0F,
@@ -128,27 +128,27 @@ Public Class Scene_Visuals
                 'Me.GameLayers(0).GameComponents.Effects.Add(New StreamEffect)
             Case 30000 '朱利亚集
                 Dim tempModel As New GastonJulia
-                Me.AddGameVisual(tempModel, New FractalView(tempModel))
+                Me.AddGameVisual(tempModel, New FractalView())
             Case 30001 '曼德布罗集
                 Dim tempModel As New Mandelbrot
-                Me.AddGameVisual(tempModel, New FractalView(tempModel))
+                Me.AddGameVisual(tempModel, New FractalView())
             Case 30002 '迭代函数系统：树木
                 Dim tempModel As New NatureTree
-                Me.AddGameVisual(tempModel, New FractalView(tempModel))
+                Me.AddGameVisual(tempModel, New FractalView())
             Case 40000 '生命游戏
                 World.RenderMode = RenderMode.Sync
                 Dim tempModel As New SquareCA With {.Image = CType(ImageResource.GetResource(ImageResourceId.YellowFlower1), CanvasBitmap)}
-                Me.AddGameVisual(tempModel, New GeometryCAView(tempModel))
+                Me.AddGameVisual(tempModel, New GeometryCAView())
                 tempModel.GameComponents.Behaviors.Add(New TransformScript)
             Case 40001 '水墨侵染
                 World.RenderMode = RenderMode.Sync
                 Dim tempModel As New InkCA With {.Image = CType(ImageResource.GetResource(ImageResourceId.InkText1), CanvasBitmap)}
-                Me.AddGameVisual(tempModel, New GeometryCAView(tempModel))
+                Me.AddGameVisual(tempModel, New GeometryCAView())
                 tempModel.GameComponents.Behaviors.Add(New TransformScript)
                 tempModel.GameComponents.Effects.Add(New GhostEffect With {.Opacity = 1.0F})
             Case 40002 '植物摇曳
                 Dim tempModel As New Plant(New Vector2(Width / 2, Height * 0.8F))
-                Dim tempView As New PlantView(tempModel) With
+                Dim tempView As New PlantView() With
                 {
                     .BranchResourceId = ImageResourceId.TreeBranch1,
                     .LeafResourceId = ImageResourceId.RedLeaf1,
@@ -161,13 +161,13 @@ Public Class Scene_Visuals
                 World.RenderMode = RenderMode.Sync
                 Dim tempModel As New AutoDrawByClusteringModel() With {.Image = CType(ImageResource.GetResource(ImageResourceId.Scenery1), CanvasBitmap)}
                 tempModel.GameComponents.Behaviors.Add(New TransformScript)
-                Me.AddGameVisual(tempModel, New AutoDrawView(tempModel))
+                Me.AddGameVisual(tempModel, New AutoDrawView())
             Case 50001 '自动拼图
                 Throw New NotImplementedException()
             Case 60000 'L系统:树
                 World.RenderMode = RenderMode.Sync
                 Dim tempModel As New LSystemTree
-                Dim tempView As New LSystemTreeView(tempModel) With
+                Dim tempView As New LSystemTreeView() With
                 {
                     .BranchResourceId = ImageResourceId.TreeBranch1,
                     .LeafResourceId = ImageResourceId.RedLeaf1,

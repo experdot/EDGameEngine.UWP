@@ -6,9 +6,7 @@ Imports Microsoft.Graphics.Canvas
 ''' </summary>
 Public Class FractalView
     Inherits TypedCanvasView(Of IFractal)
-    Public Sub New(Target As IFractal)
-        MyBase.New(Target)
-    End Sub
+
     Public Overrides Sub OnDraw(DrawingSession As CanvasDrawingSession)
         Dim tempPoint As New Vertex
         While Target.Vertexs.TryDequeue(tempPoint)

@@ -28,4 +28,8 @@ Public Class Layer
         Next
         GameComponents.Update()
     End Sub
+    Public Sub AttachGameView(view As IGameView) Implements IGameVisual.AttachGameView
+        Me.Presenter = view
+        view.GameVisual = Me
+    End Sub
 End Class

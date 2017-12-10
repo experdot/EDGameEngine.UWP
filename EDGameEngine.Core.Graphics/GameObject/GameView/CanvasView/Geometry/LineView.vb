@@ -4,9 +4,6 @@
 ''' </summary>
 Public Class LineView
     Inherits TypedCanvasView(Of VisualLine)
-    Public Sub New(Target As VisualLine)
-        MyBase.New(Target)
-    End Sub
     Public Overrides Sub OnDraw(drawingSession As CanvasDrawingSession)
         If Target.Fill.State Then
             If Target.Points.Count > 1 Then

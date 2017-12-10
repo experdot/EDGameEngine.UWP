@@ -1,4 +1,5 @@
-﻿''' <summary>
+﻿Imports EDGameEngine.Core
+''' <summary>
 ''' 游戏场景基类
 ''' </summary>
 Public MustInherit Class SceneBase
@@ -87,7 +88,7 @@ Public MustInherit Class SceneBase
     End Sub
     Public Sub AddGameVisual(model As IGameBody, view As IGameView, Optional LayerIndex As Integer = 0) Implements IScene.AddGameVisual
         model.Scene = Me
-        model.Presenter = view
+        model.AttachGameView(view)
         Dim modifyAct = Sub()
                             While (GameLayers.Count <= LayerIndex)
                                 GameLayers.Add(GetDefaultLayer())
@@ -102,5 +103,9 @@ Public MustInherit Class SceneBase
         Else
             modifyAct.Invoke()
         End If
+    End Sub
+    Public Sub AttachGameView(view As IGameView) Implements IGameVisual.AttachGameView
+        Me.Presenter = view
+        view.GameVisual = Me
     End Sub
 End Class

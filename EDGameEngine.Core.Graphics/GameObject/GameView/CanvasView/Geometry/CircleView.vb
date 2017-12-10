@@ -5,10 +5,6 @@ Imports Microsoft.Graphics.Canvas
 ''' </summary>
 Public Class CircleView
     Inherits TypedCanvasView(Of VisualCircle)
-    Public Sub New(Target As VisualCircle)
-        MyBase.New(Target)
-    End Sub
-
     Public Overrides Sub OnDraw(drawingSession As CanvasDrawingSession)
         If Target.Fill.State Then
             drawingSession.FillCircle(Vector2.Zero, Target.Radius, Target.Fill.Color)

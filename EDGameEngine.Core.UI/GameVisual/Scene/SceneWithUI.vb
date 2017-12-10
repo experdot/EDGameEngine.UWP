@@ -19,11 +19,11 @@ Public MustInherit Class SceneWithUI
     End Sub
 
     Protected Overrides Sub CreateSceneView()
-        Me.Presenter = New SceneView(Me)
+        Me.AttachGameView(New SceneView)
     End Sub
     Protected Overrides Function GetDefaultLayer() As ILayer
         Dim layer As New Layer With {.Scene = Me}
-        layer.Presenter = New LayerView(layer)
+        layer.AttachGameView(New LayerView())
         Return layer
     End Function
     Protected Overrides Async Function CreateGameObjectsAsync() As Task

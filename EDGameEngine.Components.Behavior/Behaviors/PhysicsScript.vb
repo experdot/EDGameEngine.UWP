@@ -58,7 +58,7 @@ Public Class PhysicsScript
         Dim tempBody = BodyFactory.CreateRectangle(PhyWorld, w, h, 1, New Vector2(x, y), r, t)
         Dim tempRect As New VisualRectangle() With {.Rectangle = New Rect(-w * Scale / 2, -h * Scale / 2, w * Scale, h * Scale), .Border = BorderStyle, .Fill = FillStyle}
         'tempRect.Transform.Center = New System.Numerics.Vector2(w * Scale / 2, h * Scale / 2)
-        Scene.AddGameVisual(tempRect, New RectangleView(tempRect), 0)
+        Scene.AddGameVisual(tempRect, New RectangleView(), 0)
         tempBody.UserData = tempRect
         If Not rv = 0 AndAlso t = BodyType.Static Then
             tempBody.BodyType = BodyType.Dynamic
@@ -75,7 +75,7 @@ Public Class PhysicsScript
 
         Dim tempBody = BodyFactory.CreateCircle(PhyWorld, r, 1, New Vector2(x, y), t)
         Dim tempCircle As New VisualCircle() With {.Radius = r * Scale, .Border = BorderStyle, .Fill = FillStyle}
-        Scene.AddGameVisual(tempCircle, New CircleView(tempCircle), 0)
+        Scene.AddGameVisual(tempCircle, New CircleView(), 0)
         tempBody.UserData = tempCircle
         tempBody.SleepingAllowed = False
     End Sub
