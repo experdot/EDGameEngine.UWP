@@ -7,27 +7,27 @@ Imports Windows.System
 ''' 游戏世界
 ''' </summary>
 Public MustInherit Class WorldWithUI
-    Implements IWorld, IObjectWithResourceCreator
+    Implements IGameWorld, IObjectWithResourceCreator
     ''' <summary>
     ''' 宽度
     ''' </summary>
-    Public Property Width As Integer Implements IWorld.Width
+    Public Property Width As Integer Implements IGameWorld.Width
     ''' <summary>
     ''' 高度
     ''' </summary>
-    Public Property Height As Integer Implements IWorld.Height
+    Public Property Height As Integer Implements IGameWorld.Height
     ''' <summary>
     ''' 场景集合
     ''' </summary>
-    Public Property Scenes As New Dictionary(Of String, IScene) Implements IWorld.Scenes
+    Public Property Scenes As New Dictionary(Of String, IScene) Implements IGameWorld.Scenes
     ''' <summary>
     ''' 活动的场景
     ''' </summary>
-    Public Property ActiveScene As IScene Implements IWorld.ActiveScene
+    Public Property ActiveScene As IScene Implements IGameWorld.ActiveScene
     ''' <summary>
     ''' 渲染模式
     ''' </summary>
-    Public Property RenderMode As RenderMode Implements IWorld.RenderMode
+    Public Property RenderMode As RenderMode Implements IGameWorld.RenderMode
     ''' <summary>
     ''' 图形资源创建器
     ''' </summary>
@@ -46,11 +46,11 @@ Public MustInherit Class WorldWithUI
     ''' <summary>
     ''' 开始
     ''' </summary>
-    Public MustOverride Sub Start() Implements IWorld.Start
+    Public MustOverride Sub Start() Implements IGameWorld.Start
     ''' <summary>
     ''' 开始
     ''' </summary>
-    Public MustOverride Sub Update() Implements IWorld.Update
+    Public MustOverride Sub Update() Implements IGameWorld.Update
     ''' <summary>
     ''' 更新
     ''' </summary>
@@ -71,7 +71,7 @@ Public MustInherit Class WorldWithUI
     ''' <summary>
     ''' 切换至指定的场景
     ''' </summary>
-    Public Sub SwitchScene(key As String, Optional reStart As Boolean = False) Implements IWorld.SwitchScene
+    Public Sub SwitchScene(key As String, Optional reStart As Boolean = False) Implements IGameWorld.SwitchScene
         ActiveScene = Scenes.Item(key)
         If ActiveScene.State = SceneState.Wait OrElse reStart = True Then
             ActiveScene.Start()

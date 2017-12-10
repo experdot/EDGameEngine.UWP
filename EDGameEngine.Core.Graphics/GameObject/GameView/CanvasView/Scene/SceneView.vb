@@ -26,7 +26,7 @@ Public Class SceneView
             Using cmdList = New CanvasCommandList(drawingSession)
                 Using ds = cmdList.CreateDrawingSession
                     ds.Clear(SubLayer.Background)
-                    CType(SubLayer.Presenter, ICanvasView).BeginDraw(ds)
+                    CType(SubLayer.Presenter, ICanvasView)?.BeginDraw(ds)
                 End Using
                 drawingSession.DrawImage(cmdList)
             End Using

@@ -48,7 +48,7 @@ Public Class Audio
         Play(1)
     End Sub
     Public Sub Play(Optional volume As Single = 1.0F)
-        Voice.Stop()
+        Voice?.Stop()
         LoadBuffer()
         Voice?.SetVolume(volume)
         Voice?.Start(0)

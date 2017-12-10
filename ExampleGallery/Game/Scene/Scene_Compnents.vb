@@ -2,6 +2,7 @@
 Imports EDGameEngine.Components
 Imports EDGameEngine.Components.Behavior
 Imports EDGameEngine.Components.Effect
+Imports EDGameEngine.Components.Audio
 Imports EDGameEngine.Core
 Imports EDGameEngine.Core.Graphics
 Imports EDGameEngine.Core.UI
@@ -80,8 +81,20 @@ Public Class Scene_Compnents
                 tempModel.GameComponents.Effects.Add(New WaveEffect)
                 tempModel.GameComponents.Behaviors.Add(New TransformScript)
                 Me.AddGameVisual(tempModel, New SpriteView())
-
             Case 4000 '音效控制
+                Dim tempModel As New EmptyBody
+                tempModel.GameComponents.Sounds.Add(New Audio With {.AudioFileName = "Game\Resources\Sounds\c1.wav"})
+                tempModel.GameComponents.Sounds.Add(New Audio With {.AudioFileName = "Game\Resources\Sounds\c2.wav"})
+                tempModel.GameComponents.Sounds.Add(New Audio With {.AudioFileName = "Game\Resources\Sounds\c3.wav"})
+                tempModel.GameComponents.Sounds.Add(New Audio With {.AudioFileName = "Game\Resources\Sounds\c4.wav"})
+                tempModel.GameComponents.Sounds.Add(New Audio With {.AudioFileName = "Game\Resources\Sounds\c5.wav"})
+                tempModel.GameComponents.Sounds.Add(New Audio With {.AudioFileName = "Game\Resources\Sounds\c6.wav"})
+                tempModel.GameComponents.Sounds.Add(New Audio With {.AudioFileName = "Game\Resources\Sounds\c7.wav"})
+                tempModel.GameComponents.Behaviors.Add(New AudioControlScript())
+                Me.AddGameVisual(tempModel, Nothing)
+                Dim text As New VisualText With {.Text = "Press the Num0~Num6 keys to play sounds."}
+                text.GameComponents.Behaviors.Add(New TransformScript)
+                Me.AddGameVisual(text, New TextView(), 1)
             Case 4001 '创建物体
             Case 4002 '物理仿真
             Case 4003 '键盘输入

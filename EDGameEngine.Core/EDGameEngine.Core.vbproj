@@ -145,8 +145,10 @@
     <Compile Include="GameObject\Components\Media\IMedia.vb" />
     <Compile Include="GameObject\Components\Trigger\ITrigger.vb" />
     <Compile Include="GameObject\GameView\IGameView.vb" />
+    <Compile Include="GameObject\GameVisual\Base\GameVisualBase.vb" />
     <Compile Include="GameObject\GameVisual\Base\IGameVisual.vb" />
     <Compile Include="GameObject\GameVisual\Body\Base\IGameBody.vb" />
+    <Compile Include="GameObject\GameVisual\Body\EmptyBody\EmptyBody.vb" />
     <Compile Include="GameObject\GameVisual\Body\GameBody.vb" />
     <Compile Include="GameObject\GameVisual\Camera\Base\ICamera.vb" />
     <Compile Include="GameObject\GameVisual\Camera\Camera.vb" />
@@ -154,7 +156,7 @@
     <Compile Include="GameObject\GameVisual\Container\Layer\Layer.vb" />
     <Compile Include="GameObject\GameVisual\Container\Scene\IScene.vb" />
     <Compile Include="GameObject\GameVisual\Container\Scene\SceneBase.vb" />
-    <Compile Include="GameObject\GameVisual\Container\World\IWorld.vb" />
+    <Compile Include="GameObject\GameWorld\IGameWorld.vb" />
     <Compile Include="GameResource\GameResourceBase.vb" />
     <Compile Include="GameResource\IGameResource.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />

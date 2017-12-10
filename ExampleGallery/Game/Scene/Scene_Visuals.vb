@@ -83,44 +83,41 @@ Public Class Scene_Visuals
             Case 20000 '粒子集群
                 'World.RenderMode = RenderMode.Sync
                 Dim tempModel As New ParticlesWander() With {.Count = 100, .IsMoveToCenter = True}
-                Dim tempView As New ParticlesCircleView()
-                Me.AddGameVisual(tempModel, tempView)
-
                 tempModel.GameComponents.Effects.Add(New GaussianBlurEffect() With {.IsDrawRaw = True})
+                Me.AddGameVisual(tempModel, New ParticlesCircleView())
+
                 Me.GameLayers(0).Background = Colors.Black
                 Me.GameLayers(0).GameComponents.Effects.Add(New GhostEffect() With {.Offset = Vector2.Zero, .Opacity = 0.96F})
             Case 20001 '水花飞溅
                 'World.RenderMode = RenderMode.Sync
                 Dim tempModel As New ParticlesFollow() With {.Count = 500}
-                Dim tempView As New ParticlesCircleView()
-                Me.AddGameVisual(tempModel, tempView)
-
                 tempModel.GameComponents.Effects.Add(New StreamEffect)
+                Me.AddGameVisual(tempModel, New ParticlesCircleView())
+
                 Me.GameLayers(0).Background = Colors.Black
                 tempModel.GameComponents.Effects.Add(New GaussianBlurEffect() With {.IsDrawRaw = True})
             Case 20002 '烟雾缭绕
                 'World.RenderMode = RenderMode.Sync
                 Dim tempModel As New ParticlesSmoke() With {.Count = 500}
-                Dim tempView As New ParticlesImageView() With {.ImageResourceId = ImageResourceId.SmokeParticle1}
-                Me.AddGameVisual(tempModel, tempView)
-
                 tempModel.GameComponents.Effects.Add(New GaussianBlurEffect() With {.IsDrawRaw = False})
+                Me.AddGameVisual(tempModel, New ParticlesImageView() With {.ImageResourceId = ImageResourceId.SmokeParticle1})
+
                 Me.GameLayers(0).Background = Colors.Black
                 Me.GameLayers(0).GameComponents.Effects.Add(New GhostEffect() With {.Offset = Vector2.Zero, .Opacity = 0.96F})
             Case 20003 '光芒四射
                 Throw New NotImplementedException()
             Case 20004 '枝繁叶茂
                 World.RenderMode = RenderMode.Sync
-
                 Dim tempModel As New ParticlesTree()
                 Dim tempView As IGameView
                 tempView = New ParticlesCircleView()
-                tempView = New ParticlesBackgroundImageView() With
-                {
-                    .ImageResourceId = ImageResourceId.Scenery1,
-                    .ImageScale = 4.0F,
-                    .Opacity = 0.3F
-                }
+                'tempView = New ParticlesBackgroundImageView() With
+                '{
+                '    .ImageResourceId = ImageResourceId.Scenery1,
+                '    .ImageScale = 4.0F,
+                '    .Opacity = 0.3F
+                '}
+
                 Me.AddGameVisual(tempModel, tempView)
 
                 Me.GameLayers(0).Background = Colors.Black
@@ -148,6 +145,7 @@ Public Class Scene_Visuals
                 tempModel.GameComponents.Effects.Add(New GhostEffect With {.Opacity = 1.0F})
             Case 40002 '植物摇曳
                 Dim tempModel As New Plant(New Vector2(Width / 2, Height * 0.8F))
+                tempModel.GameComponents.Effects.Add(New StreamEffect)
                 Dim tempView As New PlantView() With
                 {
                     .BranchResourceId = ImageResourceId.TreeBranch1,
@@ -155,8 +153,6 @@ Public Class Scene_Visuals
                     .FlowerResourceId = ImageResourceId.YellowFlower1
                 }
                 Me.AddGameVisual(tempModel, tempView)
-                'Me.GameLayers(0).GameComponents.Effects.Add(New ShadowEffect With {.IsDrawRaw = True})
-                'Me.GameLayers(0).GameComponents.Effects.Add(New FrostedEffect With {.Amount = 2})
             Case 50000 '自动绘图
                 World.RenderMode = RenderMode.Sync
                 Dim tempModel As New AutoDrawByClusteringModel() With {.Image = CType(ImageResource.GetResource(ImageResourceId.Scenery1), CanvasBitmap)}
@@ -176,7 +172,6 @@ Public Class Scene_Visuals
                 Me.AddGameVisual(tempModel, tempView)
                 Me.GameLayers(0).GameComponents.Effects.Add(New GhostEffect)
                 Me.GameLayers(0).GameComponents.Effects.Add(New FrostedEffect With {.Amount = 2})
-                'Me.GameLayers(0).GameComponents.Effects.Add(New GaussianBlurEffect With {.BlurAmount = 4})
         End Select
 
         '指针
@@ -184,13 +179,6 @@ Public Class Scene_Visuals
         'Me.AddGameVisual(tempModel4, New PointerView(tempModel4), 1)
         'tempModel4.GameComponents.Effects.Add(New StreamEffect())
 
-        'tempModel7.GameComponents.Sounds.Add(New Audio With {.AudioFileName = "Audio\c1.wav"})
-        'tempModel7.GameComponents.Sounds.Add(New Audio With {.AudioFileName = "Audio\c2.wav"})
-        'tempModel7.GameComponents.Sounds.Add(New Audio With {.AudioFileName = "Audio\c3.wav"})
-        'tempModel7.GameComponents.Sounds.Add(New Audio With {.AudioFileName = "Audio\c4.wav"})
-        'tempModel7.GameComponents.Sounds.Add(New Audio With {.AudioFileName = "Audio\c5.wav"})
-        'tempModel7.GameComponents.Sounds.Add(New Audio With {.AudioFileName = "Audio\c6.wav"})
-        'tempModel7.GameComponents.Sounds.Add(New Audio With {.AudioFileName = "Audio\c7.wav"})
 
         '键盘控制摄像机
         'Me.Camera.GameComponents.Behaviors.Add(New KeyControlScript With {.MaxSpeed = 5.0F})

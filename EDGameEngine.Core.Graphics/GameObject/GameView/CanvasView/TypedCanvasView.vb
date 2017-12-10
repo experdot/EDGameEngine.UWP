@@ -12,17 +12,26 @@ Public MustInherit Class TypedCanvasView(Of T As IGameVisual)
             Return Target
         End Get
         Set(value As IGameVisual)
-            Target = CType(value, T)
+            AttachToGameVisual(value)
         End Set
     End Property
     ''' <summary>
     ''' 渲染目标
     ''' </summary>
-    Protected Property Target As T
+    Protected Target As T
 
     Public Overrides Sub AttachToGameVisual(target As IGameVisual)
-        Me.Target = CType(target, T)
-        target.Presenter = Me
+        '解除原来的对象
+        If Me.Target IsNot Nothing Then
+            Me.Target.Presenter = Nothing
+        End If
+        '附加至新的对象
+        If target Is Nothing Then
+            Me.Target = Nothing
+        Else
+            Me.Target = CType(target, T)
+            target.Presenter = Me
+        End If
     End Sub
     Public Overrides Sub BeginDraw(drawingSession As CanvasDrawingSession)
         If CacheAllowed AndAlso Cache IsNot Nothing Then

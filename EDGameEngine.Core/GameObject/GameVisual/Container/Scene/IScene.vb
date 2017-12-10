@@ -14,7 +14,7 @@ Public Interface IScene
     ''' <summary>
     ''' 所属世界
     ''' </summary>
-    Property World As IWorld
+    Property World As IGameWorld
     ''' <summary>
     ''' 摄像机
     ''' </summary>
