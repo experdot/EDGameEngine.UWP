@@ -57,7 +57,7 @@ Public Class Scene_Visuals
                 For i = 0 To 10
                     Dim fill As New FillStyle(True, Utilities.ColorHelper.GetRandomColor)
                     Dim border As New BorderStyle(True, CSng(Rnd.NextDouble * 5), Utilities.ColorHelper.GetRandomColor)
-                    Dim circleModel As New VisualCircle() With {.Radius = CSng(Rnd.NextDouble * 200), .Border = Border, .Fill = fill}
+                    Dim circleModel As New VisualCircle() With {.Radius = CSng(Rnd.NextDouble * 200), .Border = border, .Fill = fill}
                     circleModel.Transform.Translation = New Vector2(CSng(Width * Rnd.NextDouble), CSng(Height * Rnd.NextDouble))
                     Me.AddGameVisual(circleModel, New CircleView(circleModel) With {.CacheAllowed = True})
                     circleModel.GameComponents.Behaviors.Add(New KeyControlScript With {.MaxSpeed = CSng(1 + Rnd.NextDouble * 5)})
@@ -81,32 +81,51 @@ Public Class Scene_Visuals
                 Me.AddGameVisual(text, New TextView(text), 1)
                 Me.GameLayers(0).GameComponents.Effects.Add(New GhostEffect() With {.Offset = Vector2.One, .Opacity = 0.96F})
             Case 20000 '粒子集群
-                Throw New NotImplementedException()
+                'World.RenderMode = RenderMode.Sync
+                Dim tempModel As New ParticlesWander() With {.Count = 100, .IsMoveToCenter = True}
+                Dim tempView As New ParticlesCircleView(tempModel)
+                Me.AddGameVisual(tempModel, tempView)
+
+                tempModel.GameComponents.Effects.Add(New GaussianBlurEffect() With {.IsDrawRaw = True})
+                Me.GameLayers(0).Background = Colors.Black
+                Me.GameLayers(0).GameComponents.Effects.Add(New GhostEffect() With {.Offset = Vector2.Zero, .Opacity = 0.96F})
             Case 20001 '水花飞溅
+                'World.RenderMode = RenderMode.Sync
+                Dim tempModel As New ParticlesFollow() With {.Count = 500}
+                Dim tempView As New ParticlesCircleView(tempModel)
+                Me.AddGameVisual(tempModel, tempView)
+
+                tempModel.GameComponents.Effects.Add(New StreamEffect)
+                Me.GameLayers(0).Background = Colors.Black
+                tempModel.GameComponents.Effects.Add(New GaussianBlurEffect() With {.IsDrawRaw = True})
+            Case 20002 '烟雾缭绕
+                'World.RenderMode = RenderMode.Sync
+                Dim tempModel As New ParticlesSmoke() With {.Count = 500}
+                Dim tempView As New ParticlesImageView(tempModel) With {.ImageResourceId = ImageResourceId.SmokeParticle1}
+                Me.AddGameVisual(tempModel, tempView)
+
+                tempModel.GameComponents.Effects.Add(New GaussianBlurEffect() With {.IsDrawRaw = False})
+                Me.GameLayers(0).Background = Colors.Black
+                Me.GameLayers(0).GameComponents.Effects.Add(New GhostEffect() With {.Offset = Vector2.Zero, .Opacity = 0.96F})
+            Case 20003 '光芒四射
                 Throw New NotImplementedException()
-            Case 20002 '光芒四射
-                Throw New NotImplementedException()
-            Case 20003 '枝繁叶茂
+            Case 20004 '枝繁叶茂
                 World.RenderMode = RenderMode.Sync
-                Dim image As CanvasBitmap = CType(ImageResource.GetResource(ImageResourceId.Scenery1), CanvasBitmap)
-                Dim pixels As Color() = image.GetPixelColors()
-                Dim bounds As Rect = image.Bounds
+
                 Dim tempModel As New ParticlesTree()
                 Dim tempView As IGameView
-                'tempView = New ParticlesImageView(tempModel) With
-                '{
-                '    .ImageResourceId = ImageResourceId.YellowFlower1,
-                '    .ImageScale = 4.0F,
-                '    .Colors = pixels,
-                '    .Bounds = bounds,
-                '    .Offset = New Vector2(0, 0)
-                '}
-                tempView = New ParticlesView(tempModel)
+                tempView = New ParticlesCircleView(tempModel)
+                tempView = New ParticlesBackgroundImageView(tempModel) With
+                {
+                    .ImageResourceId = ImageResourceId.Scenery1,
+                    .ImageScale = 4.0F,
+                    .Opacity = 0.3F
+                }
                 Me.AddGameVisual(tempModel, tempView)
 
                 Me.GameLayers(0).Background = Colors.Black
+                Me.GameLayers(0).GameComponents.Effects.Add(New GhostEffect)
                 'Me.GameLayers(0).GameComponents.Effects.Add(New StreamEffect)
-                'Me.GameLayers(0).GameComponents.Effects.Add(New GhostEffect)
             Case 30000 '朱利亚集
                 Dim tempModel As New GastonJulia
                 Me.AddGameVisual(tempModel, New FractalView(tempModel))
@@ -191,7 +210,7 @@ Public Class Scene_Visuals
         Await imageResource.Add(ImageResourceId.ExplosionPartial1, "Game/Resources/Images/Explosion.dds")
         Await imageResource.Add(ImageResourceId.Back1, "Game/Resources/Images/Back.png")
         Await imageResource.Add(ImageResourceId.Water1, "Game/Resources/Images/Water.png")
-        Await imageResource.Add(ImageResourceId.Scenery1, "Game/Resources/Images/Scenery14.png")
+        Await imageResource.Add(ImageResourceId.Scenery1, "Game/Resources/Images/Scenery13.png")
         Await imageResource.Add(ImageResourceId.InkText1, "Game/Resources/Images/InkText.png")
     End Function
 End Class

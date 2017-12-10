@@ -26,10 +26,6 @@ Public Class DynamicParticle
     ''' </summary>
     Public Property Mass As Single = 10.0 '质量大小
     ''' <summary>
-    ''' Sprite缩放
-    ''' </summary>
-    Public Property ImageScale As Single = 1.0F
-    ''' <summary>
     ''' 速度上限
     ''' </summary>
     Public Property VelocityUpon As Single = 5.0F

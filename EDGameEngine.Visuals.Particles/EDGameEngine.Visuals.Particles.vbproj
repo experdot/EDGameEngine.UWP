@@ -129,16 +129,19 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="GameView\ParticlesBackgroundImageView.vb" />
     <Compile Include="GameView\ParticlesImageView.vb" />
-    <Compile Include="GameView\ParticlesView.vb" />
+    <Compile Include="GameView\ParticlesCircleView.vb" />
     <Compile Include="GameVisual\Particles\Base\IParticles.vb" />
     <Compile Include="GameVisual\Particles\Base\ParticlesBase.vb" />
     <Compile Include="GameVisual\Particles\Dynamic\Base\DynamicParticle.vb" />
     <Compile Include="GameVisual\Particles\Dynamic\Follow\ParticlesFollow.vb" />
     <Compile Include="GameVisual\Particles\Dynamic\Hexgon\Basic\LineParticle.vb" />
     <Compile Include="GameVisual\Particles\Dynamic\Hexgon\ParticlesHexgon.vb" />
+    <Compile Include="GameVisual\Particles\Dynamic\Smoke\ParticlesSmoke.vb" />
     <Compile Include="GameVisual\Particles\Dynamic\Tree\Basic\SpotParticle.vb" />
     <Compile Include="GameVisual\Particles\Dynamic\Tree\ParticlesTree.vb" />
+    <Compile Include="GameVisual\Particles\Dynamic\Wander\ParticlesWander.vb" />
     <Compile Include="GameVisual\Particles\Particle\IParticle.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <EmbeddedResource Include="My Project\EDGameEngine.Visuals.Particles.rd.xml" />

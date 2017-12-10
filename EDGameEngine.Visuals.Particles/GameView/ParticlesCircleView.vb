@@ -3,7 +3,7 @@ Imports Microsoft.Graphics.Canvas
 ''' <summary>
 ''' 粒子系统视图
 ''' </summary>
-Public Class ParticlesView
+Public Class ParticlesCircleView
     Inherits TypedCanvasView(Of IParticles)
     Public Sub New(Target As IParticles)
         MyBase.New(Target)

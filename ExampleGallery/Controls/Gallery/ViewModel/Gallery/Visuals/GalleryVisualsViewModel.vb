@@ -20,8 +20,9 @@ Public Class GalleryVisualsViewModel
         Dim samples2 As New List(Of Sample)
         samples2.Add(New Sample() With {.Id = 20000, .Title = "粒子集群", .Description = "描述", .Image = New BitmapImage(New Uri("ms-appx:///Assets/SampleImages/ParticlesCluster.png"))})
         samples2.Add(New Sample() With {.Id = 20001, .Title = "水花飞溅", .Description = "描述", .Image = New BitmapImage(New Uri("ms-appx:///Assets/SampleImages/ParticlesWater.png"))})
-        samples2.Add(New Sample() With {.Id = 20002, .Title = "光芒四射", .Description = "描述", .Image = New BitmapImage(New Uri("ms-appx:///Assets/SampleImages/ParticlesLight.png"))})
-        samples2.Add(New Sample() With {.Id = 20003, .Title = "枝繁叶茂", .Description = "描述", .Image = New BitmapImage(New Uri("ms-appx:///Assets/SampleImages/ParticlesTree.png"))})
+        samples2.Add(New Sample() With {.Id = 20002, .Title = "烟雾缭绕", .Description = "描述", .Image = image})
+        samples2.Add(New Sample() With {.Id = 20003, .Title = "光芒四射", .Description = "描述", .Image = New BitmapImage(New Uri("ms-appx:///Assets/SampleImages/ParticlesLight.png"))})
+        samples2.Add(New Sample() With {.Id = 20004, .Title = "枝繁叶茂", .Description = "描述", .Image = New BitmapImage(New Uri("ms-appx:///Assets/SampleImages/ParticlesTree.png"))})
 
         Dim samples3 As New List(Of Sample)
         samples3.Add(New Sample() With {.Id = 30000, .Title = "朱利亚集", .Description = "描述", .Image = image})

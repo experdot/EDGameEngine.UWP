@@ -1,4 +1,5 @@
-﻿Imports EDGameEngine.Core
+﻿Imports System.Numerics
+Imports EDGameEngine.Core
 Imports EDGameEngine.Core.Graphics
 Imports Microsoft.Graphics.Canvas
 Imports Windows.Graphics.Effects
@@ -11,12 +12,25 @@ Public Class GaussianBlurEffect
     ''' 模糊半径
     ''' </summary>
     Public Property BlurAmount As Integer = 3
-
+    ''' <summary>
+    ''' 是否绘制原始图像
+    ''' </summary>
+    Public Property IsDrawRaw As Boolean = False
+    ''' <summary>
+    ''' 偏移
+    ''' </summary>
+    Public Property Offset As Vector2 = Vector2.Zero
     Public Overrides Function Effect(source As IGraphicsEffectSource, resourceCreator As ICanvasResourceCreator) As IGraphicsEffectSource
-        Return New Effects.GaussianBlurEffect With {.Source = source, .BlurAmount = BlurAmount}
-    End Function
-
-    Public Shared Function EffectStatic(source As IGraphicsEffectSource, resourceCreator As ICanvasResourceCreator, Optional blurAmount As Integer = 3) As IGraphicsEffectSource
-        Return New Effects.GaussianBlurEffect With {.Source = source, .BlurAmount = blurAmount}
+        Dim cmdList = New CanvasCommandList(resourceCreator)
+        Using ds = cmdList.CreateDrawingSession
+            Using blur = New Effects.GaussianBlurEffect With {.Source = source, .BlurAmount = BlurAmount}
+                ds.Clear(Windows.UI.Colors.Transparent)
+                ds.DrawImage(blur, Offset)
+                If IsDrawRaw Then
+                    ds.DrawImage(CType(source, ICanvasImage))
+                End If
+            End Using
+        End Using
+        Return cmdList
     End Function
 End Class
