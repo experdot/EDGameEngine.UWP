@@ -35,9 +35,9 @@ Public Class Scene_Compnents
             Case 1002 '残影效果
                 Dim image As ICanvasImage = ImageResource.GetResource(ImageResourceId.Scenery1)
                 Dim tempModel As New Sprite() With {.Image = CType(image, CanvasBitmap)}
-                tempModel.GameComponents.Effects.Add(New GhostEffect)
-                tempModel.GameComponents.Behaviors.Add(New TransformScript)
+                tempModel.GameComponents.Behaviors.Add(New KeyControlScript With {.MaxSpeed = 5.0F})
                 Me.AddGameVisual(tempModel, New SpriteView())
+                GameLayers.First.GameComponents.Effects.Add(New GhostEffect() With {.Offset = New Vector2(1, 1), .Opacity = 0.96F})
             Case 1003 '光照效果
                 Dim image As ICanvasImage = ImageResource.GetResource(ImageResourceId.Scenery1)
                 Dim tempModel As New Sprite() With {.Image = CType(image, CanvasBitmap)}
@@ -60,7 +60,7 @@ Public Class Scene_Compnents
             Case 1006 '阴影效果
                 Dim image As ICanvasImage = ImageResource.GetResource(ImageResourceId.Scenery1)
                 Dim tempModel As New Sprite() With {.Image = CType(image, CanvasBitmap)}
-                tempModel.GameComponents.Effects.Add(New ShadowEffect)
+                tempModel.GameComponents.Effects.Add(New ShadowEffect With {.IsDrawRaw = True, .Offset = New Vector2(1, 1)})
                 tempModel.GameComponents.Behaviors.Add(New TransformScript)
                 Me.AddGameVisual(tempModel, New SpriteView())
             Case 1007 '水流效果
@@ -96,14 +96,24 @@ Public Class Scene_Compnents
                 text.GameComponents.Behaviors.Add(New TransformScript)
                 Me.AddGameVisual(text, New TextView(), 1)
             Case 4001 '创建物体
+                Dim tempModel As New EmptyBody
+                tempModel.GameComponents.Behaviors.Add(New CreateBodyScript)
+                Me.AddGameVisual(tempModel, Nothing)
+                Dim text As New VisualText With {.Text = "Click left mouse button to create objects."}
+                text.GameComponents.Behaviors.Add(New TransformScript)
+                Me.AddGameVisual(text, New TextView(), 1)
             Case 4002 '物理仿真
+                Dim tempModel As New EmptyBody
+                tempModel.GameComponents.Behaviors.Add(New PhysicsScript With {.IgnoreGravity = True})
+                Me.AddGameVisual(tempModel, Nothing)
+                Dim text As New VisualText With {.Text = "Click left mouse button to create objects."}
+                text.GameComponents.Behaviors.Add(New TransformScript)
+                Me.AddGameVisual(text, New TextView(), 1)
+
+                GameLayers.First.GameComponents.Effects.Add(New GhostEffect() With {.Offset = New Vector2(0, 0), .Opacity = 0.96F})
             Case 4003 '键盘输入
             Case 4004 '平面变换
-
         End Select
-
-        '键盘控制摄像机
-        Me.Camera.GameComponents.Behaviors.Add(New KeyControlScript With {.MaxSpeed = 5.0F})
     End Sub
 
     Protected Overrides Sub CreateUI()

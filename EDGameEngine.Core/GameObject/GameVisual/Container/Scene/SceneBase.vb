@@ -63,26 +63,29 @@ Public MustInherit Class SceneBase
                            Progress = New Progress(0, "创建实体")
                            Await CreateGameObjectsAsync()
                            Progress.Description = "初始化场景"
+                           State = SceneState.Starting
                            For Each SubLayer In GameLayers
                                SubLayer.Start()
                            Next
                            Camera.Start()
                            Progress.Description = "初始化组件"
                            GameComponents.Start()
-                           State = SceneState.Loop
                        End Function)
+        State = SceneState.Loop
     End Sub
     Public Overrides Sub Update()
         If State = SceneState.Loop Then
+            '执行旧的改动
+            For Each SubAction In ModifiedActions
+                SubAction.Invoke()
+            Next
+            ModifiedActions.Clear()
+            '更新图层
             For Each SubLayer In GameLayers
                 SubLayer.Update()
             Next
             Camera.Update()
             GameComponents.Update()
-            For Each SubAction In ModifiedActions
-                SubAction.Invoke
-            Next
-            ModifiedActions.Clear()
         End If
     End Sub
     Public Sub AddGameVisual(model As IGameBody, view As IGameView, Optional LayerIndex As Integer = 0) Implements IScene.AddGameVisual
@@ -93,11 +96,11 @@ Public MustInherit Class SceneBase
                                      GameLayers.Add(GetDefaultLayer())
                                  End While
                                  GameLayers(LayerIndex).GameBodys.Add(model)
-                                 If Not State = SceneState.Wait Then
+                                 If State = SceneState.Starting OrElse State = SceneState.Loop Then
                                      model.Start()
                                  End If
                              End Sub
-        If State = SceneState.Loop Then
+        If State = SceneState.Starting OrElse State = SceneState.Loop Then
             ModifiedActions.Add(modifiedAction)
         Else
             modifiedAction.Invoke()

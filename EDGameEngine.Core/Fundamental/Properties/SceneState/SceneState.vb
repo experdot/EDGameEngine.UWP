@@ -7,6 +7,10 @@ Public Enum SceneState
     ''' </summary>
     Wait
     ''' <summary>
+    ''' 正在初始化
+    ''' </summary>
+    Starting
+    ''' <summary>
     ''' 暂停中
     ''' </summary>
     Pause
