@@ -153,7 +153,6 @@
     <Compile Include="GameObject\GameVisual\Geometry\VisualRectangle.vb" />
     <Compile Include="GameObject\GameVisual\Sprite\Base\ISprite.vb" />
     <Compile Include="GameObject\GameVisual\Sprite\Sprite.vb" />
-    <Compile Include="GameResource\Image\Enum\ImageResourceId.vb" />
     <Compile Include="GameResource\Image\ImageResource.vb" />
     <Compile Include="GameObject\GameVisual\Text\Base\IVisualText.vb" />
     <Compile Include="GameObject\GameVisual\Text\VisualText.vb" />

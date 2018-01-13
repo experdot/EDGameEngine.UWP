@@ -12,6 +12,9 @@ Public Enum ImageResourceId
     Back1
     TreeBranch2
     Water1
-    Scenery1
+    Scenery_Painting
+    Scenery_Mountain
+    Scenery_Meepo
+    Scenery_Anime
     InkText1
 End Enum

@@ -155,7 +155,7 @@ Public Class Scene_Visuals
                 Me.AddGameVisual(tempModel, tempView)
             Case 50000 '自动绘图
                 World.RenderMode = RenderMode.Sync
-                Dim tempModel As New AutoDrawByClusteringModel() With {.Image = CType(ImageResource.GetResource(ImageResourceId.Scenery1), CanvasBitmap)}
+                Dim tempModel As New AutoDrawByClusteringModel() With {.Image = CType(ImageResource.GetResource(ImageResourceId.Scenery_Anime), CanvasBitmap)}
                 tempModel.GameComponents.Behaviors.Add(New TransformScript)
                 Me.AddGameVisual(tempModel, New AutoDrawView())
             Case 50001 '自动拼图
@@ -198,7 +198,10 @@ Public Class Scene_Visuals
         Await imageResource.Add(ImageResourceId.ExplosionPartial1, "Game/Resources/Images/Explosion.dds")
         Await imageResource.Add(ImageResourceId.Back1, "Game/Resources/Images/Back.png")
         Await imageResource.Add(ImageResourceId.Water1, "Game/Resources/Images/Water.png")
-        Await imageResource.Add(ImageResourceId.Scenery1, "Game/Resources/Images/Scenery13.png")
+        Await imageResource.Add(ImageResourceId.Scenery_Mountain, "Game/Resources/Images/Scenery11.png")
+        Await imageResource.Add(ImageResourceId.Scenery_Painting, "Game/Resources/Images/Scenery12.png")
+        Await imageResource.Add(ImageResourceId.Scenery_Meepo, "Game/Resources/Images/Scenery13.png")
+        Await imageResource.Add(ImageResourceId.Scenery_Anime, "Game/Resources/Images/Scenery14.png")
         Await imageResource.Add(ImageResourceId.InkText1, "Game/Resources/Images/InkText.png")
     End Function
 End Class
