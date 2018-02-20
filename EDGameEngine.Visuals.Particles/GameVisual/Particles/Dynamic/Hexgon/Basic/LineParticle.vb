@@ -20,12 +20,12 @@ Public Class LineParticle
     ''' <summary>
     ''' 分裂
     ''' </summary>
-    Public Sub Divide(particals As List(Of LineParticle))
+    Public Sub Divide(particles As List(Of LineParticle))
         Static rotate As Single = Math.PI / 3
         Dim newSize As Single = Size
 
-        particals.Add(New LineParticle(Location) With {.Color = Me.Color(), .Size = newSize})
-        particals.Last.Velocity = Velocity.RotateNew(rotate) * 0.618F
+        particles.Add(New LineParticle(Location) With {.Color = Me.Color(), .Size = newSize})
+        particles.Last.Velocity = Velocity.RotateNew(rotate) * 0.618F
 
         Me.Size = newSize
         Me.Age = 40
@@ -58,7 +58,7 @@ Public Class LineParticle
         Return Color.FromArgb(CByte(a), CByte(r), CByte(g), CByte(b))
     End Function
 
-    Public Sub Update(particals As List(Of LineParticle))
+    Public Sub Update(particles As List(Of LineParticle))
         If Age > 0 Then
             Age -= 1
             Size = Size * 0.992F
@@ -68,7 +68,7 @@ Public Class LineParticle
             Color = GetRandomColor()
             Move()
         ElseIf Age = 0 AndAlso Size > 0.5F Then
-            Divide(particals)
+            Divide(particles)
             Age -= 1
         End If
         'If Age > 0 AndAlso Size < 0.5F Then
