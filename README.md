@@ -1,7 +1,7 @@
 ﻿Translation:[Simple-Chinese](./README-CN.md)(简体中文)
 
-## What's EDGameEngine?
-2D Game Graphics Engine For Universal Windows Platform
+## Introduction
+2D Game Engine For Universal Windows Platform
 
 ## Newest activity 
 - Realistic 2D world. Now engine has joined the FarsserPhysics!
@@ -18,7 +18,7 @@ You can use it easliy by C# or VB.NET!
 - Provides FarsserPhysics engine which supports 2D physics simulation
 
 ## Game Models
-Engine provides you with kinds of game models.
+The engine provides kinds of game models.
 
 ##### Geometry
 - Line、Rectangle、Circle
@@ -50,7 +50,7 @@ Engine provides you with kinds of game models.
 ##### AutoStitch
 - Stitching automaticlly(Disabled）
 
-*A few of models are still in the testing phase,then there will be major changes.
+*A few of models are still in the testing phase.
 
 ## Feedback
 * Email：experdot@foxmail.com
