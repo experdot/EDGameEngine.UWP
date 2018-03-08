@@ -133,6 +133,7 @@
     <Compile Include="Behaviors\CreateBodyScript.vb" />
     <Compile Include="Behaviors\KeyControlScript.vb" />
     <Compile Include="Behaviors\PhysicsScript.vb" />
+    <Compile Include="Behaviors\PointerFollowScript.vb" />
     <Compile Include="Behaviors\TransformScript.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <EmbeddedResource Include="My Project\EDGameEngine.Components.Behavior.rd.xml" />
