@@ -30,8 +30,8 @@ Public Class GridHierarchy
     ''' 创建并初始化一个实例
     ''' </summary>
     Public Sub New(w As Integer, h As Integer, size As Single)
-        If w < 1 Then w = 1
-        If h < 1 Then h = 1
+        w = Math.Max(w, 1)
+        h = Math.Max(h, 1)
         Me.Width = w
         Me.Height = h
         Me.Size = size
@@ -64,20 +64,13 @@ Public Class GridHierarchy
     End Function
 
     Public Overrides Function Generate() As IHierarchy
-        'Dim result As New GroupHierarchy With {.Rank = Me.Rank + 1}
-        'For Each SubCluster In Clusters
-        '    Dim similar As Cluster = SubCluster.GetMostSimilar(GetNeighbours(SubCluster))
-        '    If similar IsNot Nothing Then
-        '        result.AddCluster(Cluster.Combine(SubCluster, similar))
-        '    End If
-        'Next
         Dim rate As Single = 4.0F
         Dim newSize As Single = Me.Size * rate
         Dim result As New GridHierarchy(CInt(Math.Ceiling(Me.Width / rate) + 1), CInt(Math.Ceiling(Me.Height / rate) + 1), newSize) With {.Rank = Me.Rank + 1}
 
         '合并为新簇
         For Each SubCluster In Clusters
-            Dim similar As Cluster = SubCluster.GetMostSimilar(GetNeighbours(SubCluster)).First
+            Dim similar As Cluster = SubCluster.GetMostSimilarCluster(GetNeighbours(SubCluster)).First
             If similar IsNot Nothing Then
                 If SubCluster.Parent Is Nothing AndAlso similar.Parent Is Nothing Then
                     result.Clusters.Add(Cluster.Combine(SubCluster, similar))

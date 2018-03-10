@@ -20,19 +20,21 @@ Public Class Line
     ''' </summary>
     Public Sub CalcLength(split As Integer)
         Dim temp As New List(Of VertexWithLayer)
-        For i = 0 To Points.Count - 1 Step split
-            temp.Add(Points(i))
-        Next
-        If temp.Count > 0 Then
-            If temp.Count > 1 Then
-                For i = 0 To temp.Count - 2
-                    temp(i).NextPoint = temp(i + 1)
-                Next
+        If split > 0 Then
+            For i = 0 To Points.Count - 1 Step split
+                temp.Add(Points(i))
+            Next
+            If temp.Count > 0 Then
+                If temp.Count > 1 Then
+                    For i = 0 To temp.Count - 2
+                        temp(i).NextPoint = temp(i + 1)
+                    Next
+                End If
+                temp.Last.NextPoint = temp.Last
             End If
-            temp.Last.NextPoint = temp.Last
+            Points.Clear()
+            Points.AddRange(temp)
         End If
-        Points.Clear()
-        Points.AddRange(temp)
     End Sub
 
     ''' <summary>

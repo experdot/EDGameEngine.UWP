@@ -63,9 +63,9 @@ Public Class Cluster
         End If
     End Sub
     ''' <summary>
-    ''' 返回最相似的簇
+    ''' 返回指定集合中与当前簇最相似的簇集
     ''' </summary>
-    Public Function GetMostSimilar(clusters As List(Of Cluster)) As Queue(Of Cluster)
+    Public Function GetMostSimilarCluster(clusters As List(Of Cluster)) As Queue(Of Cluster)
         Dim result As New Queue(Of Cluster)
         Dim maxValue As Single = Single.MinValue
         Dim temp As Cluster = Nothing
@@ -73,7 +73,7 @@ Public Class Cluster
             For i = 0 To clusters.Count - 1
                 Dim cluster = clusters(i)
                 If cluster IsNot Me Then
-                    Dim value As Single = Compare(Me, cluster)
+                    Dim value As Single = CompareTwoCluster(Me, cluster)
                     If value > maxValue Then
                         maxValue = value
                         temp = cluster
@@ -102,11 +102,11 @@ Public Class Cluster
         If Children.Count = 0 Then
             Return Color
         Else
-            Return Utilities.ColorHelper.GetAverageColor(GetAColorsOfChildren())
+            Return Utilities.ColorHelper.GetAverageColor(GetColorsOfChildren())
         End If
     End Function
 
-    Private Function Compare(cluster1 As Cluster, cluster2 As Cluster) As Single
+    Private Function CompareTwoCluster(cluster1 As Cluster, cluster2 As Cluster) As Single
         Dim result As Single = 0
 
         Dim p1 As Vector2 = cluster1.Position
@@ -116,14 +116,6 @@ Public Class Cluster
         Dim color1 As Color = cluster1.Color()
         Dim color2 As Color = cluster2.Color()
         Dim colorDistance As Single
-
-        'Dim h1 As Single = color1.GetHue / 360
-        'Dim s1 As Single = color1.GetSaturation
-        'Dim b1 As Single = color1.GetBrightness
-        'Dim h2 As Single = color2.GetHue / 360
-        'Dim s2 As Single = color2.GetSaturation
-        'Dim b2 As Single = color2.GetBrightness
-        'colorDistance = (h1 * h2 + s1 * s2 + b1 * b2) / (Math.Sqrt(h1 * h1 + s1 * s1 + b1 * b1) * Math.Sqrt(h2 * h2 + s2 * s2 + b2 * b2))
 
         Dim vec1 As New Vector3(color1.R, color1.G, color1.B)
         Dim vec2 As New Vector3(color2.R, color2.G, color2.B)
@@ -139,7 +131,7 @@ Public Class Cluster
     Private Function GetPostionsOfChidren() As IEnumerable(Of Vector2)
         Return From c As Cluster In Children Select c.Position
     End Function
-    Private Function GetAColorsOfChildren() As IEnumerable(Of Color)
+    Private Function GetColorsOfChildren() As IEnumerable(Of Color)
         Return From c As Cluster In Children Select c.Color
     End Function
 End Class

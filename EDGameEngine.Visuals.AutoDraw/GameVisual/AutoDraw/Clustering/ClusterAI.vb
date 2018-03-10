@@ -37,9 +37,19 @@ Public Class ClusterAI
             Debug.WriteLine($"Total:{maxRank},Current:{i + 1},Time Consuming:{DateTime.Now - start},Hierarchy[{Hierarchies.Last.ToString()}]")
         Next
         Debug.WriteLine(pixels.Colors.Length)
+
+        '快速涂抹
+        Dim index As Integer = maxRank - 3
+        For i = maxRank - 1 To index Step -1
+            If Hierarchies(i).Clusters.Count > 0 Then
+                Lines.AddRange(GenerateLinesFast(Hierarchies(i)))
+            End If
+        Next
+
+        '迭代细节
         For i = maxRank - 1 To 0 Step -1
             If Hierarchies(i).Clusters.Count > 0 Then
-                Lines.AddRange(GenerateLines(Hierarchies(i)))
+                Lines.AddRange(GenerateLinesQuality(Hierarchies(i)))
                 Exit For
             End If
         Next
@@ -63,43 +73,73 @@ Public Class ClusterAI
         Return Nothing
     End Function
 
-    Private Function GenerateLines(hierarchy As IHierarchy) As List(Of ILine)
+    Private Function GenerateLinesFast(hierarchy As IHierarchy) As List(Of ILine)
         Dim result As New List(Of ILine)
-        'hierarchy.Clusters.Sort(New ClusterLengthCompare)
+        Dim count As Integer
+        hierarchy.Clusters.Sort(New ClusterLengthCompare)
         For Each SubCluster In hierarchy.Clusters
-            GenerateLines(result, SubCluster, hierarchy.Rank)
+            Dim line As New Line
+            For Each SubLeaf In SubCluster.Leaves
+                Dim raw As Color = SubCluster.Color
+                Dim real As Color = Color.FromArgb(CByte(raw.A / (hierarchy.Rank + 1.0F)), raw.R, raw.G, raw.B)
+                line.Points.Add(New VertexWithLayer With
+                    {
+                        .Color = SubCluster.Color,
+                        .Position = SubLeaf.Position,
+                        .Size = 1 + 2.0F * hierarchy.Rank,
+                        .LayerIndex = MaxRank - hierarchy.Rank
+                     })
+                line.Points.Last.UserColor = real
+                line.Points.Last.UserSize = line.Points.Last.Size
+            Next
+            line.CalcLength(hierarchy.Rank)
+            result.Add(line)
+            count += line.Points.Count
+        Next
+        Debug.WriteLine(count)
+        Return result
+    End Function
+
+    Private Function GenerateLinesQuality(hierarchy As IHierarchy) As List(Of ILine)
+        Dim result As New List(Of ILine)
+        hierarchy.Clusters.Sort(New ClusterLengthCompare)
+        For Each cluster In hierarchy.Clusters
+            GenerateLinesQualityWithDepth(result, cluster, hierarchy.Rank)
         Next
         Return result
     End Function
 
-    Private Sub GenerateLines(lines As List(Of ILine), parent As Cluster, depth As Integer)
+    Private Sub GenerateLinesQualityWithDepth(lines As List(Of ILine), parent As Cluster, depth As Integer)
         'Debug.WriteLine($"{depth},{parent.Children.Count}")
         If parent.Children.Count > 0 Then
             'parent.Children.Sort(New ClusterLengthCompare)
-            For Each SubCluster In parent.Children
+            For Each cluster In parent.Children
                 Dim line As New Line
-                For Each SubLeaf In SubCluster.Leaves
-                    Dim c As Color = SubCluster.Color
-                    Dim p As Color = c 'Color.FromArgb(CByte(c.A / (depth * depth + 1.0F)), c.R, c.G, c.B)
-                    line.Points.Add(New VertexWithLayer With {.Color = SubCluster.Color, .Position = SubLeaf.Position, .Size = depth * 0F + 1.0F, .LayerIndex = MaxRank - depth})
-                    line.Points.Last.UserColor = line.Points.Last.Color
+                For Each leaf In cluster.Leaves
+                    Dim raw As Color = cluster.Color
+                    Dim real As Color = Color.FromArgb(CByte(raw.A / (depth + 1.0F)), raw.R, raw.G, raw.B)
+                    line.Points.Add(New VertexWithLayer With
+                        {
+                            .Color = cluster.Color,
+                            .Position = leaf.Position,
+                            .Size = 1 + 2.0F * depth,
+                            .LayerIndex = MaxRank - depth
+                         })
+                    line.Points.Last.UserColor = real
                     line.Points.Last.UserSize = line.Points.Last.Size
                 Next
-                'line.CalcLength(2 * depth + 1)
-                line.CalcLength(1)
+                line.CalcLength(2 * depth + 1)
                 lines.Add(line)
-                GenerateLines(lines, SubCluster, depth - 1)
+                GenerateLinesQualityWithDepth(lines, cluster, depth - 1)
             Next
         Else
+            '绘制最后一层的原始像素
             Dim line As New Line
-            For Each SubLeaf In parent.Leaves
-                Dim c As Color = parent.Color
-                Dim p As Color = c
-                line.Points.Add(New VertexWithLayer With {.Color = parent.Color, .Position = SubLeaf.Position, .Size = depth + 1.0F, .LayerIndex = MaxRank - depth})
+            For Each leaf In parent.Leaves
+                line.Points.Add(New VertexWithLayer With {.Color = parent.Color, .Position = leaf.Position, .Size = depth + 1.0F, .LayerIndex = MaxRank - depth})
                 line.Points.Last.UserColor = line.Points.Last.Color
                 line.Points.Last.UserSize = line.Points.Last.Size
             Next
-            line.CalcLength(3 * depth + 1)
             lines.Add(line)
         End If
     End Sub

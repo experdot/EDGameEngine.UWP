@@ -15,12 +15,13 @@ Public Class AutoDrawView
             Dim point As New VertexWithLayer
             While Target.CurrentPoints.TryDequeue(point)
                 If point IsNot Nothing Then
-                    If Target.CircleLayers.Contains(point.LayerIndex) Then
-                        drawing.FillCircle(point)
-                    Else
-                        drawing.DrawLine(point)
-                    End If
-                    'drawing.FillCircle(point)
+                    'If Target.CircleLayers.Contains(point.LayerIndex) Then
+                    '    drawing.FillCircle(point)
+                    'Else
+                    '    drawing.DrawCurve(point)
+                    'End If
+                    'drawing.DrawCurve(point)
+                    drawing.FillCircle(point)
                 End If
             End While
             Paint.OnDraw(drawingSession)
@@ -116,10 +117,12 @@ Public Class AutoDrawView
         ''' 画曲线
         ''' </summary>
         Public Sub DrawCurve(point As VertexWithLayer)
-            Sessions(point.LayerIndex).DrawLine(point.Position, point.NextPoint.Position, point.UserColor, 1.0F)
-            Sessions.Last.DrawLine(point.Position, point.NextPoint.Position, point.UserColor, 1.0F)
-            'Sessions(point.LayerIndex).DrawLine(point.Position, point.NextPoint.Position, point.UserColor, point.UserSize * 2)
-            'Sessions.Last.DrawLine(point.Position, point.NextPoint.Position, Colors.Black, point.UserSize * 2)
+            If point IsNot Nothing AndAlso point.NextPoint IsNot Nothing Then
+                Sessions(point.LayerIndex).DrawLine(point.Position, point.NextPoint.Position, point.UserColor, 1.0F)
+                Sessions.Last.DrawLine(point.Position, point.NextPoint.Position, point.UserColor, 1.0F)
+                'Sessions(point.LayerIndex).DrawLine(point.Position, point.NextPoint.Position, point.UserColor, point.UserSize * 2)
+                'Sessions.Last.DrawLine(point.Position, point.NextPoint.Position, Colors.Black, point.UserSize * 2)
+            End If
         End Sub
 #Region "IDisposable Support"
         Private disposedValue As Boolean ' 要检测冗余调用

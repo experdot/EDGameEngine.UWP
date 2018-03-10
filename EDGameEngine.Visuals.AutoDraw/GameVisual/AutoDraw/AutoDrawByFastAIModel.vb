@@ -23,11 +23,11 @@ Public Class AutoDrawByFastAIModel
     ''' <summary>
     ''' 当前绘制长度
     ''' </summary>
-    Public Property PointsCount As Integer = 300 Implements IAutoDrawModel.PointsCount
+    Public Property PointsCountPerFrame As Integer = 300 Implements IAutoDrawModel.PointsCountPerFrame
     ''' <summary>
     ''' 最大绘制长度
     ''' </summary>
-    Public Property PointsCountMax As Integer = 300 Implements IAutoDrawModel.PointsCountMax
+    Public Property PointsCountMaxPerFrame As Integer = 300 Implements IAutoDrawModel.PointsCountMaxPerFrame
     ''' <summary>
     ''' 图层数量
     ''' </summary>
@@ -49,10 +49,10 @@ Public Class AutoDrawByFastAIModel
     End Sub
     Private Sub UpdateDrawings()
         If CurrentPoints.Count = 0 AndAlso Not DrawingManager.IsOver Then
-            For i = 0 To PointsCount - 1
-                CurrentPoints.Enqueue(DrawingManager.NextPointFast())
+            For i = 0 To PointsCountPerFrame - 1
+                CurrentPoints.Enqueue(DrawingManager.NextPointQuality())
             Next
-            If PointsCount < PointsCountMax Then PointsCount += 1
+            If PointsCountPerFrame < PointsCountMaxPerFrame Then PointsCountPerFrame += 1
         End If
     End Sub
 End Class
