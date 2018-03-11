@@ -1,21 +1,21 @@
 ﻿Translation：[English](./README.md)
 
 ## ExperDot.EDGameEngine
-适用于UWP的2D游戏图形引擎- 2D Game Graphics Engine For Universal Windows Platform
+适用于 UWP 的 2D 游戏图形引擎- 2D Game Graphics Engine For Universal Windows Platform
 
 ## 最新更新 
-- 接近真实的2D世界，已加入FarsserPhysics引擎！
+- 接近真实的 2D 世界，已加入 FarsserPhysics 引擎！
 
 ![Physics](Documentation/Images/Physics/Sample_Physic_01.png)
 
 ## 引擎功能
-您可以通过C#或VB.NET轻松使用它！
-- 使用Win2D渲染图形
+您可以通过 C# 或 VB.NET 轻松使用它！
+- 使用 Win2D 渲染图形
 - 播放音乐和音效
 - 处理键盘和鼠标输入
-- 支持场景内嵌Xaml控件
+- 支持场景内嵌 Xaml 控件
 - 提供平台跳跃游戏引擎
-- 提供FarsserPhysics物理引擎，支持2D物理仿真
+- 提供 FarsserPhysics 物理引擎，支持2D物理仿真
 
 ## 游戏模型
 核心库或模型库为您提供丰富的的游戏模型
@@ -45,7 +45,7 @@
 - [水墨侵染](Documentation/Images/Automata/Sample_CelluarAutomata_02.png)
 
 ##### 自动绘图
-- 全自动绘制图形（WinForm版本，[点击查看](https://github.com/experdot/ExperDot.AutomaticDrawing)）
+- 全自动绘制图形（WinForm 版本，[点击查看](https://github.com/experdot/ExperDot.AutomaticDrawing)）
 
 ##### 自动拼图
 - 全自动拼接图像(暂不可用）
