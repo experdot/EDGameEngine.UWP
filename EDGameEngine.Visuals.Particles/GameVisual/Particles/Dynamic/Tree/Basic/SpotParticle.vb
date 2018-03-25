@@ -77,9 +77,9 @@ Public Class SpotParticle
         Static G As Single = CInt(Color.G)
         Static B As Single = CInt(Color.B)
 
-        R = IncreteNumber(R, increment, 0, upon)
-        G = IncreteNumber(G, increment, 0, upon)
-        B = IncreteNumber(B, increment, 0, upon)
+        R = IncreaseNumber(R, increment, 0, upon)
+        G = IncreaseNumber(G, increment, 0, upon)
+        B = IncreaseNumber(B, increment, 0, upon)
 
         Return Color.FromArgb(Color.A, CByte(R), CByte(G), CByte(B))
     End Function
@@ -93,14 +93,14 @@ Public Class SpotParticle
         Dim g As Single = CInt(Color.G)
         Dim b As Single = CInt(Color.B)
 
-        r = IncreteNumber(r, increment * CSng(Rnd.NextDouble * len - half), 0, upon)
-        g = IncreteNumber(g, increment * CSng(Rnd.NextDouble * len - half), 0, upon)
-        b = IncreteNumber(b, increment * CSng(Rnd.NextDouble * len - half), 0, upon)
+        r = IncreaseNumber(r, increment * CSng(Rnd.NextDouble * len - half), 0, upon)
+        g = IncreaseNumber(g, increment * CSng(Rnd.NextDouble * len - half), 0, upon)
+        b = IncreaseNumber(b, increment * CSng(Rnd.NextDouble * len - half), 0, upon)
 
         Return Color.FromArgb(Color.A, CByte(r), CByte(g), CByte(b))
     End Function
 
-    Private Function IncreteNumber(number As Single, increment As Single, Optional min As Single = Single.MinValue, Optional max As Single = Single.MaxValue) As Single
+    Private Function IncreaseNumber(number As Single, increment As Single, Optional min As Single = Single.MinValue, Optional max As Single = Single.MaxValue) As Single
         Dim value As Single = number
         value += increment
         value = Math.Min(max, Math.Max(min, value))
