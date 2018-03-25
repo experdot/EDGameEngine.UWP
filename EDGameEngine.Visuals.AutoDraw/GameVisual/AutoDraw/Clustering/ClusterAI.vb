@@ -76,7 +76,7 @@ Public Class ClusterAI
     Private Function GenerateLinesFast(hierarchy As IHierarchy) As List(Of ILine)
         Dim result As New List(Of ILine)
         Dim count As Integer
-        hierarchy.Clusters.Sort(New ClusterLengthCompare)
+        hierarchy.Clusters.Sort(New ClusterChildrenCountCompare)
         For Each SubCluster In hierarchy.Clusters
             Dim line As New Line
             For Each SubLeaf In SubCluster.Leaves
@@ -102,17 +102,40 @@ Public Class ClusterAI
 
     Private Function GenerateLinesQuality(hierarchy As IHierarchy) As List(Of ILine)
         Dim result As New List(Of ILine)
-        hierarchy.Clusters.Sort(New ClusterLengthCompare)
+        hierarchy.Clusters.Sort(New ClusterChildrenCountCompare)
         For Each cluster In hierarchy.Clusters
-            GenerateLinesQualityWithDepth(result, cluster, hierarchy.Rank)
+            GenerateByBreadthFirstSearch(result, cluster, hierarchy.Rank)
         Next
         Return result
     End Function
 
-    Private Sub GenerateLinesQualityWithDepth(lines As List(Of ILine), parent As Cluster, depth As Integer)
-        'Debug.WriteLine($"{depth},{parent.Children.Count}")
+    Private Sub GenerateByBreadthFirstSearch(lines As List(Of ILine), root As Cluster, depth As Integer)
+        Dim current As Integer = depth
+        Dim clusterQueue As New Queue(Of Cluster)
+        Dim clusterCache As New List(Of Cluster)
+        clusterQueue.Enqueue(root)
+        While clusterQueue.Count > 0
+            While clusterQueue.Count > 0
+                Dim cluster = clusterQueue.Dequeue()
+                If cluster.Children.Count = 0 Then
+                    Return
+                End If
+                clusterCache.Add(cluster)
+            End While
+            current -= 1
+            For Each cluster In clusterCache
+                For Each child In cluster.Children
+                    clusterQueue.Enqueue(child)
+                    GenerateByClusterAndDepth(lines, child, current)
+                Next
+            Next
+            clusterCache.Clear()
+        End While
+    End Sub
+
+    Private Sub GenerateByClusterAndDepth(lines As List(Of ILine), parent As Cluster, depth As Integer)
         If parent.Children.Count > 0 Then
-            'parent.Children.Sort(New ClusterLengthCompare)
+            parent.Children.Sort(New ClusterLeavesCountComparer)
             For Each cluster In parent.Children
                 Dim line As New Line
                 For Each leaf In cluster.Leaves
@@ -128,9 +151,8 @@ Public Class ClusterAI
                     line.Points.Last.UserColor = real
                     line.Points.Last.UserSize = line.Points.Last.Size
                 Next
-                line.CalcLength(2 * depth + 1)
+                line.CalcLength(CInt(1.6 * depth) + 1)
                 lines.Add(line)
-                GenerateLinesQualityWithDepth(lines, cluster, depth - 1)
             Next
         Else
             '绘制最后一层的原始像素

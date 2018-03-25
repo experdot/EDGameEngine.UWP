@@ -135,9 +135,10 @@
     <Compile Include="GameVisual\AutoDraw\Base\IAutoDrawModel.vb" />
     <Compile Include="GameVisual\AutoDraw\Clustering\ClusterAI.vb" />
     <Compile Include="GameVisual\AutoDraw\Clustering\Cluster\Cluster.vb" />
-    <Compile Include="GameVisual\AutoDraw\Clustering\Cluster\Compare\ClusterColorCompare.vb" />
-    <Compile Include="GameVisual\AutoDraw\Clustering\Cluster\Compare\ClusterLengthCompare.vb" />
-    <Compile Include="GameVisual\AutoDraw\Clustering\Cluster\Compare\ClusterPositionCompare.vb" />
+    <Compile Include="GameVisual\AutoDraw\Clustering\Cluster\Compare\ClusterColorComparer.vb" />
+    <Compile Include="GameVisual\AutoDraw\Clustering\Cluster\Compare\ClusterLeavesCountComparer.vb" />
+    <Compile Include="GameVisual\AutoDraw\Clustering\Cluster\Compare\ClusterChildrenCountCompare.vb" />
+    <Compile Include="GameVisual\AutoDraw\Clustering\Cluster\Compare\ClusterPositionComparer.vb" />
     <Compile Include="GameVisual\AutoDraw\Clustering\Hierarchy\Base\HierarchyBase.vb" />
     <Compile Include="GameVisual\AutoDraw\Clustering\Hierarchy\Base\IHierarchy.vb" />
     <Compile Include="GameVisual\AutoDraw\Clustering\Hierarchy\GridHierarchy\GridHierarchy.vb" />

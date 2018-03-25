@@ -94,7 +94,6 @@ Public Class Cluster
             Return VectorHelper.GetAveratePosition(GetPostionsOfChidren())
         End If
     End Function
-
     ''' <summary>
     ''' 返回子簇的平均颜色
     ''' </summary>

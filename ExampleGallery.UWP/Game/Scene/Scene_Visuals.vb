@@ -158,7 +158,6 @@ Public Class Scene_Visuals
                 Dim image = CType(ImageResource.GetResource(ImageResourceId.Scenery_Anime), CanvasBitmap)
                 Dim tempModel As New AutoDrawByClusteringModel() With {.Image = image}
                 tempModel.GameComponents.Behaviors.Add(New TransformScript)
-                tempModel.GameComponents.Effects.Add(New FrostedEffect)
                 Me.AddGameVisual(tempModel, New AutoDrawView())
             Case 50001 '自动拼图
                 Throw New NotImplementedException()

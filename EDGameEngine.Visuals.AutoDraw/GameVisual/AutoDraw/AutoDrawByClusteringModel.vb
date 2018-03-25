@@ -13,7 +13,7 @@ Public Class AutoDrawByClusteringModel
     Public Property ImageSize As Size Implements IAutoDrawModel.ImageSize
     Public Property CurrentPoints As New Concurrent.ConcurrentQueue(Of VertexWithLayer) Implements IAutoDrawModel.CurrentPoints
     Public Property PointsCountPerFrame As Integer = 1000 Implements IAutoDrawModel.PointsCountPerFrame
-    Public Property PointsCountMaxPerFrame As Integer = 5000 Implements IAutoDrawModel.PointsCountMaxPerFrame
+    Public Property PointsCountMaxPerFrame As Integer = 2000 Implements IAutoDrawModel.PointsCountMaxPerFrame
     Public Property LayerCount As Integer = 13 Implements IAutoDrawModel.LayerCount
     Public Property CircleLayers As Integer() = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12} Implements IAutoDrawModel.CircleLayers
     'Public Property CircleLayers As Integer() = {0} Implements IAutoDrawModel.CircleLayers

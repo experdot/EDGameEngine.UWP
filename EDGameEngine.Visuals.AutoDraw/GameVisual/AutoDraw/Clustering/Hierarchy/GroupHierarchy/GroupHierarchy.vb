@@ -47,7 +47,7 @@ Public Class GroupHierarchy
         Dim result As New List(Of Cluster)
         Dim array As New List(Of Cluster)
         array.AddRange(Clusters)
-        array.Sort(New ClusterPositionCompare(cluster))
+        array.Sort(New ClusterPositionComparer(cluster))
         result.AddRange(array.Take(MaxNeighboursCount))
         Return result
     End Function

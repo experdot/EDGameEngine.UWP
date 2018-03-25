@@ -1,7 +1,7 @@
 ﻿''' <summary>
 ''' 位置比较器
 ''' </summary>
-Public Class ClusterPositionCompare
+Public Class ClusterPositionComparer
     Implements IComparer(Of Cluster)
     Public Property Target As Cluster
     Public Sub New(target As Cluster)

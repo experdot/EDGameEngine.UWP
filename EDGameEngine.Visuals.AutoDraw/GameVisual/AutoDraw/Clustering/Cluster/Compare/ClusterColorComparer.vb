@@ -2,7 +2,7 @@
 ''' <summary>
 ''' 颜色比较器
 ''' </summary>
-Public Class ClusterColorCompare
+Public Class ClusterColorComparer
     Implements IComparer(Of Cluster)
     Public Property Target As Cluster
     Public Sub New(target As Cluster)
