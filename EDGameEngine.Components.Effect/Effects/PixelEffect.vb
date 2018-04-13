@@ -16,8 +16,8 @@ Public Class PixelEffect
 
     Public Overrides Function Effect(source As IGraphicsEffectSource, resourceCreator As ICanvasResourceCreator) As IGraphicsEffectSource
         Dim bmp As CanvasBitmap = BitmapCacheHelper.CacheEntireImage(resourceCreator, CType(source, ICanvasImage))
-        Dim RawColors() As Color = bmp.GetPixelColors()
-        Dim NowColors(RawColors.Count - 1) As Color
+        Dim raws() As Color = bmp.GetPixelColors()
+        Dim nows(raws.Count - 1) As Color
 
         Static Offset As Single = 0.0F
         Offset -= 0.1F
@@ -69,7 +69,7 @@ Public Class PixelEffect
                 If tempY < 0 Then tempY = 0
                 If tempY > h - 1 Then tempY = h - 1
 
-                NowColors(y * w + x) = RawColors(tempY * w + tempX)
+                nows(y * w + x) = raws(tempY * w + tempX)
                 'NowColors(y * w + x).A = CByte(NowColors(y * w + x).A * Math.Abs(CSng(Math.Sin(Offset + Math.Log(Math.E + len)))))
                 'NowColors(y * w + x).R = CByte(NowColors(y * w + x).R * Math.Abs(CSng(Math.Sin(Offset + Math.Log(Math.E + len)))))
                 'NowColors(y * w + x).G = CByte(NowColors(y * w + x).G * Math.Abs(CSng(Math.Sin(Offset + Math.Log(Math.E + len)))))
@@ -77,7 +77,7 @@ Public Class PixelEffect
             Next
         Next
 
-        bmp.SetPixelColors(NowColors)
+        bmp.SetPixelColors(nows)
         Return bmp
     End Function
 End Class

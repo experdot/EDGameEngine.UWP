@@ -23,18 +23,18 @@ Public Class RippleEffect
         RippleSpread()
         Dim srcData() As Color = BitmapCacheHelper.CacheImageClip(resourceCreator, CType(source, ICanvasImage), New Rect(0, 0, Width, Height)).GetPixelColors
         Dim desData() As Color = CType(srcData.Clone, Color())
-        Dim xoff, yoff As Integer
+        Dim xOffset, yOffset As Integer
         Dim k As Integer = Width
         For i = 1 To Height - 2
             For j = 0 To Width - 1
-                xoff = Buffer1(k - 1) - Buffer1(k + 1) 'x偏移
-                yoff = Buffer1(k - Width) - Buffer1(k + Width) 'y偏移
-                If (xoff = 0 AndAlso yoff = 0) OrElse i + yoff <= 0 OrElse i + yoff >= Height OrElse j + xoff <= 0 OrElse j + xoff >= Width Then
+                xOffset = Buffer1(k - 1) - Buffer1(k + 1) 'x偏移
+                yOffset = Buffer1(k - Width) - Buffer1(k + Width) 'y偏移
+                If (xOffset = 0 AndAlso yOffset = 0) OrElse i + yOffset <= 0 OrElse i + yOffset >= Height OrElse j + xOffset <= 0 OrElse j + xOffset >= Width Then
                     k += 1 '边界判断
                     Continue For
                 End If
                 Dim pos1, pos2 As Integer
-                pos1 = (i + yoff) * Width + j + xoff
+                pos1 = (i + yOffset) * Width + j + xOffset
                 pos2 = i * Width + j
                 desData(pos2) = srcData(pos1) '根据偏移量重新渲染界面
                 k += 1

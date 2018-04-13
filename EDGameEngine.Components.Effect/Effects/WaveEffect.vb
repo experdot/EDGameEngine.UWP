@@ -15,8 +15,8 @@ Public Class WaveEffect
 
     Public Overrides Function Effect(source As IGraphicsEffectSource, resourceCreator As ICanvasResourceCreator) As IGraphicsEffectSource
         Dim bmp As CanvasBitmap = BitmapCacheHelper.CacheEntireImage(resourceCreator, CType(source, ICanvasImage))
-        Dim RawColors() As Color = bmp.GetPixelColors()
-        Dim NowColors(RawColors.Count - 1) As Color
+        Dim raws() As Color = bmp.GetPixelColors()
+        Dim nows(raws.Count - 1) As Color
 
         If Amount > 300 Then Amount = 300
         Dim w As Integer = CInt(bmp.Bounds.Width)
@@ -31,11 +31,11 @@ Public Class WaveEffect
                 If tempX > w - 1 Then tempX = w - 1
                 If tempY < 0 Then tempY = 0
                 If tempY > h - 1 Then tempY = h - 1
-                NowColors(y * w + x) = RawColors(tempY * w + tempX)
+                nows(y * w + x) = raws(tempY * w + tempX)
             Next
         Next
 
-        bmp.SetPixelColors(NowColors)
+        bmp.SetPixelColors(nows)
         Return bmp
     End Function
 End Class

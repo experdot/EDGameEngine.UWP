@@ -10,10 +10,10 @@ Imports Windows.Graphics.Effects
 Public Class StreamEffect
     Inherits CanvasEffectBase
     Public Overrides Function Effect(source As IGraphicsEffectSource, resourceCreator As ICanvasResourceCreator) As IGraphicsEffectSource
-        Static ts As Single
-        ts = CSng((ts + 0.01)) Mod CSng((Math.PI * 2))
-        Dim dispX As Single = 75.0F * CSng(Math.Sin(ts))
-        Dim dispY As Single = 75.0F * CSng(Math.Cos(ts))
+        Static Rotation As Single
+        Rotation = CSng((Rotation + 0.01)) Mod CSng((Math.PI * 2))
+        Dim dispX As Single = 75.0F * CSng(Math.Sin(Rotation))
+        Dim dispY As Single = 75.0F * CSng(Math.Cos(Rotation))
         Dim dispMap = New DisplacementMapEffect() With {
                      .Source = source,
                      .XChannelSelect = EffectChannelSelect.Red,

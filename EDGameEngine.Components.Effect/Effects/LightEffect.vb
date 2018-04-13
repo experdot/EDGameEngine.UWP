@@ -19,16 +19,16 @@ Public Class LightEffect
         Static LightLoc As New Vector2(0, 30)
         Static Rnd As New Random
         Dim bmp As CanvasBitmap = BitmapCacheHelper.CacheEntireImage(CType(resourceCreator, ICanvasResourceCreatorWithDpi), CType(source, ICanvasImage))
-        Dim RawColors() As Color = bmp.GetPixelColors
-        Dim NowColors(RawColors.Count - 1) As Color
+        Dim raws() As Color = bmp.GetPixelColors
+        Dim nows(raws.Count - 1) As Color
         w = CInt(bmp.Bounds.Width)
         h = CInt(bmp.Bounds.Height)
         ScanRadius = CSng(Math.Sqrt(w * w + h * h))
         LightLoc.X = CSng(Math.Cos(Environment.TickCount / 5000) * w / 3 + w / 2)
         LightLoc.Y = CSng(Math.Sin(Environment.TickCount / 5000) * h / 3 + h / 2)
         '添加阴影区
-        For i = 0 To RawColors.Count - 1
-            NowColors(i) = If(RawColors(i).A = 0, ShadowColor, RawColors(i))
+        For i = 0 To raws.Count - 1
+            nows(i) = If(raws(i).A = 0, ShadowColor, raws(i))
         Next
         '添加光照区
         For rotate As Single = 0 To (Math.PI * 2) Step 1 / ScanRadius
@@ -40,11 +40,11 @@ Public Class LightEffect
                 If (x > w - 1 OrElse x < 0 OrElse y > h - 1 OrElse y < 0) Then
                     Exit For
                 Else
-                    If RawColors(y * w + x).A = 0 Then
+                    If raws(y * w + x).A = 0 Then
                         If IsBlack Then
-                            NowColors(y * w + x) = Color.FromArgb(CByte(180 * length / ScanRadius + 50 * (1 - length / ScanRadius)), 0, 0, 0)
+                            nows(y * w + x) = Color.FromArgb(CByte(180 * length / ScanRadius + 50 * (1 - length / ScanRadius)), 0, 0, 0)
                         Else
-                            NowColors(y * w + x) = Color.FromArgb(CByte(128 * length / ScanRadius), 0, 0, 0)
+                            nows(y * w + x) = Color.FromArgb(CByte(128 * length / ScanRadius), 0, 0, 0)
                         End If
                     Else
                         IsBlack = True
@@ -52,7 +52,7 @@ Public Class LightEffect
                 End If
             Next
         Next
-        bmp.SetPixelColors(NowColors)
+        bmp.SetPixelColors(nows)
         Return bmp
     End Function
 End Class

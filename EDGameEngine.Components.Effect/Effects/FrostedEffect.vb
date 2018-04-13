@@ -19,15 +19,15 @@ Public Class FrostedEffect
     Public Overrides Function Effect(source As IGraphicsEffectSource, resourceCreator As ICanvasResourceCreator) As IGraphicsEffectSource
         'Dim bmp As CanvasBitmap = BitmapCacheHelper.CacheEntireImage(resourceCreator, CType(source, ICanvasImage))
         Dim bmp As CanvasBitmap = BitmapCacheHelper.CacheImageClip(resourceCreator, CType(source, ICanvasImage), Target.Scene.Rect)
-        Dim RawColors() As Color = bmp.GetPixelColors()
-        Dim NowColors(RawColors.Count - 1) As Color
+        Dim raws() As Color = bmp.GetPixelColors()
+        Dim nows(raws.Count - 1) As Color
         '打散像素
         If Quality = EffectQuality.Low Then
-            For i = 0 To RawColors.Count - 1
+            For i = 0 To raws.Count - 1
                 Dim temp As Integer = i + GameBody.Rnd.Next(0, CInt(Amount))
                 If temp < 0 Then temp = 0
-                If temp >= RawColors.Count Then temp = RawColors.Count - 1
-                NowColors(i) = RawColors(temp)
+                If temp >= raws.Count Then temp = raws.Count - 1
+                nows(i) = raws(temp)
             Next
         Else
             If Amount > 300 Then Amount = 300
@@ -42,11 +42,11 @@ Public Class FrostedEffect
                     If tempX > w - 1 Then tempX = w - 1
                     If tempY < 0 Then tempY = 0
                     If tempY > h - 1 Then tempY = h - 1
-                    NowColors(y * w + x) = RawColors(tempY * w + tempX)
+                    nows(y * w + x) = raws(tempY * w + tempX)
                 Next
             Next
         End If
-        bmp.SetPixelColors(NowColors)
+        bmp.SetPixelColors(nows)
         Return bmp
     End Function
 End Class
