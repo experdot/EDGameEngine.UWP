@@ -87,7 +87,7 @@ Public Class Scene_Compnents
                 tempModel.GameComponents.Effects.Add(New ContrastEffect)
                 tempModel.GameComponents.Behaviors.Add(New TransformScript)
                 Me.AddGameVisual(tempModel, New SpriteView())
-            Case 1010 '测试效果
+            Case 1011 '测试效果
                 Dim image As ICanvasImage = ImageResource.GetResource(ImageResourceId.Scenery_Anime)
                 Dim tempModel As New Sprite() With {.Image = CType(image, CanvasBitmap)}
                 tempModel.GameComponents.Effects.Add(New TestEffect)
