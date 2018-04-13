@@ -22,6 +22,8 @@ Public Class GalleryCompnentsViewModel
         samples1.Add(New Sample() With {.Id = 1007, .Title = "水流效果", .Description = "描述", .Image = image})
         samples1.Add(New Sample() With {.Id = 1008, .Title = "二值变换", .Description = "描述", .Image = image})
         samples1.Add(New Sample() With {.Id = 1009, .Title = "波纹效果", .Description = "描述", .Image = image})
+        samples1.Add(New Sample() With {.Id = 1010, .Title = "对比度效果", .Description = "描述", .Image = image})
+        samples1.Add(New Sample() With {.Id = 1011, .Title = "测试效果", .Description = "描述", .Image = image})
 
         Dim samples2 As New List(Of Sample)
         samples2.Add(New Sample() With {.Id = 2000, .Title = "标题2A", .Description = "描述", .Image = image})

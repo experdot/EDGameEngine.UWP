@@ -129,6 +129,7 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Effects\ContrastEffect.vb" />
     <Compile Include="Effects\FrostedEffect.vb" />
     <Compile Include="Effects\GaussianBlurEffect.vb" />
     <Compile Include="Effects\GhostEffect.vb" />
@@ -137,6 +138,7 @@
     <Compile Include="Effects\RippleEffect.vb" />
     <Compile Include="Effects\ShadowEffect.vb" />
     <Compile Include="Effects\StreamEffect.vb" />
+    <Compile Include="Effects\TestEffect.vb" />
     <Compile Include="Effects\ThresholdEffect.vb" />
     <Compile Include="Effects\WaveEffect.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
