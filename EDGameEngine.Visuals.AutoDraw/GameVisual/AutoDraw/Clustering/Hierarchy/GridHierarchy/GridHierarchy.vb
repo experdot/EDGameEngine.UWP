@@ -1,4 +1,6 @@
 ﻿Imports System.Numerics
+Imports EDGameEngine.Core.Graphics
+Imports Windows.UI
 ''' <summary>
 ''' 由单元格表示的层
 ''' </summary>
@@ -48,14 +50,28 @@ Public Class GridHierarchy
     ''' </summary>
     Public Shared Function CreateFromPixels(pixels As PixelData) As GridHierarchy
         Dim result As New GridHierarchy(pixels.Width, pixels.Height, 1)
-        For i = 0 To pixels.Width - 1
-            For j = 0 To pixels.Height - 1
+        For x = 0 To pixels.Width - 1
+            For y = 0 To pixels.Height - 1
+                Dim dx, dy As Integer
+                Dim direction As New Vector2
+                Dim color As Color = pixels.Colors(y * pixels.Width + x)
+                Dim gray = BitmapPixelHelper.GetColorAverage(color)
+                For k = 1 To 8
+                    dx = x + OffsetX(k)
+                    dy = y + OffsetY(k)
+                    If (dx >= 0 AndAlso dy >= 0 AndAlso dx < pixels.Width AndAlso dy < pixels.Height) Then
+                        Dim offsetColor = pixels.Colors(dy * pixels.Width + dx)
+                        Dim radius = gray - BitmapPixelHelper.GetColorAverage(offsetColor)
+                        direction += New Vector2(OffsetX(k), OffsetY(k)) * radius
+                    End If
+                Next
                 Dim cluster As New Cluster With
                 {
-                    .Position = New Vector2(i, j),
-                    .Color = pixels.Colors(pixels.Width * j + i)
+                    .Position = New Vector2(x, y),
+                    .Color = color,
+                    .Direction = direction
                 }
-                result.Grid(i, j).Add(cluster)
+                result.Grid(x, y).Add(cluster)
                 result.Clusters.Add(cluster)
                 'result.AddCluster(cluster)'该方法存在性能问题
             Next
@@ -84,6 +100,7 @@ Public Class GridHierarchy
         For Each SubCluster In result.Clusters
             SubCluster.Position = SubCluster.GetAveragePosition()
             SubCluster.Color = SubCluster.GetAverageColor()
+            SubCluster.Direction = SubCluster.GetAverageDirection()
         Next
         '分配至单元格
         For Each SubCluster In result.Clusters

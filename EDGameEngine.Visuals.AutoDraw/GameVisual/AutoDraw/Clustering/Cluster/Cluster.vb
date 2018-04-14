@@ -23,6 +23,10 @@ Public Class Cluster
     ''' </summary>
     Public Property Color As Color
     ''' <summary>
+    ''' 梯度方向
+    ''' </summary>
+    Public Property Direction As Vector2
+    ''' <summary>
     ''' 叶子子簇
     ''' </summary>
     Public ReadOnly Property Leaves As List(Of Cluster)
@@ -104,6 +108,16 @@ Public Class Cluster
             Return Utilities.ColorHelper.GetAverageColor(GetColorsOfChildren())
         End If
     End Function
+    ''' <summary>
+    ''' 返回子簇的平均梯度方向
+    ''' </summary>
+    Public Function GetAverageDirection() As Vector2
+        If Children.Count = 0 Then
+            Return Direction
+        Else
+            Return VectorHelper.GetAveratePosition(GetDirectionsOfChidren())
+        End If
+    End Function
 
     Private Function CompareTwoCluster(cluster1 As Cluster, cluster2 As Cluster) As Single
         Dim result As Single = 0
@@ -111,6 +125,10 @@ Public Class Cluster
         Dim p1 As Vector2 = cluster1.Position
         Dim p2 As Vector2 = cluster2.Position
         Dim positionDistance As Single = 1 / (p1 - p2).Length
+
+        Dim d1 As Vector2 = cluster1.Direction
+        Dim d2 As Vector2 = cluster2.Direction
+        Dim directionDistance As Single = 1 / (d1 - d2).Length
 
         Dim color1 As Color = cluster1.Color()
         Dim color2 As Color = cluster2.Color()
@@ -121,7 +139,9 @@ Public Class Cluster
         colorDistance = 1 / (1 + (vec1 - vec2).LengthSquared)
 
         'result = colorDistance
-        result = positionDistance * colorDistance
+        'result = positionDistance * colorDistance
+        result = directionDistance * colorDistance
+        'result = directionDistance
         Return result
     End Function
     Private Function GetLeavesOfChildren() As List(Of Cluster)
@@ -132,5 +152,8 @@ Public Class Cluster
     End Function
     Private Function GetColorsOfChildren() As IEnumerable(Of Color)
         Return From c As Cluster In Children Select c.Color
+    End Function
+    Private Function GetDirectionsOfChidren() As IEnumerable(Of Vector2)
+        Return From c As Cluster In Children Select c.Direction
     End Function
 End Class

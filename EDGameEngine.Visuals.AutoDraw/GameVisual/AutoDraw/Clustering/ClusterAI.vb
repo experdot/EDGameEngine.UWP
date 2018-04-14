@@ -76,16 +76,16 @@ Public Class ClusterAI
     Private Function GenerateLinesFast(hierarchy As IHierarchy) As List(Of ILine)
         Dim result As New List(Of ILine)
         Dim count As Integer
-        hierarchy.Clusters.Sort(New ClusterChildrenCountCompare)
+        hierarchy.Clusters.Sort(New ClusterLeavesCountComparer)
         For Each cluster In hierarchy.Clusters
             Dim line As New Line
             For Each leaf In cluster.Leaves
                 Dim raw As Color = cluster.Color
-                Dim real As Color = Color.FromArgb(CByte(raw.A / (hierarchy.Rank + 1.0F)), raw.R, raw.G, raw.B)
+                Dim real As Color = Color.FromArgb(CByte(raw.A / (hierarchy.Rank * 1.6 + 1.0F)), raw.R, raw.G, raw.B)
                 line.Points.Add(New VertexWithLayer With {
                     .Color = cluster.Color,
                     .Position = leaf.Position,
-                    .Size = CSng(1 + 2.0F * hierarchy.Rank),
+                    .Size = CSng(1 + 3.0F * hierarchy.Rank),
                     .LayerIndex = MaxRank - hierarchy.Rank
                 })
                 line.Points.Last.UserColor = real
@@ -102,6 +102,7 @@ Public Class ClusterAI
     Private Function GenerateLinesQuality(hierarchy As IHierarchy) As List(Of ILine)
         Dim result As New List(Of ILine)
         hierarchy.Clusters.Sort(New ClusterChildrenCountCompare)
+        Debug.WriteLine($"GenerateLinesQuality hierarchy count:{hierarchy.Clusters.Count}")
         For Each cluster In hierarchy.Clusters
             GenerateByBreadthFirstSearch(result, cluster, hierarchy.Rank)
         Next
@@ -139,7 +140,7 @@ Public Class ClusterAI
                 Dim line As New Line
                 For Each leaf In cluster.Leaves
                     Dim distance As Single = (leaf.Position - cluster.Position).Length
-                    Dim ratio = Math.Log10(10 + distance)
+                    Dim ratio = 1 'Math.Log10(10 + distance)
                     Dim raw As Color = cluster.Color
                     Dim real As Color = Color.FromArgb(CByte(raw.A / (depth + 1.0F)), raw.R, raw.G, raw.B)
 
@@ -152,7 +153,7 @@ Public Class ClusterAI
                     line.Points.Last.UserColor = real
                     line.Points.Last.UserSize = line.Points.Last.Size
                 Next
-                line.CalcLength(CInt(1.4 * depth) + 1)
+                'line.CalcLength(CInt(1.2 * depth) + 1)
                 lines.Add(line)
             Next
         Else
