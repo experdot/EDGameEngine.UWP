@@ -1,5 +1,6 @@
 ﻿Imports System.Numerics
 Imports Windows.UI
+Imports EDGameEngine.Core.Utilities
 ''' <summary>
 ''' 聚类AI
 ''' </summary>
@@ -36,7 +37,7 @@ Public Class ClusterAI
             Hierarchies.Add(Hierarchies.Last.Generate())
             Debug.WriteLine($"Total:{maxRank},Current:{i + 1},Time Consuming:{DateTime.Now - start},Hierarchy[{Hierarchies.Last.ToString()}]")
         Next
-        Debug.WriteLine(pixels.Colors.Length)
+        Debug.WriteLine($"Pixels:{pixels.Colors.Length}")
 
         '快速涂抹
         Dim index As Integer = maxRank - 3
@@ -79,6 +80,7 @@ Public Class ClusterAI
         hierarchy.Clusters.Sort(New ClusterLeavesCountComparer)
         For Each cluster In hierarchy.Clusters
             Dim line As New Line
+            'Dim ranc As Color = ColorUtilities.GetRandomRGB()
             For Each leaf In cluster.Leaves
                 Dim raw As Color = cluster.Color
                 Dim real As Color = Color.FromArgb(CByte(raw.A / (hierarchy.Rank * 1.6 + 1.0F)), raw.R, raw.G, raw.B)
@@ -90,12 +92,14 @@ Public Class ClusterAI
                 })
                 line.Points.Last.UserColor = real
                 line.Points.Last.UserSize = line.Points.Last.Size
+                'line.Points.Last.UserColor = ranc
+                'line.Points.Last.UserSize = 1.0F
             Next
             line.CalcLength(hierarchy.Rank)
             result.Add(line)
             count += line.Points.Count
         Next
-        Debug.WriteLine(count)
+        Debug.WriteLine($"Count:{count}")
         Return result
     End Function
 
@@ -103,9 +107,8 @@ Public Class ClusterAI
         Dim result As New List(Of ILine)
         hierarchy.Clusters.Sort(New ClusterChildrenCountCompare)
         Debug.WriteLine($"GenerateLinesQuality hierarchy count:{hierarchy.Clusters.Count}")
-        For Each cluster In hierarchy.Clusters
-            GenerateByBreadthFirstSearch(result, cluster, hierarchy.Rank)
-        Next
+        Dim cluster As Cluster = ClusterUtilities.CombinedAllCluster(hierarchy.Clusters)
+        GenerateByBreadthFirstSearch(result, cluster, hierarchy.Rank)
         Return result
     End Function
 
@@ -147,13 +150,13 @@ Public Class ClusterAI
                     line.Points.Add(New VertexWithLayer With {
                         .Color = cluster.Color,
                         .Position = leaf.Position,
-                        .Size = CSng(1 + 3.0F * depth / ratio),
+                        .Size = CSng(1 + 4.0F * depth / ratio),
                         .LayerIndex = MaxRank - depth
                     })
                     line.Points.Last.UserColor = real
                     line.Points.Last.UserSize = line.Points.Last.Size
                 Next
-                'line.CalcLength(CInt(1.2 * depth) + 1)
+                line.CalcLength(CInt(1.2 * depth) + 1)
                 lines.Add(line)
             Next
         Else

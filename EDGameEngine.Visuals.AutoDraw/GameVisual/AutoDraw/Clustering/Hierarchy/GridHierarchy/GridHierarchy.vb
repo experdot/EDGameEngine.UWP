@@ -79,6 +79,7 @@ Public Class GridHierarchy
         Return result
     End Function
 
+    Public Shared IgnoreCount As Integer
     Public Overrides Function Generate() As IHierarchy
         Dim rate As Single = 4.0F
         Dim newSize As Single = Me.Size * rate
@@ -94,6 +95,11 @@ Public Class GridHierarchy
                 Else
                     Cluster.Combine(SubCluster, similar)
                 End If
+            Else
+                IgnoreCount += 1
+                Dim parent As New Cluster
+                parent.Children.Add(SubCluster)
+                result.Clusters.Add(parent)
             End If
         Next
         '设置属性
@@ -102,7 +108,7 @@ Public Class GridHierarchy
             SubCluster.Color = SubCluster.GetAverageColor()
             SubCluster.Direction = SubCluster.GetAverageDirection()
         Next
-        '分配至单元格
+        '分配至网格
         For Each SubCluster In result.Clusters
             Dim p As Vector2 = SubCluster.Position
             Dim x As Integer = CInt(p.X / result.Size)

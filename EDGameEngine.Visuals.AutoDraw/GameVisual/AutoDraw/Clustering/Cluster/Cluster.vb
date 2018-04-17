@@ -105,7 +105,7 @@ Public Class Cluster
         If Children.Count = 0 Then
             Return Color
         Else
-            Return Utilities.ColorHelper.GetAverageColor(GetColorsOfChildren())
+            Return Utilities.ColorUtilities.GetAverageColor(GetColorsOfChildren())
         End If
     End Function
     ''' <summary>
@@ -140,8 +140,7 @@ Public Class Cluster
 
         'result = colorDistance
         'result = positionDistance * colorDistance
-        result = directionDistance * colorDistance
-        'result = directionDistance
+        result = positionDistance * directionDistance * colorDistance
         Return result
     End Function
     Private Function GetLeavesOfChildren() As List(Of Cluster)

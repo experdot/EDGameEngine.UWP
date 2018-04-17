@@ -9,7 +9,7 @@ Public Class ClusterColorComparer
         Me.Target = target
     End Sub
     Public Function Compare(x As Cluster, y As Cluster) As Integer Implements IComparer(Of Cluster).Compare
-        If ColorHelper.GetColorSimilarity(Target.Color, x.Color) < ColorHelper.GetColorSimilarity(Target.Color, y.Color) Then
+        If ColorUtilities.GetColorSimilarity(Target.Color, x.Color) < ColorUtilities.GetColorSimilarity(Target.Color, y.Color) Then
             Return 1
         Else
             Return -1

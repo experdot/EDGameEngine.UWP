@@ -29,7 +29,7 @@ Public Class Scene_Visuals
             Case 10000 '直线
                 For i = 0 To 10
                     Dim line As New VisualLine With {.Width = CSng(1 + Rnd.NextDouble * 5)}
-                    line.Fill.Color = Utilities.ColorHelper.GetRandomColor
+                    line.Fill.Color = Utilities.ColorUtilities.GetRandomColor
                     For j = 0 To Rnd.Next(1, 5)
                         line.Points.Add(New Vector2(CSng(Width * Rnd.NextDouble), CSng(Height * Rnd.NextDouble)))
                     Next
@@ -41,8 +41,8 @@ Public Class Scene_Visuals
                 Me.AddGameVisual(text, New TextView(), 1)
             Case 10001 '矩形
                 For i = 0 To 10
-                    Dim fill As New FillStyle(True, Utilities.ColorHelper.GetRandomColor)
-                    Dim border As New BorderStyle(True, CSng(Rnd.NextDouble * 5), Utilities.ColorHelper.GetRandomColor)
+                    Dim fill As New FillStyle(True, Utilities.ColorUtilities.GetRandomColor)
+                    Dim border As New BorderStyle(True, CSng(Rnd.NextDouble * 5), Utilities.ColorUtilities.GetRandomColor)
                     Dim rect As New Rect(0, 0, Rnd.Next(20, 400), Rnd.Next(20, 400))
                     Dim rectModel As New VisualRectangle() With {.Rectangle = rect, .Border = border, .Fill = fill}
                     rectModel.Transform.Translation = New Vector2(CSng(Width * Rnd.NextDouble), CSng(Height * Rnd.NextDouble))
@@ -55,8 +55,8 @@ Public Class Scene_Visuals
                 Me.GameLayers(0).GameComponents.Effects.Add(New GhostEffect() With {.Offset = Vector2.One, .Opacity = 0.96F})
             Case 10002 '圆形
                 For i = 0 To 10
-                    Dim fill As New FillStyle(True, Utilities.ColorHelper.GetRandomColor)
-                    Dim border As New BorderStyle(True, CSng(Rnd.NextDouble * 5), Utilities.ColorHelper.GetRandomColor)
+                    Dim fill As New FillStyle(True, Utilities.ColorUtilities.GetRandomColor)
+                    Dim border As New BorderStyle(True, CSng(Rnd.NextDouble * 5), Utilities.ColorUtilities.GetRandomColor)
                     Dim circleModel As New VisualCircle() With {.Radius = CSng(Rnd.NextDouble * 200), .Border = border, .Fill = fill}
                     circleModel.Transform.Translation = New Vector2(CSng(Width * Rnd.NextDouble), CSng(Height * Rnd.NextDouble))
                     Me.AddGameVisual(circleModel, New CircleView() With {.CacheAllowed = True})
@@ -68,8 +68,8 @@ Public Class Scene_Visuals
                 Me.GameLayers(0).GameComponents.Effects.Add(New GhostEffect() With {.Offset = Vector2.One, .Opacity = 0.96F})
             Case 10003 '多边形
                 For i = 0 To 10
-                    Dim fill As New FillStyle(True, Utilities.ColorHelper.GetRandomColor)
-                    Dim border As New BorderStyle(True, CSng(Rnd.NextDouble * 5), Utilities.ColorHelper.GetRandomColor)
+                    Dim fill As New FillStyle(True, Utilities.ColorUtilities.GetRandomColor)
+                    Dim border As New BorderStyle(True, CSng(Rnd.NextDouble * 5), Utilities.ColorUtilities.GetRandomColor)
                     Dim geo = GeometryHelper.CreateRegularPolygon(CType(Scene.World, IObjectWithResourceCreator).ResourceCreator, Rnd.Next(3, 8), Rnd.Next(20, 200), CSng(Rnd.NextDouble * Math.PI))
                     Dim polygonModel As New VisualPolygon() With {.Geometry = geo, .Border = border, .Fill = fill}
                     polygonModel.Transform.Translation = New Vector2(CSng(Width * Rnd.NextDouble), CSng(Height * Rnd.NextDouble))
