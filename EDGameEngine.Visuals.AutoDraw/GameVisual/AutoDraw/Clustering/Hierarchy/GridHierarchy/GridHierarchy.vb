@@ -2,12 +2,12 @@
 Imports EDGameEngine.Core.Graphics
 Imports Windows.UI
 ''' <summary>
-''' 由单元格表示的层
+''' 由网格表示的层
 ''' </summary>
 Public Class GridHierarchy
     Inherits HierarchyBase
     ''' <summary>
-    ''' 单元格
+    ''' 网格
     ''' </summary>
     Public Property Grid As List(Of Cluster)(,)
     ''' <summary>
@@ -19,7 +19,7 @@ Public Class GridHierarchy
     ''' </summary>
     Public Property Height As Integer
     ''' <summary>
-    ''' 单元格大小
+    ''' 网格大小
     ''' </summary>
     Public Property Size As Single
 
@@ -81,7 +81,7 @@ Public Class GridHierarchy
 
     Public Shared IgnoreCount As Integer
     Public Overrides Function Generate() As IHierarchy
-        Dim rate As Single = 4.0F
+        Dim rate As Single = 3.0F
         Dim newSize As Single = Me.Size * rate
         Dim result As New GridHierarchy(CInt(Math.Ceiling(Me.Width / rate) + 1), CInt(Math.Ceiling(Me.Height / rate) + 1), newSize) With {.Rank = Me.Rank + 1}
 
