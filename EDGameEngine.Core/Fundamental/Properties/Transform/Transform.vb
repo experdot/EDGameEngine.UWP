@@ -12,7 +12,7 @@ Public Class Transform
         End Get
     End Property
     ''' <summary>
-    ''' 位移
+    ''' 平移
     ''' </summary>
     Public Property Translation As Vector2
     ''' <summary>

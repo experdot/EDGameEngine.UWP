@@ -5,7 +5,7 @@ Public Class Progress
     ''' <summary>
     ''' 进度值
     ''' </summary>
-    Public Value As Single = 0.0F
+    Public Property Value As Single = 0.0F
     ''' <summary>
     ''' 进度描述
     ''' </summary>
@@ -15,14 +15,14 @@ Public Class Progress
     ''' </summary>
     Public ReadOnly Property Percent As String
         Get
-            Return (Value * 100) & "%"
+            Return $"{Value * 100}%"
         End Get
     End Property
     ''' <summary>
     ''' 创建并初始一个实例
     ''' </summary>
-    Public Sub New(val As Single, desc As String)
-        Me.Value = val
-        Me.Description = desc
+    Public Sub New(value As Single, description As String)
+        Me.Value = value
+        Me.Description = description
     End Sub
 End Class

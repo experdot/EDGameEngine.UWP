@@ -27,5 +27,5 @@ Public Interface IGameWorld
     ''' <summary>
     ''' 切换场景
     ''' </summary>
-    Sub SwitchScene(key As String, Optional reStart As Boolean = False)
+    Sub SwitchScene(sceneName As String, Optional restart As Boolean = False)
 End Interface

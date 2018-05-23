@@ -9,7 +9,7 @@ Public Enum SceneState
     ''' <summary>
     ''' 正在初始化
     ''' </summary>
-    Starting
+    Initialize
     ''' <summary>
     ''' 暂停中
     ''' </summary>

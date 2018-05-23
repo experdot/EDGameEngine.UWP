@@ -15,4 +15,11 @@ Public MustInherit Class CanvasView
     Public MustOverride Sub BeginDraw(drawingSession As CanvasDrawingSession) Implements ICanvasView.BeginDraw
     Public MustOverride Sub AttachToGameVisual(target As IGameVisual) Implements IGameView.AttachToGameVisual
 
+    Public Overridable Sub Start() Implements IGameObject.Start
+
+    End Sub
+
+    Public Overridable Sub Update() Implements IGameObject.Update
+
+    End Sub
 End Class

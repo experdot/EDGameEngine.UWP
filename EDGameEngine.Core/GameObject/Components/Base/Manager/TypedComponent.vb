@@ -13,16 +13,16 @@ Public Class TypedComponent(Of T As IGameComponent)
     ''' 创建并初始化一个实例
     ''' </summary>
     Public Sub New()
-        Items = New List(Of T)
+        Me.Items = New List(Of T)
     End Sub
     Public Sub Start() Implements IGameComponent.Start
-        For Each SubItem In Items
-            SubItem.Start()
+        For Each item In Items
+            item.Start()
         Next
     End Sub
     Public Sub Update() Implements IGameComponent.Update
-        For Each SubItem In Items
-            SubItem.Update()
+        For Each item In Items
+            item.Update()
         Next
     End Sub
     Public Sub Add(item As T)

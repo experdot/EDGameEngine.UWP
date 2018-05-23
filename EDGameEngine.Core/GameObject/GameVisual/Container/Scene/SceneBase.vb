@@ -63,7 +63,7 @@ Public MustInherit Class SceneBase
                            Progress = New Progress(0, "创建实体")
                            Await CreateGameObjectsAsync()
                            Progress.Description = "初始化场景"
-                           State = SceneState.Starting
+                           State = SceneState.Initialize
                            For Each SubLayer In GameLayers
                                SubLayer.Start()
                            Next
@@ -96,11 +96,11 @@ Public MustInherit Class SceneBase
                                      GameLayers.Add(GetDefaultLayer())
                                  End While
                                  GameLayers(LayerIndex).GameBodys.Add(model)
-                                 If State = SceneState.Starting OrElse State = SceneState.Loop Then
+                                 If State = SceneState.Initialize OrElse State = SceneState.Loop Then
                                      model.Start()
                                  End If
                              End Sub
-        If State = SceneState.Starting OrElse State = SceneState.Loop Then
+        If State = SceneState.Initialize OrElse State = SceneState.Loop Then
             ModifiedActions.Add(modifiedAction)
         Else
             modifiedAction.Invoke()
