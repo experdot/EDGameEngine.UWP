@@ -4,38 +4,16 @@ Imports Microsoft.Graphics.Canvas
 Public Class AutoDrawByFastAIModel
     Inherits GameBody
     Implements IAutoDrawModel
-    ''' <summary>
-    ''' 线条画集合
-    ''' </summary>
-    Public Property DrawingManager As DrawingManager
-    ''' <summary>
-    ''' 原图
-    ''' </summary>
+
     Public Property Image As CanvasBitmap Implements IAutoDrawModel.Image
-    ''' <summary>
-    ''' 原图大小
-    ''' </summary>
     Public Property ImageSize As Size Implements IAutoDrawModel.ImageSize
-    ''' <summary>
-    ''' 当前绘制序列
-    ''' </summary>
     Public Property CurrentPoints As New Concurrent.ConcurrentQueue(Of VertexWithLayer) Implements IAutoDrawModel.CurrentPoints
-    ''' <summary>
-    ''' 当前绘制长度
-    ''' </summary>
     Public Property PointsCountPerFrame As Integer = 300 Implements IAutoDrawModel.PointsCountPerFrame
-    ''' <summary>
-    ''' 最大绘制长度
-    ''' </summary>
     Public Property PointsCountMaxPerFrame As Integer = 300 Implements IAutoDrawModel.PointsCountMaxPerFrame
-    ''' <summary>
-    ''' 图层数量
-    ''' </summary>
     Public Property LayerCount As Integer = 8 Implements IAutoDrawModel.LayerCount
-    ''' <summary>
-    ''' 绘圆的图层索引
-    ''' </summary>
     Public Property CircleLayers As Integer() = {7} Implements IAutoDrawModel.CircleLayers
+
+    Public Property DrawingManager As DrawingManager
 
     Public Overrides Sub StartEx()
         Me.Rect = New Rect(0, 0, Image.Bounds.Width, Image.Bounds.Height)
@@ -47,6 +25,7 @@ Public Class AutoDrawByFastAIModel
     Public Overrides Sub UpdateEx()
         UpdateDrawings()
     End Sub
+
     Private Sub UpdateDrawings()
         If CurrentPoints.Count = 0 AndAlso Not DrawingManager.IsOver Then
             For i = 0 To PointsCountPerFrame - 1

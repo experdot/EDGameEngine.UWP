@@ -133,6 +133,7 @@
     <Compile Include="GameVisual\AutoDraw\AutoDrawByClusteringModel.vb" />
     <Compile Include="GameVisual\AutoDraw\AutoDrawByFastAIModel.vb" />
     <Compile Include="GameVisual\AutoDraw\Base\IAutoDrawModel.vb" />
+    <Compile Include="GameVisual\AutoDraw\Base\IVertexWithLayerProvider.vb" />
     <Compile Include="GameVisual\AutoDraw\Clustering\ClusterAI.vb" />
     <Compile Include="GameVisual\AutoDraw\Clustering\Cluster\Cluster.vb" />
     <Compile Include="GameVisual\AutoDraw\Clustering\Cluster\ClusterUtilities.vb" />
@@ -142,6 +143,8 @@
     <Compile Include="GameVisual\AutoDraw\Clustering\Cluster\Compare\ClusterPositionComparer.vb" />
     <Compile Include="GameVisual\AutoDraw\Clustering\Converter\Base\IHierarchyToLinesConverter.vb" />
     <Compile Include="GameVisual\AutoDraw\Clustering\Converter\CircleConverter.vb" />
+    <Compile Include="GameVisual\AutoDraw\Clustering\Converter\LineBFSConverter.vb" />
+    <Compile Include="GameVisual\AutoDraw\Clustering\Converter\LineDFSConverter.vb" />
     <Compile Include="GameVisual\AutoDraw\Clustering\Hierarchy\Base\HierarchyBase.vb" />
     <Compile Include="GameVisual\AutoDraw\Clustering\Hierarchy\Base\IHierarchy.vb" />
     <Compile Include="GameVisual\AutoDraw\Clustering\Hierarchy\GridHierarchy\GridHierarchy.vb" />
@@ -208,7 +211,9 @@
       <Name>EDGameEngine.Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="GameVisual\AutoDraw\Fundamental\LinePool\" />
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

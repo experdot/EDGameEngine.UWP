@@ -1,12 +1,16 @@
 ﻿Imports System.Numerics
 Imports EDGameEngine.Core
 Imports EDGameEngine.Core.Utilities
+Imports EDGameEngine.Visuals.AutoDraw
 Imports Microsoft.Graphics.Canvas
 Imports Windows.UI
 ''' <summary>
 ''' 线条画管理器
 ''' </summary>
 Public Class DrawingManager
+    Implements IVertexWithLayerProvider
+    Public Property IsOver As Boolean = False Implements IVertexWithLayerProvider.IsOver
+
     ''' <summary>
     ''' 线条画集合
     ''' </summary>
@@ -20,9 +24,9 @@ Public Class DrawingManager
     ''' </summary>
     Public Property Height As Integer
     ''' <summary>
-    ''' 是否结束
+    ''' 是否快速识别模式
     ''' </summary>
-    Public Property IsOver As Boolean = False
+    Public Property IsFastMode As Boolean = True
     ''' <summary>
     ''' 是否重置
     ''' </summary>
@@ -33,6 +37,16 @@ Public Class DrawingManager
     Public Sub New()
         Drawings = New List(Of Drawing)
     End Sub
+
+    Public Function NextPoint() As VertexWithLayer Implements IVertexWithLayerProvider.NextPoint
+        If IsFastMode Then
+            Return NextPointFast()
+        Else
+            Return NextPointQuality()
+        End If
+    End Function
+
+
     ''' <summary>
     ''' 由指定的图像初始化
     ''' </summary>

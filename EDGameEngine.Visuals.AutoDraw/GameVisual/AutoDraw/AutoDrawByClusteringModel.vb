@@ -4,10 +4,6 @@ Imports Microsoft.Graphics.Canvas
 Public Class AutoDrawByClusteringModel
     Inherits GameBody
     Implements IAutoDrawModel
-    ''' <summary>
-    ''' 聚类AI
-    ''' </summary>
-    Public Property ClusterAI As ClusterAI
 
     Public Property Image As CanvasBitmap Implements IAutoDrawModel.Image
     Public Property ImageSize As Size Implements IAutoDrawModel.ImageSize
@@ -16,7 +12,8 @@ Public Class AutoDrawByClusteringModel
     Public Property PointsCountMaxPerFrame As Integer = 5 Implements IAutoDrawModel.PointsCountMaxPerFrame
     Public Property LayerCount As Integer = 13 Implements IAutoDrawModel.LayerCount
     Public Property CircleLayers As Integer() = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12} Implements IAutoDrawModel.CircleLayers
-    'Public Property CircleLayers As Integer() = {0} Implements IAutoDrawModel.CircleLayers
+
+    Public Property ClusterAI As ClusterAI
 
     Public Overrides Sub StartEx()
         Me.Rect = New Rect(0, 0, Image.Bounds.Width, Image.Bounds.Height)
