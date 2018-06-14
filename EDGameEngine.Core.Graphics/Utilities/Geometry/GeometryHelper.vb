@@ -9,7 +9,7 @@ Public Class GeometryHelper
     ''' <summary>
     ''' 由指定的边数、半径和旋转角度创建正多边形
     ''' </summary>
-    Public Shared Function CreateRegularPolygon(resourceCreator As ICanvasResourceCreator, count As Integer, radius As Single, Optional rotation As Single = 0) As CanvasGeometry
+    Public Shared Function CreateRegularPolygon(creator As ICanvasResourceCreator, count As Integer, radius As Single, Optional rotation As Single = 0) As CanvasGeometry
         Dim points As New List(Of Vector2)
         Dim vec As New Vector2(0, -radius)
         vec.Rotate(rotation)
@@ -18,12 +18,12 @@ Public Class GeometryHelper
         For i = 1 To count - 1
             points.Add(vec.RotateNew(rotate * i))
         Next
-        Return CanvasGeometry.CreatePolygon(resourceCreator, points.ToArray)
+        Return CanvasGeometry.CreatePolygon(creator, points.ToArray)
     End Function
     ''' <summary>
     ''' 由指定的顶点集合创建多边形
     ''' </summary>
-    Public Shared Function CreatePolygon(resourceCreator As ICanvasResourceCreator, points As Vector2()) As CanvasGeometry
-        Return CanvasGeometry.CreatePolygon(resourceCreator, points)
+    Public Shared Function CreatePolygon(creator As ICanvasResourceCreator, points As Vector2()) As CanvasGeometry
+        Return CanvasGeometry.CreatePolygon(creator, points)
     End Function
 End Class

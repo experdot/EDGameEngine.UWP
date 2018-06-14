@@ -20,8 +20,8 @@ Public Class GaussianBlurEffect
     ''' 偏移
     ''' </summary>
     Public Property Offset As Vector2 = Vector2.Zero
-    Public Overrides Function Effect(source As IGraphicsEffectSource, resourceCreator As ICanvasResourceCreator) As IGraphicsEffectSource
-        Dim cmdList = New CanvasCommandList(resourceCreator)
+    Public Overrides Function Effect(source As IGraphicsEffectSource, creator As ICanvasResourceCreator) As IGraphicsEffectSource
+        Dim cmdList = New CanvasCommandList(creator)
         Using ds = cmdList.CreateDrawingSession
             Using blur = New Effects.GaussianBlurEffect With {.Source = source, .BlurAmount = BlurAmount}
                 ds.Clear(Windows.UI.Colors.Transparent)

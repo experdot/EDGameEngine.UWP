@@ -34,12 +34,12 @@ Public Class LayerCanvas
     ''' <summary>
     ''' 绘制
     ''' </summary>
-    Public Sub OnDraw(drawingSession As CanvasDrawingSession)
+    Public Sub OnDraw(session As CanvasDrawingSession)
         For i = 0 To Canvas.Count - 1
-            drawingSession.DrawImage(Canvas(i))
+            session.DrawImage(Canvas(i))
         Next
         Using shadow = New Effects.ShadowEffect With {.Source = Foreground}
-            drawingSession.DrawImage(shadow)
+            session.DrawImage(shadow)
         End Using
     End Sub
 End Class

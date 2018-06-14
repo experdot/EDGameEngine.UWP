@@ -9,7 +9,6 @@ Public MustInherit Class SceneWithUI
     Implements IObjectWithImageResource
     Public Property ImageResource As ImageResource Implements IObjectWithImageResource.ImageResource
 
-
     Protected MustOverride Sub CreateUI()
     Protected MustOverride Sub CreateObject()
     Protected MustOverride Function CreateResourcesAsync(imageResource As ImageResource) As Task
@@ -38,8 +37,8 @@ Public MustInherit Class SceneWithUI
                                                           CreateUI()
                                                       End Sub)
     End Function
-    Private Async Function LoadAsync(resourceCreator As ICanvasResourceCreator) As Task
-        ImageResource = New ImageResource(resourceCreator)
+    Private Async Function LoadAsync(creator As ICanvasResourceCreator) As Task
+        ImageResource = New ImageResource(creator)
         Await CreateResourcesAsync(ImageResource)
     End Function
 End Class

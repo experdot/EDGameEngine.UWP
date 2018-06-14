@@ -5,5 +5,5 @@ Imports Windows.Graphics.Effects
 ''' </summary>
 Public Interface ICanvasEffect
     Inherits IEffect
-    Function EffectWithCanvasResourceCreator(source As IGraphicsEffectSource, resourceCreator As ICanvasResourceCreator) As IGraphicsEffectSource
+    Function EffectWithCanvasResourceCreator(source As IGraphicsEffectSource, creator As ICanvasResourceCreator) As IGraphicsEffectSource
 End Interface

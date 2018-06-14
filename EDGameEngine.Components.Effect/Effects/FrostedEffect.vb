@@ -16,9 +16,9 @@ Public Class FrostedEffect
     ''' 磨砂质量
     ''' </summary>
     Public Property Quality As EffectQuality
-    Public Overrides Function Effect(source As IGraphicsEffectSource, resourceCreator As ICanvasResourceCreator) As IGraphicsEffectSource
+    Public Overrides Function Effect(source As IGraphicsEffectSource, creator As ICanvasResourceCreator) As IGraphicsEffectSource
         'Dim bmp As CanvasBitmap = BitmapCacheHelper.CacheEntireImage(resourceCreator, CType(source, ICanvasImage))
-        Dim bmp As CanvasBitmap = BitmapCacheHelper.CacheImageClip(resourceCreator, CType(source, ICanvasImage), Target.Scene.Rect)
+        Dim bmp As CanvasBitmap = BitmapCacheHelper.CacheImageClip(creator, CType(source, ICanvasImage), Target.Scene.Rect)
         Dim raws() As Color = bmp.GetPixelColors()
         Dim nows(raws.Count - 1) As Color
         '打散像素

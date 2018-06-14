@@ -15,9 +15,9 @@ Public Interface ICanvasView
     ''' <summary>
     ''' 预绘制
     ''' </summary>
-    Sub BeginDraw(drawingSession As CanvasDrawingSession)
+    Sub BeginDraw(session As CanvasDrawingSession)
     ''' <summary>
     ''' 绘制
     ''' </summary>
-    Sub OnDraw(drawingSession As CanvasDrawingSession)
+    Sub OnDraw(session As CanvasDrawingSession)
 End Interface

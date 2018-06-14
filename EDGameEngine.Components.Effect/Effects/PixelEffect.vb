@@ -14,8 +14,8 @@ Public Class PixelEffect
     ''' </summary>
     Public Property Amount As Single = 10
 
-    Public Overrides Function Effect(source As IGraphicsEffectSource, resourceCreator As ICanvasResourceCreator) As IGraphicsEffectSource
-        Dim bmp As CanvasBitmap = BitmapCacheHelper.CacheEntireImage(resourceCreator, CType(source, ICanvasImage))
+    Public Overrides Function Effect(source As IGraphicsEffectSource, creator As ICanvasResourceCreator) As IGraphicsEffectSource
+        Dim bmp As CanvasBitmap = BitmapCacheHelper.CacheEntireImage(creator, CType(source, ICanvasImage))
         Dim raws() As Color = bmp.GetPixelColors()
         Dim nows(raws.Count - 1) As Color
 

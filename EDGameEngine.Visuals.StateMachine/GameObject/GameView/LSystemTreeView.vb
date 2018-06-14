@@ -29,7 +29,7 @@ Public Class LSystemTreeView
 
     Private Rnd As New Random
 
-    Public Overrides Sub OnDraw(drawingSession As CanvasDrawingSession)
+    Public Overrides Sub OnDraw(session As CanvasDrawingSession)
         Static CurrentI As Integer = 0
 
         If CurrentI >= Target.States.Count Then Return
@@ -50,14 +50,14 @@ Public Class LSystemTreeView
                 Case AscW("F")
                     Dim realOffset = Offset * CSng(Math.Log(Math.E + (5 - CenterStack.Count)) * 0.5) * CSng(Rnd.NextDouble)
                     'DrawLineBranch(drawingSession, Center, realOffset, CenterStack.Count)
-                    DrawImageBranch(drawingSession, Center, realOffset, CenterStack.Count)
+                    DrawImageBranch(session, Center, realOffset, CenterStack.Count)
                     Center += realOffset
                 Case AscW("L") 'Leaf
                     If CenterStack.Count > 4 OrElse Rnd.NextDouble > CenterStack.Count * 0.1 + 0.1 Then Exit Select
-                    DrawLeaf(drawingSession, Center, CenterStack.Count)
+                    DrawLeaf(session, Center, CenterStack.Count)
                 Case AscW("R") 'Flower
                     If CenterStack.Count > 4 OrElse Rnd.NextDouble > CenterStack.Count * 0.1 + 0.1 Then Exit Select
-                    DrawFlower(drawingSession, Center, CenterStack.Count)
+                    DrawFlower(session, Center, CenterStack.Count)
                 Case AscW("+")
                     Offset.Rotate(CSng(Math.PI / 6))
                 Case AscW("-")
@@ -78,12 +78,12 @@ Public Class LSystemTreeView
         Next
     End Sub
 
-    Private Sub DrawLineBranch(drawingSession As CanvasDrawingSession, center As Vector2, offset As Vector2, depth As Integer)
+    Private Sub DrawLineBranch(session As CanvasDrawingSession, center As Vector2, offset As Vector2, depth As Integer)
         Dim stroke As Single = (6 - depth) * 1.6F
-        drawingSession.DrawLine(center, center + offset, Color.FromArgb(CByte(255 - depth * 10), 0, 0, 0), stroke)
+        session.DrawLine(center, center + offset, Color.FromArgb(CByte(255 - depth * 10), 0, 0, 0), stroke)
     End Sub
 
-    Private Sub DrawImageBranch(drawingSession As CanvasDrawingSession, center As Vector2, offset As Vector2, depth As Integer)
+    Private Sub DrawImageBranch(session As CanvasDrawingSession, center As Vector2, offset As Vector2, depth As Integer)
         Static ImageResource As ImageResource = CType(Target.Scene, IObjectWithImageResource).ImageResource
         Static Image As CanvasBitmap = DirectCast(ImageResource.GetResource(BranchResourceId), CanvasBitmap)
         Static SrcRect As Rect = Image.Bounds
@@ -93,31 +93,31 @@ Public Class LSystemTreeView
         Dim branchHeight As Single = offset.Length * Ratio
         Dim alpha As Single = CSng(RandomHelper.NextNorm(60, 90) / 100)
 
-        drawingSession.Transform = Matrix3x2.CreateRotation(CSng(Math.Atan2(offset.Y, offset.X) - Math.PI / 2）, center)
-        drawingSession.DrawImage(Image, New Rect(center.X, center.Y, branchWidth, branchHeight), SrcRect, alpha)
-        drawingSession.Transform = Matrix3x2.CreateRotation(0)
+        session.Transform = Matrix3x2.CreateRotation(CSng(Math.Atan2(offset.Y, offset.X) - Math.PI / 2）, center)
+        session.DrawImage(Image, New Rect(center.X, center.Y, branchWidth, branchHeight), SrcRect, alpha)
+        session.Transform = Matrix3x2.CreateRotation(0)
     End Sub
 
-    Private Sub DrawLeaf(drawingSession As CanvasDrawingSession, center As Vector2, depth As Integer)
+    Private Sub DrawLeaf(session As CanvasDrawingSession, center As Vector2, depth As Integer)
         Static ImageResource As ImageResource = CType(Target.Scene, IObjectWithImageResource).ImageResource
         Static Image As CanvasBitmap = DirectCast(ImageResource.GetResource(LeafResourceId), CanvasBitmap)
         Static SrcRect As Rect = Image.Bounds
         Dim position As Vector2 = center
         Dim border As Single = (depth + 0) * ImageScale * RandomHelper.NextNorm(10, 400) / 100
         Dim alpha As Single = CSng(RandomHelper.NextNorm(20, 80) / 100)
-        drawingSession.Transform *= Matrix3x2.CreateRotation(CSng(Rnd.NextDouble * Math.PI / 2 - Math.PI / 4), center)
-        drawingSession.DrawImage(Image, New Rect(position.X - border, position.Y - border, border * 2, border * 2), SrcRect, alpha)
-        drawingSession.Transform = Matrix3x2.Identity
+        session.Transform *= Matrix3x2.CreateRotation(CSng(Rnd.NextDouble * Math.PI / 2 - Math.PI / 4), center)
+        session.DrawImage(Image, New Rect(position.X - border, position.Y - border, border * 2, border * 2), SrcRect, alpha)
+        session.Transform = Matrix3x2.Identity
     End Sub
-    Private Sub DrawFlower(drawingSession As CanvasDrawingSession, center As Vector2, depth As Integer)
+    Private Sub DrawFlower(session As CanvasDrawingSession, center As Vector2, depth As Integer)
         Static ImageResource As ImageResource = CType(Target.Scene, IObjectWithImageResource).ImageResource
         Static Image As CanvasBitmap = DirectCast(ImageResource.GetResource(FlowerResourceId), CanvasBitmap)
         Static SrcRect As Rect = Image.Bounds
         Dim position As Vector2 = center
         Dim border As Single = (depth + 0) * ImageScale * RandomHelper.NextNorm(100, 300) / 100
         Dim alpha As Single = CSng(RandomHelper.NextNorm(20, 80) / 100)
-        drawingSession.Transform *= Matrix3x2.CreateRotation(CSng(Rnd.NextDouble * Math.PI / 2 - Math.PI / 4), center)
-        drawingSession.DrawImage(Image, New Rect(position.X - border, position.Y - border, border * 2, border * 2), SrcRect, alpha)
-        drawingSession.Transform = Matrix3x2.Identity
+        session.Transform *= Matrix3x2.CreateRotation(CSng(Rnd.NextDouble * Math.PI / 2 - Math.PI / 4), center)
+        session.DrawImage(Image, New Rect(position.X - border, position.Y - border, border * 2, border * 2), SrcRect, alpha)
+        session.Transform = Matrix3x2.Identity
     End Sub
 End Class

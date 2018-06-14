@@ -7,12 +7,12 @@ Imports Microsoft.Graphics.Canvas
 Public Class FractalView
     Inherits TypedCanvasView(Of IFractal)
 
-    Public Overrides Sub OnDraw(DrawingSession As CanvasDrawingSession)
+    Public Overrides Sub OnDraw(session As CanvasDrawingSession)
         Dim tempPoint As New Vertex
         While Target.Vertexs.TryDequeue(tempPoint)
             'DrawingSession.DrawCircle(tempPoint.Position, tempPoint.Size, tempPoint.Color)
             Dim size = tempPoint.Size / 2
-            DrawingSession.DrawRectangle(New Rect(tempPoint.Position.X - size, tempPoint.Position.Y - size, tempPoint.Size, tempPoint.Size), tempPoint.Color)
+            session.DrawRectangle(New Rect(tempPoint.Position.X - size, tempPoint.Position.Y - size, tempPoint.Size, tempPoint.Size), tempPoint.Color)
         End While
     End Sub
 End Class

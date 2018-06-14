@@ -9,7 +9,7 @@ Imports Windows.Graphics.Effects
 ''' </summary>
 Public Class StreamEffect
     Inherits CanvasEffectBase
-    Public Overrides Function Effect(source As IGraphicsEffectSource, resourceCreator As ICanvasResourceCreator) As IGraphicsEffectSource
+    Public Overrides Function Effect(source As IGraphicsEffectSource, creator As ICanvasResourceCreator) As IGraphicsEffectSource
         Static Rotation As Single
         Rotation = CSng((Rotation + 0.01)) Mod CSng((Math.PI * 2))
         Dim dispX As Single = 75.0F * CSng(Math.Sin(Rotation))

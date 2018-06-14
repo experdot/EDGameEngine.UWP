@@ -16,8 +16,8 @@ Public Class ShadowEffect
     ''' 偏移
     ''' </summary>
     Public Property Offset As Vector2 = Vector2.Zero
-    Public Overrides Function Effect(source As IGraphicsEffectSource, resourceCreator As ICanvasResourceCreator) As IGraphicsEffectSource
-        Dim cmdList = New CanvasCommandList(resourceCreator)
+    Public Overrides Function Effect(source As IGraphicsEffectSource, creator As ICanvasResourceCreator) As IGraphicsEffectSource
+        Dim cmdList = New CanvasCommandList(creator)
         Using ds = cmdList.CreateDrawingSession
             Using shadow = New Effects.ShadowEffect With {.Source = CType(Target.Presenter, CanvasView).CommandList}
                 ds.Clear(Windows.UI.Colors.Transparent)

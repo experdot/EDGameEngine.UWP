@@ -7,12 +7,12 @@ Imports Windows.UI
 ''' </summary>
 Public Class PointerView
     Inherits TypedCanvasView(Of Pointer)
-    Public Overrides Sub OnDraw(DrawingSession As CanvasDrawingSession)
+    Public Overrides Sub OnDraw(session As CanvasDrawingSession)
         Static col As Color = Colors.Black
         Dim index As Integer = 1
         For Each SubVec In Target.LocQueue
             col.A = CByte(CInt(255 * (index / Target.LocQueue.Count)))
-            DrawingSession.FillCircle(SubVec, CSng(10 * (index / Target.LocQueue.Count)), col)
+            session.FillCircle(SubVec, CSng(10 * (index / Target.LocQueue.Count)), col)
             index += 1
         Next
     End Sub

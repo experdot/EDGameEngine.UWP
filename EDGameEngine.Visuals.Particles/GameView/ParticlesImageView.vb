@@ -21,7 +21,7 @@ Public Class ParticlesImageView
     ''' </summary>
     Public Property Offset As Vector2 = Vector2.Zero
 
-    Public Overrides Sub OnDraw(drawingSession As CanvasDrawingSession)
+    Public Overrides Sub OnDraw(session As CanvasDrawingSession)
         Static ImageResource As ImageResource = CType(Target.Scene, IObjectWithImageResource).ImageResource
         Static Image As CanvasBitmap = DirectCast(ImageResource.GetResource(ImageResourceId), CanvasBitmap)
         Static SourceRect As Rect = Image.Bounds
@@ -30,7 +30,7 @@ Public Class ParticlesImageView
             Dim tempV As Vector2 = SubParticle.Location
             Dim border As Single = SubParticle.Size * ImageScale * RandomHelper.NextNorm(0, 200) / 100
             Dim opacity As Single = CSng(SubParticle.Color.A / 255)
-            drawingSession.DrawImage(Image, New Rect(tempV.X - border, tempV.Y - border, border * 2, border * 2), SourceRect, opacity)
+            session.DrawImage(Image, New Rect(tempV.X - border, tempV.Y - border, border * 2, border * 2), SourceRect, opacity)
         Next
     End Sub
 End Class

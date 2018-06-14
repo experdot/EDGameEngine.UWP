@@ -36,14 +36,14 @@ Public Class BitmapPixelHelper
     ''' <summary>
     ''' 返回指定图位图的二值化原始像素图像
     ''' </summary>
-    Public Shared Function GetThresholdImageRaw(drawingSession As CanvasDrawingSession, bmp As CanvasBitmap, split As Single) As CanvasBitmap
+    Public Shared Function GetThresholdImageRaw(session As CanvasDrawingSession, bmp As CanvasBitmap, split As Single) As CanvasBitmap
         Dim RawColors() As Color = bmp.GetPixelColors
         Dim NowColors(RawColors.Count - 1) As Color
         For i = 0 To RawColors.Count - 1
             Dim temp = GetColorAverage(RawColors(i))
             NowColors(i) = If(temp >= split - 0.5 AndAlso temp < split + 0.5, RawColors(i), Color.FromArgb(0, 0, 0, 0))
         Next
-        Return CanvasBitmap.CreateFromColors(drawingSession, NowColors, CInt(bmp.Bounds.Width), CInt(bmp.Bounds.Height))
+        Return CanvasBitmap.CreateFromColors(session, NowColors, CInt(bmp.Bounds.Width), CInt(bmp.Bounds.Height))
     End Function
 
     ''' <summary>

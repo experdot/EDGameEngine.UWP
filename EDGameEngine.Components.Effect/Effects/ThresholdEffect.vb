@@ -9,8 +9,8 @@ Imports Windows.UI
 Public Class ThresholdEffect
     Inherits CanvasEffectBase
     Public Property Split As Integer = 128
-    Public Overrides Function Effect(source As IGraphicsEffectSource, resourceCreator As ICanvasResourceCreator) As IGraphicsEffectSource
-        Dim bmp As CanvasBitmap = BitmapCacheHelper.CacheEntireImage(resourceCreator, CType(source, ICanvasImage))
+    Public Overrides Function Effect(source As IGraphicsEffectSource, creator As ICanvasResourceCreator) As IGraphicsEffectSource
+        Dim bmp As CanvasBitmap = BitmapCacheHelper.CacheEntireImage(creator, CType(source, ICanvasImage))
         Dim raws() As Color = bmp.GetPixelColors
         Dim nows(raws.Count - 1) As Color
         For i = 0 To raws.Count - 1

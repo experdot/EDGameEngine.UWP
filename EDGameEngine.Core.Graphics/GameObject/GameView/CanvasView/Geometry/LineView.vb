@@ -4,11 +4,11 @@
 ''' </summary>
 Public Class LineView
     Inherits TypedCanvasView(Of VisualLine)
-    Public Overrides Sub OnDraw(drawingSession As CanvasDrawingSession)
+    Public Overrides Sub OnDraw(session As CanvasDrawingSession)
         If Target.Fill.State Then
             If Target.Points.Count > 1 Then
                 For i = 0 To Target.Points.Count - 2
-                    drawingSession.DrawLine(Target.Points(i), Target.Points(i + 1), Target.Fill.Color, Target.Width)
+                    session.DrawLine(Target.Points(i), Target.Points(i + 1), Target.Fill.Color, Target.Width)
                 Next
             End If
         End If

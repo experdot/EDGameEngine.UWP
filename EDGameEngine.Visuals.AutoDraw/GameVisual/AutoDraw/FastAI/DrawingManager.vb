@@ -247,10 +247,10 @@ Public Class DrawingManager
     Private Function GetGaussianPixelData(image As CanvasBitmap, Optional amount As Integer = 3) As PixelData
         Dim result As PixelData
         Using render = New CanvasRenderTarget(image.Device, Width, Height, 96)
-            Using ds = render.CreateDrawingSession
+            Using session = render.CreateDrawingSession
                 Using gaussian = New Effects.GaussianBlurEffect With {.Source = image, .BlurAmount = amount}
-                    ds.Clear(Colors.Transparent)
-                    ds.DrawImage(gaussian)
+                    session.Clear(Colors.Transparent)
+                    session.DrawImage(gaussian)
                 End Using
             End Using
             result = New PixelData(render.GetPixelColors, CInt(image.Size.Width), CInt(image.Size.Height))

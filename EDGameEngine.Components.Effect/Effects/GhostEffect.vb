@@ -17,10 +17,10 @@ Public Class GhostEffect
     ''' </summary>
     Public Property Offset As Vector2 = Vector2.Zero
 
-    Public Overrides Function Effect(source As IGraphicsEffectSource, resourceCreator As ICanvasResourceCreator) As IGraphicsEffectSource
+    Public Overrides Function Effect(source As IGraphicsEffectSource, creator As ICanvasResourceCreator) As IGraphicsEffectSource
         Static LastSource As CanvasBitmap
         Dim rect As Rect = Target.Scene.Rect
-        Dim cmdlist = New CanvasCommandList(resourceCreator)
+        Dim cmdlist = New CanvasCommandList(creator)
         Using ds = cmdlist.CreateDrawingSession
             ds.Clear(Windows.UI.Colors.Transparent)
             If LastSource IsNot Nothing Then
@@ -28,7 +28,7 @@ Public Class GhostEffect
             End If
             ds.DrawImage(CType(source, ICanvasImage))
         End Using
-        LastSource = BitmapCacheHelper.CacheImageClip(resourceCreator, cmdlist, rect)
+        LastSource = BitmapCacheHelper.CacheImageClip(creator, cmdlist, rect)
         Return cmdlist
     End Function
 End Class

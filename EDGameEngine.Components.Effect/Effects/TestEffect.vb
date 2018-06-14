@@ -14,8 +14,8 @@ Public Class TestEffect
     Private Shared OffsetX() As Integer = {-1, 1, 0, 0, -1, 1, -1, 1}
     Private Shared OffsetY() As Integer = {0, 0, -1, 1, -1, 1, 1, -1}
 
-    Public Overrides Function Effect(source As IGraphicsEffectSource, resourceCreator As ICanvasResourceCreator) As IGraphicsEffectSource
-        Dim bmp As CanvasBitmap = BitmapCacheHelper.CacheEntireImage(resourceCreator, CType(source, ICanvasImage))
+    Public Overrides Function Effect(source As IGraphicsEffectSource, creator As ICanvasResourceCreator) As IGraphicsEffectSource
+        Dim bmp As CanvasBitmap = BitmapCacheHelper.CacheEntireImage(creator, CType(source, ICanvasImage))
         Dim raws() As Color = bmp.GetPixelColors
 
         'Dim grays = GetGraysOfColors(raws)
@@ -24,8 +24,8 @@ Public Class TestEffect
         'bmp.SetPixelColors(nows)
         'Return bmp
 
-        Dim creator = CType(resourceCreator, ICanvasResourceCreatorWithDpi)
-        Dim canvas As New CanvasRenderTarget(creator, New Size(bmp.Bounds.Width, bmp.Bounds.Height))
+        Dim creatorWithDpi = CType(creator, ICanvasResourceCreatorWithDpi)
+        Dim canvas As New CanvasRenderTarget(creatorWithDpi, New Size(bmp.Bounds.Width, bmp.Bounds.Height))
         Using ds = canvas.CreateDrawingSession
             ds.Clear(Colors.Transparent)
             Dim grays = GetGraysOfColors(raws)
@@ -43,7 +43,7 @@ Public Class TestEffect
         Return result
     End Function
 
-    Private Sub ConvertGrays(ds As CanvasDrawingSession, raws As Color(), grays As Integer(), width As Integer, height As Integer)
+    Private Sub ConvertGrays(session As CanvasDrawingSession, raws As Color(), grays As Integer(), width As Integer, height As Integer)
         For x = 0 To width - 1
             For y = 0 To height - 1
                 Dim sum As Single = 0
@@ -64,7 +64,7 @@ Public Class TestEffect
                 Dim current = New Vector2(x, y)
                 Dim target = current + vector
                 Dim raw = raws(y * width + x)
-                ds.FillCircle(current, 1, Color.FromArgb(final, raw.R, raw.G, raw.B))
+                session.FillCircle(current, 1, Color.FromArgb(final, raw.R, raw.G, raw.B))
                 'ds.DrawLine(current, target, Color.FromArgb(10, gray, gray, gray))
             Next
         Next

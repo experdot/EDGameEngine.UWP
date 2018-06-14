@@ -19,19 +19,19 @@ Public Class TransformEffect
     Public Sub New(ByRef trans As Transform)
         Transform = trans
     End Sub
-    Public Overrides Function Effect(source As IGraphicsEffectSource, resourceCreator As ICanvasResourceCreator) As IGraphicsEffectSource
-        Dim trans = New Transform2DEffect With {.Source = source}
+    Public Overrides Function Effect(source As IGraphicsEffectSource, creator As ICanvasResourceCreator) As IGraphicsEffectSource
+        Dim trans As New Transform2DEffect With {.Source = source}
         trans.TransformMatrix = Matrix3x2.CreateScale(Transform.Scale, Transform.Center) *
                                 Matrix3x2.CreateRotation(Transform.Rotation, Transform.Center) *
                                 Matrix3x2.CreateTranslation(Transform.Translation)
         Return trans
     End Function
 
-    Public Shared Function EffectStatic(source As IGraphicsEffectSource, drawingSession As CanvasDrawingSession, trans As Transform) As IGraphicsEffectSource
-        Dim eff = New Transform2DEffect With {.Source = source}
-        eff.TransformMatrix = Matrix3x2.CreateScale(trans.Scale, trans.Center) *
-                                Matrix3x2.CreateRotation(trans.Rotation, trans.Center) *
-                                Matrix3x2.CreateTranslation(trans.Translation)
-        Return eff
+    Public Shared Function EffectStatic(source As IGraphicsEffectSource, session As CanvasDrawingSession, transform As Transform) As IGraphicsEffectSource
+        Dim effect As New Transform2DEffect With {.Source = source}
+        effect.TransformMatrix = Matrix3x2.CreateScale(transform.Scale, transform.Center) *
+                                Matrix3x2.CreateRotation(transform.Rotation, transform.Center) *
+                                Matrix3x2.CreateTranslation(transform.Translation)
+        Return effect
     End Function
 End Class

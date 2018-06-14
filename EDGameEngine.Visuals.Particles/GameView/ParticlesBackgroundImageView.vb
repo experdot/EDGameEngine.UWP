@@ -26,7 +26,7 @@ Public Class ParticlesBackgroundImageView
     ''' </summary>
     Public Property Opacity As Single = 1.0F
 
-    Public Overrides Sub OnDraw(drawingSession As CanvasDrawingSession)
+    Public Overrides Sub OnDraw(session As CanvasDrawingSession)
         Static ImageResource As ImageResource = CType(Target.Scene, IObjectWithImageResource).ImageResource
         Static Image As CanvasBitmap = DirectCast(ImageResource.GetResource(ImageResourceId), CanvasBitmap)
         Static Colors As Color() = Image.GetPixelColors()
@@ -50,7 +50,7 @@ Public Class ParticlesBackgroundImageView
 
             Dim color As Color = Colors(CInt(y * SourceRect.Width + x))
             color.A = CByte(SubParticle.Color.A * Opacity)
-            drawingSession.FillCircle(SubParticle.Location, SubParticle.Size, color)
+            session.FillCircle(SubParticle.Location, SubParticle.Size, color)
         Next
     End Sub
 End Class

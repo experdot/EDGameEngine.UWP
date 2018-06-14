@@ -10,7 +10,7 @@ Public Class TextView
     ''' </summary>
     Public Property Format As CanvasTextFormat = TextFormatHelper.Center
 
-    Public Overrides Sub OnDraw(drawingSession As CanvasDrawingSession)
-        drawingSession.DrawText(Target.Text, Target.Offset, Target.Color, Format)
+    Public Overrides Sub OnDraw(session As CanvasDrawingSession)
+        session.DrawText(Target.Text, Target.Offset, Target.Color, Format)
     End Sub
 End Class

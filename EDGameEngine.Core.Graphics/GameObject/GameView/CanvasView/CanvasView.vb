@@ -11,8 +11,8 @@ Public MustInherit Class CanvasView
     Public Overridable Property CommandList As CanvasCommandList Implements ICanvasView.CommandList
     Public Overridable Property GameVisual As IGameVisual Implements IGameView.GameVisual
 
-    Public MustOverride Sub OnDraw(drawingSession As CanvasDrawingSession) Implements ICanvasView.OnDraw
-    Public MustOverride Sub BeginDraw(drawingSession As CanvasDrawingSession) Implements ICanvasView.BeginDraw
+    Public MustOverride Sub OnDraw(session As CanvasDrawingSession) Implements ICanvasView.OnDraw
+    Public MustOverride Sub BeginDraw(session As CanvasDrawingSession) Implements ICanvasView.BeginDraw
     Public MustOverride Sub AttachToGameVisual(target As IGameVisual) Implements IGameView.AttachToGameVisual
 
     Public Overridable Sub Start() Implements IGameObject.Start
