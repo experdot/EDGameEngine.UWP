@@ -13,14 +13,14 @@ Public Class AbilityManager
     End Sub
 
     Public Sub Start(target As ICharacter) Implements ITypedUpdateable(Of ICharacter).Start
-        For Each SubAbility In Abilities.Values
-            SubAbility.Start(target)
+        For Each ability In Abilities.Values
+            ability.Start(target)
         Next
     End Sub
 
     Public Sub Update(target As ICharacter) Implements ITypedUpdateable(Of ICharacter).Update
-        For Each SubAbility In Abilities.Values
-            SubAbility.Update(target)
+        For Each ability In Abilities.Values
+            ability.Update(target)
         Next
     End Sub
     ''' <summary>

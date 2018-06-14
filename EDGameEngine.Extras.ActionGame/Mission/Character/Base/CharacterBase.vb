@@ -52,15 +52,15 @@ Public Class CharacterBase
     End Sub
 
     Public Sub Start() Implements IUpdateable.Start
-        For Each SubAbility In AbilityManager.Abilities.Values
-            SubAbility.Start(Me)
+        For Each ability In AbilityManager.Abilities.Values
+            ability.Start(Me)
         Next
         Collide.SyncTransform(Me)
     End Sub
 
     Public Sub Update() Implements IUpdateable.Update
-        For Each SubAbility In AbilityManager.Abilities.Values
-            SubAbility.Update(Me)
+        For Each ability In AbilityManager.Abilities.Values
+            ability.Update(Me)
         Next
         Collide.SyncTransform(Me)
     End Sub

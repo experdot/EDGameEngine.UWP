@@ -6,8 +6,8 @@ Imports Microsoft.Graphics.Canvas
 Public Class ParticlesCircleView
     Inherits TypedCanvasView(Of IParticles)
     Public Overrides Sub OnDraw(session As CanvasDrawingSession)
-        For Each SubParticle In Target.Particles
-            session.FillCircle(SubParticle.Location, SubParticle.Size, SubParticle.Color)
+        For Each particle In Target.Particles
+            session.FillCircle(particle.Location, particle.Size, particle.Color)
         Next
     End Sub
 End Class

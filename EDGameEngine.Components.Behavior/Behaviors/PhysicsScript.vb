@@ -51,10 +51,10 @@ Public Class PhysicsScript
         PhysicWorld.Step(steping)
         Last = Date.Now
 
-        For Each SubData In PhysicWorld.BodyList
-            Dim temp = CType(SubData.UserData, IGameBody)
-            temp.Transform.Translation = New System.Numerics.Vector2(SubData.Position.X * Scale + Scene.Width / 2, -SubData.Position.Y * Scale + Scene.Height / 2)
-            temp.Transform.Rotation = -SubData.Rotation
+        For Each body In PhysicWorld.BodyList
+            Dim temp = CType(body.UserData, IGameBody)
+            temp.Transform.Translation = New System.Numerics.Vector2(body.Position.X * Scale + Scene.Width / 2, -body.Position.Y * Scale + Scene.Height / 2)
+            temp.Transform.Rotation = -body.Rotation
         Next
 
         PointerMove(Scene.Inputs.Mouse.Location)
@@ -97,12 +97,12 @@ Public Class PhysicsScript
     Private Sub PointerMove(loc As Vector2)
         Dim temp = loc - Camera.Transform.Translation
         Dim real = New Vector2((temp.X - Scene.Width / 2), -(temp.Y - Scene.Height / 2)) / Scale
-        For Each SubData In PhysicWorld.BodyList
-            Dim v = real - SubData.Position
-            Dim r = (real - SubData.Position).Length
+        For Each body In PhysicWorld.BodyList
+            Dim v = real - body.Position
+            Dim r = (real - body.Position).Length
             v.SetMag(1)
             If r < 0.5 Then r = 0.5
-            SubData.ApplyForce(v / r * 5)
+            body.ApplyForce(v / r * 5)
         Next
     End Sub
 

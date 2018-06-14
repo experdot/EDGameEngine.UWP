@@ -34,7 +34,7 @@ Public Class LineDFSConverter
                 'line.Points.Last.UserColor = ranc
                 line.Points.Last.UserSize = 1.0F
             Next
-            line.CalcLength(hierarchy.Rank)
+            LineHelper.Resize(line, hierarchy.Rank)
             result.Add(line)
             count += line.Points.Count
         Next

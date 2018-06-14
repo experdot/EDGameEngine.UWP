@@ -12,9 +12,9 @@ Public Class RandomMoveAI
 
     End Sub
     Public Sub Update(mission As IMission) Implements IAIController.Update
-        For Each SubCharacter In mission.Characters
-            If SubCharacter.GetType Is GetType(Monster) Then
-                MonsterMove(CType(SubCharacter, Monster))
+        For Each character In mission.Characters
+            If character.GetType Is GetType(Monster) Then
+                MonsterMove(CType(character, Monster))
             End If
         Next
     End Sub

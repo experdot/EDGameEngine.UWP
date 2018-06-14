@@ -46,13 +46,13 @@ Public Class LSystem
     Public Sub Generate(Optional count As Integer = 1)
         For i = 0 To count - 1
             Dim tempStates As New List(Of State)
-            For Each SubState In States
-                If RuleSets.ContainsKey(SubState.Id) Then
-                    SubState.Children = RuleSets.Item(SubState.Id).First.Generate(SubState)
-                    tempStates.AddRange(SubState.Children)
+            For Each state In States
+                If RuleSets.ContainsKey(state.Id) Then
+                    state.Children = RuleSets.Item(state.Id).First.Generate(state)
+                    tempStates.AddRange(state.Children)
                 Else
-                    SubState.Children = GetDefault(SubState)
-                    tempStates.AddRange(SubState.Children)
+                    state.Children = GetDefault(state)
+                    tempStates.AddRange(state.Children)
                 End If
             Next
             States.Clear()

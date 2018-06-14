@@ -15,8 +15,8 @@ Public Class AutoStitchModel
     ''' </summary>
     Public Property Splicer As FragmentSplicer
     Public Sub New(images As CanvasBitmap())
-        For Each SubImage In images
-            Fragments.Add(New Fragment(SubImage))
+        For Each image In images
+            Fragments.Add(New Fragment(image))
         Next
     End Sub
     Public Overrides Sub StartEx()

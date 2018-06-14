@@ -22,11 +22,11 @@ Public Class SceneView
         session.DrawText(Target.Progress.Description, New Vector2(Target.Width, Target.Height + 50) / 2, Colors.Black, TextFormatHelper.CenterAndSize12)
     End Sub
     Public Overridable Sub LoadedDraw(session As CanvasDrawingSession)
-        For Each SubLayer In Target.GameLayers
+        For Each layer In Target.GameLayers
             Using cmdList = New CanvasCommandList(session)
                 Using ds = cmdList.CreateDrawingSession
-                    ds.Clear(SubLayer.Background)
-                    CType(SubLayer.Presenter, ICanvasView)?.BeginDraw(ds)
+                    ds.Clear(layer.Background)
+                    CType(layer.Presenter, ICanvasView)?.BeginDraw(ds)
                 End Using
                 session.DrawImage(cmdList)
             End Using

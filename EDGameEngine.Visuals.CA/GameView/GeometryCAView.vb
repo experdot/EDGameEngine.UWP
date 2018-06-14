@@ -7,9 +7,9 @@ Imports EDGameEngine.Core.Graphics
 Public Class GeometryCAView
     Inherits TypedCanvasView(Of IGeometryCA)
     Public Overrides Sub OnDraw(session As CanvasDrawingSession)
-        For Each SubCell In Target.Cells
-            If SubCell IsNot Nothing Then
-                session.FillGeometry(Target.Geometry, SubCell.Location, SubCell.Color)
+        For Each cell In Target.Cells
+            If cell IsNot Nothing Then
+                session.FillGeometry(Target.Geometry, cell.Location, cell.Color)
             End If
         Next
     End Sub

@@ -65,7 +65,7 @@ Public Class LineBFSConverter
                     line.Points.Last.UserColor = real
                     line.Points.Last.UserSize = line.Points.Last.Size
                 Next
-                line.CalcLength(CInt(1.2 * depth) + 1)
+                LineHelper.Resize(line, CInt(1.2 * depth) + 1)
                 lines.Add(line)
             Next
         Else

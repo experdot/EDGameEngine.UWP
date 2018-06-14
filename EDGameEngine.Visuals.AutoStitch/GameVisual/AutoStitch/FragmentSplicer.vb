@@ -44,18 +44,18 @@ Public Class FragmentSplicer
                 Dim minY As Single = 1000
                 Dim MaxX As Single = -1000
                 Dim MaxY As Single = -1000
-                For Each subborder As Fragment In fragmentFinished.Fragments
-                    If minX > subborder.Location.X Then
-                        minX = subborder.Location.X
+                For Each fragment As Fragment In fragmentFinished.Fragments
+                    If minX > fragment.Location.X Then
+                        minX = fragment.Location.X
                     End If
-                    If MaxX < subborder.Location.X Then
-                        MaxX = subborder.Location.X
+                    If MaxX < fragment.Location.X Then
+                        MaxX = fragment.Location.X
                     End If
-                    If minY > subborder.Location.Y Then
-                        minY = subborder.Location.Y
+                    If minY > fragment.Location.Y Then
+                        minY = fragment.Location.Y
                     End If
-                    If MaxY < subborder.Location.Y Then
-                        MaxY = subborder.Location.Y
+                    If MaxY < fragment.Location.Y Then
+                        MaxY = fragment.Location.Y
                     End If
                 Next
 
@@ -85,15 +85,15 @@ Public Class FragmentSplicer
     ''' <param name="CScrip">已完成的碎片</param>
     ''' <param name="UScrip">未完成的碎片</param>
     Private Sub GetBorderValue(ByRef CScrip As FragmentContainer, ByRef UScrip As FragmentContainer)
-        For Each SubBorder In CScrip.Map.Cells
+        For Each cell In CScrip.Map.Cells
             Dim CompareData(UScrip.Fragments.Count - 1) As Integer
             Dim tempData(UScrip.Fragments.Count - 1) As Integer
             Dim CurrentScrip As Fragment = Nothing
             For i = 0 To 3
-                If SubBorder.Around.FourB(i) Then
-                    For Each SubScrip In CScrip.Fragments
-                        If SubScrip.Location = SubBorder.Around.FourPoint(i) Then
-                            CurrentScrip = SubScrip
+                If cell.Around.FourB(i) Then
+                    For Each fragment In CScrip.Fragments
+                        If fragment.Location = cell.Around.FourPoint(i) Then
+                            CurrentScrip = fragment
                             Exit For
                         End If
                     Next
@@ -105,12 +105,12 @@ Public Class FragmentSplicer
             Next
             Dim tempIndex As Integer = GetMaxIndex(CompareData)
 
-            If SubBorder.Fragment Is UScrip.Fragments(tempIndex) Then '自身
-                SubBorder.Value = -10000000
+            If cell.Fragment Is UScrip.Fragments(tempIndex) Then '自身
+                cell.Value = -10000000
             Else
-                SubBorder.Value = CompareData(tempIndex)
+                cell.Value = CompareData(tempIndex)
             End If
-            SubBorder.Fragment = UScrip.Fragments(tempIndex)
+            cell.Fragment = UScrip.Fragments(tempIndex)
 
         Next
     End Sub
@@ -177,9 +177,9 @@ Public Class FragmentSplicer
     ''' <returns></returns>
     Private Function CompareList(leftList As List(Of Integer), RightList As List(Of Integer)) As Double
         Dim tempDouble As Double = 0
-        For Each SubInteger As Integer In leftList
-            For Each SubInteger2 As Integer In RightList
-                If SubInteger = SubInteger2 Then tempDouble += 1
+        For Each left As Integer In leftList
+            For Each right As Integer In RightList
+                If left = right Then tempDouble += 1
             Next
         Next
         Return tempDouble / （(leftList.Count + RightList.Count) / 2)

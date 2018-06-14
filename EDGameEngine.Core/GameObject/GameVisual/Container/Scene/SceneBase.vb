@@ -64,8 +64,8 @@ Public MustInherit Class SceneBase
                            Await CreateGameObjectsAsync()
                            Progress.Description = "初始化场景"
                            State = SceneState.Initialize
-                           For Each SubLayer In GameLayers
-                               SubLayer.Start()
+                           For Each layer In GameLayers
+                               layer.Start()
                            Next
                            Camera.Start()
                            Progress.Description = "初始化组件"
@@ -76,13 +76,13 @@ Public MustInherit Class SceneBase
     Public Overrides Sub Update()
         If State = SceneState.Loop Then
             '执行旧的改动
-            For Each SubAction In ModifiedActions
-                SubAction.Invoke()
+            For Each action In ModifiedActions
+                action.Invoke()
             Next
             ModifiedActions.Clear()
             '更新图层
-            For Each SubLayer In GameLayers
-                SubLayer.Update()
+            For Each layer In GameLayers
+                layer.Update()
             Next
             Camera.Update()
             GameComponents.Update()

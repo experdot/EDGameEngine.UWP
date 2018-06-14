@@ -29,21 +29,21 @@ Public Class GameWorld
 
     Public Sub New()
         AIManager = New AIManager
-        AIManager.AIConrollers.Add(New RandomMoveAI)
+        AIManager.AIControllers.Add(New RandomMoveAI)
     End Sub
     ''' <summary>
     ''' 开始
     ''' </summary>
     Public Sub Start()
         PhysicWorld = New World(Gravity)
-        For Each SubBlock In Mission.Blocks
-            If SubBlock IsNot Nothing Then
-                CreateRectangle(PhysicWorld, SubBlock, SubBlock.Location, BodyType.Static)
+        For Each block In Mission.Blocks
+            If block IsNot Nothing Then
+                CreateRectangle(PhysicWorld, block, block.Location, BodyType.Static)
             End If
         Next
-        For Each SubCharacter In Mission.Characters
-            If SubCharacter IsNot Nothing Then
-                CreateRectangle(PhysicWorld, SubCharacter, SubCharacter.Location, BodyType.Dynamic)
+        For Each character In Mission.Characters
+            If character IsNot Nothing Then
+                CreateRectangle(PhysicWorld, character, character.Location, BodyType.Dynamic)
             End If
         Next
         Mission.Start()

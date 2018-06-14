@@ -71,9 +71,9 @@ Public Class FragmentContainerMap
                           MapData(x + xArray(1), y + yArray(1)),
                           MapData(x + xArray(2), y + yArray(2)),
                           MapData(x + xArray(3), y + yArray(3))))
-                        For Each SubFragments In fragments
-                            If SubFragments.Location.X = Cells.Last.Location.X And SubFragments.Location.Y = Cells.Last.Location.Y Then
-                                Cells.Last.Fragment = SubFragments
+                        For Each fragment In fragments
+                            If fragment.Location.X = Cells.Last.Location.X And fragment.Location.Y = Cells.Last.Location.Y Then
+                                Cells.Last.Fragment = fragment
                             End If
                         Next
                     End If

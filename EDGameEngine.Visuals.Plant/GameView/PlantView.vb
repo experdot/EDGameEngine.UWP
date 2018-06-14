@@ -27,12 +27,12 @@ Public Class PlantView
     End Sub
 
     Private Sub DrawTree(session As CanvasDrawingSession, parent As TreeNode)
-        For Each SubNode In parent.Children
-            SubNode.RealLocation = parent.RealLocation + SubNode.Location * SubNode.Percent
+        For Each node In parent.Children
+            node.RealLocation = parent.RealLocation + node.Location * node.Percent
             'DrawLineBranch(drawingSession, SubNode)
-            DrawImageBranch(session, SubNode)
-            DrawImageFlower(session, SubNode)
-            DrawTree(session, SubNode)
+            DrawImageBranch(session, node)
+            DrawImageFlower(session, node)
+            DrawTree(session, node)
         Next
     End Sub
     Private Sub DrawLineBranch(session As CanvasDrawingSession, node As TreeNode)

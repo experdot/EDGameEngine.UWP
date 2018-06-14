@@ -28,25 +28,25 @@ Public Class ParticlesFollow
     Public Overrides Sub UpdateEx()
         Dim center As New Vector2(Scene.Width / 2, Scene.Height / 2)
         Dim lenth As Single = CSng(Math.Sqrt(Scene.Width * Scene.Width / 4 + Scene.Height * Scene.Height / 4))
-        For Each SubParticle As DynamicParticle In Particles
-            SubParticle.ApplyForce(Vectors(Rnd.Next(8)))
-            Dim distance As Vector2 = MouseLocation - SubParticle.Location
+        For Each particle As DynamicParticle In Particles
+            particle.ApplyForce(Vectors(Rnd.Next(8)))
+            Dim distance As Vector2 = MouseLocation - particle.Location
             Dim length As Single = distance.Length
             If length < 0.1F Then
                 length = 0.1F
             End If
             Dim direction As Vector2 = distance / length
-            Dim ratio As Single = SubParticle.Mass * Count / CSng(length ^ 2)
-            SubParticle.ApplyForce(direction * ratio)
-            SubParticle.Move()
-            SubParticle.Age -= 0.1F + CSng(Rnd.NextDouble * 1)
-            If SubParticle.Age < 0 OrElse (SubParticle.Location - center).Length > lenth Then
-                SubParticle.Age = MaxAge
+            Dim ratio As Single = particle.Mass * Count / CSng(length ^ 2)
+            particle.ApplyForce(direction * ratio)
+            particle.Move()
+            particle.Age -= 0.1F + CSng(Rnd.NextDouble * 1)
+            If particle.Age < 0 OrElse (particle.Location - center).Length > lenth Then
+                particle.Age = MaxAge
                 Dim rotation As Single = CSng(Math.PI * 2 * Rnd.NextDouble())
                 Dim radius As Single = CSng(10 * Rnd.NextDouble())
-                SubParticle.MoveTo(center + New Vector2(1, 0).RotateNew(rotation) * radius)
-                SubParticle.Velocity = Vector2.Zero
-                SubParticle.Acceleration = Vector2.Zero
+                particle.MoveTo(center + New Vector2(1, 0).RotateNew(rotation) * radius)
+                particle.Velocity = Vector2.Zero
+                particle.Acceleration = Vector2.Zero
             End If
         Next
     End Sub

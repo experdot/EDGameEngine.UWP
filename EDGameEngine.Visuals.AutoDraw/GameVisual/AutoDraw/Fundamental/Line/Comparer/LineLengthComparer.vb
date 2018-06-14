@@ -2,7 +2,7 @@
 ''' <summary>
 ''' 线条长度比较器
 ''' </summary>
-Public Class LineLengthCompare
+Public Class LineLengthComparer
     Implements IComparer(Of ILine)
 
     Public Function Compare(x As ILine, y As ILine) As Integer Implements IComparer(Of ILine).Compare

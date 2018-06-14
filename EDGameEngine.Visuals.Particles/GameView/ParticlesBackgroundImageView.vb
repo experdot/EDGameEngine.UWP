@@ -40,17 +40,17 @@ Public Class ParticlesBackgroundImageView
             realOffset = Offset
         End If
 
-        For Each SubParticle In Target.Particles
-            Dim x As Integer = CInt(SubParticle.Location.X + realOffset.X)
-            Dim y As Integer = CInt(SubParticle.Location.Y + realOffset.Y)
+        For Each particle In Target.Particles
+            Dim x As Integer = CInt(particle.Location.X + realOffset.X)
+            Dim y As Integer = CInt(particle.Location.Y + realOffset.Y)
             If x < 0 Then x = 0
             If y < 0 Then y = 0
             If x > SourceRect.Width - 1 Then x = CInt(SourceRect.Width - 1)
             If y > SourceRect.Height - 1 Then y = CInt(SourceRect.Height - 1)
 
             Dim color As Color = Colors(CInt(y * SourceRect.Width + x))
-            color.A = CByte(SubParticle.Color.A * Opacity)
-            session.FillCircle(SubParticle.Location, SubParticle.Size, color)
+            color.A = CByte(particle.Color.A * Opacity)
+            session.FillCircle(particle.Location, particle.Size, color)
         Next
     End Sub
 End Class

@@ -10,9 +10,9 @@ Public Class PointerView
     Public Overrides Sub OnDraw(session As CanvasDrawingSession)
         Static col As Color = Colors.Black
         Dim index As Integer = 1
-        For Each SubVec In Target.LocQueue
+        For Each position In Target.LocQueue
             col.A = CByte(CInt(255 * (index / Target.LocQueue.Count)))
-            session.FillCircle(SubVec, CSng(10 * (index / Target.LocQueue.Count)), col)
+            session.FillCircle(position, CSng(10 * (index / Target.LocQueue.Count)), col)
             index += 1
         Next
     End Sub

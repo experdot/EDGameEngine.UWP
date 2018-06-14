@@ -26,17 +26,17 @@ Public Class ParticlesWander
         Dim center As New Vector2(Scene.Width / 2, Scene.Height / 2)
         Dim length As Single = New Vector2(Scene.Width, Scene.Height).Length / 2
         Dim ratio As Single = CSng(Math.Log(Count))
-        For Each SubParticle As DynamicParticle In Particles
-            SubParticle.ApplyForce(Vectors(Rnd.Next(8)) * ratio)
-            If (SubParticle.Location - center).Length > length Then
+        For Each particle As DynamicParticle In Particles
+            particle.ApplyForce(Vectors(Rnd.Next(8)) * ratio)
+            If (particle.Location - center).Length > length Then
                 If IsMoveToCenter Then
-                    SubParticle.MoveTo(center)
+                    particle.MoveTo(center)
                 Else
                     Dim index As Integer = Rnd.Next(0, Count)
-                    SubParticle.MoveTo(Particles(index).Location)
+                    particle.MoveTo(Particles(index).Location)
                 End If
             End If
-            SubParticle.Move()
+            particle.Move()
         Next
     End Sub
 End Class

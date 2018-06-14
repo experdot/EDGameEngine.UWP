@@ -43,8 +43,8 @@ Public MustInherit Class TypedCanvasView(Of T As IGameVisual)
                 End Using
                 Me.CommandList = cmdList
                 Dim effect As IGraphicsEffectSource = cmdList
-                For Each SubEffect In Target.GameComponents.Effects.Items
-                    effect = CType(SubEffect, ICanvasEffect).EffectWithCanvasResourceCreator(effect, session)
+                For Each item In Target.GameComponents.Effects.Items
+                    effect = CType(item, ICanvasEffect).EffectWithCanvasResourceCreator(effect, session)
                 Next
                 session.DrawImage(CType(TransformEffect.EffectStatic(effect, session, Target.Transform), ICanvasImage))
                 If CacheAllowed AndAlso Cache Is Nothing Then

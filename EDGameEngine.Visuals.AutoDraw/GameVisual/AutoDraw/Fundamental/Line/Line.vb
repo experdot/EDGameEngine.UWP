@@ -15,27 +15,7 @@ Public Class Line
     ''' </summary>
     Public Property Location As Vector2
 
-    ''' <summary>
-    ''' 计算长度
-    ''' </summary>
-    Public Sub CalcLength(split As Integer)
-        Dim temp As New List(Of VertexWithLayer)
-        If split > 0 Then
-            For i = 0 To Points.Count - 1 Step split
-                temp.Add(Points(i))
-            Next
-            If temp.Count > 0 Then
-                If temp.Count > 1 Then
-                    For i = 0 To temp.Count - 2
-                        temp(i).NextPoint = temp(i + 1)
-                    Next
-                End If
-                temp.Last.NextPoint = temp.Last
-            End If
-            Points.Clear()
-            Points.AddRange(temp)
-        End If
-    End Sub
+
 
     ''' <summary>
     ''' 计算画笔大小
@@ -56,10 +36,10 @@ Public Class Line
     Public Sub CalcAverageColor(isAverage As Boolean)
         If Points.Count > 0 Then
             Dim r, g, b As Integer
-            For Each SubPoint In Points
-                r += SubPoint.Color.R
-                g += SubPoint.Color.G
-                b += SubPoint.Color.B
+            For Each point In Points
+                r += point.Color.R
+                g += point.Color.G
+                b += point.Color.B
             Next
             Dim tempCol As Color = Color.FromArgb(255, CByte(r / Points.Count),
                                                        CByte(g / Points.Count),
@@ -67,8 +47,8 @@ Public Class Line
             If isAverage Then
                 tempCol = GetAverageColor(tempCol)
             End If
-            For Each SubPoint In Points
-                SubPoint.Color = tempCol
+            For Each point In Points
+                point.Color = tempCol
             Next
         End If
     End Sub

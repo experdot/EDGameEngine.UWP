@@ -26,21 +26,21 @@ Public Class ParticlesSmoke
     Public Overrides Sub UpdateEx()
         Dim center As New Vector2(Scene.Width / 2, Scene.Height * 0.9F)
         Dim lenth As Single = CSng(Math.Sqrt(Scene.Width * Scene.Width / 4 + Scene.Height * Scene.Height / 4))
-        For Each SubParticle As DynamicParticle In Particles
-            SubParticle.ApplyForce(Vectors(Rnd.Next(8)))
-            SubParticle.ApplyForce(Vectors(1))
-            SubParticle.Move()
-            SubParticle.Age -= 0.1F + CSng(Rnd.NextDouble * 1)
-            If SubParticle.Age < 0 OrElse (SubParticle.Location - center).Length > lenth Then
-                SubParticle.Age = MaxAge
-                SubParticle.Color = Color.FromArgb(CByte(SubParticle.Age / MaxAge * 100), 255, 255, 255)
+        For Each particle As DynamicParticle In Particles
+            particle.ApplyForce(Vectors(Rnd.Next(8)))
+            particle.ApplyForce(Vectors(1))
+            particle.Move()
+            particle.Age -= 0.1F + CSng(Rnd.NextDouble * 1)
+            If particle.Age < 0 OrElse (particle.Location - center).Length > lenth Then
+                particle.Age = MaxAge
+                particle.Color = Color.FromArgb(CByte(particle.Age / MaxAge * 100), 255, 255, 255)
                 Dim rotation As Single = CSng(Math.PI * 2 * Rnd.NextDouble())
                 Dim radius As Single = CSng(10 * Rnd.NextDouble())
-                SubParticle.MoveTo(center + New Vector2(1, 0).RotateNew(rotation) * radius)
-                SubParticle.Velocity = Vector2.Zero
-                SubParticle.Acceleration = Vector2.Zero
+                particle.MoveTo(center + New Vector2(1, 0).RotateNew(rotation) * radius)
+                particle.Velocity = Vector2.Zero
+                particle.Acceleration = Vector2.Zero
             End If
-            SubParticle.Size = (MaxAge - SubParticle.Age)
+            particle.Size = (MaxAge - particle.Age)
         Next
     End Sub
 

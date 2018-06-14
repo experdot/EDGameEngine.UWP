@@ -26,10 +26,10 @@ Public Class ParticlesImageView
         Static Image As CanvasBitmap = DirectCast(ImageResource.GetResource(ImageResourceId), CanvasBitmap)
         Static SourceRect As Rect = Image.Bounds
 
-        For Each SubParticle In Target.Particles
-            Dim tempV As Vector2 = SubParticle.Location
-            Dim border As Single = SubParticle.Size * ImageScale * RandomHelper.NextNorm(0, 200) / 100
-            Dim opacity As Single = CSng(SubParticle.Color.A / 255)
+        For Each particle In Target.Particles
+            Dim tempV As Vector2 = particle.Location
+            Dim border As Single = particle.Size * ImageScale * RandomHelper.NextNorm(0, 200) / 100
+            Dim opacity As Single = CSng(particle.Color.A / 255)
             session.DrawImage(Image, New Rect(tempV.X - border, tempV.Y - border, border * 2, border * 2), SourceRect, opacity)
         Next
     End Sub

@@ -60,17 +60,16 @@ Public Class Drawing
     ''' 更新线条大小
     ''' </summary>
     Public Sub UpdatePointsSizeOfLine(split As Integer)
-        For Each SubLine In Lines
-            'SubLine.CalcSize()
-            SubLine.CalcLength(split)
+        For Each line In Lines
+            LineHelper.Resize(line, split)
         Next
     End Sub
     ''' <summary>
     ''' 更新线条颜色
     ''' </summary>
     Public Sub UpdatePointsColorOfLine(isAverage As Boolean)
-        For Each SubLine In Lines
-            SubLine.CalcAverageColor(isAverage)
+        For Each line In Lines
+            line.CalcAverageColor(isAverage)
         Next
     End Sub
 
@@ -79,9 +78,9 @@ Public Class Drawing
     ''' 更新配色
     ''' </summary>
     Private Sub UpdateLinesColor(pixels As PixelData)
-        For Each SubLine In Lines
-            For Each SubPoint In SubLine.Points
-                SubPoint.Color = pixels.Colors(CInt(SubPoint.Position.Y) * pixels.Width + CInt(SubPoint.Position.X))
+        For Each line In Lines
+            For Each point In line.Points
+                point.Color = pixels.Colors(CInt(point.Position.Y) * pixels.Width + CInt(point.Position.X))
             Next
         Next
     End Sub
@@ -89,9 +88,9 @@ Public Class Drawing
     ''' 更新绘制点的层索引与位置
     ''' </summary>
     Private Sub UpdateLinesIndexAndLocation()
-        For Each SubLine In Lines
-            SubLine.UpdateLayerIndex(Me.LayerIndex)
-            SubLine.CalcLocation()
+        For Each line In Lines
+            line.UpdateLayerIndex(Me.LayerIndex)
+            line.CalcLocation()
         Next
         Lines.RemoveAll(Function(line)
                             Return line.Points.Count = 0

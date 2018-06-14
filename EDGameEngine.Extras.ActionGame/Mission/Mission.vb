@@ -27,28 +27,28 @@ Public Class Mission
     End Sub
 
     Public Sub Start() Implements IUpdateable.Start
-        For Each SubBlock In Blocks
-            SubBlock.Start()
+        For Each block In Blocks
+            block.Start()
         Next
-        For Each SubCharacter In Characters
-            SubCharacter.Start()
+        For Each character In Characters
+            character.Start()
         Next
     End Sub
     Public Sub Update() Implements IUpdateable.Update
-        For Each SubBlock In Blocks
-            SubBlock.Update()
+        For Each block In Blocks
+            block.Update()
         Next
-        For Each SubCharacter In Characters
-            SubCharacter.Update()
+        For Each character In Characters
+            character.Update()
         Next
     End Sub
     ''' <summary>
     ''' 返回指定名称的角色
     ''' </summary>
     Public Function FindCharacterByName(name As String) As ICharacter
-        For Each SubCharacter In Characters
-            If SubCharacter.Name = name Then
-                Return SubCharacter
+        For Each character In Characters
+            If character.Name = name Then
+                Return character
             End If
         Next
         Return Nothing

@@ -157,8 +157,9 @@
     <Compile Include="GameVisual\AutoDraw\FastAI\Drawing\Sequence\Enums\ScanMode.vb" />
     <Compile Include="GameVisual\AutoDraw\FastAI\Drawing\Sequence\SequenceAI.vb" />
     <Compile Include="GameVisual\AutoDraw\Fundamental\Line\Base\ILine.vb" />
-    <Compile Include="GameVisual\AutoDraw\Fundamental\Line\Compare\LineLengthCompare.vb" />
+    <Compile Include="GameVisual\AutoDraw\Fundamental\Line\Comparer\LineLengthComparer.vb" />
     <Compile Include="GameVisual\AutoDraw\Fundamental\Line\Line.vb" />
+    <Compile Include="GameVisual\AutoDraw\Fundamental\Line\LineHelper.vb" />
     <Compile Include="GameVisual\AutoDraw\Fundamental\PixelData\PixelData.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="GameVisual\AutoDraw\Fundamental\VertexWithLayer\VertexWithLayer.vb" />
@@ -213,9 +214,7 @@
       <Name>EDGameEngine.Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="GameVisual\AutoDraw\Fundamental\LinePool\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

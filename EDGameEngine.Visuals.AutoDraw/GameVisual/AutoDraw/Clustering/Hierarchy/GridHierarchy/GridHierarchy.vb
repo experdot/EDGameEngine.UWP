@@ -86,34 +86,34 @@ Public Class GridHierarchy
         Dim result As New GridHierarchy(CInt(Math.Ceiling(Me.Width / rate) + 1), CInt(Math.Ceiling(Me.Height / rate) + 1), newSize) With {.Rank = Me.Rank + 1}
 
         '合并为新簇
-        For Each SubCluster In Clusters
-            Dim similar As Cluster = SubCluster.GetMostSimilarCluster(GetNeighbours(SubCluster)).First
+        For Each cluster In Clusters
+            Dim similar As Cluster = cluster.GetMostSimilarCluster(GetNeighbours(cluster)).First
             If similar IsNot Nothing Then
-                If SubCluster.Parent Is Nothing AndAlso similar.Parent Is Nothing Then
-                    result.Clusters.Add(Cluster.Combine(SubCluster, similar))
+                If cluster.Parent Is Nothing AndAlso similar.Parent Is Nothing Then
+                    result.Clusters.Add(Cluster.Combine(cluster, similar))
                     'result.AddCluster(Cluster.Combine(SubCluster, similar), False) '该方法存在性能问题
                 Else
-                    Cluster.Combine(SubCluster, similar)
+                    Cluster.Combine(cluster, similar)
                 End If
             Else
                 IgnoreCount += 1
                 Dim parent As New Cluster
-                parent.Children.Add(SubCluster)
+                parent.Children.Add(cluster)
                 result.Clusters.Add(parent)
             End If
         Next
         '设置属性
-        For Each SubCluster In result.Clusters
-            SubCluster.Position = SubCluster.GetAveragePosition()
-            SubCluster.Color = SubCluster.GetAverageColor()
-            SubCluster.Direction = SubCluster.GetAverageDirection()
+        For Each cluster In result.Clusters
+            cluster.Position = cluster.GetAveragePosition()
+            cluster.Color = cluster.GetAverageColor()
+            cluster.Direction = cluster.GetAverageDirection()
         Next
         '分配至网格
-        For Each SubCluster In result.Clusters
-            Dim p As Vector2 = SubCluster.Position
+        For Each cluster In result.Clusters
+            Dim p As Vector2 = cluster.Position
             Dim x As Integer = CInt(p.X / result.Size)
             Dim y As Integer = CInt(p.Y / result.Size)
-            result.Grid(x, y).Add(SubCluster)
+            result.Grid(x, y).Add(cluster)
         Next
         Return result
     End Function

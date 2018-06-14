@@ -6,8 +6,8 @@ Imports Windows.Graphics.Effects
 Public Class LayerView
     Inherits TypedCanvasView(Of ILayer)
     Public Overrides Sub OnDraw(session As CanvasDrawingSession)
-        For Each SubBody In Target.GameBodys
-            CType(SubBody.Presenter, ICanvasView)?.BeginDraw(session)
+        For Each body In Target.GameBodys
+            CType(body.Presenter, ICanvasView)?.BeginDraw(session)
         Next
     End Sub
 End Class

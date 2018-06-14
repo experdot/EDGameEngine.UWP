@@ -12,14 +12,14 @@ Public Class Layer
     Public Overridable Property Background As Color = Colors.Transparent Implements ILayer.Background
 
     Public Overrides Sub Start()
-        For Each SubBody In GameBodys
-            SubBody.Start()
+        For Each body In GameBodys
+            body.Start()
         Next
         GameComponents.Start()
     End Sub
     Public Overrides Sub Update()
-        For Each SubBody In GameBodys
-            SubBody.Update()
+        For Each body In GameBodys
+            body.Update()
         Next
         GameComponents.Update()
     End Sub

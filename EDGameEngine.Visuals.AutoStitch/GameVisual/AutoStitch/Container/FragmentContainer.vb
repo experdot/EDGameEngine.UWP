@@ -34,12 +34,12 @@ Public Class FragmentContainer
     ''' 移动指定位置的碎片至指定的碎片容器
     ''' </summary>
     Public Sub MoveTo(ByRef target As FragmentContainer, x As Integer, y As Integer)
-        For Each SubScrip In Fragments
-            If SubScrip.Location.X = x And SubScrip.Location.Y = y Then
-                SubScrip.Location = New Vector2(0, 0)
+        For Each scrip In Fragments
+            If scrip.Location.X = x And scrip.Location.Y = y Then
+                scrip.Location = New Vector2(0, 0)
                 Map.Value(x, y) = False
-                Fragments.Remove(SubScrip)
-                target.Add(SubScrip, x, y)
+                Fragments.Remove(scrip)
+                target.Add(scrip, x, y)
                 Exit For
             End If
         Next
