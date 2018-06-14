@@ -81,7 +81,7 @@ Public Class GridHierarchy
 
     Public Shared IgnoreCount As Integer
     Public Overrides Function Generate() As IHierarchy
-        Dim rate As Single = 3.0F
+        Dim rate As Single = 4.0F
         Dim newSize As Single = Me.Size * rate
         Dim result As New GridHierarchy(CInt(Math.Ceiling(Me.Width / rate) + 1), CInt(Math.Ceiling(Me.Height / rate) + 1), newSize) With {.Rank = Me.Rank + 1}
 

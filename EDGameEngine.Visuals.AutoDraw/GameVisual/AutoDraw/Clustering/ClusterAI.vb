@@ -39,23 +39,26 @@ Public Class ClusterAI
         Next
         Debug.WriteLine($"Pixels:{pixels.Colors.Length}")
 
+
+        Dim converter As New CircleConverter(maxRank)
+
         '快速涂抹
         Dim current As Integer = maxRank - 1
-        Dim index As Integer = maxRank - 3
+        Dim index As Integer = 1 'maxRank - 3
         For i = maxRank - 1 To index Step -1
             If Hierarchies(i).Clusters.Count > 0 Then
-                Lines.AddRange(GenerateLinesFast(Hierarchies(i)))
+                Lines.AddRange(converter.Convert(Hierarchies(i)))
             End If
             current = i
         Next
 
         '迭代细节
-        For i = current To 0 Step -1
-            If Hierarchies(i).Clusters.Count > 0 Then
-                Lines.AddRange(GenerateLinesQuality(Hierarchies(i)))
-                Exit For
-            End If
-        Next
+        'For i = current To 0 Step -1
+        '    If Hierarchies(i).Clusters.Count > 0 Then
+        '        Lines.AddRange(GenerateLinesQuality(Hierarchies(i)))
+        '        Exit For
+        '    End If
+        'Next
     End Sub
 
     Public Function NextPoint() As VertexWithLayer

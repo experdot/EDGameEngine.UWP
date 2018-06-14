@@ -77,7 +77,7 @@ Public Class Cluster
             For i = 0 To clusters.Count - 1
                 Dim cluster = clusters(i)
                 If cluster IsNot Me Then
-                    Dim value As Single = CompareTwoClusterByChildren(Me, cluster)
+                    Dim value As Single = CompareTwoCluster(Me, cluster)
                     If value > maxValue Then
                         maxValue = value
                         temp = cluster
@@ -140,24 +140,22 @@ Public Class Cluster
     Private Function CompareTwoCluster(cluster1 As Cluster, cluster2 As Cluster) As Single
         Dim result As Single = 0
 
-        'Dim p1 As Vector2 = cluster1.Position
-        'Dim p2 As Vector2 = cluster2.Position
-        'Dim positionDistance As Single = 1 / (p1 - p2).Length
+        Dim color1 As Color = cluster1.Color()
+        Dim color2 As Color = cluster2.Color()
+        Dim vec1 As New Vector3(color1.R, color1.G, color1.B)
+        Dim vec2 As New Vector3(color2.R, color2.G, color2.B)
+        Dim colorDistance As Single = 1 / (1 + (vec1 - vec2).LengthSquared)
+
+        Dim p1 As Vector2 = cluster1.Position
+        Dim p2 As Vector2 = cluster2.Position
+        Dim positionDistance As Single = 1 / (p1 - p2).Length
 
         'Dim d1 As Vector2 = cluster1.Direction
         'Dim d2 As Vector2 = cluster2.Direction
         'Dim directionDistance As Single = 1 / (d1 - d2).Length
 
-        Dim color1 As Color = cluster1.Color()
-        Dim color2 As Color = cluster2.Color()
-        Dim colorDistance As Single
-
-        Dim vec1 As New Vector3(color1.R, color1.G, color1.B)
-        Dim vec2 As New Vector3(color2.R, color2.G, color2.B)
-        colorDistance = 1 / (1 + (vec1 - vec2).LengthSquared)
-
-        result = colorDistance
-        'result = positionDistance * colorDistance
+        'result = colorDistance
+        result = positionDistance * colorDistance
         'result = positionDistance * directionDistance * colorDistance
         Return result
     End Function

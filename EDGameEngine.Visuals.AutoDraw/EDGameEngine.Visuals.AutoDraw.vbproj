@@ -140,6 +140,8 @@
     <Compile Include="GameVisual\AutoDraw\Clustering\Cluster\Compare\ClusterLeavesCountComparer.vb" />
     <Compile Include="GameVisual\AutoDraw\Clustering\Cluster\Compare\ClusterChildrenCountCompare.vb" />
     <Compile Include="GameVisual\AutoDraw\Clustering\Cluster\Compare\ClusterPositionComparer.vb" />
+    <Compile Include="GameVisual\AutoDraw\Clustering\Converter\Base\IHierarchyToLinesConverter.vb" />
+    <Compile Include="GameVisual\AutoDraw\Clustering\Converter\CircleConverter.vb" />
     <Compile Include="GameVisual\AutoDraw\Clustering\Hierarchy\Base\HierarchyBase.vb" />
     <Compile Include="GameVisual\AutoDraw\Clustering\Hierarchy\Base\IHierarchy.vb" />
     <Compile Include="GameVisual\AutoDraw\Clustering\Hierarchy\GridHierarchy\GridHierarchy.vb" />
