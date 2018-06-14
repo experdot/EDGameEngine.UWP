@@ -1,5 +1,5 @@
 ﻿''' <summary>
-''' 顶点集提供器
+''' 顶点集提供器接口
 ''' </summary>
 Public Interface IVertexWithLayerProvider
     ''' <summary>

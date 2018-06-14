@@ -130,6 +130,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="GameView\AutoDrawView.vb" />
+    <Compile Include="GameView\LayerCanvas\LayerRender.vb" />
+    <Compile Include="GameView\LayerCanvas\LayerCanvas.vb" />
     <Compile Include="GameVisual\AutoDraw\AutoDrawByClusteringModel.vb" />
     <Compile Include="GameVisual\AutoDraw\AutoDrawByFastAIModel.vb" />
     <Compile Include="GameVisual\AutoDraw\Base\IAutoDrawModel.vb" />

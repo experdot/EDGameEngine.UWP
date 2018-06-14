@@ -2,15 +2,13 @@
 Imports EDGameEngine.Core
 Imports EDGameEngine.Visuals
 Imports Microsoft.Graphics.Canvas
-
+''' <summary>
+''' 自动绘图模型接口
+''' </summary>
 Public Interface IAutoDrawModel
     Inherits IGameVisual
     ''' <summary>
-    ''' 绘制圆的图层索引集
-    ''' </summary>
-    Property CircleLayers As Integer()
-    ''' <summary>
-    ''' 当前绘制点集
+    ''' 当前帧绘制点集
     ''' </summary>
     Property CurrentPoints As ConcurrentQueue(Of VertexWithLayer)
     ''' <summary>
@@ -33,4 +31,8 @@ Public Interface IAutoDrawModel
     ''' 单帧绘制最大长度
     ''' </summary>
     Property PointsCountMaxPerFrame As Integer
+    ''' <summary>
+    ''' 顶点集提供器
+    ''' </summary>
+    Property VertexWithLayerProvider As IVertexWithLayerProvider
 End Interface
