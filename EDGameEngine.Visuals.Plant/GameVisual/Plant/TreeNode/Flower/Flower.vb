@@ -103,7 +103,7 @@ Public Class Flower
             If RealLocation.Y >= 700 Then
                 Location = New Vector2(RealLocation.X, 700) - DropLocation
             Else
-                Acceleration += (New Vector2(-0.01F, 0.008F) * CSng(Rnd.NextDouble))
+                Acceleration += (New Vector2(-0.01F, -0.008F) * CSng(Rnd.NextDouble))
                 Velocity += Acceleration * CSng(Rnd.NextDouble)
                 Location += Velocity
                 Rotation += CSng(Rnd.NextDouble) * 0.05F

@@ -12,6 +12,7 @@ Public Class LayerCanvas
     ''' 前景
     ''' </summary>
     Public Property Foreground As CanvasRenderTarget
+
     ''' <summary>
     ''' 创建并初始化一个实例
     ''' </summary>

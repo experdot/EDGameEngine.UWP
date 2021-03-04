@@ -121,7 +121,7 @@ Public Class TreeNode
     Public Sub GrowUp(increment As Single, Optional ratio As Single = 0.19)
         Static IsBeginDie As Boolean = False
         If Percent < 1 Then
-            Percent += CSng(increment * Rnd.NextDouble + 0.001F)
+            Percent += CSng(increment * Rnd.NextDouble + 0.01F)
             If Percent >= 1 AndAlso Rank < 2 Then
                 IsBeginDie = True
             End If
@@ -161,7 +161,7 @@ Public Class TreeNode
             For i = 0 To Children.Count - 1
                 Dim child As TreeNode = Children(i)
                 child.Location.Rotate(angle * child.Location.Y / child.Location.Length)
-                child.Wave(angle * ratio)
+                child.Wave(angle * ratio, ratio)
             Next
         End If
     End Sub

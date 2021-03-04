@@ -20,12 +20,13 @@ Public Class Plant
         Root.Generate()
     End Sub
     Public Overrides Sub StartEx()
+
     End Sub
     Public Overrides Sub UpdateEx()
         Static TempSingle As Single
         TempSingle = CSng((TempSingle + 0.05) Mod (Math.PI * 2)）
         Root.RealLocation = New Vector2(Scene.Width / 2, CSng(Scene.Height * 0.8)）
         Root.GrowUp(0.01)
-        Root.Wave(CSng(Math.Sin(TempSingle) / 1000))
+        Root.Wave((Math.PI * 2) / 10, 1)
     End Sub
 End Class

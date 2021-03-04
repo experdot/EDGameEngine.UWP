@@ -122,6 +122,7 @@ Public Class Scene_Visuals
 
                 Me.GameLayers(0).Background = Colors.Black
                 Me.GameLayers(0).GameComponents.Effects.Add(New GhostEffect)
+                Me.GameLayers(0).GameComponents.Effects.Add(New StreamEffect)
                 'Me.GameLayers(0).GameComponents.Effects.Add(New StreamEffect)
             Case 30000 '朱利亚集
                 Dim tempModel As New GastonJulia
@@ -153,10 +154,11 @@ Public Class Scene_Visuals
                     .FlowerResourceId = ImageResourceId.YellowFlower1
                 }
                 Me.AddGameVisual(tempModel, tempView)
+                Me.GameLayers(0).GameComponents.Effects.Add(New StreamEffect)
             Case 50000 '自动绘图
                 World.RenderMode = RenderMode.Sync
                 Dim image = CType(ImageResource.GetResource(ImageResourceId.Scenery_Anime), CanvasBitmap)
-                Dim tempModel As New AutoDrawByClusteringModel() With {.Image = image}
+                Dim tempModel As New AutoDrawByFastAIModel() With {.Image = image}
                 tempModel.GameComponents.Behaviors.Add(New TransformScript)
                 Me.AddGameVisual(tempModel, New AutoDrawView())
             Case 50001 '自动拼图

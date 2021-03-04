@@ -9,13 +9,15 @@ Imports EDGameEngine.Core.Utilities
 ''' </summary>
 Public Class AutoDrawView
     Inherits TypedCanvasView(Of IAutoDrawModel)
+
     Public Overrides Sub OnDraw(session As CanvasDrawingSession)
         Static Canvas As New LayerCanvas(session, Target.ImageSize, Target.LayerCount)
-        Using drawing = Canvas.CreateLayerRender()
+
+        Using render As LayerRender = Canvas.CreateLayerRender()
             Dim point As New VertexWithLayer
             While Target.CurrentPoints.TryDequeue(point)
                 If point IsNot Nothing Then
-                    drawing.FillCircle(point)
+                    render.FillCircle(point)
                 End If
             End While
             Canvas.OnDraw(session)

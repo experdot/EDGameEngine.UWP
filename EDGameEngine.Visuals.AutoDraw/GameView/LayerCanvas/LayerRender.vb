@@ -25,6 +25,7 @@ Public Class LayerRender
         For i = 0 To Sessions.Count - 1
             Sessions(i) = paint.Canvas(i).CreateDrawingSession
         Next
+
         ForegroundSession = paint.Foreground.CreateDrawingSession
         ForegroundSession.Clear(Colors.Transparent)
     End Sub
@@ -72,6 +73,8 @@ Public Class LayerRender
                     Sessions(i).Dispose()
                 Next
             End If
+
+            ForegroundSession.Dispose()
 
             ' TODO: 释放未托管资源(未托管对象)并在以下内容中替代 Finalize()。
             ' TODO: 将大型字段设置为 null。
