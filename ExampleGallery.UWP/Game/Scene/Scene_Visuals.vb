@@ -154,7 +154,6 @@ Public Class Scene_Visuals
                     .FlowerResourceId = ImageResourceId.YellowFlower1
                 }
                 Me.AddGameVisual(tempModel, tempView)
-                Me.GameLayers(0).GameComponents.Effects.Add(New StreamEffect)
             Case 50000 '自动绘图
                 World.RenderMode = RenderMode.Sync
                 Dim image = CType(ImageResource.GetResource(ImageResourceId.Scenery_Anime), CanvasBitmap)

@@ -75,7 +75,7 @@ Public Class TreeNode
     ''' <summary>
     ''' 创建子树
     ''' </summary>
-    Public Sub Generate()
+    Public Sub Generate(Optional isRoot As Boolean = False)
         'Dim newRank As Integer = Rank - 1
         'If newRank > 0 Then
         '    Dim newLocation As Vector2
@@ -97,7 +97,13 @@ Public Class TreeNode
         If newRank > 0 Then
             Dim newLocation As Vector2
             Dim newLength As Single
-            newLocation = Me.Location.RotateNew(CSng(Rnd.NextDouble * Math.PI / 2 - Math.PI / 4))
+
+            If isRoot Then
+                newLocation = Location.RotateNew(CSng(Rnd.NextDouble * Math.PI / 8 - Math.PI / 16))
+            Else
+                newLocation = Me.Location.RotateNew(CSng(Rnd.NextDouble * Math.PI / 2 - Math.PI / 4))
+            End If
+
             newLength = CSng(Me.Length * (0.618F + Rnd.NextDouble * 0.24F))
             Dim immediate As New TreeNode(newLocation, newLength, newRank)
             immediate.Generate()
@@ -121,7 +127,7 @@ Public Class TreeNode
     Public Sub GrowUp(increment As Single, Optional ratio As Single = 0.19)
         Static IsBeginDie As Boolean = False
         If Percent < 1 Then
-            Percent += CSng(increment * Rnd.NextDouble + 0.01F)
+            Percent += CSng(increment * Rnd.NextDouble + 0.001F)
             If Percent >= 1 AndAlso Rank < 2 Then
                 IsBeginDie = True
             End If
@@ -161,7 +167,7 @@ Public Class TreeNode
             For i = 0 To Children.Count - 1
                 Dim child As TreeNode = Children(i)
                 child.Location.Rotate(angle * child.Location.Y / child.Location.Length)
-                child.Wave(angle * ratio, ratio)
+                child.Wave(angle * ratio)
             Next
         End If
     End Sub
